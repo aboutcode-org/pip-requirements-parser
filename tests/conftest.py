@@ -102,13 +102,7 @@ def tmpdir(request: pytest.FixtureRequest, tmpdir: py.path.local) -> Iterator[Pa
     # Clear out the temporary directory after the test has finished using it.
     # This should prevent us from needing a multiple gigabyte temporary
     # directory while running the tests.
-    if not request.config.getoption("--keep-tmpdir"):
-        tmpdir.remove(ignore_errors=True)
-
-
-@pytest.fixture(scope="session")
-def shared_data(tmpdir_factory: pytest.TempdirFactory) -> TestData:
-    return TestData.copy(Path(str(tmpdir_factory.mktemp("data"))))
+    tmpdir.remove(ignore_errors=True)
 
 
 @pytest.fixture
