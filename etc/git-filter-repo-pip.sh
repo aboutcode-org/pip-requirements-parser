@@ -1,0 +1,50 @@
+# use gitfilter-repo to filter pip upstream history to keep the set of files we
+# use
+gfr --path README.rst \
+--path LICENSE.txt \
+--path AUTHORS.txt \
+--path tests/__init__.py \
+--path tests/lib/path.py \
+--path tests/lib/__init__.py \
+--path tests/unit/test_link.py \
+--path tests/unit/__init__.py \
+--path tests/unit/test_urls.py \
+--path tests/unit/test_models_wheel.py \
+--path tests/unit/test_req_install.py \
+--path tests/unit/test_req_file.py \
+--path tests/unit/test_utils.py \
+--path tests/unit/test_utils_temp_dir.py \
+--path tests/unit/test_utils_compatibility_tags.py \
+--path tests/unit/test_req.py \
+--path tests/data/reqfiles/supported_options2.txt \
+--path tests/data/reqfiles/README.txt \
+--path tests/requirements.txt \
+--path tests/conftest.py \
+--path src/pip/_internal/__init__.py \
+--path src/pip/_internal/req/__init__.py \
+--path src/pip/_internal/req/req_file.py \
+--path src/pip/_internal/utils/compatibility_tags.py \
+--path src/pip/_internal/utils/temp_dir.py \
+--path src/pip/_internal/utils/misc.py \
+--path src/pip/_internal/utils/encoding.py \
+--path src/pip/_internal/models/index.py \
+--path src/pip/_internal/exceptions.py \
+--path src/pip/_internal/models/format_control.py \
+--path src/pip/_internal/models/search_scope.py \
+--path src/pip/_internal/index/package_finder.py \
+--path src/pip/_internal/cli/cmdoptions.py \
+--path src/pip/_internal/req/req_file.py \
+--path src/pip/_internal/utils/urls.py \
+--path src/pip/_internal/utils/hashes.py \
+--path src/pip/_internal/utils/models.py \
+--path src/pip/_internal/utils/packaging.py \
+--path src/pip/_internal/models/link.py \
+--path src/pip/_vendor/pkg_resource/__init__.py \
+--path src/pip/_vendor/pkg_resource/__init__.py \
+--path src/pip/_internal/req/req_install.py \
+--path src/pip/_internal/vcs/versioncontrol.py \
+--path src/pip/_internal/utils/misc.py \
+--path src/pip/_internal/utils/filetypes.py \
+--path src/pip/_internal/req/constructors.py \
+--path src/pip/_internal/models/wheel.py \
+--force --dry-run
