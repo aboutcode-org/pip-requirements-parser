@@ -1,5 +1,5 @@
 
-# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# Copyright (c) The pip developers (see AUTHORS.txt file)
 # SPDX-License-Identifier: MIT
 
 from typing import Iterator

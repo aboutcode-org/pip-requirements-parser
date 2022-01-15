@@ -1,6 +1,7 @@
 
-# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# Copyright (c) The pip developers (see AUTHORS.rst file)
 # portions Copyright (C) 2016 Jason R Coombs <jaraco@jaraco.com>
+# portions Copyright (C) nexB Inc. and others
 # 
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
