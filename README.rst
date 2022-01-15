@@ -1,62 +1,56 @@
-pip - The Python Package Installer
-==================================
+pip requirements - the only correct pip requirements parsing library
+=====================================================================
 
-.. image:: https://img.shields.io/pypi/v/pip.svg
-   :target: https://pypi.org/project/pip/
+# Copyright (c) nexB Inc. and others
+# Copyright (c) The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
 
-.. image:: https://readthedocs.org/projects/pip/badge/?version=latest
-   :target: https://pip.pypa.io/en/latest
+pip is the ``package installer`` for Python and isusing "requirements" text
+files that list the packages to install.
 
-pip is the `package installer`_ for Python. You can use pip to install packages from the `Python Package Index`_ and other indexes.
+pip requirements are notoriously difficult to parse right because:
 
-Please take a look at our documentation for how to install and use pip:
+- pip does not have a public API and therefore cannot be reliably used as a
+  stable library.
 
-* `Installation`_
-* `Usage`_
+- The pip requirements file syntax is closely aligned with pip's command line
+  interface and command line options. In some ways a pip requirements file is a
+  list of pip command line arguments. Therefore, it is hard to parse these short
+  of reproducing the pip command line options parsing.
 
-We release updates regularly, with a new version every 3 months. Find more details in our documentation:
+This ``pip_requirements`` Python library is yet another pip requirements files
+parser, but this time doing it correctly and doing as well as pip does it,
+because this is using pip's own code.
 
-* `Release notes`_
-* `Release process`_
+The ``pip_requirements`` library offers these key advantages:
 
-In pip 20.3, we've `made a big improvement to the heart of pip`_; `learn more`_. We want your input, so `sign up for our user experience research studies`_ to help us do it right.
+- Other requirements parsers typically do not work in all the cases that ``pip``
+  supports: parsing any requirement as seen in the wild will fail to process
+  some valid pip requirements. Since the ``pip_requirements`` library is based
+  on pip's own code, it works **exactly** like pip and will parse all the
+  requirements files that pip can parse.
 
-**Note**: pip 21.0, in January 2021, removed Python 2 support, per pip's `Python 2 support policy`_. Please migrate to Python 3.
+- The ``pip_requirements`` library is a single file that can easily be copied
+  around as needed for easy vendoring. This is useful as requirements parsing
+  is often needed to bootstrap in a constrained environment.
 
-If you find bugs, need help, or want to talk to the developers, please use our mailing lists or chat rooms:
+- The ``pip_requirements`` library has only one external dependency on the
+  common "packaging" package. Otherwise it uses only the standard library. The
+  benefits are the same as being a single file: fewer moving parts helps with
+  using it in more cases.
 
-* `Issue tracking`_
-* `Discourse channel`_
-* `User IRC`_
+- The ``pip_requirements`` library reuses and passes the full subset of the pip
+  test suite that deals with requirements. This is a not really surprising since
+  this is pip's own code. The suite suite has been carefully ported and adjusted
+  to work with the updated code subset.
 
-If you want to get involved head over to GitHub to get the source code, look at our development documentation and feel free to jump on the developer mailing lists and chat rooms:
+- The standard pip requirements parser depends on the ``requests`` HTTP library
+  and makes network connection to PyPI and other referenced repositories when
+  parsing. The ``pip_requirements`` libraryworks entirely offline and the
+  requests dependency and calling has been entirely removed.
 
-* `GitHub page`_
-* `Development documentation`_
-* `Development mailing list`_
-* `Development IRC`_
-
-Code of Conduct
----------------
-
-Everyone interacting in the pip project's codebases, issue trackers, chat
-rooms, and mailing lists is expected to follow the `PSF Code of Conduct`_.
-
-.. _package installer: https://packaging.python.org/guides/tool-recommendations/
-.. _Python Package Index: https://pypi.org
-.. _Installation: https://pip.pypa.io/en/stable/installation/
-.. _Usage: https://pip.pypa.io/en/stable/
-.. _Release notes: https://pip.pypa.io/en/stable/news.html
-.. _Release process: https://pip.pypa.io/en/latest/development/release-process/
-.. _GitHub page: https://github.com/pypa/pip
-.. _Development documentation: https://pip.pypa.io/en/latest/development
-.. _made a big improvement to the heart of pip: https://pyfound.blogspot.com/2020/11/pip-20-3-new-resolver.html
-.. _learn more: https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-3-2020
-.. _sign up for our user experience research studies: https://pyfound.blogspot.com/2020/03/new-pip-resolver-to-roll-out-this-year.html
-.. _Python 2 support policy: https://pip.pypa.io/en/latest/development/release-process/#python-2-support
-.. _Issue tracking: https://github.com/pypa/pip/issues
-.. _Discourse channel: https://discuss.python.org/c/packaging
-.. _Development mailing list: https://mail.python.org/mailman3/lists/distutils-sig.python.org/
-.. _User IRC: https://kiwiirc.com/nextclient/#ircs://irc.libera.chat:+6697/pypa
-.. _Development IRC: https://kiwiirc.com/nextclient/#ircs://irc.libera.chat:+6697/pypa-dev
-.. _PSF Code of Conduct: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
+- The ``pip_requirements`` library has preserved the complete pip git history
+  for the subset of the code we kept. The original pip code was merged from
+  multiple modules keeping all the git history at the line/blame level using
+  some git fu and git filter repo. The benefit is that we will be able to more
+  easily track and merge future pip updates.
