@@ -1637,9 +1637,7 @@ class Link(KeyBasedCompareMixin):
 
     @property
     def is_vcs(self) -> bool:
-        from pip._internal.vcs import vcs
-
-        return self.scheme in vcs.all_schemes
+        return self.scheme in vcs_all_schemes
 
     @property
     def is_yanked(self) -> bool:
@@ -1968,6 +1966,16 @@ class InstallRequirement:
 ################################################################################
 # PIPREQPARSE: from src/pip/_internal/vcs/versioncontrol.py
 
+vcs_all_schemes = [
+    'bzr+http', 'bzr+https', 'bzr+ssh', 'bzr+sftp', 'bzr+ftp', 'bzr+lp', 'bzr+file', 
+    'git+http', 'git+https', 'git+ssh', 'git+git', 'git+file', 
+    'hg+file', 'hg+http', 'hg+https', 'hg+ssh', 'hg+static-http', 
+    'svn+ssh', 'svn+http', 'svn+https', 'svn+svn', 'svn+file',
+]
+
+vcs = ['ssh', 'git', 'hg', 'bzr', 'sftp', 'svn']
+
+
 def is_url(name: str) -> bool:
     """
     Return true if the name looks like a URL.
@@ -1975,7 +1983,7 @@ def is_url(name: str) -> bool:
     scheme = get_url_scheme(name)
     if scheme is None:
         return False
-    return scheme in ["http", "https", "file", "ftp"] + vcs.all_schemes
+    return scheme in ["http", "https", "file", "ftp"] + vcs_all_schemes
 
 # PIPREQPARSE: end from src/pip/_internal/vcs/versioncontrol.py
 ################################################################################
@@ -2146,7 +2154,7 @@ def parse_editable(editable_req: str) -> Tuple[Optional[str], str, Set[str]]:
     link = Link(url)
 
     if not link.is_vcs:
-        backends = ", ".join(vcs.all_schemes)
+        backends = ", ".join(vcs_all_schemes)
         raise InstallationError(
             f"{editable_req} is not a valid editable requirement. "
             f"It should either be a path to a local project or a VCS URL "
