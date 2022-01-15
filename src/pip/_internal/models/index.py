@@ -1,5 +1,3 @@
-import urllib.parse
-
 
 class PackageIndex:
     """Represents a Package Index and provides easier access to endpoints"""

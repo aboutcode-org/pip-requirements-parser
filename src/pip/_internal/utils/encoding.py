@@ -1,8 +1,3 @@
-import codecs
-import locale
-import re
-import sys
-from typing import List, Tuple
 
 BOMS: List[Tuple[bytes, str]] = [
     (codecs.BOM_UTF8, "utf-8"),

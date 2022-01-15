@@ -1,9 +1,3 @@
-from typing import FrozenSet, Optional, Set
-
-from pip._vendor.packaging.utils import canonicalize_name
-
-from pip._internal.exceptions import CommandError
-
 
 class FormatControl:
     """Helper for managing formats from which a package can be installed."""

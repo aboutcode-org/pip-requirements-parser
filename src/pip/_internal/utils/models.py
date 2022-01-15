@@ -1,9 +1,3 @@
-"""Utilities for defining models
-"""
-
-import operator
-from typing import Any, Callable, Type
-
 
 class KeyBasedCompareMixin:
     """Provides comparison capabilities that is based on a key"""

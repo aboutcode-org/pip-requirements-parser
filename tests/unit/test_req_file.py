@@ -31,12 +31,6 @@ from pip._internal.req.req_install import InstallRequirement
 from tests.lib import TestData, make_test_finder, requirements_file
 from tests.lib.path import Path
 
-if TYPE_CHECKING:
-    from typing import Protocol
-else:
-    # Protocol was introduced in Python 3.8.
-    Protocol = object
-
 
 @pytest.fixture
 def session() -> PipSession:
@@ -416,34 +410,8 @@ class TestProcessLine:
             "--extra-index-url=url", "file", 1, finder=finder, session=session
         )
         assert finder.index_urls == ["url"]
-        assert session.auth.index_urls == ["url"]
 
-    def test_set_finder_trusted_host(
-        self,
-        line_processor: LineProcessor,
-        caplog: pytest.LogCaptureFixture,
-        session: PipSession,
-        finder: PackageFinder,
-    ) -> None:
-        with caplog.at_level(logging.INFO):
-            line_processor(
-                "--trusted-host=host1 --trusted-host=host2:8080",
-                "file.txt",
-                1,
-                finder=finder,
-                session=session,
-            )
-        assert list(finder.trusted_hosts) == ["host1", "host2:8080"]
-        session = finder._link_collector.session
-        assert session.adapters["https://host1/"] is session._trusted_host_adapter
-        assert session.adapters["https://host2:8080/"] is session._trusted_host_adapter
-
-        # Test the log message.
-        actual = [(r.levelname, r.message) for r in caplog.records]
-        expected = ("INFO", "adding trusted host: 'host1' (from line 1 of file.txt)")
-        assert expected in actual
-
-    def test_set_finder_allow_all_prereleases(
+     def test_set_finder_allow_all_prereleases(
         self, line_processor: LineProcessor, finder: PackageFinder
     ) -> None:
         line_processor("--pre", "file", 1, finder=finder)
@@ -640,21 +608,6 @@ class TestOptionVariants:
 class TestParseRequirements:
     """tests for `parse_reqfile`"""
 
-    @pytest.mark.network
-    def test_remote_reqs_parse(self) -> None:
-        """
-        Test parsing a simple remote requirements file
-        """
-        # this requirements file just contains a comment previously this has
-        # failed in py3: https://github.com/pypa/pip/issues/760
-        for _ in parse_reqfile(
-            "https://raw.githubusercontent.com/pypa/"
-            "pip-test-package/master/"
-            "tests/req_just_comment.txt",
-            session=PipSession(),
-        ):
-            pass
-
     def test_multiple_appending_options(
         self, tmpdir: Path, finder: PackageFinder, options: mock.Mock
     ) -> None:
@@ -672,42 +625,6 @@ class TestParseRequirements:
         )
 
         assert finder.index_urls == ["url1", "url2"]
-
-    def test_expand_existing_env_variables(
-        self, tmpdir: Path, finder: PackageFinder
-    ) -> None:
-        template = "https://{}:x-oauth-basic@github.com/user/{}/archive/master.zip"
-
-        def make_var(name: str) -> str:
-            return f"${{{name}}}"
-
-        env_vars = collections.OrderedDict(
-            [
-                ("GITHUB_TOKEN", "notarealtoken"),
-                ("DO_12_FACTOR", "awwyeah"),
-            ]
-        )
-
-        with open(tmpdir.joinpath("req1.txt"), "w") as fp:
-            fp.write(template.format(*map(make_var, env_vars)))
-
-        # Construct the session outside the monkey-patch, since it access the
-        # env
-        session = PipSession()
-        with mock.patch("pip._internal.req.req_file.os.getenv") as getenv:
-            getenv.side_effect = lambda n: env_vars[n]
-
-            reqs = list(
-                parse_reqfile(
-                    tmpdir.joinpath("req1.txt"), finder=finder, session=session
-                )
-            )
-
-        assert len(reqs) == 1, "parsing requirement file with env variable failed"
-
-        expected_url = template.format(*env_vars.values())
-        assert reqs[0].link is not None
-        assert reqs[0].link.url == expected_url, "variable expansion in req file failed"
 
     def test_expand_missing_env_variables(
         self, tmpdir: Path, finder: PackageFinder
@@ -859,21 +776,3 @@ class TestParseRequirements:
                 )
             )
 
-        req.source_dir = os.curdir
-        with mock.patch.object(subprocess, "Popen") as popen:
-            popen.return_value.stdout.readline.return_value = b""
-            try:
-                req.install([])
-            except Exception:
-                pass
-
-            last_call = popen.call_args_list[-1]
-            args = last_call[0][0]
-            assert (
-                0
-                < args.index(global_option)
-                < args.index("install")
-                < args.index(install_option)
-            )
-        assert options.format_control.no_binary == {":all:"}
-        assert options.format_control.only_binary == set()
