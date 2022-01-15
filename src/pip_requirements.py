@@ -597,7 +597,7 @@ def _handle_merge_hash(
     parser.values.hashes.setdefault(algo, []).append(digest)
 
 
-hash: Callable[..., Option] = partial(
+cmdoptions_hash: Callable[..., Option] = partial(
     Option,
     "--hash",
     # Hash values eventually end up in InstallRequirement.hashes due to
@@ -773,27 +773,27 @@ SCHEME_RE = re.compile(r"^(http|https|file):", re.I)
 COMMENT_RE = re.compile(r"(^|\s+)#.*$")
 
 SUPPORTED_OPTIONS: List[Callable[..., optparse.Option]] = [
-    cmdoptions.index_url,
-    cmdoptions.extra_index_url,
-    cmdoptions.no_index,
-    cmdoptions.constraints,
-    cmdoptions.requirements,
-    cmdoptions.editable,
-    cmdoptions.find_links,
-    cmdoptions.no_binary,
-    cmdoptions.only_binary,
-    cmdoptions.prefer_binary,
-    cmdoptions.require_hashes,
-    cmdoptions.pre,
-    cmdoptions.trusted_host,
-    cmdoptions.use_new_feature,
+    index_url,
+    extra_index_url,
+    no_index,
+    constraints,
+    requirements,
+    editable,
+    find_links,
+    no_binary,
+    only_binary,
+    prefer_binary,
+    require_hashes,
+    pre,
+    trusted_host,
+    use_new_feature,
 ]
 
 # options to be passed to requirements
 SUPPORTED_OPTIONS_REQ: List[Callable[..., optparse.Option]] = [
-    cmdoptions.install_options,
-    cmdoptions.global_options,
-    cmdoptions.hash,
+    install_options,
+    global_options,
+    cmdoptions_hash,
 ]
 
 # the 'dest' string values
