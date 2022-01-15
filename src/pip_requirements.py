@@ -884,7 +884,7 @@ def handle_requirement_line(
     else:
         if options:
             # Disable wheels if the user has specified build options
-            cmdoptions.check_install_build_global(options, line.opts)
+            check_install_build_global(options, line.opts)
 
         # get the options that apply to requirements
         req_options = {}
