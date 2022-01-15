@@ -1,4 +1,7 @@
 
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/utils/encoding.py
+
 BOMS: List[Tuple[bytes, str]] = [
     (codecs.BOM_UTF8, "utf-8"),
     (codecs.BOM_UTF16, "utf-16"),
@@ -30,6 +33,13 @@ def auto_decode(data: bytes) -> str:
         locale.getpreferredencoding(False) or sys.getdefaultencoding(),
     )
 
+# PIPREQPARSE: end from src/pip/_internal/utils/encoding.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/models/index.py
+
 class PackageIndex:
     """Represents a Package Index and provides easier access to endpoints"""
 
@@ -55,6 +65,14 @@ PyPI = PackageIndex("https://pypi.org/", file_storage_domain="files.pythonhosted
 TestPyPI = PackageIndex(
     "https://test.pypi.org/", file_storage_domain="test-files.pythonhosted.org"
 )
+
+
+# PIPREQPARSE: end from src/pip/_internal/models/index.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/exceptions.py
 
 class PipError(Exception):
     """The base pip error."""
@@ -109,6 +127,13 @@ class HashMismatch(HashError):
     """
     Distribution file hash values don't match.
     """
+
+# PIPREQPARSE: end from src/pip/_internal/exceptions.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/models/format_control.py
 
 
 class FormatControl:
@@ -185,6 +210,14 @@ class FormatControl:
             self.only_binary,
         )
 
+# PIPREQPARSE: end from src/pip/_internal/models/format_control.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/models/search_scope.py
+# minimal subset without other methods
+
 class SearchScope:
 
     """
@@ -200,6 +233,14 @@ class SearchScope:
     ) -> None:
         self.find_links = find_links
         self.index_urls = index_urls
+
+# PIPREQPARSE: end from src/pip/_internal/models/search_scope.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/cli/cmdoptions.py:
+# most callable renamed with cmdoptions_ prefix
 
 def check_install_build_global(
     options: Values, check_options: Optional[Values] = None
@@ -1100,6 +1141,14 @@ use_new_feature: Callable[..., Option] = partial(
     help="Enable new functionality, that may be backward incompatible.",
 )
 
+# PIPREQPARSE: end from src/pip/_internal/cli/cmdoptions.py:
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/index/package_finder.py
+# Significantly modified to work without network access
+
 class PackageFinder:
     """This finds packages.
 
@@ -1216,6 +1265,13 @@ class PackageFinder:
 
     def set_prefer_binary(self) -> None:
         self._candidate_prefs.prefer_binary = True
+
+# PIPREQPARSE: end from src/pip/_internal/index/package_finder.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/req/req_file.py
 
 ReqFileLines = Iterable[Tuple[int, str]]
 
@@ -1682,6 +1738,13 @@ def get_file_content(url: str, session: PipSession) -> Tuple[str, str]:
         raise InstallationError(f"Could not open requirements file: {exc}")
     return url, content
 
+# PIPREQPARSE: end src/pip/_internal/req/from req_file.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/utils/urls.py
+
 def get_url_scheme(url: str) -> Optional[str]:
     if ":" not in url:
         return None
@@ -1735,6 +1798,13 @@ def url_to_path(url: str) -> str:
         path = path[1:]
 
     return path
+
+# PIPREQPARSE: end from src/pip/_internal/utils/urls.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/utils/hashes.py
 
 # The recommended hash algo of the moment. Change this whenever the state of
 # the art changes; it won't hurt backward compatibility.
@@ -1867,6 +1937,13 @@ class MissingHashes(Hashes):
     def _raise(self, gots: Dict[str, "_Hash"]) -> "NoReturn":
         raise HashMissing(gots[FAVORITE_HASH].hexdigest())
 
+# PIPREQPARSE: from src/pip/_internal/utils/hashes.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/utils/models.py
+
 class KeyBasedCompareMixin:
     """Provides comparison capabilities that is based on a key"""
 
@@ -1900,6 +1977,13 @@ class KeyBasedCompareMixin:
 
         return method(self._compare_key, other._compare_key)
 
+# PIPREQPARSE: end from src/pip/_internal/utils/models.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/utils/packaging.py
+
 NormalizedExtra = NewType("NormalizedExtra", str)
 
 
@@ -1924,6 +2008,13 @@ def safe_extra(extra: str) -> NormalizedExtra:
     the same to either ``canonicalize_name`` or ``_egg_link_name``.
     """
     return cast(NormalizedExtra, re.sub("[^A-Za-z0-9.-]+", "_", extra).lower())
+
+# PIPREQPARSE: end from src/pip/_internal/utils/packaging.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/models/link.py
 
 _SUPPORTED_HASHES = ("sha1", "sha224", "sha384", "sha256", "sha512", "md5")
 
@@ -2190,6 +2281,13 @@ def _clean_link(link: Link) -> _CleanResult:
 def links_equivalent(link1: Link, link2: Link) -> bool:
     return _clean_link(link1) == _clean_link(link2)
 
+# PIPREQPARSE: end from src/pip/_internal/models/link.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/req/req_install.py
+
 class InstallRequirement:
     """
     Represents something that may be installed later on, may have information
@@ -2420,6 +2518,13 @@ class InstallRequirement:
 
         return self._metadata
 
+# PIPREQPARSE: end from src/pip/_internal/req/req_install.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/vcs/versioncontrol.py
+
 def is_url(name: str) -> bool:
     """
     Return true if the name looks like a URL.
@@ -2429,10 +2534,14 @@ def is_url(name: str) -> bool:
         return False
     return scheme in ["http", "https", "file", "ftp"] + vcs.all_schemes
 
+# PIPREQPARSE: end from src/pip/_internal/vcs/versioncontrol.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/utils/misc.py
 
 NetlocTuple = Tuple[str, Tuple[Optional[str], Optional[str]]]
-
-
 
 
 def is_installable_dir(path: str) -> bool:
@@ -2498,6 +2607,13 @@ def split_auth_from_netloc(netloc: str) -> NetlocTuple:
 
     return netloc, (user, pw)
 
+# PIPREQPARSE: end from src/pip/_internal/utils/misc.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/utils/filetypes.py
+
 WHEEL_EXTENSION = ".whl"
 BZ2_EXTENSIONS: Tuple[str, ...] = (".tar.bz2", ".tbz")
 XZ_EXTENSIONS: Tuple[str, ...] = (
@@ -2518,6 +2634,13 @@ def is_archive_file(name: str) -> bool:
     if ext in ARCHIVE_EXTENSIONS:
         return True
     return False
+
+# PIPREQPARSE: end from src/pip/_internal/utils/filetypes.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/req/constructors.py
 
 logger = logging.getLogger(__name__)
 operators = Specifier._operators.keys()
@@ -2956,6 +3079,12 @@ def install_req_from_parsed_requirement(
         )
     return req
 
+# PIPREQPARSE: end from src/pip/_internal/req/constructors.py
+################################################################################
+
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/models/wheel.py
 
 class Wheel:
     """A wheel file"""
@@ -3035,3 +3164,6 @@ class Wheel:
         :param tags: the PEP 425 tags to check the wheel against.
         """
         return not self.file_tags.isdisjoint(tags)
+
+# PIPREQPARSE: end from src/pip/_internal/models/wheel.py
+################################################################################
