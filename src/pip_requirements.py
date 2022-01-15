@@ -1520,6 +1520,7 @@ class Link(KeyBasedCompareMixin):
         self.cache_link_parsing = cache_link_parsing
 
     def __str__(self) -> str:
+        redact_auth_from_url = lambda x: x
         if self.requires_python:
             rp = f" (requires-python:{self.requires_python})"
         else:
@@ -1807,6 +1808,7 @@ class InstallRequirement:
         self.use_pep517 = use_pep517
 
     def __str__(self) -> str:
+        redact_auth_from_url = lambda x: x
         if self.req:
             s = str(self.req)
             if self.link:
