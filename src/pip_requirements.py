@@ -847,7 +847,6 @@ class ParsedLine:
 
 def parse_requirements(
     filename: str,
-    session: PipSession,
     finder: Optional["PackageFinder"] = None,
     options: Optional[optparse.Values] = None,
     constraint: bool = False,
@@ -855,18 +854,17 @@ def parse_requirements(
     """Parse a requirements file and yield ParsedRequirement instances.
 
     :param filename:    Path or url of requirements file.
-    :param session:     PipSession instance.
     :param finder:      Instance of pip.index.PackageFinder.
     :param options:     cli options.
     :param constraint:  If true, parsing a constraint file rather than
         requirements file.
     """
     line_parser = get_line_parser(finder)
-    parser = RequirementsFileParser(session, line_parser)
+    parser = RequirementsFileParser(line_parser)
 
     for parsed_line in parser.parse(filename, constraint):
         parsed_req = handle_line(
-            parsed_line, options=options, finder=finder, session=session
+            parsed_line, options=options, finder=finder,
         )
         if parsed_req is not None:
             yield parsed_req
@@ -935,7 +933,6 @@ def handle_option_line(
     lineno: int,
     finder: Optional["PackageFinder"] = None,
     options: Optional[optparse.Values] = None,
-    session: Optional[PipSession] = None,
 ) -> None:
 
     if options:
@@ -968,10 +965,6 @@ def handle_option_line(
                 value = relative_to_reqs_file
             find_links.append(value)
 
-        if session:
-            # We need to update the auth urls in session
-            session.update_index_urls(index_urls)
-
         search_scope = SearchScope(
             find_links=find_links,
             index_urls=index_urls,
@@ -984,17 +977,11 @@ def handle_option_line(
         if opts.prefer_binary:
             finder.set_prefer_binary()
 
-        if session:
-            for host in opts.trusted_hosts or []:
-                source = f"line {lineno} of {filename}"
-                session.add_trusted_host(host, source=source)
-
 
 def handle_line(
     line: ParsedLine,
     options: Optional[optparse.Values] = None,
     finder: Optional["PackageFinder"] = None,
-    session: Optional[PipSession] = None,
 ) -> Optional[ParsedRequirement]:
     """Handle a single parsed requirements line; This can result in
     creating/yielding requirements, or updating the finder.
@@ -1002,7 +989,6 @@ def handle_line(
     :param line:        The parsed line to be processed.
     :param options:     CLI options.
     :param finder:      The finder - updated by non-requirement lines.
-    :param session:     The session - updated by non-requirement lines.
 
     Returns a ParsedRequirement object if the line is a requirement line,
     otherwise returns None.
@@ -1029,7 +1015,6 @@ def handle_line(
             line.lineno,
             finder,
             options,
-            session,
         )
         return None
 
@@ -1037,10 +1022,8 @@ def handle_line(
 class RequirementsFileParser:
     def __init__(
         self,
-        session: PipSession,
         line_parser: LineParser,
     ) -> None:
-        self._session = session
         self._line_parser = line_parser
 
     def parse(self, filename: str, constraint: bool) -> Iterator[ParsedLine]:
@@ -1079,7 +1062,7 @@ class RequirementsFileParser:
                 yield line
 
     def _parse_file(self, filename: str, constraint: bool) -> Iterator[ParsedLine]:
-        _, content = get_file_content(filename, self._session)
+        _, content = get_file_content(filename)
 
         lines_enum = preprocess(content)
 
@@ -1206,22 +1189,13 @@ def ignore_comments(lines_enum: ReqFileLines) -> ReqFileLines:
             yield line_number, line
 
 
-def get_file_content(url: str, session: PipSession) -> Tuple[str, str]:
+def get_file_content(url: str) -> Tuple[str, str]:
     """Gets the content of a file; it may be a filename, file: URL, or
     http: URL.  Returns (location, content).  Content is unicode.
     Respects # -*- coding: declarations on the retrieved files.
 
     :param url:         File path or url.
-    :param session:     PipSession instance.
     """
-    scheme = get_url_scheme(url)
-
-    # Pip has special support for file:// URLs (LocalFSAdapter).
-    if scheme in ["http", "https", "file"]:
-        resp = session.get(url)
-        raise_for_status(resp)
-        return resp.url, resp.text
-
     # Assume this is a bare path.
     try:
         with open(url, "rb") as f:
