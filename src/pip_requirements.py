@@ -1792,43 +1792,12 @@ class InstallRequirement:
             markers = req.marker
         self.markers = markers
 
-        # This holds the Distribution object if this requirement is already installed.
-        self.satisfied_by: Optional[BaseDistribution] = None
-        # Whether the installation process should try to uninstall an existing
-        # distribution before installing this requirement.
-        self.should_reinstall = False
-        # Temporary build location
-        self._temp_build_dir: Optional[TempDirectory] = None
-        # Set to True after successful installation
-        self.install_succeeded: Optional[bool] = None
         # Supplied options
         self.install_options = install_options if install_options else []
         self.global_options = global_options if global_options else []
         self.hash_options = hash_options if hash_options else {}
-        # Set to True after successful preparation of this requirement
-        self.prepared = False
-        # User supplied requirement are explicitly requested for installation
-        # by the user via CLI arguments or requirements files, as opposed to,
-        # e.g. dependencies, extras or constraints.
-        self.user_supplied = user_supplied
 
         self.isolated = isolated
-        self.build_env: BuildEnvironment = NoOpBuildEnvironment()
-
-        # For PEP 517, the directory where we request the project metadata
-        # gets stored. We need this to pass to build_wheel, so the backend
-        # can ensure that the wheel matches the metadata (see the PEP for
-        # details).
-        self.metadata_directory: Optional[str] = None
-
-        # The static build requirements (from pyproject.toml)
-        self.pyproject_requires: Optional[List[str]] = None
-
-        # Build requirements that we will check are available
-        self.requirements_to_check: List[str] = []
-
-        # The PEP 517 backend we should use to build the project
-        self.pep517_backend: Optional[Pep517HookCaller] = None
 
         # Are we using PEP 517 for this requirement?
         # After pyproject.toml has been loaded, the only valid values are True
@@ -1836,9 +1805,6 @@ class InstallRequirement:
         # Setting an explicit value before loading pyproject.toml is supported,
         # but after loading this flag should be treated as read only.
         self.use_pep517 = use_pep517
-
-        # This requirement needs more preparation before it can be built
-        self.needs_more_preparation = False
 
     def __str__(self) -> str:
         if self.req:
@@ -1849,8 +1815,6 @@ class InstallRequirement:
             s = redact_auth_from_url(self.link.url)
         else:
             s = "<InstallRequirement>"
-        if self.satisfied_by is not None:
-            s += " in {}".format(display_path(self.satisfied_by.location))
         if self.comes_from:
             if isinstance(self.comes_from, str):
                 comes_from: Optional[str] = self.comes_from
