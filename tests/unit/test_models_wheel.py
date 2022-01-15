@@ -1,9 +1,14 @@
-import pytest
-from pip._vendor.packaging.tags import Tag
 
-from pip._internal.exceptions import InvalidWheelFilename
-from pip._internal.models.wheel import Wheel
-from pip._internal.utils import compatibility_tags
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
+import pytest
+from packaging.tags import Tag
+
+from pip_requirements import InvalidWheelFilename
+from pip_requirements import Wheel
+
+from . import compatibility_tags
 
 
 class TestWheelFile:

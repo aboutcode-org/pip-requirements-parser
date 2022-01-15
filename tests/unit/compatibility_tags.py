@@ -1,10 +1,14 @@
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 """Generate and work with PEP 425 Compatibility Tags.
 """
 
 import re
 from typing import List, Optional, Tuple
 
-from pip._vendor.packaging.tags import (
+from packaging.tags import (
     PythonVersion,
     Tag,
     compatible_tags,

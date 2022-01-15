@@ -1,10 +1,14 @@
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 import sysconfig
 from typing import Any, Callable, Dict, List, Tuple
 from unittest.mock import patch
 
 import pytest
 
-from pip._internal.utils import compatibility_tags
+from . import compatibility_tags
 
 
 @pytest.mark.parametrize(
@@ -43,12 +47,10 @@ class Testcompatibility_tags:
         """
         Test that no tag contains a hyphen.
         """
-        import pip._internal.utils.compatibility_tags
-
         mock_gcf = self.mock_get_config_var(SOABI="cpython-35m-darwin")
 
         with patch("sysconfig.get_config_var", mock_gcf):
-            supported = pip._internal.utils.compatibility_tags.get_supported()
+            supported = compatibility_tags.get_supported()
 
         for tag in supported:
             assert "-" not in tag.interpreter

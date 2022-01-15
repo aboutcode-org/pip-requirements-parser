@@ -1,3 +1,7 @@
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 import errno
 import itertools
 import logging
@@ -6,7 +10,7 @@ import tempfile
 from contextlib import ExitStack, contextmanager
 from typing import Any, Dict, Iterator, Optional, TypeVar, Union
 
-from pip._internal.utils.misc import enum, rmtree
+from .misc import enum, rmtree
 
 logger = logging.getLogger(__name__)
 

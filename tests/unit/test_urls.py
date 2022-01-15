@@ -1,3 +1,7 @@
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 import os
 import sys
 import urllib.request
@@ -5,7 +9,7 @@ from typing import Optional
 
 import pytest
 
-from pip._internal.utils.urls import get_url_scheme, path_to_url, url_to_path
+from pip_requirements import get_url_scheme, path_to_url, url_to_path
 
 
 @pytest.mark.parametrize(

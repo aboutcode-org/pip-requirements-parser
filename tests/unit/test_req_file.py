@@ -1,49 +1,48 @@
-import collections
-import logging
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 import os
 import pathlib
-import subprocess
 import textwrap
 from optparse import Values
-from typing import TYPE_CHECKING, Any, Iterator, List, Optional, Tuple
+from typing import Any, Iterator, List, Optional, Tuple
 from unittest import mock
 
 import pytest
+from packaging.specifiers import SpecifierSet
 
-import pip._internal.req.req_file  # this will be monkeypatched
-from pip._internal.exceptions import InstallationError, RequirementsFileParseError
-from pip._internal.index.package_finder import PackageFinder
-from pip._internal.models.format_control import FormatControl
-from pip._internal.network.session import PipSession
-from pip._internal.req.constructors import (
+import pip_requirements  # this will be monkeypatched
+from pip_requirements import InstallationError, RequirementsFileParseError
+from pip_requirements import PackageFinder
+from pip_requirements import FormatControl
+from pip_requirements import (
     install_req_from_editable,
     install_req_from_line,
     install_req_from_parsed_requirement,
 )
-from pip._internal.req.req_file import (
+from pip_requirements import (
     break_args_options,
     ignore_comments,
     join_lines,
     parse_requirements,
     preprocess,
 )
-from pip._internal.req.req_install import InstallRequirement
+from pip_requirements import InstallRequirement
 from tests.lib import TestData, make_test_finder, requirements_file
 from tests.lib.path import Path
 
 
-@pytest.fixture
-def session() -> PipSession:
-    return PipSession()
+Protocol = object
 
 
 @pytest.fixture
-def finder(session: PipSession) -> PackageFinder:
-    return make_test_finder(session=session)
-
-
+def finder() -> PackageFinder:
+    return make_test_finder()
+ 
+ 
 @pytest.fixture
-def options(session: PipSession) -> mock.Mock:
+def options() -> mock.Mock:
     return mock.Mock(
         isolated_mode=False,
         index_url="default_url",
@@ -54,7 +53,6 @@ def options(session: PipSession) -> mock.Mock:
 
 def parse_reqfile(
     filename: str,
-    session: PipSession,
     finder: PackageFinder = None,
     options: Values = None,
     constraint: bool = False,
@@ -64,7 +62,6 @@ def parse_reqfile(
     # avoid having to write the same chunk of code in lots of tests.
     for parsed_req in parse_requirements(
         filename,
-        session,
         finder=finder,
         options=options,
         constraint=constraint,
@@ -72,10 +69,10 @@ def parse_reqfile(
         yield install_req_from_parsed_requirement(parsed_req, isolated=isolated)
 
 
-def test_read_file_url(tmp_path: pathlib.Path, session: PipSession) -> None:
+def test_read_file_url(tmp_path: pathlib.Path) -> None:
     reqs = tmp_path.joinpath("requirements.txt")
     reqs.write_text("foo")
-    result = list(parse_requirements(reqs.as_posix(), session))
+    result = list(parse_requirements(reqs.as_posix()))
 
     assert len(result) == 1, result
     assert result[0].requirement == "foo"
@@ -190,7 +187,6 @@ class LineProcessor(Protocol):
         line_number: int,
         finder: Optional[PackageFinder] = None,
         options: Optional[Values] = None,
-        session: Optional[PipSession] = None,
         constraint: bool = False,
     ) -> List[InstallRequirement]:
         ...
@@ -204,11 +200,8 @@ def line_processor(monkeypatch: pytest.MonkeyPatch, tmpdir: Path) -> LineProcess
         line_number: int,
         finder: Optional[PackageFinder] = None,
         options: Optional[Values] = None,
-        session: Optional[PipSession] = None,
         constraint: bool = False,
     ) -> List[InstallRequirement]:
-        if session is None:
-            session = PipSession()
 
         prefix = "\n" * (line_number - 1)
         path = tmpdir.joinpath(filename)
@@ -220,7 +213,6 @@ def line_processor(monkeypatch: pytest.MonkeyPatch, tmpdir: Path) -> LineProcess
                 filename,
                 finder=finder,
                 options=options,
-                session=session,
                 constraint=constraint,
                 isolated=options.isolated_mode if options else False,
             )
@@ -323,7 +315,7 @@ class TestProcessLine:
         assert found_req.constraint is True
 
     def test_nested_constraints_file(
-        self, monkeypatch: pytest.MonkeyPatch, tmpdir: Path, session: PipSession
+        self, monkeypatch: pytest.MonkeyPatch, tmpdir: Path
     ) -> None:
         req_name = "hello"
         req_file = tmpdir / "parent" / "req_file.txt"
@@ -333,7 +325,7 @@ class TestProcessLine:
 
         monkeypatch.chdir(str(tmpdir))
 
-        reqs = list(parse_reqfile("./parent/req_file.txt", session=session))
+        reqs = list(parse_reqfile("./parent/req_file.txt"))
         assert len(reqs) == 1
         assert reqs[0].name == req_name
         assert reqs[0].constraint
@@ -391,11 +383,10 @@ class TestProcessLine:
         assert finder.index_urls == []
 
     def test_set_finder_index_url(
-        self, line_processor: LineProcessor, finder: PackageFinder, session: PipSession
+        self, line_processor: LineProcessor, finder: PackageFinder
     ) -> None:
-        line_processor("--index-url=url", "file", 1, finder=finder, session=session)
+        line_processor("--index-url=url", "file", 1, finder=finder)
         assert finder.index_urls == ["url"]
-        assert session.auth.index_urls == ["url"]
 
     def test_set_finder_find_links(
         self, line_processor: LineProcessor, finder: PackageFinder
@@ -404,14 +395,14 @@ class TestProcessLine:
         assert finder.find_links == ["url"]
 
     def test_set_finder_extra_index_urls(
-        self, line_processor: LineProcessor, finder: PackageFinder, session: PipSession
+        self, line_processor: LineProcessor, finder: PackageFinder
     ) -> None:
         line_processor(
-            "--extra-index-url=url", "file", 1, finder=finder, session=session
+            "--extra-index-url=url", "file", 1, finder=finder
         )
         assert finder.index_urls == ["url"]
 
-     def test_set_finder_allow_all_prereleases(
+    def test_set_finder_allow_all_prereleases(
         self, line_processor: LineProcessor, finder: PackageFinder
     ) -> None:
         line_processor("--pre", "file", 1, finder=finder)
@@ -457,7 +448,6 @@ class TestProcessLine:
     def test_relative_http_nested_req_files(
         self,
         finder: PackageFinder,
-        session: PipSession,
         monkeypatch: pytest.MonkeyPatch,
     ) -> None:
         """
@@ -476,16 +466,16 @@ class TestProcessLine:
             assert False, f"Unexpected file requested {filename}"
 
         monkeypatch.setattr(
-            pip._internal.req.req_file, "get_file_content", get_file_content
+            pip_requirements, "get_file_content", get_file_content
         )
 
-        result = list(parse_reqfile(req_file, session=session))
+        result = list(parse_reqfile(req_file, ))
         assert len(result) == 1
         assert result[0].name == req_name
         assert not result[0].constraint
 
     def test_relative_local_nested_req_files(
-        self, session: PipSession, monkeypatch: pytest.MonkeyPatch, tmpdir: Path
+        self, monkeypatch: pytest.MonkeyPatch, tmpdir: Path
     ) -> None:
         """
         Test a relative nested req file path is joined with the req file dir
@@ -498,13 +488,13 @@ class TestProcessLine:
 
         monkeypatch.chdir(str(tmpdir))
 
-        reqs = list(parse_reqfile("./parent/req_file.txt", session=session))
+        reqs = list(parse_reqfile("./parent/req_file.txt")) # session=session))
         assert len(reqs) == 1
         assert reqs[0].name == req_name
         assert not reqs[0].constraint
 
     def test_absolute_local_nested_req_files(
-        self, session: PipSession, tmpdir: Path
+        self, tmpdir: Path
     ) -> None:
         """
         Test an absolute nested req file path
@@ -520,13 +510,13 @@ class TestProcessLine:
         req_file.write_text(f"-r {other_req_file_str}")
         other_req_file.write_text(req_name)
 
-        reqs = list(parse_reqfile(str(req_file), session=session))
+        reqs = list(parse_reqfile(str(req_file)))
         assert len(reqs) == 1
         assert reqs[0].name == req_name
         assert not reqs[0].constraint
 
     def test_absolute_http_nested_req_file_in_local(
-        self, session: PipSession, monkeypatch: pytest.MonkeyPatch, tmpdir: Path
+        self, monkeypatch: pytest.MonkeyPatch, tmpdir: Path
     ) -> None:
         """
         Test a nested req file url in a local req file
@@ -545,10 +535,10 @@ class TestProcessLine:
             assert False, f"Unexpected file requested {filename}"
 
         monkeypatch.setattr(
-            pip._internal.req.req_file, "get_file_content", get_file_content
+            pip_requirements, "get_file_content", get_file_content
         )
 
-        result = list(parse_reqfile(req_file, session=session))
+        result = list(parse_reqfile(req_file))
         assert len(result) == 1
         assert result[0].name == req_name
         assert not result[0].constraint
@@ -619,7 +609,6 @@ class TestParseRequirements:
             parse_reqfile(
                 tmpdir.joinpath("req1.txt"),
                 finder=finder,
-                session=PipSession(),
                 options=options,
             )
         )
@@ -639,13 +628,12 @@ class TestParseRequirements:
 
         # Construct the session outside the monkey-patch, since it access the
         # env
-        session = PipSession()
-        with mock.patch("pip._internal.req.req_file.os.getenv") as getenv:
+        with mock.patch("pip_requirements.os.getenv") as getenv:
             getenv.return_value = ""
 
             reqs = list(
                 parse_reqfile(
-                    tmpdir.joinpath("req1.txt"), finder=finder, session=session
+                    tmpdir.joinpath("req1.txt"), finder=finder
                 )
             )
 
@@ -661,7 +649,7 @@ class TestParseRequirements:
 
         list(
             parse_reqfile(
-                tmpdir.joinpath("req1.txt"), finder=finder, session=PipSession()
+                tmpdir.joinpath("req1.txt"), finder=finder
             )
         )
 
@@ -674,7 +662,6 @@ class TestParseRequirements:
             parse_reqfile(
                 data.reqfiles.joinpath("supported_options2.txt"),
                 finder=finder,
-                session=PipSession(),
             )
         )
         expected = FormatControl({"fred"}, {"wilma"})
@@ -691,7 +678,7 @@ class TestParseRequirements:
 
         reqs = list(
             parse_reqfile(
-                tmpdir.joinpath("req1.txt"), finder=finder, session=PipSession()
+                tmpdir.joinpath("req1.txt"), finder=finder
             )
         )
 
@@ -708,7 +695,7 @@ class TestParseRequirements:
 
         reqs = list(
             parse_reqfile(
-                tmpdir.joinpath("req1.txt"), finder=finder, session=PipSession()
+                tmpdir.joinpath("req1.txt"), finder=finder
             )
         )
 
@@ -727,7 +714,7 @@ class TestParseRequirements:
 
         reqs = list(
             parse_reqfile(
-                tmpdir.joinpath("req1.txt"), finder=finder, session=PipSession()
+                tmpdir.joinpath("req1.txt"), finder=finder
             )
         )
 
@@ -749,13 +736,12 @@ class TestParseRequirements:
             """
             )
 
-        parse_reqfile(tmpdir.joinpath("req.txt"), session=PipSession())
+        parse_reqfile(tmpdir.joinpath("req.txt"))
 
     def test_install_requirements_with_options(
         self,
         tmpdir: Path,
         finder: PackageFinder,
-        session: PipSession,
         options: mock.Mock,
     ) -> None:
         global_option = "--dry-run"
@@ -770,9 +756,12 @@ class TestParseRequirements:
         )
 
         with requirements_file(content, tmpdir) as reqs_file:
-            req = next(
+            req = list(
                 parse_reqfile(
-                    reqs_file.resolve(), finder=finder, options=options, session=session
+                    reqs_file.resolve(), finder=finder, options=options
                 )
             )
 
+        assert len(req) == 1
+        assert req[0].name == "INITools"
+        assert req[0].specifier == SpecifierSet('==2.0')

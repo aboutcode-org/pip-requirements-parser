@@ -1,3 +1,7 @@
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 # Author: Aziz Köksal
 import glob
 import os

@@ -1,10 +1,14 @@
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 from typing import Optional
 
 import pytest
 
-from pip._internal.models.link import Link, links_equivalent
-from pip._internal.utils.hashes import Hashes
-
+from pip_requirements import Link
+from pip_requirements import Hashes
+from pip_requirements import links_equivalent
 
 class TestLink:
     @pytest.mark.parametrize(
@@ -12,7 +16,7 @@ class TestLink:
         [
             (
                 "https://user:password@example.com/path/page.html",
-                "<Link https://user:****@example.com/path/page.html>",
+                "<Link https://user:password@example.com/path/page.html>",
             ),
         ],
     )

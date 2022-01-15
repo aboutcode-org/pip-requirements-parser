@@ -1,49 +1,39 @@
-import contextlib
-import email.message
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 import os
 import shutil
 import sys
 import tempfile
-from functools import partial
-from typing import Iterator, Tuple, cast
+from typing import Tuple
 from unittest import mock
 
 import pytest
-from pip._vendor.packaging.markers import Marker
-from pip._vendor.packaging.requirements import Requirement
+from packaging.markers import Marker
+from packaging.requirements import Requirement
 
-from pip._internal.commands import create_command
-from pip._internal.commands.install import InstallCommand
-from pip._internal.exceptions import (
-    HashErrors,
+from pip_requirements import (
     InstallationError,
     InvalidWheelFilename,
-    PreviousBuildDirError,
 )
-from pip._internal.index.package_finder import PackageFinder
-from pip._internal.metadata.pkg_resources import Distribution
-from pip._internal.network.session import PipSession
-from pip._internal.operations.prepare import RequirementPreparer
-from pip._internal.req import InstallRequirement, RequirementSet
-from pip._internal.req.constructors import (
+from pip_requirements import InstallRequirement
+from pip_requirements import (
     _get_url_from_path,
     _looks_like_path,
     install_req_from_editable,
     install_req_from_line,
     install_req_from_parsed_requirement,
-    install_req_from_req_string,
     parse_editable,
 )
-from pip._internal.req.req_file import (
+from pip_requirements import (
     ParsedLine,
     get_line_parser,
     handle_requirement_line,
 )
-from pip._internal.req.req_tracker import get_requirement_tracker
-from pip._internal.resolution.legacy.resolver import Resolver
-from pip._internal.utils.urls import path_to_url
-from tests.lib import TestData, make_test_finder, requirements_file
-from tests.lib.path import Path
+from pip_requirements import path_to_url
+
+from tests.lib import TestData
 
 
 def get_processed_req_from_line(
@@ -63,6 +53,7 @@ def get_processed_req_from_line(
     req = install_req_from_parsed_requirement(parsed_req)
     req.user_supplied = True
     return req
+
 
 
 class TestInstallRequirement:
@@ -108,7 +99,6 @@ class TestInstallRequirement:
         assert req.link.url == url
 
     def test_unsupported_wheel_link_requirement_raises(self) -> None:
-        reqset = RequirementSet()
         req = install_req_from_line(
             "https://whatever.com/peppercorn-0.4-py2.py3-bogus-any.whl",
         )
@@ -116,22 +106,15 @@ class TestInstallRequirement:
         assert req.link.is_wheel
         assert req.link.scheme == "https"
 
-        with pytest.raises(InstallationError):
-            reqset.add_requirement(req)
-
     def test_unsupported_wheel_local_file_requirement_raises(
         self, data: TestData
     ) -> None:
-        reqset = RequirementSet()
         req = install_req_from_line(
             data.packages.joinpath("simple.dist-0.1-py1-none-invalid.whl"),
         )
         assert req.link is not None
         assert req.link.is_wheel
         assert req.link.scheme == "file"
-
-        with pytest.raises(InstallationError):
-            reqset.add_requirement(req)
 
     def test_str(self) -> None:
         req = install_req_from_line("simple==0.1")
@@ -409,8 +392,8 @@ def test_looks_like_path_win(args: str, expected: bool) -> None:
         (("/path/to/simple==0.1", "simple==0.1"), (False, False), None),
     ],
 )
-@mock.patch("pip._internal.req.req_install.os.path.isdir")
-@mock.patch("pip._internal.req.req_install.os.path.isfile")
+@mock.patch("pip_requirements.os.path.isdir")
+@mock.patch("pip_requirements.os.path.isfile")
 def test_get_url_from_path(
     isdir_mock: mock.Mock,
     isfile_mock: mock.Mock,
@@ -423,8 +406,8 @@ def test_get_url_from_path(
     assert _get_url_from_path(*args) is expected
 
 
-@mock.patch("pip._internal.req.req_install.os.path.isdir")
-@mock.patch("pip._internal.req.req_install.os.path.isfile")
+@mock.patch("pip_requirements.os.path.isdir")
+@mock.patch("pip_requirements.os.path.isfile")
 def test_get_url_from_path__archive_file(
     isdir_mock: mock.Mock, isfile_mock: mock.Mock
 ) -> None:
@@ -436,8 +419,8 @@ def test_get_url_from_path__archive_file(
     assert _get_url_from_path(path, name) == url
 
 
-@mock.patch("pip._internal.req.req_install.os.path.isdir")
-@mock.patch("pip._internal.req.req_install.os.path.isfile")
+@mock.patch("pip_requirements.os.path.isdir")
+@mock.patch("pip_requirements.os.path.isfile")
 def test_get_url_from_path__installable_dir(
     isdir_mock: mock.Mock, isfile_mock: mock.Mock
 ) -> None:
@@ -449,7 +432,7 @@ def test_get_url_from_path__installable_dir(
     assert _get_url_from_path(path, name) == url
 
 
-@mock.patch("pip._internal.req.req_install.os.path.isdir")
+@mock.patch("pip_requirements.os.path.isdir")
 def test_get_url_from_path__installable_error(isdir_mock: mock.Mock) -> None:
     isdir_mock.return_value = True
     name = "some/setuptools/project"

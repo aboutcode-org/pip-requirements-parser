@@ -1,3 +1,7 @@
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 import itertools
 import os
 import stat
@@ -6,9 +10,9 @@ from typing import Any, Iterator, Optional, Union
 
 import pytest
 
-from pip._internal.utils import temp_dir
-from pip._internal.utils.misc import ensure_dir
-from pip._internal.utils.temp_dir import (
+from . import temp_dir
+from .misc import ensure_dir
+from .temp_dir import (
     AdjacentTempDirectory,
     TempDirectory,
     _Default,

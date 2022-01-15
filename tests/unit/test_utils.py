@@ -1,24 +1,26 @@
+
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# SPDX-License-Identifier: MIT
+
 """
 util tests
 
 """
 import codecs
-import os
-import shutil
-import stat
 import sys
-import time
 from io import BytesIO
-from typing import Any, Callable, Iterator, List, NoReturn, Optional, Tuple, Type
+from typing import NoReturn, Optional, Tuple, Type
 from unittest.mock import Mock, patch
 
 import pytest
 
-from pip._internal.exceptions import HashMismatch, HashMissing, InstallationError
-from pip._internal.utils.encoding import BOMS, auto_decode
-from pip._internal.utils.hashes import Hashes, MissingHashes
-from pip._internal.utils.misc import (
-    split_auth_from_netloc,
+from pip_requirements import HashMismatch, HashMissing, InstallationError
+from pip_requirements import BOMS, auto_decode
+from pip_requirements import Hashes, MissingHashes
+from pip_requirements import split_auth_from_netloc
+
+from tests.lib.path import Path
+
 
 
 if sys.byteorder == "little":
@@ -32,7 +34,7 @@ elif sys.byteorder == "big":
 
 
 class TestHashes:
-    """Tests for pip._internal.utils.hashes"""
+    """Tests for pip_requirements.hashes"""
 
     @pytest.mark.parametrize(
         "hash_name, hex_digest, expected",
@@ -112,7 +114,7 @@ class TestHashes:
 
 
 class TestEncoding:
-    """Tests for pip._internal.utils.encoding"""
+    """Tests for pip_requirements.encoding"""
 
     def test_auto_decode_utf_16_le(self) -> None:
         data = (
@@ -181,3 +183,4 @@ def test_split_auth_from_netloc(
 ) -> None:
     actual = split_auth_from_netloc(netloc)
     assert actual == expected
+
