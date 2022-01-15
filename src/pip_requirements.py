@@ -1,4 +1,102 @@
 
+# Copyright (c) 2008-2021 The pip developers (see AUTHORS.txt file)
+# portions Copyright (C) 2016 Jason R Coombs <jaraco@jaraco.com>
+# 
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+# 
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+# LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+import codecs
+import locale
+import functools
+import hashlib
+import io
+import logging
+import operator
+import optparse
+import os
+import posixpath
+import re
+import shlex
+import string
+import sys
+import urllib.parse
+import urllib.request
+
+from functools import partial
+from optparse import Values
+from optparse import Option
+from optparse import OptionParser
+
+from typing import (
+    Any,
+    BinaryIO,
+    Callable,
+    Collection,
+    Dict,
+    FrozenSet, 
+    Iterable,
+    Iterator,
+    List,
+    NamedTuple,
+    NewType,
+    Optional,
+    Set,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
+
+from packaging.markers import Marker
+from packaging.requirements import InvalidRequirement
+from packaging.requirements import Requirement
+from packaging.specifiers import Specifier
+from packaging.specifiers import SpecifierSet
+from packaging.tags import Tag
+from packaging.utils import canonicalize_name
+
+"""
+A pip requirements files parser, doing as well as pip does it.
+Based on pip code itself. Key advatnages:
+- based on pip code, works **exactly** like pip as of January 2022. Because this is pip.
+- a single file that can easily be copied around if needed.
+- only one dependency on the "packaging" package. Otherwise uses only the standard library.
+
+The code is merged from multiple pip module:
+Each is tagged with comments:
+# PIPREQPARSE: from ... 
+# PIPREQPARSE: end from ...
+
+We also kept the pip git history of all these modules.
+"""
+
+################################################################################
+# PIPREQPARSE: from src/pip/_internal/utils/compat.py
+
+# windows detection, covers cpython and ironpython
+WINDOWS = (sys.platform.startswith("win") or
+           (sys.platform == 'cli' and os.name == 'nt'))
+
+# PIPREQPARSE: end from src/pip/_internal/utils/compat.py
+################################################################################
+
+
 ################################################################################
 # PIPREQPARSE: from src/pip/_internal/utils/encoding.py
 
