@@ -1318,8 +1318,8 @@ class Hashes:
                 raise InstallationError(f"Unknown hash name: {hash_name}")
 
         for chunk in chunks:
-            for hash in gots.values():
-                hash.update(chunk)
+            for hsh in gots.values():
+                hsh.update(chunk)
 
         for hash_name, got in gots.items():
             if got.hexdigest() in self._allowed[hash_name]:
