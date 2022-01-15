@@ -1,7 +1,7 @@
 graft src
+graft tests
 
 include *.LICENSE
-include NOTICE
 include *.ABOUT
 include *.toml
 include *.yml
