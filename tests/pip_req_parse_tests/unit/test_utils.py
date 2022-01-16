@@ -19,7 +19,7 @@ from pip_requirements import BOMS, auto_decode
 from pip_requirements import Hashes, MissingHashes
 from pip_requirements import split_auth_from_netloc
 
-from tests.lib.path import Path
+from pip_req_parse_tests.lib.path import Path
 
 
 

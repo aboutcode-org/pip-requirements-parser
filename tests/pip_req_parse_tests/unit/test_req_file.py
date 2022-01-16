@@ -29,8 +29,8 @@ from pip_requirements import (
     preprocess,
 )
 from pip_requirements import InstallRequirement
-from tests.lib import TestData, make_test_finder, requirements_file
-from tests.lib.path import Path
+from pip_req_parse_tests.lib import TestData, make_test_finder, requirements_file
+from pip_req_parse_tests.lib.path import Path
 
 
 Protocol = object

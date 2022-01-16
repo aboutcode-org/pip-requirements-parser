@@ -7,8 +7,8 @@ from typing import Iterator
 import py.path
 import pytest
 
-from tests.lib import TestData
-from tests.lib.path import Path
+from pip_req_parse_tests.lib import TestData
+from pip_req_parse_tests.lib.path import Path
 
 
 

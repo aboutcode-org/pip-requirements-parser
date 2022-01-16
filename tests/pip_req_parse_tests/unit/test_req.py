@@ -33,7 +33,7 @@ from pip_requirements import (
 )
 from pip_requirements import path_to_url
 
-from tests.lib import TestData
+from pip_req_parse_tests.lib import TestData
 
 
 def get_processed_req_from_line(

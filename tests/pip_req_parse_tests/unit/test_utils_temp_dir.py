@@ -20,7 +20,7 @@ from .temp_dir import (
     global_tempdir_manager,
     tempdir_registry,
 )
-from tests.lib.path import Path
+from pip_req_parse_tests.lib.path import Path
 
 
 # No need to test symlinked directories on Windows

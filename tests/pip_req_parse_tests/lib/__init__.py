@@ -9,7 +9,7 @@ from typing import (
     Optional,
 )
 
-from tests.lib.path import Path
+from pip_req_parse_tests.lib.path import Path
 
 
 DATA_DIR = Path(__file__).parent.parent.joinpath("data").resolve()
