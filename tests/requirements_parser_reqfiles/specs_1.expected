@@ -1,0 +1,24 @@
+[
+ {
+  "specifier": true,
+  "local_file": false,
+  "name": "PickyThing",
+  "editable": false,
+  "subdirectory": null,
+  "uri": null,
+  "extras": [],
+  "vcs": null,
+  "path": null,
+  "line":  "PickyThing<1.6,>1.9,!=1.9.6,<2.0a0,==2.4c1",
+  "hash_name": null,
+  "hash": null,
+  "specs": [
+   ["!=", "1.9.6"],
+   ["<", "1.6"],
+   ["<", "2.0a0"],
+   ["==", "2.4c1"],
+   [">", "1.9"]
+  ],
+  "revision": null
+ }
+]
