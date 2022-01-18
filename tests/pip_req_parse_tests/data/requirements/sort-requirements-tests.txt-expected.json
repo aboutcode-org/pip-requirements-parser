@@ -1,0 +1,142 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": "apple",
+      "specifier": [
+        "==0.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "apple==0.2     --hash=sha256:3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d     --hash=sha256:2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+          "2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "bottle",
+      "specifier": [
+        "==1.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "bottle==1.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "apple",
+      "specifier": [
+        "!=0.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "apple!=0.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "core",
+      "specifier": [
+        "~=3.1.1"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "core~=3.1.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "east",
+      "specifier": [
+        ">=1.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 13,
+        "line": "east>=1.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "delta",
+      "specifier": [
+        "==2.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "delta==2.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# from https://github.com/rehandalal/sort-requirements/blob/master/tests/fixtures/"
+    },
+    {
+      "line_number": 5,
+      "line": "# inline comment"
+    }
+  ]
+}

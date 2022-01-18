@@ -1,0 +1,193 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "https://github.com/serverless/serverless-python-requirements/blob/master/tests"
+      },
+      "link": "https://github.com/serverless/serverless-python-requirements/blob/master/tests",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "boto3",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "-e git+https://github.com/boto/boto3.git#egg=boto3"
+      },
+      "link": "git+https://github.com/boto/boto3.git#egg=boto3",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "python-dateutil",
+      "specifier": [
+        "==2.7.5"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "python-dateutil==2.7.5     --hash=sha256:063df5763652e21de43de7d9e00ccf239f953a832941e37be541614732cdfc93     --hash=sha256:88f9287c0174266bb0d8cedd395cfba9c58e87e5ad86b2ce58859bc11be3cf02"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "063df5763652e21de43de7d9e00ccf239f953a832941e37be541614732cdfc93",
+          "88f9287c0174266bb0d8cedd395cfba9c58e87e5ad86b2ce58859bc11be3cf02"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "s3transfer",
+      "specifier": [
+        "==0.1.13"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "s3transfer==0.1.13     --hash=sha256:90dc18e028989c609146e241ea153250be451e05ecc0c2832565231dacdf59c1     --hash=sha256:c7a9ec356982d5e9ab2d4b46391a7d6a950e2b04c472419f5fdec70cc0ada72f"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "90dc18e028989c609146e241ea153250be451e05ecc0c2832565231dacdf59c1",
+          "c7a9ec356982d5e9ab2d4b46391a7d6a950e2b04c472419f5fdec70cc0ada72f"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "six",
+      "specifier": [
+        "==1.11.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "six==1.11.0     --hash=sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9     --hash=sha256:832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9",
+          "832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "urllib3",
+      "specifier": [
+        "==1.24.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 18,
+        "line": "urllib3==1.24.2     --hash=sha256:4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0     --hash=sha256:9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0",
+          "9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "werkzeug",
+      "specifier": [
+        "==0.15.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 22,
+        "line": "werkzeug==0.15.3     --hash=sha256:97660b282aa7e29f94f3fe378e5c7162d7ab9d601a8dbb1cbb2ffc8f0e54607d     --hash=sha256:cfd1281b1748288e59762c0e174d64d8bcb2b70e7c57bc4a1203c8825af24ac3"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "97660b282aa7e29f94f3fe378e5c7162d7ab9d601a8dbb1cbb2ffc8f0e54607d",
+          "cfd1281b1748288e59762c0e174d64d8bcb2b70e7c57bc4a1203c8825af24ac3"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# examples from \\"
+    },
+    {
+      "line_number": 6,
+      "line": "# via botocore"
+    },
+    {
+      "line_number": 10,
+      "line": "# via boto3"
+    },
+    {
+      "line_number": 14,
+      "line": "# via python-dateutil"
+    },
+    {
+      "line_number": 18,
+      "line": "# via botocore"
+    },
+    {
+      "line_number": 22,
+      "line": "# via flask"
+    }
+  ]
+}

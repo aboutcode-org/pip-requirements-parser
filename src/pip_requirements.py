@@ -73,19 +73,102 @@ from packaging.tags import Tag
 from packaging.utils import canonicalize_name
 
 """
-A pip requirements files parser, doing as well as pip does it.
-Based on pip code itself. Key advatnages:
-- based on pip code, works **exactly** like pip as of January 2022. Because this is pip.
-- a single file that can easily be copied around if needed.
-- only one dependency on the "packaging" package. Otherwise uses only the standard library.
-
-The code is merged from multiple pip module:
-Each is tagged with comments:
+A pip requirements files parser, doing it as well as pip does it.
+Based on pip code itself.
+The code is merged from multiple pip modules. And each section is tagged with comments:
 # PIPREQPARSE: from ... 
 # PIPREQPARSE: end from ...
-
 We also kept the pip git history of all these modules.
 """
+
+################################################################################
+# API
+
+
+class RequirementsFile:
+    """
+    This represents a requirements file. It contains the requirements and other
+    pip-related options found in a requirerents file.
+    """
+    def __init__(self, filename: str, resolve_nested=False) -> None:
+        """
+        Initialise a new RequirementsFile from a ``filename`` path string.
+        """
+        self.filename = filename
+
+        self.format_control = FormatControl()
+        self.options = Values()
+        self.options.format_control = self.format_control
+
+        finder = PackageFinder(format_control=self.format_control)
+
+        self.install_requirements: List[InstallRequirement] = []
+        self.invalid_lines: List[InvalidRequirementLine] = []
+        self.comment_lines: List[CommentRequirementLine] = []
+
+        for parsed in parse_requirements(
+            filename=filename,
+            finder=finder,
+            options=self.options,
+            include_nested=False,
+        ):
+            if isinstance(parsed, InvalidRequirementLine):
+                self.invalid_lines.append(parsed)
+            elif isinstance(parsed, CommentRequirementLine):
+                self.comment_lines.append(parsed)
+            else:
+                assert isinstance(parsed, ParsedRequirement)
+                try:
+                    req = install_req_from_parsed_requirement(parsed)
+
+                    # we can also process some errors further down
+                    if isinstance(parsed, InvalidRequirementLine):
+                        self.invalid_lines.append(req)
+                    else:
+                        self.install_requirements.append(req)
+
+                except Exception as e:
+
+                    self.invalid_lines.append(InvalidRequirementLine(
+                        requirement_line=parsed.requirement_line,
+                        error_message=str(e),
+                    ))
+
+        self.find_links = finder.find_links
+        self.index_urls =  finder.index_urls
+
+    def to_dict(self, include_filename=False):
+        """
+        Return a mapping of plain Python objects for this RequirementsFile
+        """
+        return dict(
+            find_links = self.find_links,
+            index_urls = self.index_urls,
+            options =  option_values_to_dict(self.options),
+            install_requirements = [
+                ir.to_dict() for ir in self.install_requirements
+            ],
+            invalid_lines = [
+                upl.to_dict(include_filename=include_filename)
+                for upl in self.invalid_lines
+            ],
+            comment_lines = [
+                cl.to_dict(include_filename=include_filename)
+                for cl in self.comment_lines
+            ]
+        )
+
+def option_values_to_dict(option_values):
+ 
+    #list of known options: pre, prefer_binary, editables
+    return {
+        k: v.to_dict() if hasattr(v, "to_dict") else v 
+        for k, v in option_values.__dict__.items()
+    }
+
+# end of API
+################################################################################
+
 
 ################################################################################
 # PIPREQPARSE: from src/pip/_internal/utils/compat.py
@@ -305,31 +388,13 @@ class FormatControl:
             self.only_binary,
         )
 
+    def to_dict(self):
+        return dict(
+            no_binary = sorted(self.no_binary),
+            only_binary = sorted(self.only_binary),
+        )
+
 # PIPREQPARSE: end from src/pip/_internal/models/format_control.py
-################################################################################
-
-
-################################################################################
-# PIPREQPARSE: from src/pip/_internal/models/search_scope.py
-# minimal subset without other methods
-
-class SearchScope:
-
-    """
-    Encapsulates the locations that pip is configured to search.
-    """
-
-    __slots__ = ["find_links", "index_urls"]
-
-    def __init__(
-        self,
-        find_links: List[str],
-        index_urls: List[str],
-    ) -> None:
-        self.find_links = find_links
-        self.index_urls = index_urls
-
-# PIPREQPARSE: end from src/pip/_internal/models/search_scope.py
 ################################################################################
 
 
@@ -493,7 +558,7 @@ def _handle_only_binary(
 
 
 def no_binary() -> Option:
-    format_control = FormatControl(set(), set())
+    format_control = FormatControl()
     return Option(
         "--no-binary",
         dest="format_control",
@@ -511,7 +576,7 @@ def no_binary() -> Option:
 
 
 def only_binary() -> Option:
-    format_control = FormatControl(set(), set())
+    format_control = FormatControl()
     return Option(
         "--only-binary",
         dest="format_control",
@@ -581,20 +646,23 @@ def _handle_merge_hash(
     pointed to in a dict by the algo name."""
     if not parser.values.hashes:
         parser.values.hashes = {}
+
     try:
         algo, digest = value.split(":", 1)
     except ValueError:
-        parser.error(
-            "Arguments to {} must be a hash name "  # noqa
-            "followed by a value, like --hash=sha256:"
-            "abcde...".format(opt_str)
-        )
-    if algo not in STRONG_HASHES:
-        parser.error(
-            "Allowed hash algorithms for {} are {}.".format(  # noqa
-                opt_str, ", ".join(STRONG_HASHES)
-            )
-        )
+        algo = value
+        digest = None
+        # pass parser.error(
+        #     "Arguments to {} must be a hash name "  # noqa
+        #     "followed by a value, like --hash=sha256:"
+        #     "abcde...".format(opt_str)
+        # )
+    # if algo not in STRONG_HASHES:
+    #     parser.error(
+    #         "Allowed hash algorithms for {} are {}.".format(  # noqa
+    #             opt_str, ", ".join(STRONG_HASHES)
+    #         )
+    #     )
     parser.values.hashes.setdefault(algo, []).append(digest)
 
 
@@ -643,84 +711,25 @@ use_new_feature: Callable[..., Option] = partial(
 # Significantly modified to work without network access
 
 class PackageFinder:
-    """This finds packages.
-
-    This is meant to match easy_install's technique for looking for
-    packages, by reading pages and looking for appropriate links.
-    """
-
     def __init__(
         self,
-        search_scope: Optional[SearchScope] = None,
-        allow_yanked: Optional[bool] = False,
+        find_links: Optional[List[str]] = None,
+        index_urls: Optional[List[str]] = None,
         format_control: Optional[FormatControl] = None,
-        ignore_requires_python: Optional[bool] = None,
         *args: Any,
         **kwargs: Any,
     ) -> None:
         """
-        This constructor is primarily meant to be used by the create() class
-        method and from tests.
-
         :param format_control: A FormatControl object, used to control
             the selection of source packages / binary packages when consulting
             the index and links.
-        :param candidate_prefs: Options to use when creating a
-            CandidateEvaluator object.
         """
+        self.format_control= format_control or FormatControl()
+        self.find_links = find_links or []
+        self.index_urls = index_urls or []
 
-        format_control = format_control or FormatControl(set(), set())
-
-        self._allow_yanked = allow_yanked
-
-        self._ignore_requires_python = ignore_requires_python
-
-        self._search_scope = search_scope or SearchScope([], [])
         self._allow_all_prereleases =False
         self._prefer_binary = True
-
-        self.format_control= format_control or FormatControl(set(), set())
-
-    # Don't include an allow_yanked default value to make sure each call
-    # site considers whether yanked releases are allowed. This also causes
-    # that decision to be made explicit in the calling code, which helps
-    # people when reading the code.
-    @classmethod
-    def create(
-        cls,
-        *args: Any,
-        **kwargs: Any,
-    ) -> "PackageFinder":
-        """Create a PackageFinder."""
-        return cls()
-
-    @property
-    def target_python(self):
-        return
-
-    @property
-    def search_scope(self) -> SearchScope:
-        return self._search_scope
-
-    @search_scope.setter
-    def search_scope(self, search_scope: SearchScope) -> None:
-        self._search_scope = search_scope
-
-    @property
-    def find_links(self) -> List[str]:
-        if not self.search_scope:
-            self.search_scope = SearchScope([], [])
-        return self.search_scope.find_links
-
-    @property
-    def index_urls(self) -> List[str]:
-        if not self.search_scope:
-            self.search_scope = SearchScope([], [])
-        return self.search_scope.index_urls
-
-    @property
-    def trusted_hosts(self) -> Iterable[str]:
-        return
 
     @property
     def allow_all_prereleases(self) -> bool:
@@ -739,16 +748,25 @@ class PackageFinder:
 # PIPREQPARSE: end from src/pip/_internal/index/package_finder.py
 ################################################################################
 
-
 ################################################################################
 # PIPREQPARSE: from src/pip/_internal/req/req_file.py
 
-ReqFileLines = Iterable[Tuple[int, str]]
+
+class TextLine(NamedTuple):
+    line_number: int
+    line: str
+
+
+class CommentLine(NamedTuple):
+    line_number: int
+    line: str
+
+ReqFileLines = Iterable[Union[Tuple[int, str], TextLine,CommentLine]]
 
 LineParser = Callable[[str], Tuple[str, Values]]
 
 SCHEME_RE = re.compile(r"^(http|https|file):", re.I)
-COMMENT_RE = re.compile(r"(^|\s+)#.*$")
+COMMENT_RE = re.compile(r"(^|\s+)(#.*)$")
 
 SUPPORTED_OPTIONS: List[Callable[..., optparse.Option]] = [
     index_url,
@@ -781,134 +799,219 @@ SUPPORTED_OPTIONS_REQ_DEST = [str(o().dest) for o in SUPPORTED_OPTIONS_REQ]
 class ParsedRequirement:
     def __init__(
         self,
-        requirement: str,
+        requirement_string: str,
         is_editable: bool,
-        comes_from: str,
-        constraint: bool,
+        is_constraint: bool,
         options: Optional[Dict[str, Any]] = None,
-        line_source: Optional[str] = None,
+        requirement_line: Optional["RequirementLine"] = None,
     ) -> None:
-        self.requirement = requirement
+        self.requirement_string = requirement_string
         self.is_editable = is_editable
-        self.comes_from = comes_from
+        self.is_constraint = is_constraint
         self.options = options
-        self.constraint = constraint
-        self.line_source = line_source
+        self.requirement_line = requirement_line
+
+
+class RequirementLine:
+    """
+    A line from a requirement ``filename``. This is a logical line with folded
+    continuations where ``line_number`` is the first line number where this
+    logical line started.
+    """
+    def __init__(
+        self,
+        line: str,
+        line_number: Optional[int] = 0,
+        filename: Optional[str] = None,
+    ) -> None:
+        self.line =line 
+        self.filename = filename
+        self.line_number = line_number
+
+    def to_dict(self, include_filename=False):
+        data = dict(
+            line_number=self.line_number,
+            line=self.line,
+        )
+        if include_filename:
+            data.update(dict(filename=self.filename))
+
+        return data
+
+    def __repr__(self):
+        return (
+            f"{self.__class__.__name__}("
+                f"line_number={self.line_number!r}, "
+                f"line={self.line!r}, "
+                f"filename={self.filename!r}"
+            ")"
+        )
+
+    def __eq__(self, other):
+        return (
+            isinstance(other, self.__class__) and
+            self.to_dict(include_filename=True)
+                == other.to_dict(include_filename=True)
+        )
+
+
+class CommentRequirementLine(RequirementLine):
+    """
+    This represents the comment portion of a line in a requirements file. 
+    """
+
+
+class InvalidRequirementLine:
+    """
+    This represents an unparsable or invalid line of a requirements file.
+    """
+    def __init__(
+        self,
+        requirement_line: RequirementLine,
+        error_message: str,
+    ) -> None:
+        self.requirement_line = requirement_line
+        self.error_message = error_message
+
+    def to_dict(self, include_filename=False):
+        data = self.requirement_line.to_dict(include_filename=include_filename)
+        data.update(error_message=self.error_message)
+        return data
+
+    def __repr__(self):
+        return (
+            f"{self.__class__.__name__}("
+                f"requirement_line={self.requirement_line!r}, "
+                f"error_message={self.error_message!r}, "
+            ")"
+        )
+    def __eq__(self, other):
+        return (
+            isinstance(other, self.__class__) and
+            self.to_dict(include_filename=True) 
+                == other.to_dict(include_filename=True)
+        )
 
 
 class ParsedLine:
     def __init__(
         self,
-        filename: str,
-        lineno: int,
-        args: str,
-        opts: Values,
-        constraint: bool,
+        requirement_line: RequirementLine,
+        requirement_string: str,
+        options: Values,
+        is_constraint: bool,
     ) -> None:
-        self.filename = filename
-        self.lineno = lineno
-        self.opts = opts
-        self.constraint = constraint
 
-        if args:
+        self.requirement_line = requirement_line
+        self.options = options
+        self.is_constraint = is_constraint
+
+        if requirement_string:
             self.is_requirement = True
             self.is_editable = False
-            self.requirement = args
-        elif opts.editables:
+            self.requirement_string = requirement_string
+        elif options.editables:
             self.is_requirement = True
             self.is_editable = True
             # We don't support multiple -e on one line
-            self.requirement = opts.editables[0]
+            # FIXME: report warning if there are more than one
+            self.requirement_string = options.editables[0]
         else:
             self.is_requirement = False
 
 
 def parse_requirements(
     filename: str,
-    finder: Optional["PackageFinder"] = None,
+    finder: Optional[PackageFinder] = None,
     options: Optional[optparse.Values] = None,
-    constraint: bool = False,
-) -> Iterator[ParsedRequirement]:
-    """Parse a requirements file and yield ParsedRequirement instances.
+    is_constraint: bool = False,
+    include_nested: bool = True,
+) -> Iterator[Union[ParsedRequirement, InvalidRequirementLine, CommentRequirementLine]]:
+    """Parse a requirements file and yield ParsedRequirement,
+    InvalidRequirementLine or CommentRequirementLine instances.
 
     :param filename:    Path or url of requirements file.
-    :param finder:      Instance of pip.index.PackageFinder.
+    :param finder:      Instance of PackageFinder used to collect options.
     :param options:     cli options.
-    :param constraint:  If true, parsing a constraint file rather than
+    :param is_constraint:  If true, parsing a constraint file rather than
         requirements file.
+    :param include_nested: if true, also load and parse -r/--requirements
+        and -c/--constraints nested files.
     """
     line_parser = get_line_parser(finder)
     parser = RequirementsFileParser(line_parser)
 
-    for parsed_line in parser.parse(filename, constraint):
-        parsed_req = handle_line(
-            parsed_line, options=options, finder=finder,
-        )
-        if parsed_req is not None:
-            yield parsed_req
+    for parsed_line in parser.parse(
+        filename=filename,
+        is_constraint=is_constraint,
+        include_nested=include_nested,
+    ):
+
+        if isinstance(parsed_line, ParsedLine):
+            parsed_req = handle_line(
+                parsed_line=parsed_line, options=options, finder=finder,
+            )
+            if parsed_req is not None:
+                yield parsed_req
+
+        else:
+            assert isinstance(
+                parsed_line, (InvalidRequirementLine, CommentRequirementLine,)
+            )
+            yield parsed_line
 
 
 def preprocess(content: str) -> ReqFileLines:
-    """Split, filter, and join lines, and return a line iterator
+    """Split, filter, and join lines, and return a line iterator.
+    This contains both CommentLine and TextLine.
 
     :param content: the content of the requirements file
     """
     lines_enum: ReqFileLines = enumerate(content.splitlines(), start=1)
     lines_enum = join_lines(lines_enum)
-    lines_enum = ignore_comments(lines_enum)
-    return lines_enum
+    lines_and_comments_enum = split_comments(lines_enum)
+    return lines_and_comments_enum
 
 
 def handle_requirement_line(
-    line: ParsedLine,
+    parsed_line: ParsedLine,
     options: Optional[optparse.Values] = None,
 ) -> ParsedRequirement:
 
-    # preserve for the nested code path
-    line_comes_from = "{} {} (line {})".format(
-        "-c" if line.constraint else "-r",
-        line.filename,
-        line.lineno,
-    )
+    assert parsed_line.is_requirement
 
-    assert line.is_requirement
-
-    if line.is_editable:
+    if parsed_line.is_editable:
         # For editable requirements, we don't support per-requirement
         # options, so just return the parsed requirement.
         return ParsedRequirement(
-            requirement=line.requirement,
-            is_editable=line.is_editable,
-            comes_from=line_comes_from,
-            constraint=line.constraint,
+            requirement_string=parsed_line.requirement_string,
+            is_editable=parsed_line.is_editable,
+            is_constraint=parsed_line.is_constraint,
+            requirement_line=parsed_line.requirement_line,
         )
     else:
         if options:
             # Disable wheels if the user has specified build options
-            check_install_build_global(options, line.opts)
+            check_install_build_global(options, parsed_line.options)
 
         # get the options that apply to requirements
         req_options = {}
         for dest in SUPPORTED_OPTIONS_REQ_DEST:
-            if dest in line.opts.__dict__ and line.opts.__dict__[dest]:
-                req_options[dest] = line.opts.__dict__[dest]
+            if dest in parsed_line.options.__dict__ and parsed_line.options.__dict__[dest]:
+                req_options[dest] = parsed_line.options.__dict__[dest]
 
-        line_source = f"line {line.lineno} of {line.filename}"
         return ParsedRequirement(
-            requirement=line.requirement,
-            is_editable=line.is_editable,
-            comes_from=line_comes_from,
-            constraint=line.constraint,
+            requirement_string=parsed_line.requirement_string,
+            is_editable=parsed_line.is_editable,
+            is_constraint=parsed_line.is_constraint,
             options=req_options,
-            line_source=line_source,
+            requirement_line=parsed_line.requirement_line,
         )
 
 
 def handle_option_line(
     opts: Values,
-    filename: str,
-    lineno: int,
-    finder: Optional["PackageFinder"] = None,
+    finder: Optional[PackageFinder] = None,
     options: Optional[optparse.Values] = None,
 ) -> None:
 
@@ -918,35 +1021,20 @@ def handle_option_line(
             options.require_hashes = opts.require_hashes
         if opts.features_enabled:
             options.features_enabled.extend(
-                f for f in opts.features_enabled if f not in options.features_enabled
+                f for f in opts.features_enabled
+                if f not in options.features_enabled
             )
 
     # set finder options
     if finder:
-        find_links = finder.find_links
-        index_urls = finder.index_urls
         if opts.index_url:
-            index_urls = [opts.index_url]
-        if opts.no_index is True:
-            index_urls = []
-        if opts.extra_index_urls:
-            index_urls.extend(opts.extra_index_urls)
-        if opts.find_links:
-            # FIXME: it would be nice to keep track of the source
-            # of the find_links: support a find-links local path
-            # relative to a requirements file.
-            value = opts.find_links[0]
-            req_dir = os.path.dirname(os.path.abspath(filename))
-            relative_to_reqs_file = os.path.join(req_dir, value)
-            if os.path.exists(relative_to_reqs_file):
-                value = relative_to_reqs_file
-            find_links.append(value)
+            finder.index_urls.append(opts.index_url)
 
-        search_scope = SearchScope(
-            find_links=find_links,
-            index_urls=index_urls,
-        )
-        finder.search_scope = search_scope
+        if opts.extra_index_urls:
+            finder.index_urls.extend(opts.extra_index_urls)
+        
+        if opts.find_links:
+            finder.find_links.extend(opts.find_links)
 
         if opts.pre:
             finder.set_allow_all_prereleases()
@@ -956,14 +1044,14 @@ def handle_option_line(
 
 
 def handle_line(
-    line: ParsedLine,
+    parsed_line: ParsedLine,
     options: Optional[optparse.Values] = None,
-    finder: Optional["PackageFinder"] = None,
+    finder: Optional[PackageFinder] = None,
 ) -> Optional[ParsedRequirement]:
     """Handle a single parsed requirements line; This can result in
     creating/yielding requirements, or updating the finder.
 
-    :param line:        The parsed line to be processed.
+    :param parsed_line:        The parsed line to be processed.
     :param options:     CLI options.
     :param finder:      The finder - updated by non-requirement lines.
 
@@ -982,50 +1070,88 @@ def handle_line(
     affect the finder.
     """
 
-    if line.is_requirement:
-        parsed_req = handle_requirement_line(line, options)
-        return parsed_req
+    if parsed_line.is_requirement:
+        return handle_requirement_line(parsed_line=parsed_line, options=options)
+
     else:
         handle_option_line(
-            line.opts,
-            line.filename,
-            line.lineno,
-            finder,
-            options,
+            opts=parsed_line.options,
+            finder=finder,
+            options=options,
         )
         return None
 
 
 class RequirementsFileParser:
-    def __init__(
-        self,
-        line_parser: LineParser,
-    ) -> None:
+
+    def __init__(self, line_parser: LineParser) -> None:
         self._line_parser = line_parser
 
-    def parse(self, filename: str, constraint: bool) -> Iterator[ParsedLine]:
-        """Parse a given file, yielding parsed lines."""
-        yield from self._parse_and_recurse(filename, constraint)
+    def parse(
+        self, 
+        filename: str, 
+        is_constraint: bool, 
+        include_nested: bool = True
+    ) -> Iterator[Union[ParsedLine, InvalidRequirementLine, CommentRequirementLine]]:
+        """
+        Parse a requirements ``filename``, yielding ParsedLine,
+        InvalidRequirementLine or CommentRequirementLine.
+
+        If ``include_nested`` is True, also load nested requirements and
+        constraints files -r/--requirements and -c/--constraints recursively.
+
+        If ``is_constraint`` is True, tag the ParsedLine as being "constraint"
+        originating from a "constraint" file rather than a requirements file.
+        """
+        yield from self._parse_and_recurse(
+            filename=filename,
+            is_constraint=is_constraint,
+            include_nested=include_nested,
+        )
 
     def _parse_and_recurse(
-        self, filename: str, constraint: bool
-    ) -> Iterator[ParsedLine]:
-        for line in self._parse_file(filename, constraint):
-            if not line.is_requirement and (
-                line.opts.requirements or line.opts.constraints
+        self, 
+        filename: str, 
+        is_constraint: bool, 
+        include_nested: bool = True
+    ) -> Iterator[Union[ParsedLine, InvalidRequirementLine, CommentRequirementLine]]:
+        """
+        Parse a requirements ``filename``, yielding ParsedLine,
+        InvalidRequirementLine or CommentRequirementLine.
+
+        If ``include_nested`` is True, also load nested requirements and
+        constraints files -r/--requirements and -c/--constraints recursively.
+
+        If ``is_constraint`` is True, tag the ParsedLine as being "constraint"
+        originating from a "constraint" file rather than a requirements file.
+        """
+        for line in self._parse_file(filename=filename, is_constraint=is_constraint):
+
+            if (include_nested 
+                and isinstance(line, ParsedLine) 
+                and not line.is_requirement and
+                (line.options.requirements or line.options.constraints)
             ):
                 # parse a nested requirements file
-                if line.opts.requirements:
-                    req_path = line.opts.requirements[0]
-                    nested_constraint = False
+                if line.options.requirements:
+                    if len(line.options.requirements) !=1:
+                        # FIXME: this should be an error condition
+                        pass
+                    req_path = line.options.requirements[0]
+                    is_nested_constraint = False
+
                 else:
-                    req_path = line.opts.constraints[0]
-                    nested_constraint = True
+                    if len(line.options.constraints) !=1:
+                        # FIXME: this should be an error condition
+                        pass
+                    req_path = line.options.constraints[0]
+                    is_nested_constraint = True
 
                 # original file is over http
                 if SCHEME_RE.search(filename):
                     # do a url join so relative paths work
                     req_path = urllib.parse.urljoin(filename, req_path)
+                
                 # original file and nested file are paths
                 elif not SCHEME_RE.search(req_path):
                     # do a join so relative paths work
@@ -1034,30 +1160,56 @@ class RequirementsFileParser:
                         req_path,
                     )
 
-                yield from self._parse_and_recurse(req_path, nested_constraint)
+                yield from self._parse_and_recurse(
+                    filename=req_path, 
+                    is_constraint=is_nested_constraint,
+                    include_nested=include_nested,
+                )
             else:
                 yield line
 
-    def _parse_file(self, filename: str, constraint: bool) -> Iterator[ParsedLine]:
-        _, content = get_file_content(filename)
+    def _parse_file(self, filename: str, is_constraint: bool
+    ) -> Iterator[Union[ParsedLine, InvalidRequirementLine, CommentRequirementLine]]:
+        """
+        Parse a single requirements ``filename``, yielding ParsedLine,
+        InvalidRequirementLine or CommentRequirementLine.
 
-        lines_enum = preprocess(content)
+        If ``is_constraint`` is True, tag the ParsedLine as being "constraint"
+        originating from a "constraint" file rather than a requirements file.
+        """
+        content = get_file_content(filename)
+        numbered_lines = preprocess(content)
 
-        for line_number, line in lines_enum:
-            try:
-                args_str, opts = self._line_parser(line)
-            except OptionParsingError as e:
-                # add offending line
-                msg = f"Invalid requirement: {line}\n{e.msg}"
-                raise RequirementsFileParseError(msg)
+        for numbered_line in numbered_lines:
+            line_number, line = numbered_line
 
-            yield ParsedLine(
-                filename,
-                line_number,
-                args_str,
-                opts,
-                constraint,
+            if isinstance(numbered_line, CommentLine):
+                yield CommentRequirementLine(
+                    line=line,
+                    line_number=line_number,
+                    filename=filename,
+                )
+                continue
+
+            requirement_line = RequirementLine(
+                line=line,
+                line_number=line_number,
+                filename=filename,
             )
+            try:
+                requirement_string, options = self._line_parser(line)
+                yield ParsedLine(
+                    requirement_string=requirement_string,
+                    options=options,
+                    is_constraint=is_constraint,
+                    requirement_line=requirement_line,
+                )
+            except Exception as e:
+                # return offending line
+                yield InvalidRequirementLine(
+                    requirement_line=requirement_line,
+                    error_message=str(e),
+                )
 
 
 def get_line_parser(finder: Optional["PackageFinder"]) -> LineParser:
@@ -1155,31 +1307,47 @@ def join_lines(lines_enum: ReqFileLines) -> ReqFileLines:
     # TODO: handle space after '\'.
 
 
-def ignore_comments(lines_enum: ReqFileLines) -> ReqFileLines:
+def split_comments(lines_enum: ReqFileLines) -> ReqFileLines:
     """
-    Strips comments and filter empty lines.
+    Split comments from text, strip text and filter empty lines.
+    Yield TextLine or Commentline
     """
     for line_number, line in lines_enum:
-        line = COMMENT_RE.sub("", line)
-        line = line.strip()
-        if line:
-            yield line_number, line
+        parts = [l.strip() for l in COMMENT_RE.split(line) if l.strip()]
+
+        if len(parts) == 1:
+            part = parts[0]
+            if part.startswith('#'):
+                yield CommentLine(line_number=line_number, line=part)
+            else:
+                yield TextLine(line_number=line_number, line=part)
+
+        elif len(parts) == 2:
+            line, comment = parts
+            yield TextLine(line_number=line_number, line=line)
+            yield CommentLine(line_number=line_number, line=comment)
+
+        else:
+            if parts:
+                # this should not ever happen
+                raise Exception(f"Invalid line/comment: {line!r}")
 
 
-def get_file_content(url: str) -> Tuple[str, str]:
-    """Gets the content of a file; it may be a filename, file: URL, or
-    http: URL.  Returns (location, content).  Content is unicode.
+def get_file_content(filename: str) -> str:
+    """
+    Return the unicode text content of a filename.
     Respects # -*- coding: declarations on the retrieved files.
 
-    :param url:         File path or url.
+    :param filename:         File path.
     """
-    # Assume this is a bare path.
     try:
-        with open(url, "rb") as f:
+        with open(filename, "rb") as f:
             content = auto_decode(f.read())
     except OSError as exc:
-        raise InstallationError(f"Could not open requirements file: {exc}")
-    return url, content
+        raise InstallationError(
+            f"Could not open requirements file: {filename}|n{exc}"
+        )
+    return content
 
 # PIPREQPARSE: end src/pip/_internal/req/from req_file.py
 ################################################################################
@@ -1192,16 +1360,6 @@ def get_url_scheme(url: str) -> Optional[str]:
     if ":" not in url:
         return None
     return url.split(":", 1)[0].lower()
-
-
-def path_to_url(path: str) -> str:
-    """
-    Convert a path to a file: URL.  The path will be made absolute and have
-    quoted path parts.
-    """
-    path = os.path.normpath(os.path.abspath(path))
-    url = urllib.parse.urljoin("file:", urllib.request.pathname2url(path))
-    return url
 
 
 def url_to_path(url: str) -> str:
@@ -1430,17 +1588,6 @@ class KeyBasedCompareMixin:
 NormalizedExtra = NewType("NormalizedExtra", str)
 
 
-@functools.lru_cache(maxsize=512)
-def get_requirement(req_string: str) -> Requirement:
-    """Construct a packaging.Requirement object with caching"""
-    # Parsing requirement strings is expensive, and is also expected to happen
-    # with a low diversity of different arguments (at least relative the number
-    # constructed). This method adds a cache to requirement object creation to
-    # minimize repeated parsing of the same string to construct equivalent
-    # Requirement objects.
-    return Requirement(req_string)
-
-
 def safe_extra(extra: str) -> NormalizedExtra:
     """Convert an arbitrary string to a standard 'extra' name
 
@@ -1468,70 +1615,24 @@ class Link(KeyBasedCompareMixin):
     __slots__ = [
         "_parsed_url",
         "_url",
-        "comes_from",
-        "requires_python",
-        "yanked_reason",
-        "cache_link_parsing",
     ]
 
     def __init__(
         self,
         url: str,
-        comes_from: Optional[Union[str, "HTMLPage"]] = None,
-        requires_python: Optional[str] = None,
-        yanked_reason: Optional[str] = None,
-        cache_link_parsing: bool = True,
     ) -> None:
         """
         :param url: url of the resource pointed to (href of the link)
-        :param comes_from: instance of HTMLPage where the link was found,
-            or string.
-        :param requires_python: String containing the `Requires-Python`
-            metadata field, specified in PEP 345. This may be specified by
-            a data-requires-python attribute in the HTML link tag, as
-            described in PEP 503.
-        :param yanked_reason: the reason the file has been yanked, if the
-            file has been yanked, or None if the file hasn't been yanked.
-            This is the value of the "data-yanked" attribute, if present, in
-            a simple repository HTML link. If the file has been yanked but
-            no reason was provided, this should be the empty string. See
-            PEP 592 for more information and the specification.
-        :param cache_link_parsing: A flag that is used elsewhere to determine
-                                   whether resources retrieved from this link
-                                   should be cached. PyPI index urls should
-                                   generally have this set to False, for
-                                   example.
         """
-
-        # url can be a UNC windows share
-        if url.startswith("\\\\"):
-            url = path_to_url(url)
 
         self._parsed_url = urllib.parse.urlsplit(url)
         # Store the url as a private attribute to prevent accidentally
         # trying to set a new value.
         self._url = url
-
-        self.comes_from = comes_from
-        self.requires_python = requires_python if requires_python else None
-        self.yanked_reason = yanked_reason
-
         super().__init__(key=url, defining_class=Link)
 
-        self.cache_link_parsing = cache_link_parsing
-
     def __str__(self) -> str:
-        redact_auth_from_url = lambda x: x
-        if self.requires_python:
-            rp = f" (requires-python:{self.requires_python})"
-        else:
-            rp = ""
-        if self.comes_from:
-            return "{} (from {}){}".format(
-                redact_auth_from_url(self._url), self.comes_from, rp
-            )
-        else:
-            return redact_auth_from_url(str(self._url))
+        return self.url
 
     def __repr__(self) -> str:
         return f"<Link {self}>"
@@ -1547,7 +1648,7 @@ class Link(KeyBasedCompareMixin):
         if not name:
             # Make sure we don't leak auth information if the netloc
             # includes a username and password.
-            netloc, user_pass = split_auth_from_netloc(self.netloc)
+            netloc, _user_pass = split_auth_from_netloc(self.netloc)
             return netloc
 
         name = urllib.parse.unquote(name)
@@ -1582,7 +1683,7 @@ class Link(KeyBasedCompareMixin):
 
     @property
     def url_without_fragment(self) -> str:
-        scheme, netloc, path, query, fragment = self._parsed_url
+        scheme, netloc, path, query, _fragment = self._parsed_url
         return urllib.parse.urlunsplit((scheme, netloc, path, query, ""))
 
     _egg_fragment_re = re.compile(r"[#&]egg=([^&]*)")
@@ -1629,9 +1730,6 @@ class Link(KeyBasedCompareMixin):
     def is_file(self) -> bool:
         return self.scheme == "file"
 
-    def is_existing_dir(self) -> bool:
-        return self.is_file and os.path.isdir(self.file_path)
-
     @property
     def is_wheel(self) -> bool:
         return self.ext == WHEEL_EXTENSION
@@ -1639,10 +1737,6 @@ class Link(KeyBasedCompareMixin):
     @property
     def is_vcs(self) -> bool:
         return self.scheme in vcs_all_schemes
-
-    @property
-    def is_yanked(self) -> bool:
-        return self.yanked_reason is not None
 
     @property
     def has_hash(self) -> bool:
@@ -1740,49 +1834,26 @@ class InstallRequirement:
     def __init__(
         self,
         req: Optional[Requirement],
-        comes_from: Optional[Union[str, "InstallRequirement"]],
-        editable: bool = False,
+        requirement_line: Optional[Union[str, "RequirementLine"]],
+        is_editable: bool = False,
         link: Optional[Link] = None,
         markers: Optional[Marker] = None,
-        use_pep517: Optional[bool] = None,
-        isolated: bool = False,
         install_options: Optional[List[str]] = None,
         global_options: Optional[List[str]] = None,
         hash_options: Optional[Dict[str, List[str]]] = None,
-        constraint: bool = False,
+        is_constraint: bool = False,
         extras: Collection[str] = (),
-        user_supplied: bool = False,
-        permit_editable_wheels: bool = False,
     ) -> None:
         assert req is None or isinstance(req, Requirement), req
         self.req = req
-        self.comes_from = comes_from
-        self.constraint = constraint
-        self.editable = editable
-        self.permit_editable_wheels = permit_editable_wheels
-        self.legacy_install_reason: Optional[int] = None
-
-        # source_dir is the local directory where the linked requirement is
-        # located, or unpacked. In case unpacking is needed, creating and
-        # populating source_dir is done by the RequirementPreparer. Note this
-        # is not necessarily the directory where pyproject.toml or setup.py is
-        # located - that one is obtained via unpacked_source_directory.
-        self.source_dir: Optional[str] = None
-        if self.editable:
-            assert link
-            if link.is_file:
-                self.source_dir = os.path.normpath(os.path.abspath(link.file_path))
+        self.requirement_line = requirement_line
+        self.is_constraint = is_constraint
+        self.is_editable = is_editable
 
         if link is None and req and req.url:
             # PEP 508 URL requirement
             link = Link(req.url)
-        self.link = self.original_link = link
-        self.original_link_is_in_wheel_cache = False
-
-        # Path to any downloaded or already-existing package.
-        self.local_file_path: Optional[str] = None
-        if self.link and self.link.is_file:
-            self.local_file_path = self.link.file_path
+        self.link = link
 
         if extras:
             self.extras = extras
@@ -1790,60 +1861,41 @@ class InstallRequirement:
             self.extras = {safe_extra(extra) for extra in req.extras}
         else:
             self.extras = set()
+
         if markers is None and req:
             markers = req.marker
         self.markers = markers
 
         # Supplied options
-        self.install_options = install_options if install_options else []
-        self.global_options = global_options if global_options else []
-        self.hash_options = hash_options if hash_options else {}
-
-        self.isolated = isolated
-
-        # Are we using PEP 517 for this requirement?
-        # After pyproject.toml has been loaded, the only valid values are True
-        # and False. Before loading, None is valid (meaning "use the default").
-        # Setting an explicit value before loading pyproject.toml is supported,
-        # but after loading this flag should be treated as read only.
-        self.use_pep517 = use_pep517
+        self.install_options = install_options or []
+        self.global_options = global_options or []
+        self.hash_options = hash_options or {}
 
     def __str__(self) -> str:
-        redact_auth_from_url = lambda x: x
         if self.req:
             s = str(self.req)
             if self.link:
-                s += " from {}".format(redact_auth_from_url(self.link.url))
+                s += " from {}".format(self.link.url)
         elif self.link:
-            s = redact_auth_from_url(self.link.url)
+            s = self.link.url
         else:
             s = "<InstallRequirement>"
-        if self.comes_from:
-            if isinstance(self.comes_from, str):
-                comes_from: Optional[str] = self.comes_from
-            else:
-                comes_from = self.comes_from.from_path()
-            if comes_from:
-                s += f" (from {comes_from})"
+        if self.requirement_line:
+            s += f" (from {self.requirement_line})"
         return s
 
     def __repr__(self) -> str:
-        return "<{} object: {} editable={!r}>".format(
-            self.__class__.__name__, str(self), self.editable
+        return "<{} object: {} is_editable={!r}>".format(
+            self.__class__.__name__, str(self), self.is_editable
         )
 
-
-    # Things that are valid for all kinds of requirements?
     @property
     def name(self) -> Optional[str]:
-        if self.req is None:
-            return None
-        return self.req.name
-
+        return self.req and self.req.name or None
 
     @property
     def specifier(self) -> SpecifierSet:
-        return self.req.specifier
+        return self.req and self.req.specifier or None
 
     @property
     def is_pinned(self) -> bool:
@@ -1852,7 +1904,7 @@ class InstallRequirement:
         For example, some-package==1.2 is pinned; some-package>1.2 is not.
         """
         specifiers = self.specifier
-        return len(specifiers) == 1 and next(iter(specifiers)).operator in {"==", "==="}
+        return specifiers and len(specifiers) == 1 and next(iter(specifiers)).operator in {"==", "==="}
 
     def match_markers(self, extras_requested: Optional[Iterable[str]] = None) -> bool:
         if not extras_requested:
@@ -1866,17 +1918,7 @@ class InstallRequirement:
         else:
             return True
 
-    @property
-    def has_hash_options(self) -> bool:
-        """Return whether any known-good hashes are specified as options.
-
-        These activate --require-hashes mode; hashes specified as part of a
-        URL do not.
-
-        """
-        return bool(self.hash_options)
-
-    def hashes(self, trust_internet: bool = True) -> Hashes:
+    def hashes(self) -> Hashes:
         """Return a hash-comparer that considers my option- and URL-based
         hashes to be known-good.
 
@@ -1886,48 +1928,57 @@ class InstallRequirement:
         explicitly activated) but do not activate it. md5 and sha224 are not
         allowed in flags, which should nudge people toward good algos. We
         always OR all hashes together, even ones from URLs.
-
-        :param trust_internet: Whether to trust URL-based (#md5=...) hashes
-            downloaded from the internet, as by populate_link()
-
         """
         good_hashes = self.hash_options.copy()
-        link = self.link if trust_internet else self.original_link
+        link = self.link
         if link and link.hash:
             good_hashes.setdefault(link.hash_name, []).append(link.hash)
         return Hashes(good_hashes)
 
-    def from_path(self) -> Optional[str]:
-        """Format a nice indicator to show where this "comes from" """
-        if self.req is None:
-            return None
-        s = str(self.req)
-        if self.comes_from:
-            if isinstance(self.comes_from, str):
-                comes_from = self.comes_from
-            else:
-                comes_from = self.comes_from.from_path()
-            if comes_from:
-                s += "->" + comes_from
-        return s
-
-    # Things valid for wheels
     @property
     def is_wheel(self) -> bool:
         if not self.link:
             return False
         return self.link.is_wheel
 
-    @property
-    def metadata(self) -> Any:
-        if not hasattr(self, "_metadata"):
-            self._metadata = self.get_dist().metadata
-
-        return self._metadata
-
 # PIPREQPARSE: end from src/pip/_internal/req/req_install.py
 ################################################################################
 
+def specifier_key(spec):
+    """
+    A key function to sort packaging.Specifier
+    """
+    return spec.version, spec.operator
+
+
+def ireq_to_dict(ireq: InstallRequirement) -> Dict:
+    """
+    Return a mapping of plain Pythomn object representing the ``ireq``
+    InstallRequirement. 
+    """
+    if ireq.req:
+        specifier = [
+            str(s) 
+            for s in sorted(ireq.specifier or [], key=specifier_key)
+        ]
+    else:
+        specifier = []
+    return dict(
+        name=ireq.name,
+        specifier=specifier,
+        is_editable=ireq.is_editable,
+        is_pinned= ireq.req and ireq.is_pinned or False,
+        requirement_line=ireq.requirement_line.to_dict(),
+        link=ireq.link and ireq.link.url or None,
+        markers=ireq.markers and str(ireq.markers) or None,
+        install_options=ireq.install_options,
+        global_options=ireq.global_options,
+        hash_options=ireq.hash_options or {},
+        is_constraint=ireq.is_constraint,
+        extras=ireq.extras and sorted(ireq.extras) or [],
+    )
+
+InstallRequirement.to_dict = ireq_to_dict
 
 ################################################################################
 # PIPREQPARSE: from src/pip/_internal/vcs/versioncontrol.py
@@ -1959,23 +2010,6 @@ def is_url(name: str) -> bool:
 # PIPREQPARSE: from src/pip/_internal/utils/misc.py
 
 NetlocTuple = Tuple[str, Tuple[Optional[str], Optional[str]]]
-
-
-def is_installable_dir(path: str) -> bool:
-    """Is path is a directory containing pyproject.toml or setup.py?
-
-    If pyproject.toml exists, this is a PEP 517 project. Otherwise we look for
-    a legacy setuptools layout by identifying setup.py. We don't check for the
-    setup.cfg because using it without setup.py is only available for PEP 517
-    projects, which are already covered by the pyproject.toml check.
-    """
-    if not os.path.isdir(path):
-        return False
-    if os.path.isfile(os.path.join(path, "pyproject.toml")):
-        return True
-    if os.path.isfile(os.path.join(path, "setup.py")):
-        return True
-    return False
 
 
 def read_chunks(file: BinaryIO, size: int = io.DEFAULT_BUFFER_SIZE) -> Iterator[bytes]:
@@ -2078,7 +2112,7 @@ def _strip_extras(path: str) -> Tuple[str, Optional[str]]:
 def convert_extras(extras: Optional[str]) -> Set[str]:
     if not extras:
         return set()
-    return get_requirement("placeholder" + extras.lower()).extras
+    return Requirement("placeholder" + extras.lower()).extras
 
 
 def parse_editable(editable_req: str) -> Tuple[Optional[str], str, Set[str]]:
@@ -2097,17 +2131,13 @@ def parse_editable(editable_req: str) -> Tuple[Optional[str], str, Set[str]]:
     # If a file path is specified with extras, strip off the extras.
     url_no_extras, extras = _strip_extras(url)
 
-    if os.path.isdir(url_no_extras):
-        # Treating it as code that has already been checked out
-        url_no_extras = path_to_url(url_no_extras)
-
-    if url_no_extras.lower().startswith("file:"):
+    if url_no_extras.lower().startswith(("file:", ".",)):
         package_name = Link(url_no_extras).egg_fragment
         if extras:
             return (
                 package_name,
                 url_no_extras,
-                get_requirement("placeholder" + extras.lower()).extras,
+                Requirement("placeholder" + extras.lower()).extras,
             )
         else:
             return package_name, url_no_extras, set()
@@ -2119,7 +2149,7 @@ def parse_editable(editable_req: str) -> Tuple[Optional[str], str, Set[str]]:
 
     link = Link(url)
 
-    if not link.is_vcs:
+    if not link.is_vcs or not _looks_like_path(url):
         backends = ", ".join(vcs_all_schemes)
         raise InstallationError(
             f"{editable_req} is not a valid editable requirement. "
@@ -2134,59 +2164,6 @@ def parse_editable(editable_req: str) -> Tuple[Optional[str], str, Set[str]]:
             "with #egg=your_package_name".format(editable_req)
         )
     return package_name, url, set()
-
-
-def check_first_requirement_in_file(filename: str) -> None:
-    """Check if file is parsable as a requirements file.
-
-    This is heavily based on ``pkg_resources.parse_requirements``, but
-    simplified to just check the first meaningful line.
-
-    :raises InvalidRequirement: If the first meaningful line cannot be parsed
-        as an requirement.
-    """
-    with open(filename, encoding="utf-8", errors="ignore") as f:
-        # Create a steppable iterator, so we can handle \-continuations.
-        lines = (
-            line
-            for line in (line.strip() for line in f)
-            if line and not line.startswith("#")  # Skip blank lines/comments.
-        )
-
-        for line in lines:
-            # Drop comments -- a hash without a space may be in a URL.
-            if " #" in line:
-                line = line[: line.find(" #")]
-            # If there is a line continuation, drop it, and append the next line.
-            if line.endswith("\\"):
-                line = line[:-2].strip() + next(lines, "")
-            Requirement(line)
-            return
-
-
-def deduce_helpful_msg(req: str) -> str:
-    """Returns helpful msg in case requirements file does not exist,
-    or cannot be parsed.
-
-    :params req: Requirements file path
-    """
-    if not os.path.exists(req):
-        return f" File '{req}' does not exist."
-    msg = " The path does exist. "
-    # Try to parse and check if it is a requirements file.
-    try:
-        check_first_requirement_in_file(req)
-    except InvalidRequirement:
-        logger.debug("Cannot parse '%s' as requirements file", req)
-    else:
-        msg += (
-            f"The argument you provided "
-            f"({req}) appears to be a"
-            f" requirements file. If that is the"
-            f" case, use the '-r' flag to install"
-            f" the packages specified within it."
-        )
-    return msg
 
 
 class RequirementParts:
@@ -2204,6 +2181,7 @@ class RequirementParts:
 
 
 def parse_req_from_editable(editable_req: str) -> RequirementParts:
+
     name, url, extras_override = parse_editable(editable_req)
 
     if name is not None:
@@ -2216,7 +2194,12 @@ def parse_req_from_editable(editable_req: str) -> RequirementParts:
 
     link = Link(url)
 
-    return RequirementParts(req, link, None, extras_override)
+    return RequirementParts(
+        requirement=req, 
+        link=link, 
+        markers=None, 
+        extras=extras_override,
+    )
 
 
 # ---- The actual constructors follow ----
@@ -2224,27 +2207,19 @@ def parse_req_from_editable(editable_req: str) -> RequirementParts:
 
 def install_req_from_editable(
     editable_req: str,
-    comes_from: Optional[Union[InstallRequirement, str]] = None,
-    use_pep517: Optional[bool] = None,
-    isolated: bool = False,
+    requirement_line: Optional[RequirementLine] = None,
     options: Optional[Dict[str, Any]] = None,
-    constraint: bool = False,
-    user_supplied: bool = False,
-    permit_editable_wheels: bool = False,
+    is_constraint: bool = False,
 ) -> InstallRequirement:
 
     parts = parse_req_from_editable(editable_req)
 
     return InstallRequirement(
-        parts.requirement,
-        comes_from=comes_from,
-        user_supplied=user_supplied,
-        editable=True,
-        permit_editable_wheels=permit_editable_wheels,
+        req=parts.requirement,
+        requirement_line=requirement_line,
+        is_editable=True,
         link=parts.link,
-        constraint=constraint,
-        use_pep517=use_pep517,
-        isolated=isolated,
+        is_constraint=is_constraint,
         install_options=options.get("install_options", []) if options else [],
         global_options=options.get("global_options", []) if options else [],
         hash_options=options.get("hashes", {}) if options else {},
@@ -2280,32 +2255,25 @@ def _get_url_from_path(path: str, name: str) -> Optional[str]:
     The function checks if the path is a file. If false, if the path has
     an @, it will treat it as a PEP 440 URL requirement and return the path.
     """
-    if _looks_like_path(name) and os.path.isdir(path):
-        if is_installable_dir(path):
-            return path_to_url(path)
-        # TODO: The is_installable_dir test here might not be necessary
-        #       now that it is done in load_pyproject_toml too.
-        raise InstallationError(
-            f"Directory {name!r} is not installable. Neither 'setup.py' "
-            "nor 'pyproject.toml' found."
-        )
+    if _looks_like_path(name):
+        return path
+
     if not is_archive_file(path):
         return None
-    if os.path.isfile(path):
-        return path_to_url(path)
+
     urlreq_parts = name.split("@", 1)
     if len(urlreq_parts) >= 2 and not _looks_like_path(urlreq_parts[0]):
         # If the path contains '@' and the part before it does not look
         # like a path, try to treat it as a PEP 440 URL req instead.
         return None
-    logger.warning(
-        "Requirement %r looks like a filename, but the file does not exist",
-        name,
-    )
-    return path_to_url(path)
+    return path
 
 
-def parse_req_from_line(name: str, line_source: Optional[str]) -> RequirementParts:
+def parse_req_from_line(name: str) -> RequirementParts:
+    """
+    Return RequirementParts from a requirfement ``name`` string.
+    Raise exceptions on error.
+    """
     if is_url(name):
         marker_sep = "; "
     else:
@@ -2321,7 +2289,7 @@ def parse_req_from_line(name: str, line_source: Optional[str]) -> RequirementPar
         markers = None
     name = name.strip()
     req_as_string = None
-    path = os.path.normpath(os.path.abspath(name))
+    path = name
     link = None
     extras_as_string = None
 
@@ -2337,7 +2305,7 @@ def parse_req_from_line(name: str, line_source: Optional[str]) -> RequirementPar
     if link:
         # Handle relative file URLs
         if link.scheme == "file" and re.search(r"\.\./", link.url):
-            link = Link(path_to_url(os.path.normpath(os.path.abspath(link.path))))
+            link = Link(link.path)
         # wheel file
         if link.is_wheel:
             wheel = Wheel(link.filename)  # can raise InvalidWheelFilename
@@ -2353,25 +2321,20 @@ def parse_req_from_line(name: str, line_source: Optional[str]) -> RequirementPar
 
     extras = convert_extras(extras_as_string)
 
-    def with_source(text: str) -> str:
-        if not line_source:
-            return text
-        return f"{text} (from {line_source})"
-
     def _parse_req_string(req_as_string: str) -> Requirement:
         try:
-            req = get_requirement(req_as_string)
+            req = Requirement(req_as_string)
         except InvalidRequirement:
             if os.path.sep in req_as_string:
                 add_msg = "It looks like a path."
-                add_msg += deduce_helpful_msg(req_as_string)
+                # add_msg += deduce_helpful_msg(req_as_string)
             elif "=" in req_as_string and not any(
                 op in req_as_string for op in operators
             ):
                 add_msg = "= is not a valid operator. Did you mean == ?"
             else:
                 add_msg = ""
-            msg = with_source(f"Invalid requirement: {req_as_string!r}")
+            msg = "Invalid requirement"
             if add_msg:
                 msg += f"\nHint: {add_msg}"
             raise InstallationError(msg)
@@ -2397,104 +2360,48 @@ def parse_req_from_line(name: str, line_source: Optional[str]) -> RequirementPar
 
 def install_req_from_line(
     name: str,
-    comes_from: Optional[Union[str, InstallRequirement]] = None,
-    use_pep517: Optional[bool] = None,
-    isolated: bool = False,
     options: Optional[Dict[str, Any]] = None,
-    constraint: bool = False,
-    line_source: Optional[str] = None,
-    user_supplied: bool = False,
+    is_constraint: bool = False,
+    requirement_line: Optional[RequirementLine] = None,
 ) -> InstallRequirement:
     """Creates an InstallRequirement from a name, which might be a
     requirement, directory containing 'setup.py', filename, or URL.
 
-    :param line_source: An optional string describing where the line is from,
-        for logging purposes in case of an error.
+    :param requirement_line: An optional RequirementLine describing where the
+        line is from, for logging purposes in case of an error.
     """
-    parts = parse_req_from_line(name, line_source)
+    parts = parse_req_from_line(name=name)
 
     return InstallRequirement(
-        parts.requirement,
-        comes_from,
+        req=parts.requirement,
+        requirement_line=requirement_line,
         link=parts.link,
         markers=parts.markers,
-        use_pep517=use_pep517,
-        isolated=isolated,
         install_options=options.get("install_options", []) if options else [],
         global_options=options.get("global_options", []) if options else [],
         hash_options=options.get("hashes", {}) if options else {},
-        constraint=constraint,
+        is_constraint=is_constraint,
         extras=parts.extras,
-        user_supplied=user_supplied,
-    )
-
-
-def install_req_from_req_string(
-    req_string: str,
-    comes_from: Optional[InstallRequirement] = None,
-    isolated: bool = False,
-    use_pep517: Optional[bool] = None,
-    user_supplied: bool = False,
-) -> InstallRequirement:
-    try:
-        req = get_requirement(req_string)
-    except InvalidRequirement:
-        raise InstallationError(f"Invalid requirement: '{req_string}'")
-
-    domains_not_allowed = [
-        PyPI.file_storage_domain,
-        TestPyPI.file_storage_domain,
-    ]
-    if (
-        req.url
-        and comes_from
-        and comes_from.link
-        and comes_from.link.netloc in domains_not_allowed
-    ):
-        # Explicitly disallow pypi packages that depend on external urls
-        raise InstallationError(
-            "Packages installed from PyPI cannot depend on packages "
-            "which are not also hosted on PyPI.\n"
-            "{} depends on {} ".format(comes_from.name, req)
-        )
-
-    return InstallRequirement(
-        req,
-        comes_from,
-        isolated=isolated,
-        use_pep517=use_pep517,
-        user_supplied=user_supplied,
     )
 
 
 def install_req_from_parsed_requirement(
     parsed_req: ParsedRequirement,
-    isolated: bool = False,
-    use_pep517: Optional[bool] = None,
-    user_supplied: bool = False,
 ) -> InstallRequirement:
+
     if parsed_req.is_editable:
-        req = install_req_from_editable(
-            parsed_req.requirement,
-            comes_from=parsed_req.comes_from,
-            use_pep517=use_pep517,
-            constraint=parsed_req.constraint,
-            isolated=isolated,
-            user_supplied=user_supplied,
+        return install_req_from_editable(
+            editable_req=parsed_req.requirement_string,
+            is_constraint=parsed_req.is_constraint,
+            requirement_line=parsed_req.requirement_line,
         )
 
-    else:
-        req = install_req_from_line(
-            parsed_req.requirement,
-            comes_from=parsed_req.comes_from,
-            use_pep517=use_pep517,
-            isolated=isolated,
-            options=parsed_req.options,
-            constraint=parsed_req.constraint,
-            line_source=parsed_req.line_source,
-            user_supplied=user_supplied,
+    return install_req_from_line(
+        name=parsed_req.requirement_string,
+        options=parsed_req.options,
+        is_constraint=parsed_req.is_constraint,
+        requirement_line=parsed_req.requirement_line,
         )
-    return req
 
 # PIPREQPARSE: end from src/pip/_internal/req/constructors.py
 ################################################################################

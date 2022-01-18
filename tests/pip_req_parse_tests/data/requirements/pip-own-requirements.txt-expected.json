@@ -1,0 +1,947 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": "sphinx",
+      "specifier": [
+        "~=4.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "sphinx ~= 4.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "towncrier",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "towncrier"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "furo",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "furo"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "myst_parser",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "myst_parser"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "sphinx-copybutton",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "sphinx-copybutton"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "sphinx-inline-tabs",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "sphinx-inline-tabs"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "sphinxcontrib-towncrier",
+      "specifier": [
+        ">=0.2.0a0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 9,
+        "line": "sphinxcontrib-towncrier >= 0.2.0a0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 13,
+        "line": "."
+      },
+      "link": ".",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "cryptography",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 18,
+        "line": "cryptography"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "freezegun",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 19,
+        "line": "freezegun"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pytest",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 20,
+        "line": "pytest"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pytest-cov",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 21,
+        "line": "pytest-cov"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pytest-rerunfailures",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 22,
+        "line": "pytest-rerunfailures"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pytest-xdist",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 23,
+        "line": "pytest-xdist"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "scripttest",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 24,
+        "line": "scripttest"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "setuptools",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "setuptools"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "virtualenv",
+      "specifier": [
+        "<20.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 26,
+        "line": "virtualenv < 20.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "werkzeug",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 27,
+        "line": "werkzeug"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "wheel",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 28,
+        "line": "wheel"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "tomli-w",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 29,
+        "line": "tomli-w"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "setuptools",
+      "specifier": [
+        ">=40.8.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 41,
+        "line": "setuptools >= 40.8.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "wheel",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 42,
+        "line": "wheel"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "coverage",
+      "specifier": [
+        ">=4.4"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 44,
+        "line": "coverage >= 4.4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "CacheControl",
+      "specifier": [
+        "==0.12.6"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 48,
+        "line": "CacheControl==0.12.6"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "colorama",
+      "specifier": [
+        "==0.4.4"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 49,
+        "line": "colorama==0.4.4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "distlib",
+      "specifier": [
+        "==0.3.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 50,
+        "line": "distlib==0.3.3"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "distro",
+      "specifier": [
+        "==1.6.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 51,
+        "line": "distro==1.6.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "html5lib",
+      "specifier": [
+        "==1.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 52,
+        "line": "html5lib==1.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "msgpack",
+      "specifier": [
+        "==1.0.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 53,
+        "line": "msgpack==1.0.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "packaging",
+      "specifier": [
+        "==21.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 54,
+        "line": "packaging==21.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pep517",
+      "specifier": [
+        "==0.12.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 55,
+        "line": "pep517==0.12.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "platformdirs",
+      "specifier": [
+        "==2.4.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 56,
+        "line": "platformdirs==2.4.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "progress",
+      "specifier": [
+        "==1.6"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 57,
+        "line": "progress==1.6"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pyparsing",
+      "specifier": [
+        "==2.4.7"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 58,
+        "line": "pyparsing==2.4.7"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "requests",
+      "specifier": [
+        "==2.26.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 59,
+        "line": "requests==2.26.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "certifi",
+      "specifier": [
+        "==2021.05.30"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 60,
+        "line": "certifi==2021.05.30"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "chardet",
+      "specifier": [
+        "==4.0.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 61,
+        "line": "chardet==4.0.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "idna",
+      "specifier": [
+        "==3.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 62,
+        "line": "idna==3.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "urllib3",
+      "specifier": [
+        "==1.26.7"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 63,
+        "line": "urllib3==1.26.7"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "rich",
+      "specifier": [
+        "==10.14.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 64,
+        "line": "rich==10.14.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pygments",
+      "specifier": [
+        "==2.10.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 65,
+        "line": "pygments==2.10.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "typing_extensions",
+      "specifier": [
+        "==3.10.0.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 66,
+        "line": "typing_extensions==3.10.0.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "resolvelib",
+      "specifier": [
+        "==0.8.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 67,
+        "line": "resolvelib==0.8.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "setuptools",
+      "specifier": [
+        "==44.0.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 68,
+        "line": "setuptools==44.0.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "six",
+      "specifier": [
+        "==1.16.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 69,
+        "line": "six==1.16.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "tenacity",
+      "specifier": [
+        "==8.0.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 70,
+        "line": "tenacity==8.0.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "tomli",
+      "specifier": [
+        "==1.0.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 71,
+        "line": "tomli==1.0.3"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "webencodings",
+      "specifier": [
+        "==0.5.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 72,
+        "line": "webencodings==0.5.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# from https://github.com/pypa/pip/blob/914178b5b963dbbd9585b432617f91f4a8fce28c/docs/requirements.txt"
+    },
+    {
+      "line_number": 11,
+      "line": "# `docs.pipext` uses pip's internals to generate documentation. So, we install"
+    },
+    {
+      "line_number": 12,
+      "line": "# the current directory to make it work."
+    },
+    {
+      "line_number": 16,
+      "line": "# from https://github.com/pypa/pip/blob/914178b5b963dbbd9585b432617f91f4a8fce28c/tests/requirements.txt"
+    },
+    {
+      "line_number": 32,
+      "line": "# from https://github.com/pypa/pip/blob/914178b5b963dbbd9585b432617f91f4a8fce28c/tests/requirements-common_wheels.txt"
+    },
+    {
+      "line_number": 34,
+      "line": "# Create local setuptools wheel files for testing by:"
+    },
+    {
+      "line_number": 35,
+      "line": "# 1. Cloning setuptools and checking out the branch of interest"
+    },
+    {
+      "line_number": 36,
+      "line": "# 2. Running `python3 bootstrap.py` in that directory"
+    },
+    {
+      "line_number": 37,
+      "line": "# 3. Running `python3 -m pip wheel --no-cache -w /tmp/setuptools_build_meta_legacy/ .`"
+    },
+    {
+      "line_number": 38,
+      "line": "# 4. Replacing the `setuptools` entry below with a `file:///...` URL"
+    },
+    {
+      "line_number": 39,
+      "line": "# (Adjust artifact directory used based on preference and operating system)"
+    },
+    {
+      "line_number": 43,
+      "line": "# As required by pytest-cov."
+    },
+    {
+      "line_number": 46,
+      "line": "# from https://github.com/pypa/pip/blob/914178b5b963dbbd9585b432617f91f4a8fce28c/src/pip/_vendor/vendor.txt"
+    },
+    {
+      "line_number": 48,
+      "line": "# Make sure to update the license in pyproject.toml for this."
+    }
+  ]
+}

@@ -1,0 +1,527 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "https://pip.pypa.io/en/stable/topics/vcs-support/#supported-vcs"
+      },
+      "link": "https://pip.pypa.io/en/stable/topics/vcs-support/#supported-vcs",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "git+ssh://git.example.com/MyProject#egg=MyProject"
+      },
+      "link": "git+ssh://git.example.com/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "git+file:///home/user/projects/MyProject#egg=MyProject"
+      },
+      "link": "git+file:///home/user/projects/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "git+https://git.example.com/MyProject#egg=MyProject"
+      },
+      "link": "git+https://git.example.com/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "git+https://git.example.com/MyProject.git@master#egg=MyProject"
+      },
+      "link": "git+https://git.example.com/MyProject.git@master#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "git+https://git.example.com/MyProject.git@v1.0#egg=MyProject"
+      },
+      "link": "git+https://git.example.com/MyProject.git@v1.0#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject"
+      },
+      "link": "git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 13,
+        "line": "git+https://git.example.com/MyProject.git@refs/pull/123/head#egg=MyProject"
+      },
+      "link": "git+https://git.example.com/MyProject.git@refs/pull/123/head#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 16,
+        "line": "hg+http://hg.myproject.org/MyProject#egg=MyProject"
+      },
+      "link": "hg+http://hg.myproject.org/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 17,
+        "line": "hg+https://hg.myproject.org/MyProject#egg=MyProject"
+      },
+      "link": "hg+https://hg.myproject.org/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 18,
+        "line": "hg+ssh://hg.myproject.org/MyProject#egg=MyProject"
+      },
+      "link": "hg+ssh://hg.myproject.org/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 19,
+        "line": "hg+file:///home/user/projects/MyProject#egg=MyProject"
+      },
+      "link": "hg+file:///home/user/projects/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 22,
+        "line": "hg+http://hg.example.com/MyProject@da39a3ee5e6b#egg=MyProject"
+      },
+      "link": "hg+http://hg.example.com/MyProject@da39a3ee5e6b#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 23,
+        "line": "hg+http://hg.example.com/MyProject@2019#egg=MyProject"
+      },
+      "link": "hg+http://hg.example.com/MyProject@2019#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 24,
+        "line": "hg+http://hg.example.com/MyProject@v1.0#egg=MyProject"
+      },
+      "link": "hg+http://hg.example.com/MyProject@v1.0#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "hg+http://hg.example.com/MyProject@special_feature#egg=MyProject"
+      },
+      "link": "hg+http://hg.example.com/MyProject@special_feature#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 28,
+        "line": "svn+https://svn.example.com/MyProject#egg=MyProject"
+      },
+      "link": "svn+https://svn.example.com/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 29,
+        "line": "svn+ssh://svn.example.com/MyProject#egg=MyProject"
+      },
+      "link": "svn+ssh://svn.example.com/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 30,
+        "line": "svn+ssh://user@svn.example.com/MyProject#egg=MyProject"
+      },
+      "link": "svn+ssh://user@svn.example.com/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 33,
+        "line": "-e svn+http://svn.example.com/svn/MyProject/trunk@2019#egg=MyProject"
+      },
+      "link": "svn+http://svn.example.com/svn/MyProject/trunk@2019#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 34,
+        "line": "-e svn+http://svn.example.com/svn/MyProject/trunk@{20080101}#egg=MyProject"
+      },
+      "link": "svn+http://svn.example.com/svn/MyProject/trunk@{20080101}#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 37,
+        "line": "bzr+http://bzr.example.com/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+http://bzr.example.com/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 38,
+        "line": "bzr+sftp://user@example.com/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+sftp://user@example.com/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 39,
+        "line": "bzr+ssh://user@example.com/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+ssh://user@example.com/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 40,
+        "line": "bzr+ftp://user@example.com/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+ftp://user@example.com/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 41,
+        "line": "bzr+lp:MyProject#egg=MyProject"
+      },
+      "link": "bzr+lp:MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 44,
+        "line": "bzr+https://bzr.example.com/MyProject/trunk@2019#egg=MyProject"
+      },
+      "link": "bzr+https://bzr.example.com/MyProject/trunk@2019#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 45,
+        "line": "bzr+http://bzr.example.com/MyProject/trunk@v1.0#egg=MyProject"
+      },
+      "link": "bzr+http://bzr.example.com/MyProject/trunk@v1.0#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# examples from \\"
+    },
+    {
+      "line_number": 4,
+      "line": "# Git"
+    },
+    {
+      "line_number": 9,
+      "line": "# It is also possible to specify a \u201cgit ref\u201d such as branch name, a commit hash or a tag name:"
+    },
+    {
+      "line_number": 15,
+      "line": "#Mercurial"
+    },
+    {
+      "line_number": 21,
+      "line": "# It is also possible to specify a revision number, a revision hash, a tag name or a local branch name:"
+    },
+    {
+      "line_number": 27,
+      "line": "# Subversion"
+    },
+    {
+      "line_number": 32,
+      "line": "# You can also give specific revisions to an SVN URL, like so:"
+    },
+    {
+      "line_number": 36,
+      "line": "# Bazaar"
+    },
+    {
+      "line_number": 43,
+      "line": "# Tags or revisions can be installed like so:"
+    }
+  ]
+}

@@ -1,0 +1,694 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [
+        ":all:"
+      ],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": "docutils",
+      "specifier": [
+        "==0.11"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "docutils==0.11"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "Jinja2",
+      "specifier": [
+        "==2.7.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "Jinja2==2.7.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MarkupSafe",
+      "specifier": [
+        "==0.19"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "MarkupSafe==0.19"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "Pygments",
+      "specifier": [
+        "==1.6"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "Pygments==1.6"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "Sphinx",
+      "specifier": [
+        "==1.2.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "Sphinx==1.2.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pkg1",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "pkg1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pkg2",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 13,
+        "line": "pkg2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pkg3",
+      "specifier": [
+        ">=1.0",
+        "<=2.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "pkg3>=1.0,<=2.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "ProjectA",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 16,
+        "line": "ProjectA"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "ProjectB",
+      "specifier": [
+        "<1.3"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 17,
+        "line": "ProjectB<1.3"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeDependency",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 19,
+        "line": "git+https://myvcs.com/some_dependency@sometag#egg=SomeDependency"
+      },
+      "link": "git+https://myvcs.com/some_dependency@sometag#egg=SomeDependency",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [
+        "==1.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 21,
+        "line": "SomePackage-1.0-py2.py3-none-any.whl"
+      },
+      "link": "SomePackage-1.0-py2.py3-none-any.whl",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "somepackage",
+      "specifier": [
+        "==1.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "./somepackage-1.0-py2.py3-none-any.whl[my-extras]"
+      },
+      "link": "./somepackage-1.0-py2.py3-none-any.whl",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "my-extras"
+      ]
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 32,
+        "line": "SomeProject"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [
+        "==1.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 33,
+        "line": "SomeProject == 1.3"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [
+        ">=1.2",
+        "<2.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 34,
+        "line": "SomeProject >=1.2,<2.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 35,
+        "line": "SomeProject[foo, bar]"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "bar",
+        "foo"
+      ]
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [
+        "~=1.4.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 36,
+        "line": "SomeProject~=1.4.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [
+        "==5.4"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 39,
+        "line": "SomeProject ==5.4 ; python_version < '3.8'"
+      },
+      "link": null,
+      "markers": "python_version < \"3.8\"",
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 40,
+        "line": "SomeProject; sys_platform == 'win32'"
+      },
+      "link": null,
+      "markers": "sys_platform == \"win32\"",
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 43,
+        "line": "SomeProject @ file:///somewhere/..."
+      },
+      "link": "SomeProject @ file:///somewhere/...",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 48,
+        "line": "path/to/SomeProject"
+      },
+      "link": "path/to/SomeProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "FooProject",
+      "specifier": [
+        ">=1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 55,
+        "line": "FooProject >= 1.2 --global-option=\"--no-user-cfg\"                   --install-option=\"--prefix='/usr/local'\"                   --install-option=\"--no-compile\""
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [
+        "--prefix='/usr/local'",
+        "--no-compile"
+      ],
+      "global_options": [
+        "--no-user-cfg"
+      ],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "FooProject",
+      "specifier": [
+        ">=1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 60,
+        "line": "FooProject >= 1.2 --install-option=\"--prefix=/usr/local --no-compile\""
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [
+        "--prefix=/usr/local --no-compile"
+      ],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "FooProject",
+      "specifier": [
+        "==1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 67,
+        "line": "FooProject == 1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824                   --hash=sha256:486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+          "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 75,
+        "line": "-e git+http://repo/my_project.git#egg=SomeProject"
+      },
+      "link": "git+http://repo/my_project.git#egg=SomeProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "FooProject",
+      "specifier": [
+        "==1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 80,
+        "line": "FooProject == 1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 85,
+        "line": "git+https://github.com/pypa/sampleproject.git@main"
+      },
+      "link": "git+https://github.com/pypa/sampleproject.git@main",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 86,
+        "line": "sampleproject-1.0.tar.gz"
+      },
+      "link": "sampleproject-1.0.tar.gz",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "sampleproject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 88,
+        "line": "sampleproject"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [
+    {
+      "line_number": 74,
+      "line": "-e path/to/SomeProject",
+      "error_message": "path/to/SomeProject is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
+    }
+  ],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 2,
+      "line": "# example from https://pip.pypa.io/en/stable/cli/pip_freeze/#examples"
+    },
+    {
+      "line_number": 10,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 11,
+      "line": "# example from https://pip.pypa.io/en/stable/user_guide/"
+    },
+    {
+      "line_number": 23,
+      "line": "# In the future, the path[extras] syntax may become deprecated."
+    },
+    {
+      "line_number": 24,
+      "line": "# It is recommended to use PEP 508 syntax wherever possible."
+    },
+    {
+      "line_number": 28,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 29,
+      "line": "# example from https://pip.pypa.io/en/stable/cli/pip_install/#requirement-specifiers"
+    },
+    {
+      "line_number": 31,
+      "line": "# Some examples:"
+    },
+    {
+      "line_number": 38,
+      "line": "# Since version 6.0, pip also supports specifiers containing environment markers like so:"
+    },
+    {
+      "line_number": 42,
+      "line": "# Since version 19.1, pip also supports direct references like so:"
+    },
+    {
+      "line_number": 46,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 47,
+      "line": "# example from https://pip.pypa.io/en/stable/cli/pip_install/#local-project-installs"
+    },
+    {
+      "line_number": 51,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 52,
+      "line": "# example from https://pip.pypa.io/en/stable/cli/pip_install/#per-requirement-overrides"
+    },
+    {
+      "line_number": 54,
+      "line": "# The --global-option and --install-option options are used to pass options to setup.py. For example:"
+    },
+    {
+      "line_number": 59,
+      "line": "# Invalid. Please use '--install-option' twice as shown above."
+    },
+    {
+      "line_number": 63,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 64,
+      "line": "# example from https://pip.pypa.io/en/stable/cli/pip_install/#hash-checking-mode"
+    },
+    {
+      "line_number": 66,
+      "line": "# Hash-Checking Mode"
+    },
+    {
+      "line_number": 71,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 72,
+      "line": "# example from https://pip.pypa.io/en/stable/cli/pip_install/#editable-installs"
+    },
+    {
+      "line_number": 78,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 79,
+      "line": "# example from https://pip.pypa.io/en/stable/topics/repeatable-installs/#hash-checking"
+    },
+    {
+      "line_number": 83,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 84,
+      "line": "# example from https://pip.pypa.io/en/stable/getting-started/"
+    }
+  ]
+}

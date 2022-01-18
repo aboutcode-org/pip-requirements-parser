@@ -1,0 +1,547 @@
+{
+  "find_links": [
+    "file:///local/dir/",
+    "/local/dir/",
+    "relative/dir/"
+  ],
+  "index_urls": [
+    "http://my.package.repo/simple/",
+    "http://my.package.repo/simple"
+  ],
+  "options": {
+    "format_control": {
+      "no_binary": [
+        ":all:",
+        "somepackage1"
+      ],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "https://pip.pypa.io/en/stable/reference/requirements-file-format/"
+      },
+      "link": "https://pip.pypa.io/en/stable/reference/requirements-file-format/",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "SomePackage"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [
+        "==1.0.4"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "SomePackage==1.0.4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [
+        ">=1.0.4"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "SomePackage>=1.0.4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 16,
+        "line": "-e ."
+      },
+      "link": ".",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 21,
+        "line": "SomeProject@git+https://git.repo/some_pkg.git@1.3.1"
+      },
+      "link": "SomeProject@git+https://git.repo/some_pkg.git@1.3.1",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "-e git+https://git.repo/some_pkg.git#egg=SomePackage"
+      },
+      "link": "git+https://git.repo/some_pkg.git#egg=SomePackage",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 26,
+        "line": "-e hg+https://hg.repo/some_pkg.git#egg=SomePackage"
+      },
+      "link": "hg+https://hg.repo/some_pkg.git#egg=SomePackage",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 27,
+        "line": "-e svn+svn://svn.repo/some_pkg/trunk/#egg=SomePackage"
+      },
+      "link": "svn+svn://svn.repo/some_pkg/trunk/#egg=SomePackage",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 28,
+        "line": "-e git+https://git.repo/some_pkg.git@feature#egg=SomePackage"
+      },
+      "link": "git+https://git.repo/some_pkg.git@feature#egg=SomePackage",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "subdir",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 29,
+        "line": "-e git+https://git.repo/some_repo.git#egg=subdir&subdirectory=subdir_path"
+      },
+      "link": "git+https://git.repo/some_repo.git#egg=subdir&subdirectory=subdir_path",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 33,
+        "line": "SomePackage[PDF]"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "pdf"
+      ]
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 34,
+        "line": "SomePackage[PDF] @ git+https://git.repo/SomePackage@main#subdirectory=subdir_path"
+      },
+      "link": "SomePackage[PDF] @ git+https://git.repo/SomePackage@main#subdirectory=subdir_path",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 35,
+        "line": ".[PDF]"
+      },
+      "link": ".",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "pdf"
+      ]
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [
+        "==3.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 36,
+        "line": "SomePackage[PDF]==3.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "pdf"
+      ]
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 37,
+        "line": "SomePackage[PDF,EPUB]"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "epub",
+        "pdf"
+      ]
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 41,
+        "line": "./downloads/SomePackage-1.0.4.tar.gz"
+      },
+      "link": "./downloads/SomePackage-1.0.4.tar.gz",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 42,
+        "line": "http://my.package.repo/SomePackage-1.0.4.zip"
+      },
+      "link": "http://my.package.repo/SomePackage-1.0.4.zip",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [
+        "==1.2.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 46,
+        "line": "SomeProject@http://my.package.repo/SomeProject-1.2.3-py33-none-any.whl"
+      },
+      "link": "SomeProject@http://my.package.repo/SomeProject-1.2.3-py33-none-any.whl",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [
+        "==1.2.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 47,
+        "line": "SomeProject @ http://my.package.repo/SomeProject-1.2.3-py33-none-any.whl"
+      },
+      "link": "SomeProject @ http://my.package.repo/SomeProject-1.2.3-py33-none-any.whl",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 48,
+        "line": "SomeProject@http://my.package.repo/1.2.3.tar.gz"
+      },
+      "link": "SomeProject@http://my.package.repo/1.2.3.tar.gz",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [
+    {
+      "line_number": 17,
+      "line": "-e path/to/project",
+      "error_message": "path/to/project is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
+    },
+    {
+      "line_number": 65,
+      "line": "(such as private packages) is unsafe, per a security vulnerability called  dependency confusion: an attacker can claim the package on the public repository  in a way that will ensure it gets chosen over the private package.",
+      "error_message": "Invalid requirement"
+    },
+    {
+      "line_number": 72,
+      "line": "By default, pip only finds stable versions.",
+      "error_message": "Invalid requirement"
+    },
+    {
+      "line_number": 79,
+      "line": "SomePackage1 SomePackage2 --no-binary :all:",
+      "error_message": "Invalid requirement"
+    },
+    {
+      "line_number": 82,
+      "line": "SomePackage1 SomePackage2 --no-binary SomePackage1",
+      "error_message": "Invalid requirement"
+    }
+  ],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# examples from \\"
+    },
+    {
+      "line_number": 5,
+      "line": "# Install SomePackage and its dependencies from PyPI using Requirement"
+    },
+    {
+      "line_number": 6,
+      "line": "# latest version"
+    },
+    {
+      "line_number": 7,
+      "line": "# specific version"
+    },
+    {
+      "line_number": 8,
+      "line": "# minimum version"
+    },
+    {
+      "line_number": 11,
+      "line": "# Install a list of requirements specified in a file. See the Requirements files."
+    },
+    {
+      "line_number": 15,
+      "line": "# Install a local project in \u201ceditable\u201d mode. See the section on Editable Installs."
+    },
+    {
+      "line_number": 16,
+      "line": "# project in current directory"
+    },
+    {
+      "line_number": 17,
+      "line": "# project in another directory"
+    },
+    {
+      "line_number": 20,
+      "line": "# Install a project from VCS"
+    },
+    {
+      "line_number": 24,
+      "line": "# Install a project from VCS in \u201ceditable\u201d mode. See the sections on VCS Support and Editable Installs."
+    },
+    {
+      "line_number": 25,
+      "line": "# from git"
+    },
+    {
+      "line_number": 26,
+      "line": "# from mercurial"
+    },
+    {
+      "line_number": 27,
+      "line": "# from svn"
+    },
+    {
+      "line_number": 28,
+      "line": "# from 'feature' branch"
+    },
+    {
+      "line_number": 29,
+      "line": "# install a python package from a repo subdirectory"
+    },
+    {
+      "line_number": 32,
+      "line": "# Install a package with setuptools extras."
+    },
+    {
+      "line_number": 35,
+      "line": "# project in current directory"
+    },
+    {
+      "line_number": 37,
+      "line": "# multiple extras"
+    },
+    {
+      "line_number": 40,
+      "line": "# Install a particular source archive file."
+    },
+    {
+      "line_number": 45,
+      "line": "# Install a particular source archive file following PEP 440 direct references."
+    },
+    {
+      "line_number": 51,
+      "line": "# Install from alternative package repositories."
+    },
+    {
+      "line_number": 52,
+      "line": "# Install from a different index, and not PyPI"
+    },
+    {
+      "line_number": 56,
+      "line": "# Install from a local flat directory containing archives (and don\u2019t scan indexes):"
+    },
+    {
+      "line_number": 62,
+      "line": "# Search an additional index during install, in addition to PyPI"
+    },
+    {
+      "line_number": 64,
+      "line": "# Using this option to search for packages which are not in the main repository \\"
+    },
+    {
+      "line_number": 71,
+      "line": "# Find pre-release and development versions, in addition to stable versions. \\"
+    },
+    {
+      "line_number": 77,
+      "line": "# Install packages from source."
+    },
+    {
+      "line_number": 78,
+      "line": "# Do not use any binary packages"
+    },
+    {
+      "line_number": 81,
+      "line": "# Specify SomePackage1 to be installed from source:"
+    }
+  ]
+}

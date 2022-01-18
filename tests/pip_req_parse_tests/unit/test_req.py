@@ -7,53 +7,21 @@ import shutil
 import sys
 import tempfile
 from typing import Tuple
-from unittest import mock
 
 import pytest
 from packaging.markers import Marker
 from packaging.requirements import Requirement
 
 from pip_requirements import (
-    InstallationError,
-    InvalidWheelFilename,
-)
-from pip_requirements import InstallRequirement
-from pip_requirements import (
     _get_url_from_path,
     _looks_like_path,
     install_req_from_editable,
     install_req_from_line,
-    install_req_from_parsed_requirement,
     parse_editable,
 )
-from pip_requirements import (
-    ParsedLine,
-    get_line_parser,
-    handle_requirement_line,
-)
-from pip_requirements import path_to_url
-
-from pip_req_parse_tests.lib import TestData
-
-
-def get_processed_req_from_line(
-    line: str, fname: str = "file", lineno: int = 1
-) -> InstallRequirement:
-    line_parser = get_line_parser(None)
-    args_str, opts = line_parser(line)
-    parsed_line = ParsedLine(
-        fname,
-        lineno,
-        args_str,
-        opts,
-        False,
-    )
-    parsed_req = handle_requirement_line(parsed_line)
-    assert parsed_req is not None
-    req = install_req_from_parsed_requirement(parsed_req)
-    req.user_supplied = True
-    return req
-
+from pip_requirements import InstallationError
+from pip_requirements import InvalidWheelFilename
+from pip_requirements import RequirementLine
 
 
 class TestInstallRequirement:
@@ -72,22 +40,16 @@ class TestInstallRequirement:
         assert req.link.url == url + fragment, req.link
 
     def test_pep440_wheel_link_requirement(self) -> None:
-        url = "https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
         line = "test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
         req = install_req_from_line(line)
-        parts = str(req.req).split("@", 1)
-        assert len(parts) == 2
-        assert parts[0].strip() == "test"
-        assert parts[1].strip() == url
+        assert str(req.req) == "test==0.4"
+        assert str(req.link) == "test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
 
     def test_pep440_url_link_requirement(self) -> None:
-        url = "git+http://foo.com@ref#egg=foo"
         line = "foo @ git+http://foo.com@ref#egg=foo"
         req = install_req_from_line(line)
-        parts = str(req.req).split("@", 1)
-        assert len(parts) == 2
-        assert parts[0].strip() == "foo"
-        assert parts[1].strip() == url
+        assert str(req.req) == "foo"
+        assert str(req.link) == "foo @ git+http://foo.com@ref#egg=foo"
 
     def test_url_with_authentication_link_requirement(self) -> None:
         url = "https://what@whatever.com/test-0.4-py2.py3-bogus-any.whl"
@@ -106,15 +68,11 @@ class TestInstallRequirement:
         assert req.link.is_wheel
         assert req.link.scheme == "https"
 
-    def test_unsupported_wheel_local_file_requirement_raises(
-        self, data: TestData
-    ) -> None:
-        req = install_req_from_line(
-            data.packages.joinpath("simple.dist-0.1-py1-none-invalid.whl"),
-        )
+    def test_unsupported_wheel_local_file_requirement_raises(self) -> None:
+        req = install_req_from_line("simple.dist-0.1-py1-none-invalid.whl")
         assert req.link is not None
         assert req.link.is_wheel
-        assert req.link.scheme == "file"
+        assert req.link.url == "simple.dist-0.1-py1-none-invalid.whl"
 
     def test_str(self) -> None:
         req = install_req_from_line("simple==0.1")
@@ -122,7 +80,7 @@ class TestInstallRequirement:
 
     def test_repr(self) -> None:
         req = install_req_from_line("simple==0.1")
-        assert repr(req) == ("<InstallRequirement object: simple==0.1 editable=False>")
+        assert repr(req) == ("<InstallRequirement object: simple==0.1 is_editable=False>")
 
     def test_invalid_wheel_requirement_raises(self) -> None:
         with pytest.raises(InvalidWheelFilename):
@@ -215,7 +173,7 @@ class TestInstallRequirement:
             f"sys_platform == {sys.platform!r}",
         ):
             line = "name; " + markers
-            req = install_req_from_line(line, comes_from="")
+            req = install_req_from_line(line, requirement_line=None)
             assert str(req.markers) == str(Marker(markers))
             assert req.match_markers()
 
@@ -225,74 +183,79 @@ class TestInstallRequirement:
             f"sys_platform != {sys.platform!r}",
         ):
             line = "name; " + markers
-            req = install_req_from_line(line, comes_from="")
+            req = install_req_from_line(line, requirement_line=None)
             assert str(req.markers) == str(Marker(markers))
             assert not req.match_markers()
 
     def test_extras_for_line_path_requirement(self) -> None:
         line = "SomeProject[ex1,ex2]"
         filename = "filename"
-        comes_from = f"-r {filename} (line 1)"
-        req = install_req_from_line(line, comes_from=comes_from)
+        requirement_line = RequirementLine(
+            filename=filename,
+            line_number=1,
+            line=line,
+        )
+        req = install_req_from_line(line, requirement_line=requirement_line)
         assert len(req.extras) == 2
         assert req.extras == {"ex1", "ex2"}
 
     def test_extras_for_line_url_requirement(self) -> None:
         line = "git+https://url#egg=SomeProject[ex1,ex2]"
         filename = "filename"
-        comes_from = f"-r {filename} (line 1)"
-        req = install_req_from_line(line, comes_from=comes_from)
+        requirement_line = RequirementLine(
+            filename=filename,
+            line_number=1,
+            line=line,
+        )
+        req = install_req_from_line(line, requirement_line=requirement_line)
         assert len(req.extras) == 2
         assert req.extras == {"ex1", "ex2"}
 
     def test_extras_for_editable_path_requirement(self) -> None:
         url = ".[ex1,ex2]"
         filename = "filename"
-        comes_from = f"-r {filename} (line 1)"
-        req = install_req_from_editable(url, comes_from=comes_from)
+
+        requirement_line = RequirementLine(
+            filename=filename,
+            line_number=1,
+            line=url,
+        )
+        req = install_req_from_editable(url, requirement_line=requirement_line)
         assert len(req.extras) == 2
         assert req.extras == {"ex1", "ex2"}
 
     def test_extras_for_editable_url_requirement(self) -> None:
         url = "git+https://url#egg=SomeProject[ex1,ex2]"
         filename = "filename"
-        comes_from = f"-r {filename} (line 1)"
-        req = install_req_from_editable(url, comes_from=comes_from)
+        requirement_line = RequirementLine(
+            filename=filename,
+            line_number=1,
+            line=url,
+        )
+        req = install_req_from_editable(url, requirement_line=requirement_line)
         assert len(req.extras) == 2
         assert req.extras == {"ex1", "ex2"}
 
     def test_unexisting_path(self) -> None:
-        with pytest.raises(InstallationError) as e:
-            install_req_from_line(os.path.join("this", "path", "does", "not", "exist"))
-        err_msg = e.value.args[0]
-        assert "Invalid requirement" in err_msg
-        assert "It looks like a path." in err_msg
+        result = install_req_from_line(os.path.join("this", "path", "does", "not", "exist"))
+        assert result.link.url == "this/path/does/not/exist"
 
     def test_single_equal_sign(self) -> None:
-        with pytest.raises(InstallationError) as e:
+        with pytest.raises(InstallationError):
             install_req_from_line("toto=42")
-        err_msg = e.value.args[0]
-        assert "Invalid requirement" in err_msg
-        assert "= is not a valid operator. Did you mean == ?" in err_msg
 
     def test_unidentifiable_name(self) -> None:
         test_name = "-"
-        with pytest.raises(InstallationError) as e:
+        with pytest.raises(InstallationError):
             install_req_from_line(test_name)
-        err_msg = e.value.args[0]
-        assert f"Invalid requirement: '{test_name}'" == err_msg
 
     def test_requirement_file(self) -> None:
         req_file_path = os.path.join(self.tempdir, "test.txt")
         with open(req_file_path, "w") as req_file:
             req_file.write("pip\nsetuptools")
-        with pytest.raises(InstallationError) as e:
-            install_req_from_line(req_file_path)
-        err_msg = e.value.args[0]
-        assert "Invalid requirement" in err_msg
-        assert "It looks like a path. The path does exist." in err_msg
-        assert "appears to be a requirements file." in err_msg
-        assert "If that is the case, use the '-r' flag to install" in err_msg
+        result =  install_req_from_line(req_file_path)
+        assert result.req is None
+        assert result.link.url.endswith("test.txt")
 
 
 def test_parse_editable_explicit_vcs() -> None:
@@ -359,7 +322,7 @@ def test_looks_like_path_win(args: str, expected: bool) -> None:
 
 
 @pytest.mark.parametrize(
-    "args, mock_returns, expected",
+    "args, expected",
     [
         # Test pep440 urls
         (
@@ -367,8 +330,7 @@ def test_looks_like_path_win(args: str, expected: bool) -> None:
                 "/path/to/foo @ git+http://foo.com@ref#egg=foo",
                 "foo @ git+http://foo.com@ref#egg=foo",
             ),
-            (False, False),
-            None,
+            "/path/to/foo @ git+http://foo.com@ref#egg=foo",
         ),
         # Test pep440 urls without spaces
         (
@@ -376,8 +338,7 @@ def test_looks_like_path_win(args: str, expected: bool) -> None:
                 "/path/to/foo@git+http://foo.com@ref#egg=foo",
                 "foo @ git+http://foo.com@ref#egg=foo",
             ),
-            (False, False),
-            None,
+            "/path/to/foo@git+http://foo.com@ref#egg=foo",
         ),
         # Test pep440 wheel
         (
@@ -385,59 +346,27 @@ def test_looks_like_path_win(args: str, expected: bool) -> None:
                 "/path/to/test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl",
                 "test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl",
             ),
-            (False, False),
-            None,
+            "/path/to/test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl",
         ),
         # Test name is not a file
-        (("/path/to/simple==0.1", "simple==0.1"), (False, False), None),
+        (("/path/to/simple==0.1", "simple==0.1"), None),
     ],
 )
-@mock.patch("pip_requirements.os.path.isdir")
-@mock.patch("pip_requirements.os.path.isfile")
 def test_get_url_from_path(
-    isdir_mock: mock.Mock,
-    isfile_mock: mock.Mock,
     args: Tuple[str, str],
-    mock_returns: Tuple[bool, bool],
     expected: None,
 ) -> None:
-    isdir_mock.return_value = mock_returns[0]
-    isfile_mock.return_value = mock_returns[1]
-    assert _get_url_from_path(*args) is expected
+    assert _get_url_from_path(*args) == expected
 
 
-@mock.patch("pip_requirements.os.path.isdir")
-@mock.patch("pip_requirements.os.path.isfile")
-def test_get_url_from_path__archive_file(
-    isdir_mock: mock.Mock, isfile_mock: mock.Mock
-) -> None:
-    isdir_mock.return_value = False
-    isfile_mock.return_value = True
+def test_get_url_from_path__archive_file() -> None:
     name = "simple-0.1-py2.py3-none-any.whl"
     path = os.path.join("/path/to/" + name)
-    url = path_to_url(path)
-    assert _get_url_from_path(path, name) == url
+    assert _get_url_from_path(path, name) == path
 
 
-@mock.patch("pip_requirements.os.path.isdir")
-@mock.patch("pip_requirements.os.path.isfile")
-def test_get_url_from_path__installable_dir(
-    isdir_mock: mock.Mock, isfile_mock: mock.Mock
-) -> None:
-    isdir_mock.return_value = True
-    isfile_mock.return_value = True
+def test_get_url_from_path__installable_error() -> None:
     name = "some/setuptools/project"
     path = os.path.join("/path/to/" + name)
-    url = path_to_url(path)
-    assert _get_url_from_path(path, name) == url
-
-
-@mock.patch("pip_requirements.os.path.isdir")
-def test_get_url_from_path__installable_error(isdir_mock: mock.Mock) -> None:
-    isdir_mock.return_value = True
-    name = "some/setuptools/project"
-    path = os.path.join("/path/to/" + name)
-    with pytest.raises(InstallationError) as e:
-        _get_url_from_path(path, name)
-    err_msg = e.value.args[0]
-    assert "Neither 'setup.py' nor 'pyproject.toml' found" in err_msg
+    result = _get_url_from_path(path, name)
+    assert result == "/path/to/some/setuptools/project"

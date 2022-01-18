@@ -85,21 +85,6 @@ class TestLink:
         assert "subdir" == Link(url).subdirectory_fragment
 
     @pytest.mark.parametrize(
-        "yanked_reason, expected",
-        [
-            (None, False),
-            ("", True),
-            ("there was a mistake", True),
-        ],
-    )
-    def test_is_yanked(self, yanked_reason: Optional[str], expected: bool) -> None:
-        link = Link(
-            "https://example.com/wheel.whl",
-            yanked_reason=yanked_reason,
-        )
-        assert link.is_yanked == expected
-
-    @pytest.mark.parametrize(
         "hash_name, hex_digest, expected",
         [
             # Test a value that matches but with the wrong hash_name.

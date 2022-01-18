@@ -7,9 +7,6 @@
 
 import contextlib
 import errno
-import getpass
-import hashlib
-import io
 import logging
 import os
 import posixpath
@@ -22,12 +19,10 @@ from itertools import filterfalse, tee, zip_longest
 from types import TracebackType
 from typing import (
     Any,
-    BinaryIO,
     Callable,
     ContextManager,
     Iterable,
     Iterator,
-    List,
     Optional,
     TextIO,
     Tuple,
@@ -55,8 +50,8 @@ def ensure_dir(path: str) -> None:
             raise
 
 
-def rmtree(dir: str, ignore_errors: bool = False) -> None:
-    shutil.rmtree(dir, ignore_errors=ignore_errors, onerror=rmtree_errorhandler)
+def rmtree(directory: str, ignore_errors: bool = False) -> None:
+    shutil.rmtree(directory, ignore_errors=ignore_errors, onerror=rmtree_errorhandler)
 
 
 def rmtree_errorhandler(func: Callable[..., Any], path: str, exc_info: ExcInfo) -> None:

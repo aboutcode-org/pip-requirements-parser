@@ -1,0 +1,65 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": "ipython",
+      "specifier": [
+        "==6.0.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "ipython==6.0.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "ipdb",
+      "specifier": [
+        ">=0.0.1"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "ipdb>=0.0.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# from https://github.com/simion/pip-upgrader/blob/master/requirements/local.txt"
+    },
+    {
+      "line_number": 3,
+      "line": "# this file is only used for testing the cli"
+    },
+    {
+      "line_number": 9,
+      "line": "# this kind of upgrade is not yet supported"
+    }
+  ]
+}

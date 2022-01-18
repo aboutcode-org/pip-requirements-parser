@@ -1,0 +1,668 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": "requests",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "requests[socks]"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "socks"
+      ]
+    },
+    {
+      "name": "django",
+      "specifier": [
+        ">1.10"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "django>1.10"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "requests",
+      "specifier": [
+        ">1.10"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "requests[socks]>1.10"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "socks"
+      ]
+    },
+    {
+      "name": "requests",
+      "specifier": [
+        "==1.10"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "requests[socks]==1.10"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "socks"
+      ]
+    },
+    {
+      "name": "django-user-accounts",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 9,
+        "line": "-e git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts"
+      },
+      "link": "git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django-user-accounts",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts"
+      },
+      "link": "git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "hg+http://hg.myproject.org/MyProject@da39a3ee5e6b#egg=MyProject"
+      },
+      "link": "hg+http://hg.myproject.org/MyProject@da39a3ee5e6b#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "-e svn+svn://svn.myproject.org/svn/MyProject#egg=MyProject"
+      },
+      "link": "svn+svn://svn.myproject.org/svn/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "discord.py",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "https://github.com/Rapptz/discord.py/archive/async.zip#egg=discord.py[voice]"
+      },
+      "link": "https://github.com/Rapptz/discord.py/archive/async.zip#egg=discord.py[voice]",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "voice"
+      ]
+    },
+    {
+      "name": "requests",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 15,
+        "line": "git+https://github.com/requests/requests.git@master#egg=requests[security]"
+      },
+      "link": "git+https://github.com/requests/requests.git@master#egg=requests[security]",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "security"
+      ]
+    },
+    {
+      "name": "FooProject",
+      "specifier": [
+        "==1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 19,
+        "line": "FooProject[stuff]==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+        ]
+      },
+      "is_constraint": false,
+      "extras": [
+        "stuff"
+      ]
+    },
+    {
+      "name": "pythonfinder",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 20,
+        "line": "-e git+https://github.com/techalchemy/pythonfinder.git@master#egg=pythonfinder[dev]&subdirectory=mysubdir"
+      },
+      "link": "git+https://github.com/techalchemy/pythonfinder.git@master#egg=pythonfinder[dev]&subdirectory=mysubdir",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "dev"
+      ]
+    },
+    {
+      "name": "FooProject",
+      "specifier": [
+        "==1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 21,
+        "line": "FooProject==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "FooProject",
+      "specifier": [
+        "==1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 22,
+        "line": "FooProject[stuff]==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+        ]
+      },
+      "is_constraint": false,
+      "extras": [
+        "stuff"
+      ]
+    },
+    {
+      "name": "requests",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 24,
+        "line": "requests"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "vistir",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "vistir[spinner]"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "spinner"
+      ]
+    },
+    {
+      "name": "vistir",
+      "specifier": [
+        "==0.4.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 26,
+        "line": "vistir[spinner]==0.4.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "spinner"
+      ]
+    },
+    {
+      "name": "vistir",
+      "specifier": [
+        "==0.4.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 27,
+        "line": "vistir==0.4.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "shellingham",
+      "specifier": [
+        "==1.3.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 28,
+        "line": "https://files.pythonhosted.org/packages/2d/ac/e8a34d4b3d24bf554f40651b2aac549a3fc7223725bf10fbdfe2083b6372/shellingham-1.3.1-py2.py3-none-any.whl"
+      },
+      "link": "https://files.pythonhosted.org/packages/2d/ac/e8a34d4b3d24bf554f40651b2aac549a3fc7223725bf10fbdfe2083b6372/shellingham-1.3.1-py2.py3-none-any.whl",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "shellingham",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 30,
+        "line": "-e git+ssh://git@github.com/sarugaku/shellingham.git#egg=shellingham"
+      },
+      "link": "git+ssh://git@github.com/sarugaku/shellingham.git#egg=shellingham",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 31,
+        "line": "git+https://github.com/psf/requests.git"
+      },
+      "link": "git+https://github.com/psf/requests.git",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 32,
+        "line": "-e file:///foo/bar"
+      },
+      "link": "file:///foo/bar",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 34,
+        "line": "-e .[socks]"
+      },
+      "link": ".",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "socks"
+      ]
+    },
+    {
+      "name": "myname",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 37,
+        "line": "git+git@host:user/repo.git#egg=myname"
+      },
+      "link": "git+git@host:user/repo.git#egg=myname",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django-user-clipboard",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 39,
+        "line": "https://github.com/IndustriaTech/django-user-clipboard/archive/0.6.1.zip#egg=django-user-clipboard"
+      },
+      "link": "https://github.com/IndustriaTech/django-user-clipboard/archive/0.6.1.zip#egg=django-user-clipboard",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 40,
+        "line": "https://github.com/jazzband/tablib/archive/v0.12.1.zip"
+      },
+      "link": "https://github.com/jazzband/tablib/archive/v0.12.1.zip",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "tablib",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 42,
+        "line": "git+https://github.com/jazzband/tablib.git@master#egg=tablib"
+      },
+      "link": "git+https://github.com/jazzband/tablib.git@master#egg=tablib",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "requests",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 44,
+        "line": "-e git+https://github.com/requests/requests.git@master#egg=requests[security]"
+      },
+      "link": "git+https://github.com/requests/requests.git@master#egg=requests[security]",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "security"
+      ]
+    },
+    {
+      "name": "six",
+      "specifier": [
+        "==1.11.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 45,
+        "line": "../wheels/six/six-1.11.0-py2.py3-none-any.whl"
+      },
+      "link": "../wheels/six/six-1.11.0-py2.py3-none-any.whl",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "shellingham",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 47,
+        "line": "-e git+https://github.com/sarugaku/shellingham.git@1.2.1#egg=shellingham"
+      },
+      "link": "git+https://github.com/sarugaku/shellingham.git@1.2.1#egg=shellingham",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "six",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 49,
+        "line": "git+https://github.com/benjaminp/six.git@master#egg=six"
+      },
+      "link": "git+https://github.com/benjaminp/six.git@master#egg=six",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 51,
+        "line": "tablib@ https://codeload.github.com/jazzband/tablib/zip/v0.12.1"
+      },
+      "link": "tablib@ https://codeload.github.com/jazzband/tablib/zip/v0.12.1",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "tablib",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 53,
+        "line": "https://${USERNAME}:${PASSWORD}@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib"
+      },
+      "link": "https://${USERNAME}:${PASSWORD}@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "tablib",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 54,
+        "line": "https://USERNAME:PASSWORD@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib"
+      },
+      "link": "https://USERNAME:PASSWORD@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [
+    {
+      "line_number": 17,
+      "line": "FooProject==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824\",",
+      "error_message": "No closing quotation"
+    },
+    {
+      "line_number": 43,
+      "line": "-e git+git@github.com:pypa/pipenv.git#egg=pipenv",
+      "error_message": "git+git@github.com:pypa/pipenv.git#egg=pipenv is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
+    }
+  ],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# from https://github.com/sarugaku/requirementslib/blob/main/tests/unit/test_requirements.py"
+    },
+    {
+      "line_number": 36,
+      "line": "# not supported by Packaging"
+    }
+  ]
+}

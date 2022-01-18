@@ -13,7 +13,10 @@ from pip_req_parse_tests.lib.path import Path
 
 
 @pytest.fixture
-def tmpdir(request: pytest.FixtureRequest, tmpdir: py.path.local) -> Iterator[Path]:
+def tmpdir(
+    request: pytest.FixtureRequest,  # NOQA
+    tmpdir: py.path.local,
+) -> Iterator[Path]:
     """
     Return a temporary directory path object which is unique to each test
     function invocation, created as a sub directory of the base temporary

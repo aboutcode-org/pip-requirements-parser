@@ -1,0 +1,28 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [],
+  "invalid_lines": [
+    {
+      "line_number": 3,
+      "line": "--no-use-wheel",
+      "error_message": "pytest: error: no such option: --no-use-wheel\n"
+    }
+  ],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# from https://github.com/pypa/pip/blob/49e9ac1a86ac2ee5174ca9c8f87b4cbf4fcbcca9/tests/data/reqfiles/supported_options.txt"
+    },
+    {
+      "line_number": 2,
+      "line": "# requirement file containing various supported options"
+    }
+  ]
+}

@@ -2,10 +2,13 @@
 # Copyright (c) The pip developers (see AUTHORS.txt file)
 # SPDX-License-Identifier: MIT
 
+import os
 import shutil
+
 from contextlib import contextmanager
 from typing import (
     Iterator,
+    List,
     Optional,
 )
 
@@ -15,15 +18,18 @@ from pip_req_parse_tests.lib.path import Path
 DATA_DIR = Path(__file__).parent.parent.joinpath("data").resolve()
 SRC_DIR = Path(__file__).resolve().parent.parent.parent
 
+REQFILES_DIR = DATA_DIR.joinpath("requirements")
 
+ALL_REQFILES = [
+    REQFILES_DIR.joinpath(rf) 
+    for rf in os.listdir(REQFILES_DIR)
+    if rf.endswith(".txt")
+]
 
-def make_test_finder(*args, **kwargs) -> "PackageFinder":
-    """
-    Create a PackageFinder for testing purposes.
-    """
-    from pip_requirements import PackageFinder
-    return PackageFinder.create()
-
+print()
+for f in ALL_REQFILES:
+    print(f)
+    
 
 class TestData:
     """

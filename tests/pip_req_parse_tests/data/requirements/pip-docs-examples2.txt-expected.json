@@ -1,0 +1,279 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "https://pip.pypa.io/en/stable/reference/requirements-file-format/"
+      },
+      "link": "https://pip.pypa.io/en/stable/reference/requirements-file-format/",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pytest",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "pytest"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pytest-cov",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "pytest-cov"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "beautifulsoup4",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "beautifulsoup4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "docopt",
+      "specifier": [
+        "==0.6.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "docopt == 0.6.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "keyring",
+      "specifier": [
+        ">=4.1.1"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "keyring >= 4.1.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "coverage",
+      "specifier": [
+        "!=3.5"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 13,
+        "line": "coverage != 3.5"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "Mopidy-Dirble",
+      "specifier": [
+        "~=1.1"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "Mopidy-Dirble ~= 1.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "numpy",
+      "specifier": [
+        "==1.9.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 20,
+        "line": "./downloads/numpy-1.9.2-cp34-none-win32.whl"
+      },
+      "link": "./downloads/numpy-1.9.2-cp34-none-win32.whl",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "wxPython-Phoenix",
+      "specifier": [
+        "==3.0.3.dev1820+49a8884"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 21,
+        "line": "http://wxpython.org/Phoenix/snapshot-builds/wxPython_Phoenix-3.0.3.dev1820+49a8884-cp34-none-win_amd64.whl"
+      },
+      "link": "http://wxpython.org/Phoenix/snapshot-builds/wxPython_Phoenix-3.0.3.dev1820+49a8884-cp34-none-win_amd64.whl",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "rejected",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "rejected"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "green",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 26,
+        "line": "green"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# example from \\"
+    },
+    {
+      "line_number": 4,
+      "line": "###### Requirements without Version Specifiers ######"
+    },
+    {
+      "line_number": 9,
+      "line": "###### Requirements with Version Specifiers ######"
+    },
+    {
+      "line_number": 10,
+      "line": "#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers"
+    },
+    {
+      "line_number": 11,
+      "line": "# Version Matching. Must be version 0.6.1"
+    },
+    {
+      "line_number": 12,
+      "line": "# Minimum version 4.1.1"
+    },
+    {
+      "line_number": 13,
+      "line": "# Version Exclusion. Anything except version 3.5"
+    },
+    {
+      "line_number": 14,
+      "line": "# Compatible release. Same as >= 1.1, == 1.*"
+    },
+    {
+      "line_number": 16,
+      "line": "###### Refer to other requirements files ######"
+    },
+    {
+      "line_number": 19,
+      "line": "###### A particular file ######"
+    },
+    {
+      "line_number": 23,
+      "line": "###### Additional Requirements without Version Specifiers ######"
+    },
+    {
+      "line_number": 24,
+      "line": "#   Same as 1st section, just here to show that you can put things in any order."
+    }
+  ]
+}

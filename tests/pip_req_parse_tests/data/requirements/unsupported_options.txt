@@ -1,0 +1,3 @@
+# from https://github.com/pypa/pip/blob/49e9ac1a86ac2ee5174ca9c8f87b4cbf4fcbcca9/tests/data/reqfiles/supported_options.txt
+# requirement file containing various supported options
+--no-use-wheel

@@ -184,7 +184,9 @@ def test_adjacent_directory_exists(name: str, tmpdir: Path) -> None:
         assert expect_name == os.path.split(atmp_dir.path)[1]
 
 
-def test_adjacent_directory_permission_error(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_adjacent_directory_permission_error(
+    monkeypatch: pytest.MonkeyPatch,  # NOQA
+) -> None:
     name = "ABC"
 
     def raising_mkdir(*args: Any, **kwargs: Any) -> None:
@@ -209,7 +211,9 @@ def test_global_tempdir_manager() -> None:
     assert not os.path.exists(path)
 
 
-def test_tempdirectory_asserts_global_tempdir(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_tempdirectory_asserts_global_tempdir(
+    monkeypatch: pytest.MonkeyPatch,  # NOQA
+) -> None:
     monkeypatch.setattr(temp_dir, "_tempdir_manager", None)
     with pytest.raises(AssertionError):
         TempDirectory(globally_managed=True)

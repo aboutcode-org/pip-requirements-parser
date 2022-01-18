@@ -1,0 +1,482 @@
+{
+  "find_links": [
+    "file:///local/dir/",
+    "/local/dir/",
+    "relative/dir/"
+  ],
+  "index_urls": [
+    "http://my.package.repo/simple/",
+    "http://my.package.repo/simple",
+    "http://localhost:7777"
+  ],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": "pip",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "pip"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "setuptools",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "setuptools"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "wheel",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "wheel"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "SomeProject"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [
+        "==1.4"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "SomeProject==1.4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [
+        ">=1",
+        "<2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 9,
+        "line": "SomeProject>=1,<2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [
+        "~=1.4.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "SomeProject~=1.4.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 16,
+        "line": "-e git+https://git.repo/some_pkg.git#egg=SomeProject"
+      },
+      "link": "git+https://git.repo/some_pkg.git#egg=SomeProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 17,
+        "line": "-e hg+https://hg.repo/some_pkg#egg=SomeProject"
+      },
+      "link": "hg+https://hg.repo/some_pkg#egg=SomeProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 18,
+        "line": "-e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject"
+      },
+      "link": "svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 19,
+        "line": "-e git+https://git.repo/some_pkg.git@feature#egg=SomeProject"
+      },
+      "link": "git+https://git.repo/some_pkg.git@feature#egg=SomeProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 23,
+        "line": "SomeProject"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 26,
+        "line": "SomeProject"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 31,
+        "line": "some/path"
+      },
+      "link": "some/path",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 34,
+        "line": "./downloads/SomeProject-1.0.4.tar.gz"
+      },
+      "link": "./downloads/SomeProject-1.0.4.tar.gz",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 39,
+        "line": "SomeProject"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 43,
+        "line": "SomeProject"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 47,
+        "line": "SomeProject"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomeProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 52,
+        "line": "SomeProject"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 60,
+        "line": "SomePackage[PDF]"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "pdf"
+      ]
+    },
+    {
+      "name": "SomePackage",
+      "specifier": [
+        "==3.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 61,
+        "line": "SomePackage[PDF]==3.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "pdf"
+      ]
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 62,
+        "line": "-e .[PDF]"
+      },
+      "link": ".",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": [
+        "pdf"
+      ]
+    }
+  ],
+  "invalid_lines": [
+    {
+      "line_number": 29,
+      "line": "-e path",
+      "error_message": "path is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
+    }
+  ],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "###################################################"
+    },
+    {
+      "line_number": 2,
+      "line": "# example from https://pip.pypa.io/en/stable/cli/pip_freeze/#examples"
+    },
+    {
+      "line_number": 12,
+      "line": "# Requirements files"
+    },
+    {
+      "line_number": 15,
+      "line": "# Installing from VCS"
+    },
+    {
+      "line_number": 16,
+      "line": "# from git"
+    },
+    {
+      "line_number": 17,
+      "line": "# from mercurial"
+    },
+    {
+      "line_number": 18,
+      "line": "# from svn"
+    },
+    {
+      "line_number": 19,
+      "line": "# from a branch"
+    },
+    {
+      "line_number": 21,
+      "line": "# Installing from other Indexes"
+    },
+    {
+      "line_number": 28,
+      "line": "# Installing from a local src tree"
+    },
+    {
+      "line_number": 33,
+      "line": "# Installing from local archives"
+    },
+    {
+      "line_number": 36,
+      "line": "#  Install from a local directory containing archives (and don\u2019t check PyPI)"
+    },
+    {
+      "line_number": 50,
+      "line": "# Installing from other sources"
+    },
+    {
+      "line_number": 55,
+      "line": "# Installing Prereleases"
+    },
+    {
+      "line_number": 59,
+      "line": "# Install setuptools extras."
+    },
+    {
+      "line_number": 62,
+      "line": "# editable project in current directory"
+    }
+  ]
+}

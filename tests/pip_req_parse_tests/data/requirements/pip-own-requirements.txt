@@ -1,0 +1,72 @@
+# from https://github.com/pypa/pip/blob/914178b5b963dbbd9585b432617f91f4a8fce28c/docs/requirements.txt
+
+sphinx ~= 4.2
+towncrier
+furo
+myst_parser
+sphinx-copybutton
+sphinx-inline-tabs
+sphinxcontrib-towncrier >= 0.2.0a0
+
+# `docs.pipext` uses pip's internals to generate documentation. So, we install
+# the current directory to make it work.
+.
+
+
+# from https://github.com/pypa/pip/blob/914178b5b963dbbd9585b432617f91f4a8fce28c/tests/requirements.txt
+
+cryptography
+freezegun
+pytest
+pytest-cov
+pytest-rerunfailures
+pytest-xdist
+scripttest
+setuptools
+virtualenv < 20.0
+werkzeug
+wheel
+tomli-w
+
+
+# from https://github.com/pypa/pip/blob/914178b5b963dbbd9585b432617f91f4a8fce28c/tests/requirements-common_wheels.txt
+
+# Create local setuptools wheel files for testing by:
+# 1. Cloning setuptools and checking out the branch of interest
+# 2. Running `python3 bootstrap.py` in that directory
+# 3. Running `python3 -m pip wheel --no-cache -w /tmp/setuptools_build_meta_legacy/ .`
+# 4. Replacing the `setuptools` entry below with a `file:///...` URL
+# (Adjust artifact directory used based on preference and operating system)
+
+setuptools >= 40.8.0
+wheel
+# As required by pytest-cov.
+coverage >= 4.4
+
+# from https://github.com/pypa/pip/blob/914178b5b963dbbd9585b432617f91f4a8fce28c/src/pip/_vendor/vendor.txt
+
+CacheControl==0.12.6  # Make sure to update the license in pyproject.toml for this.
+colorama==0.4.4
+distlib==0.3.3
+distro==1.6.0
+html5lib==1.1
+msgpack==1.0.2
+packaging==21.0
+pep517==0.12.0
+platformdirs==2.4.0
+progress==1.6
+pyparsing==2.4.7
+requests==2.26.0
+    certifi==2021.05.30
+    chardet==4.0.0
+    idna==3.2
+    urllib3==1.26.7
+rich==10.14.0
+    pygments==2.10.0
+    typing_extensions==3.10.0.2
+resolvelib==0.8.1
+setuptools==44.0.0
+six==1.16.0
+tenacity==8.0.1
+tomli==1.0.3
+webencodings==0.5.1

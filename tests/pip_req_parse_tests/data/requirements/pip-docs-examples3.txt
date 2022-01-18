@@ -1,0 +1,88 @@
+###################################################
+# example from https://pip.pypa.io/en/stable/cli/pip_freeze/#examples
+docutils==0.11
+Jinja2==2.7.2
+MarkupSafe==0.19
+Pygments==1.6
+Sphinx==1.2.2
+
+
+###################################################
+# example from https://pip.pypa.io/en/stable/user_guide/
+pkg1
+pkg2
+pkg3>=1.0,<=2.0
+
+ProjectA
+ProjectB<1.3
+
+git+https://myvcs.com/some_dependency@sometag#egg=SomeDependency
+
+SomePackage-1.0-py2.py3-none-any.whl
+
+# In the future, the path[extras] syntax may become deprecated. 
+# It is recommended to use PEP 508 syntax wherever possible.
+./somepackage-1.0-py2.py3-none-any.whl[my-extras]
+
+
+###################################################
+# example from https://pip.pypa.io/en/stable/cli/pip_install/#requirement-specifiers
+
+# Some examples:
+SomeProject
+SomeProject == 1.3
+SomeProject >=1.2,<2.0
+SomeProject[foo, bar]
+SomeProject~=1.4.2
+
+# Since version 6.0, pip also supports specifiers containing environment markers like so:
+SomeProject ==5.4 ; python_version < '3.8'
+SomeProject; sys_platform == 'win32'
+
+# Since version 19.1, pip also supports direct references like so:
+SomeProject @ file:///somewhere/...
+
+
+###################################################
+# example from https://pip.pypa.io/en/stable/cli/pip_install/#local-project-installs
+path/to/SomeProject
+
+
+###################################################
+# example from https://pip.pypa.io/en/stable/cli/pip_install/#per-requirement-overrides
+
+# The --global-option and --install-option options are used to pass options to setup.py. For example:
+FooProject >= 1.2 --global-option="--no-user-cfg" \
+                  --install-option="--prefix='/usr/local'" \
+                  --install-option="--no-compile"
+
+# Invalid. Please use '--install-option' twice as shown above.
+FooProject >= 1.2 --install-option="--prefix=/usr/local --no-compile"
+
+
+###################################################
+# example from https://pip.pypa.io/en/stable/cli/pip_install/#hash-checking-mode
+
+# Hash-Checking Mode
+FooProject == 1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824 \
+                  --hash=sha256:486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7
+
+
+###################################################
+# example from https://pip.pypa.io/en/stable/cli/pip_install/#editable-installs
+
+-e path/to/SomeProject
+-e git+http://repo/my_project.git#egg=SomeProject
+
+
+###################################################
+# example from https://pip.pypa.io/en/stable/topics/repeatable-installs/#hash-checking
+FooProject == 1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+
+
+###################################################
+# example from https://pip.pypa.io/en/stable/getting-started/
+git+https://github.com/pypa/sampleproject.git@main
+sampleproject-1.0.tar.gz
+-r requirements.txt
+sampleproject

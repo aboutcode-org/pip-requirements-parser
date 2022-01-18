@@ -1,0 +1,30 @@
+{
+  "find_links": [],
+  "index_urls": [],
+  "options": {
+    "format_control": {
+      "no_binary": [
+        "fred"
+      ],
+      "only_binary": [
+        "wilma"
+      ]
+    }
+  },
+  "install_requirements": [],
+  "invalid_lines": [],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# default is no constraints"
+    },
+    {
+      "line_number": 2,
+      "line": "# We're not testing the format control logic here, just that the options are"
+    },
+    {
+      "line_number": 3,
+      "line": "# accepted"
+    }
+  ]
+}

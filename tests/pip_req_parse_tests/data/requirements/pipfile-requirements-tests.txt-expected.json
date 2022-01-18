@@ -1,0 +1,143 @@
+{
+  "find_links": [],
+  "index_urls": [
+    "https://pypi.org/simple",
+    "https://pypi.example.com/simple"
+  ],
+  "options": {
+    "format_control": {
+      "no_binary": [],
+      "only_binary": []
+    }
+  },
+  "install_requirements": [
+    {
+      "name": "appnope",
+      "specifier": [
+        "==0.1.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "appnope==0.1.0; sys_platform == \"darwin\""
+      },
+      "link": null,
+      "markers": "sys_platform == \"darwin\"",
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pexpect",
+      "specifier": [
+        "==4.8.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "pexpect==4.8.0; sys_platform != \"win32\""
+      },
+      "link": null,
+      "markers": "sys_platform != \"win32\"",
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "six",
+      "specifier": [
+        "==1.14.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "six==1.14.0 --hash=sha256:236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a --hash=sha256:8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a",
+          "8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "sqlalchemy",
+      "specifier": [
+        "==1.3.13"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "sqlalchemy==1.3.13 --hash=sha256:64a7b71846db6423807e96820993fa12a03b89127d278290ca25c0b11ed7b4fb"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {
+        "sha256": [
+          "64a7b71846db6423807e96820993fa12a03b89127d278290ca25c0b11ed7b4fb"
+        ]
+      },
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-whooshee",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "flask-whooshee"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "wtforms",
+      "specifier": [
+        "==2.2.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "wtforms==2.2.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": {},
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comment_lines": [
+    {
+      "line_number": 1,
+      "line": "# from https://github.com/frostming/pipfile-requirements/blob/master/tests/"
+    }
+  ]
+}
