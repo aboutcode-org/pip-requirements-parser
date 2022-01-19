@@ -668,6 +668,14 @@ def use_feature() -> Option:
 )
 
 
+#TODO: add legacy options
+"""              
+--allow-external
+--allow-unverified
+-Z
+--always-unzip
+"""
+
 # PIPREQPARSE: end from src/pip/_internal/cli/cmdoptions.py:
 ################################################################################
 
@@ -852,12 +860,17 @@ def handle_option_line(opts: Values) -> Dict:
             if name in options:
                 raise InstallationError(f"Invalid duplicated option name: {name}")
             if value:
+                # strip possible legacy leading equal
+                if isinstance(value, str):
+                    value = value.lstrip("=")
+                if isinstance(value, list):
+                    value = [v.lstrip("=") for v in value]
                 options[name] = value
 
     return options
 
 
-def handle_line(parsed_line: ParsedLine) -> Optional[Union[ParsedRequirement,OptionLine]]:
+def handle_line(parsed_line: ParsedLine) -> Union[ParsedRequirement, OptionLine]:
     """Handle a single parsed requirements line
 
     :param parsed_line:        The parsed line to be processed.
@@ -1054,11 +1067,23 @@ class OptionParsingError(Exception):
         self.msg = msg
 
 
+def print_usage(self, file=None):
+    """
+    A mock optparse.OptionParser method to avoid junk outputs on option parsing
+    errors.
+    """
+    return
+
+
 def build_parser() -> optparse.OptionParser:
     """
     Return a parser for parsing requirement lines
     """
-    parser = optparse.OptionParser(add_help_option=False)
+    parser = optparse.OptionParser(
+        add_help_option=False,
+        #formatter=DummyHelpFormatter(),
+    )
+    parser.print_usage = print_usage
 
     option_factories = SUPPORTED_OPTIONS + SUPPORTED_OPTIONS_REQ
     for option_factory in option_factories:
