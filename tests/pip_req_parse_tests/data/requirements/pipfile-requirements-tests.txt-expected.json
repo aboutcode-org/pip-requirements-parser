@@ -1,16 +1,19 @@
 {
-  "find_links": [],
-  "index_urls": [
-    "https://pypi.org/simple",
-    "https://pypi.example.com/simple"
-  ],
-  "options": {
-    "format_control": {
-      "no_binary": [],
-      "only_binary": []
+  "options": [
+    {
+      "line_number": 9,
+      "line": "--index-url=https://pypi.org/simple",
+      "index_url": "https://pypi.org/simple"
+    },
+    {
+      "line_number": 10,
+      "line": "--extra-index-url=https://pypi.example.com/simple",
+      "extra_index_urls": [
+        "https://pypi.example.com/simple"
+      ]
     }
-  },
-  "install_requirements": [
+  ],
+  "requirements": [
     {
       "name": "appnope",
       "specifier": [
@@ -26,7 +29,7 @@
       "markers": "sys_platform == \"darwin\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -45,7 +48,7 @@
       "markers": "sys_platform != \"win32\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -64,12 +67,10 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a",
-          "8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
-        ]
-      },
+      "hash_options": [
+        "sha256:236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a",
+        "sha256:8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
+      ],
       "is_constraint": false,
       "extras": []
     },
@@ -88,11 +89,9 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "64a7b71846db6423807e96820993fa12a03b89127d278290ca25c0b11ed7b4fb"
-        ]
-      },
+      "hash_options": [
+        "sha256:64a7b71846db6423807e96820993fa12a03b89127d278290ca25c0b11ed7b4fb"
+      ],
       "is_constraint": false,
       "extras": []
     },
@@ -109,7 +108,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -128,13 +127,13 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     }
   ],
   "invalid_lines": [],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# from https://github.com/frostming/pipfile-requirements/blob/master/tests/"

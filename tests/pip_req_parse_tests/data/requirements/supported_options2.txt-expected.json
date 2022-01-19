@@ -1,19 +1,23 @@
 {
-  "find_links": [],
-  "index_urls": [],
-  "options": {
-    "format_control": {
+  "options": [
+    {
+      "line_number": 4,
+      "line": "--no-binary fred",
       "no_binary": [
         "fred"
-      ],
+      ]
+    },
+    {
+      "line_number": 5,
+      "line": "--only-binary wilma",
       "only_binary": [
         "wilma"
       ]
     }
-  },
-  "install_requirements": [],
+  ],
+  "requirements": [],
   "invalid_lines": [],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# default is no constraints"

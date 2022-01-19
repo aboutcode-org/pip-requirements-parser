@@ -1,13 +1,6 @@
 {
-  "find_links": [],
-  "index_urls": [],
-  "options": {
-    "format_control": {
-      "no_binary": [],
-      "only_binary": []
-    }
-  },
-  "install_requirements": [
+  "options": [],
+  "requirements": [
     {
       "name": "requests",
       "specifier": [],
@@ -21,7 +14,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "socks"
@@ -42,7 +35,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -61,7 +54,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "socks"
@@ -82,7 +75,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "socks"
@@ -101,7 +94,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -118,7 +111,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -135,7 +128,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -152,7 +145,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -169,7 +162,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "voice"
@@ -188,7 +181,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "security"
@@ -209,11 +202,9 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
-        ]
-      },
+      "hash_options": [
+        "sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+      ],
       "is_constraint": false,
       "extras": [
         "stuff"
@@ -232,7 +223,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "dev"
@@ -253,11 +244,9 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
-        ]
-      },
+      "hash_options": [
+        "sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+      ],
       "is_constraint": false,
       "extras": []
     },
@@ -276,11 +265,9 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
-        ]
-      },
+      "hash_options": [
+        "sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+      ],
       "is_constraint": false,
       "extras": [
         "stuff"
@@ -299,7 +286,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -316,7 +303,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "spinner"
@@ -337,7 +324,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "spinner"
@@ -358,7 +345,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -377,7 +364,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -394,7 +381,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -411,7 +398,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -428,7 +415,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -445,7 +432,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "socks"
@@ -464,7 +451,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -481,7 +468,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -498,7 +485,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -515,7 +502,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -532,7 +519,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "security"
@@ -553,7 +540,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -570,7 +557,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -587,7 +574,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -604,7 +591,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -621,7 +608,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -638,7 +625,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     }
@@ -655,7 +642,7 @@
       "error_message": "git+git@github.com:pypa/pipenv.git#egg=pipenv is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
     }
   ],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# from https://github.com/sarugaku/requirementslib/blob/main/tests/unit/test_requirements.py"

@@ -1,13 +1,6 @@
 {
-  "find_links": [],
-  "index_urls": [],
-  "options": {
-    "format_control": {
-      "no_binary": [],
-      "only_binary": []
-    }
-  },
-  "install_requirements": [
+  "options": [],
+  "requirements": [
     {
       "name": "MyProject",
       "specifier": [],
@@ -21,7 +14,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -38,7 +31,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -55,7 +48,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -72,7 +65,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -89,7 +82,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -106,7 +99,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -123,7 +116,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -140,7 +133,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -157,7 +150,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -174,7 +167,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -191,7 +184,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -208,7 +201,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -225,7 +218,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -242,7 +235,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -259,7 +252,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -276,7 +269,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -293,7 +286,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -310,7 +303,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -327,7 +320,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -344,7 +337,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -361,7 +354,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -378,7 +371,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -395,7 +388,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -412,7 +405,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -429,7 +422,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -446,7 +439,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -463,13 +456,13 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     }
   ],
   "invalid_lines": [],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# examples from"

@@ -27,7 +27,6 @@
 import codecs
 import locale
 import functools
-import hashlib
 import io
 import logging
 import operator
@@ -44,7 +43,6 @@ import urllib.request
 from functools import partial
 from optparse import Values
 from optparse import Option
-from optparse import OptionParser
 
 from typing import (
     Any,
@@ -52,7 +50,6 @@ from typing import (
     Callable,
     Collection,
     Dict,
-    FrozenSet, 
     Iterable,
     Iterator,
     List,
@@ -72,7 +69,6 @@ from packaging.requirements import Requirement
 from packaging.specifiers import Specifier
 from packaging.specifiers import SpecifierSet
 from packaging.tags import Tag
-from packaging.utils import canonicalize_name
 
 """
 A pip requirements files parser, doing it as well as pip does it.
@@ -103,26 +99,25 @@ class RequirementsFile:
         """
         self.filename = filename
 
-        self.format_control = FormatControl()
-        self.options = Values()
-        self.options.format_control = self.format_control
-
-        finder = PackageFinder(format_control=self.format_control)
-
-        self.install_requirements: List[InstallRequirement] = []
+        self.requirements: List[InstallRequirement] = []
+        self.options: List[OptionLine] = []
         self.invalid_lines: List[InvalidRequirementLine] = []
-        self.comment_lines: List[CommentRequirementLine] = []
+        self.comments: List[CommentRequirementLine] = []
 
         for parsed in parse_requirements(
             filename=filename,
-            finder=finder,
-            options=self.options,
             include_nested=include_nested,
         ):
+
             if isinstance(parsed, InvalidRequirementLine):
                 self.invalid_lines.append(parsed)
+
             elif isinstance(parsed, CommentRequirementLine):
-                self.comment_lines.append(parsed)
+                self.comments.append(parsed)
+
+            elif isinstance(parsed, OptionLine):
+                self.options.append(parsed)
+
             else:
                 assert isinstance(parsed, ParsedRequirement)
                 try:
@@ -131,8 +126,12 @@ class RequirementsFile:
                     # we can also process some errors further down
                     if isinstance(parsed, InvalidRequirementLine):
                         self.invalid_lines.append(req)
+
+                    elif isinstance(parsed, OptionLine):
+                        raise Exception()
+
                     else:
-                        self.install_requirements.append(req)
+                        self.requirements.append(req)
 
                 except Exception as e:
 
@@ -141,27 +140,29 @@ class RequirementsFile:
                         error_message=str(e),
                     ))
 
-        self.find_links = finder.find_links
-        self.index_urls =  finder.index_urls
-
     def to_dict(self, include_filename=False):
         """
         Return a mapping of plain Python objects for this RequirementsFile
         """
         return dict(
-            find_links = self.find_links,
-            index_urls = self.index_urls,
-            options =  option_values_to_dict(self.options),
-            install_requirements = [
-                ir.to_dict() for ir in self.install_requirements
+            options =  [
+                o.to_dict(include_filename=include_filename)
+                for o in self.options
             ],
+
+            requirements = [
+                ir.to_dict(include_filename=include_filename)
+                for ir in self.requirements
+            ],
+
             invalid_lines = [
                 upl.to_dict(include_filename=include_filename)
                 for upl in self.invalid_lines
             ],
-            comment_lines = [
+
+            comments = [
                 cl.to_dict(include_filename=include_filename)
-                for cl in self.comment_lines
+                for cl in self.comments
             ]
         )
 
@@ -177,13 +178,10 @@ class RequirementsFile:
         else:
             requirement_lines = []
 
-            for r in (
-                self.install_requirements
-                + self.invalid_lines
-            ):
+            for r in (self.requirements + self.invalid_lines + self.options):
                 requirement_lines.append(r.requirement_line)
 
-            requirement_lines.extend(self.comment_lines)
+            requirement_lines.extend(self.comments)
 
             dumped = []
 
@@ -205,15 +203,6 @@ class RequirementsFile:
                 previous_line_number = rl.line_number
 
             return "".join(dumped)
-
-
-def option_values_to_dict(option_values):
- 
-    #list of known options: pre, prefer_binary, editables
-    return {
-        k: v.to_dict() if hasattr(v, "to_dict") else v 
-        for k, v in option_values.__dict__.items()
-    }
 
 
 class RequirementLine:
@@ -269,29 +258,28 @@ class CommentRequirementLine(RequirementLine):
 class OptionLine:
     """
     This represents an a CLI-style "global" option line in a requirements file
-    with a name and value.
+    with a mapping of name to values. Technically only one global option per
+    line is allowed, but we track a mapping in case this is not the acse.
     """
     def __init__(
         self,
         requirement_line: RequirementLine,
-        name: str,
-        value: Any,
+        options: Dict,
     ) -> None:
+
         self.requirement_line = requirement_line
-        self.name = name
-        self.value = value
+        self.options = options
 
     def to_dict(self, include_filename=False):
         data = self.requirement_line.to_dict(include_filename=include_filename)
-        data.update(name=self.name, value=self.value)
+        data.update(self.options)
         return data
 
     def __repr__(self):
         return (
             f"{self.__class__.__name__}("
                 f"requirement_line={self.requirement_line!r}, "
-                f"name={self.name!r}, "
-                f"value={self.value!r}"
+                f"options={self.options!r}"
             ")"
         )
     def __eq__(self, other):
@@ -445,151 +433,13 @@ class InvalidWheelFilename(InstallationError):
     """Invalid wheel filename."""
 
 
-class HashError(InstallationError):
-    """
-    A failure to verify a package against known-good hashes
-    """
-
-
-class VcsHashUnsupported(HashError):
-    """A hash was provided for a version-control-system-based requirement, but
-    we don't have a method for hashing those."""
-
-
-class DirectoryUrlHashUnsupported(HashError):
-    """A hash was provided for a version-control-system-based requirement, but
-    we don't have a method for hashing those."""
-
-
-class HashMissing(HashError):
-    """A hash was needed for a requirement but is absent."""
-
-
-class HashUnpinned(HashError):
-    """A requirement had a hash specified but was not pinned to a specific
-    version."""
-
-
-class HashMismatch(HashError):
-    """
-    Distribution file hash values don't match.
-    """
-
 # PIPREQPARSE: end from src/pip/_internal/exceptions.py
-################################################################################
-
-
-################################################################################
-# PIPREQPARSE: from src/pip/_internal/models/format_control.py
-
-
-class FormatControl:
-    """Helper for managing formats from which a package can be installed."""
-
-    __slots__ = ["no_binary", "only_binary"]
-
-    def __init__(
-        self,
-        no_binary: Optional[Set[str]] = None,
-        only_binary: Optional[Set[str]] = None,
-    ) -> None:
-        if no_binary is None:
-            no_binary = set()
-        if only_binary is None:
-            only_binary = set()
-
-        self.no_binary = no_binary
-        self.only_binary = only_binary
-
-    def __eq__(self, other: object) -> bool:
-        if not isinstance(other, self.__class__):
-            return NotImplemented
-
-        if self.__slots__ != other.__slots__:
-            return False
-
-        return all(getattr(self, k) == getattr(other, k) for k in self.__slots__)
-
-    def __repr__(self) -> str:
-        return "{}({}, {})".format(
-            self.__class__.__name__, self.no_binary, self.only_binary
-        )
-
-    @staticmethod
-    def handle_mutual_excludes(value: str, target: Set[str], other: Set[str]) -> None:
-        if value.startswith("-"):
-            raise CommandError(
-                "--no-binary / --only-binary option requires 1 argument."
-            )
-        new = value.split(",")
-        while ":all:" in new:
-            other.clear()
-            target.clear()
-            target.add(":all:")
-            del new[: new.index(":all:") + 1]
-            # Without a none, we want to discard everything as :all: covers it
-            if ":none:" not in new:
-                return
-        for name in new:
-            if name == ":none:":
-                target.clear()
-                continue
-            name = canonicalize_name(name)
-            other.discard(name)
-            target.add(name)
-
-    def get_allowed_formats(self, canonical_name: str) -> FrozenSet[str]:
-        result = {"binary", "source"}
-        if canonical_name in self.only_binary:
-            result.discard("source")
-        elif canonical_name in self.no_binary:
-            result.discard("binary")
-        elif ":all:" in self.only_binary:
-            result.discard("source")
-        elif ":all:" in self.no_binary:
-            result.discard("binary")
-        return frozenset(result)
-
-    def disallow_binaries(self) -> None:
-        self.handle_mutual_excludes(
-            ":all:",
-            self.no_binary,
-            self.only_binary,
-        )
-
-    def to_dict(self):
-        return dict(
-            no_binary = sorted(self.no_binary),
-            only_binary = sorted(self.only_binary),
-        )
-
-# PIPREQPARSE: end from src/pip/_internal/models/format_control.py
 ################################################################################
 
 
 ################################################################################
 # PIPREQPARSE: from src/pip/_internal/cli/cmdoptions.py:
 # most callable renamed with cmdoptions_ prefix
-
-def check_install_build_global(
-    options: Values, check_options: Optional[Values] = None
-) -> None:
-    """Disable wheels if per-setup.py call options are set.
-
-    :param options: The OptionParser options to update.
-    :param check_options: The options to check, if not supplied defaults to
-        options.
-    """
-    if check_options is None:
-        check_options = options
-
-    def getname(n: str) -> Optional[Any]:
-        return getattr(check_options, n, None)
-
-    names = ["build_options", "global_options", "install_options"]
-    if any(map(getname, names)):
-        control = options.format_control
-        control.disallow_binaries()
 
 
 index_url: Callable[..., Option] = partial(
@@ -607,6 +457,7 @@ index_url: Callable[..., Option] = partial(
 )
 
 
+# use a wrapper to ensure the default [] is not a shared global
 def extra_index_url() -> Option:
     return Option(
         "--extra-index-url",
@@ -630,6 +481,7 @@ no_index: Callable[..., Option] = partial(
 )
 
 
+# use a wrapper to ensure the default [] is not a shared global
 def find_links() -> Option:
     return Option(
         "-f",
@@ -646,6 +498,7 @@ def find_links() -> Option:
     )
 
 
+# use a wrapper to ensure the default [] is not a shared global
 def trusted_host() -> Option:
     return Option(
         "--trusted-host",
@@ -658,6 +511,7 @@ def trusted_host() -> Option:
     )
 
 
+# use a wrapper to ensure the default [] is not a shared global
 def constraints() -> Option:
     return Option(
         "-c",
@@ -671,6 +525,7 @@ def constraints() -> Option:
     )
 
 
+# use a wrapper to ensure the default [] is not a shared global
 def requirements() -> Option:
     return Option(
         "-r",
@@ -684,6 +539,7 @@ def requirements() -> Option:
     )
 
 
+# use a wrapper to ensure the default [] is not a shared global
 def editable() -> Option:
     return Option(
         "-e",
@@ -699,42 +555,14 @@ def editable() -> Option:
     )
 
 
-def _get_format_control(values: Values, option: Option) -> Any:
-    """Get a format_control object."""
-    return getattr(values, option.dest)
-
-
-def _handle_no_binary(
-    option: Option, opt_str: str, value: str, parser: OptionParser
-) -> None:
-    existing = _get_format_control(parser.values, option)
-    FormatControl.handle_mutual_excludes(
-        value,
-        existing.no_binary,
-        existing.only_binary,
-    )
-
-
-def _handle_only_binary(
-    option: Option, opt_str: str, value: str, parser: OptionParser
-) -> None:
-    existing = _get_format_control(parser.values, option)
-    FormatControl.handle_mutual_excludes(
-        value,
-        existing.only_binary,
-        existing.no_binary,
-    )
-
-
+# use a wrapper to ensure the default [] is not a shared global
 def no_binary() -> Option:
-    format_control = FormatControl()
     return Option(
         "--no-binary",
-        dest="format_control",
-        action="callback",
-        callback=_handle_no_binary,
+        dest="no_binary",
+        action="append",
+        default=[],
         type="str",
-        default=format_control,
         help="Do not use binary packages. Can be supplied multiple times, and "
         'each time adds to the existing value. Accepts either ":all:" to '
         'disable all binary packages, ":none:" to empty the set (notice '
@@ -744,15 +572,13 @@ def no_binary() -> Option:
     )
 
 
+# use a wrapper to ensure the default [] is not a shared global
 def only_binary() -> Option:
-    format_control = FormatControl()
     return Option(
         "--only-binary",
-        dest="format_control",
-        action="callback",
-        callback=_handle_only_binary,
-        type="str",
-        default=format_control,
+        dest="only_binary",
+        action="append",
+        default=[],
         help="Do not use source packages. Can be supplied multiple times, and "
         'each time adds to the existing value. Accepts either ":all:" to '
         'disable all source packages, ":none:" to empty the set, or one '
@@ -762,14 +588,14 @@ def only_binary() -> Option:
     )
 
 
-def prefer_binary() -> Option:
-    return Option(
-        "--prefer-binary",
-        dest="prefer_binary",
-        action="store_true",
-        default=False,
-        help="Prefer older binary packages over newer source packages.",
-    )
+prefer_binary: Callable[..., Option] = partial(
+    Option,
+    "--prefer-binary",
+    dest="prefer_binary",
+    action="store_true",
+    default=False,
+    help="Prefer older binary packages over newer source packages.",
+)
 
 
 install_options: Callable[..., Option] = partial(
@@ -807,46 +633,16 @@ pre: Callable[..., Option] = partial(
 )
 
 
-
-def _handle_merge_hash(
-    option: Option, opt_str: str, value: str, parser: OptionParser
-) -> None:
-    """Given a value spelled "algo:digest", append the digest to a list
-    pointed to in a dict by the algo name."""
-    if not parser.values.hashes:
-        parser.values.hashes = {}
-
-    try:
-        algo, digest = value.split(":", 1)
-    except ValueError:
-        algo = value
-        digest = None
-        # pass parser.error(
-        #     "Arguments to {} must be a hash name "  # noqa
-        #     "followed by a value, like --hash=sha256:"
-        #     "abcde...".format(opt_str)
-        # )
-    # if algo not in STRONG_HASHES:
-    #     parser.error(
-    #         "Allowed hash algorithms for {} are {}.".format(  # noqa
-    #             opt_str, ", ".join(STRONG_HASHES)
-    #         )
-    #     )
-    parser.values.hashes.setdefault(algo, []).append(digest)
-
-
-cmdoptions_hash: Callable[..., Option] = partial(
-    Option,
-    "--hash",
-    # Hash values eventually end up in InstallRequirement.hashes due to
-    # __dict__ copying in process_line().
-    dest="hashes",
-    action="callback",
-    callback=_handle_merge_hash,
-    type="string",
-    help="Verify that the package's archive matches this "
-    "hash before installing. Example: --hash=sha256:abcdef...",
-)
+# use a wrapper to ensure the default [] is not a shared global
+def cmdoptions_hash() -> Option:
+    return Option(
+        "--hash",
+        dest="hashes",
+        action="append",
+        default=[],
+        help="Verify that the package's archive matches this "
+        "hash before installing. Example: --hash=sha256:abcdef...",
+    )
 
 
 require_hashes: Callable[..., Option] = partial(
@@ -860,62 +656,21 @@ require_hashes: Callable[..., Option] = partial(
     "requirements file has a --hash option.",
 )
 
-use_new_feature: Callable[..., Option] = partial(
-    Option,
+
+# use a wrapper to ensure the default [] is not a shared global
+def use_feature() -> Option:
+    return Option(
     "--use-feature",
-    dest="features_enabled",
-    metavar="feature",
+    dest="use_features",
     action="append",
     default=[],
-    choices=["2020-resolver", "fast-deps", "in-tree-build"],
     help="Enable new functionality, that may be backward incompatible.",
 )
+
 
 # PIPREQPARSE: end from src/pip/_internal/cli/cmdoptions.py:
 ################################################################################
 
-
-################################################################################
-# PIPREQPARSE: from src/pip/_internal/index/package_finder.py
-# Significantly modified to work without network access
-
-class PackageFinder:
-    def __init__(
-        self,
-        find_links: Optional[List[str]] = None,
-        index_urls: Optional[List[str]] = None,
-        format_control: Optional[FormatControl] = None,
-        *args: Any,
-        **kwargs: Any,
-    ) -> None:
-        """
-        :param format_control: A FormatControl object, used to control
-            the selection of source packages / binary packages when consulting
-            the index and links.
-        """
-        self.format_control= format_control or FormatControl()
-        self.find_links = find_links or []
-        self.index_urls = index_urls or []
-
-        self._allow_all_prereleases =False
-        self._prefer_binary = True
-
-    @property
-    def allow_all_prereleases(self) -> bool:
-        return self._allow_all_prereleases
-
-    def set_allow_all_prereleases(self) -> None:
-        self._allow_all_prereleases = True
-
-    @property
-    def prefer_binary(self) -> bool:
-        return self._prefer_binary
-
-    def set_prefer_binary(self) -> None:
-        self._prefer_binary = True
-
-# PIPREQPARSE: end from src/pip/_internal/index/package_finder.py
-################################################################################
 
 ################################################################################
 # PIPREQPARSE: from src/pip/_internal/req/req_file.py
@@ -951,8 +706,10 @@ SUPPORTED_OPTIONS: List[Callable[..., optparse.Option]] = [
     require_hashes,
     pre,
     trusted_host,
-    use_new_feature,
+    use_feature,
 ]
+
+SUPPORTED_OPTIONS_DEST = [str(o().dest) for o in SUPPORTED_OPTIONS]
 
 # options to be passed to requirements
 SUPPORTED_OPTIONS_REQ: List[Callable[..., optparse.Option]] = [
@@ -1010,23 +767,19 @@ class ParsedLine:
 
 def parse_requirements(
     filename: str,
-    finder: Optional[PackageFinder] = None,
-    options: Optional[optparse.Values] = None,
     is_constraint: bool = False,
     include_nested: bool = True,
-) -> Iterator[Union[ParsedRequirement, InvalidRequirementLine, CommentRequirementLine]]:
+) -> Iterator[Union[ParsedRequirement, OptionLine, InvalidRequirementLine, CommentRequirementLine]]:
     """Parse a requirements file and yield ParsedRequirement,
     InvalidRequirementLine or CommentRequirementLine instances.
 
     :param filename:    Path or url of requirements file.
-    :param finder:      Instance of PackageFinder used to collect options.
-    :param options:     cli options.
     :param is_constraint:  If true, parsing a constraint file rather than
         requirements file.
     :param include_nested: if true, also load and parse -r/--requirements
         and -c/--constraints nested files.
     """
-    line_parser = get_line_parser(finder)
+    line_parser = get_line_parser()
     parser = RequirementsFileParser(line_parser)
 
     for parsed_line in parser.parse(
@@ -1036,16 +789,12 @@ def parse_requirements(
     ):
 
         if isinstance(parsed_line, ParsedLine):
-            parsed_req = handle_line(
-                parsed_line=parsed_line, options=options, finder=finder,
-            )
+            parsed_req = handle_line(parsed_line=parsed_line)
             if parsed_req is not None:
                 yield parsed_req
 
         else:
-            assert isinstance(
-                parsed_line, (InvalidRequirementLine, CommentRequirementLine,)
-            )
+            assert isinstance(parsed_line, (InvalidRequirementLine, CommentRequirementLine,))
             yield parsed_line
 
 
@@ -1063,7 +812,6 @@ def preprocess(content: str) -> ReqFileLines:
 
 def handle_requirement_line(
     parsed_line: ParsedLine,
-    options: Optional[optparse.Values] = None,
 ) -> ParsedRequirement:
 
     assert parsed_line.is_requirement
@@ -1078,10 +826,6 @@ def handle_requirement_line(
             requirement_line=parsed_line.requirement_line,
         )
     else:
-        if options:
-            # Disable wheels if the user has specified build options
-            check_install_build_global(options, parsed_line.options)
-
         # get the options that apply to requirements
         req_options = {}
         for dest in SUPPORTED_OPTIONS_REQ_DEST:
@@ -1097,54 +841,29 @@ def handle_requirement_line(
         )
 
 
-def handle_option_line(
-    opts: Values,
-    finder: Optional[PackageFinder] = None,
-    options: Optional[optparse.Values] = None,
-) -> None:
+def handle_option_line(opts: Values) -> Dict:
+    """
+    Return a mapping of {name: value}.
+    """
+    options = {}
+    for name in SUPPORTED_OPTIONS_DEST:
+        if hasattr(opts, name):
+            value = getattr(opts, name)
+            if name in options:
+                raise InstallationError(f"Invalid duplicated option name: {name}")
+            if value:
+                options[name] = value
 
-    if options:
-        # percolate options upward
-        if opts.require_hashes:
-            options.require_hashes = opts.require_hashes
-        if opts.features_enabled:
-            options.features_enabled.extend(
-                f for f in opts.features_enabled
-                if f not in options.features_enabled
-            )
-
-    # set finder options
-    if finder:
-        if opts.index_url:
-            finder.index_urls.append(opts.index_url)
-
-        if opts.extra_index_urls:
-            finder.index_urls.extend(opts.extra_index_urls)
-        
-        if opts.find_links:
-            finder.find_links.extend(opts.find_links)
-
-        if opts.pre:
-            finder.set_allow_all_prereleases()
-
-        if opts.prefer_binary:
-            finder.set_prefer_binary()
+    return options
 
 
-def handle_line(
-    parsed_line: ParsedLine,
-    options: Optional[optparse.Values] = None,
-    finder: Optional[PackageFinder] = None,
-) -> Optional[ParsedRequirement]:
-    """Handle a single parsed requirements line; This can result in
-    creating/yielding requirements, or updating the finder.
+def handle_line(parsed_line: ParsedLine) -> Optional[Union[ParsedRequirement,OptionLine]]:
+    """Handle a single parsed requirements line
 
     :param parsed_line:        The parsed line to be processed.
-    :param options:     CLI options.
-    :param finder:      The finder - updated by non-requirement lines.
 
     Returns a ParsedRequirement object if the line is a requirement line,
-    otherwise returns None.
+    otherwise returns an OptionLine.
 
     For lines that contain requirements, the only options that have an effect
     are from SUPPORTED_OPTIONS_REQ, and they are scoped to the
@@ -1154,20 +873,17 @@ def handle_line(
     For lines that do not contain requirements, the only options that have an
     effect are from SUPPORTED_OPTIONS. Options from SUPPORTED_OPTIONS_REQ may
     be present, but are ignored. These lines may contain multiple options
-    (although our docs imply only one is supported), and all our parsed and
-    affect the finder.
+    (although our docs imply only one is supported)
     """
 
     if parsed_line.is_requirement:
-        return handle_requirement_line(parsed_line=parsed_line, options=options)
-
+        return handle_requirement_line(parsed_line=parsed_line)
     else:
-        handle_option_line(
-            opts=parsed_line.options,
-            finder=finder,
+        options = handle_option_line(opts=parsed_line.options)
+        return OptionLine(
+            requirement_line=parsed_line.requirement_line,
             options=options,
         )
-        return None
 
 
 class RequirementsFileParser:
@@ -1215,7 +931,7 @@ class RequirementsFileParser:
         """
         for line in self._parse_file(filename=filename, is_constraint=is_constraint):
 
-            if (include_nested 
+            if (include_nested
                 and isinstance(line, ParsedLine) 
                 and not line.is_requirement and
                 (line.options.requirements or line.options.constraints)
@@ -1253,8 +969,9 @@ class RequirementsFileParser:
                     is_constraint=is_nested_constraint,
                     include_nested=include_nested,
                 )
-            else:
-                yield line
+            # always yield the line even if we recursively included other
+            # nested requirements or constraints files
+            yield line
 
     def _parse_file(self, filename: str, is_constraint: bool
     ) -> Iterator[Union[ParsedLine, InvalidRequirementLine, CommentRequirementLine]]:
@@ -1300,20 +1017,16 @@ class RequirementsFileParser:
                 )
 
 
-def get_line_parser(finder: Optional["PackageFinder"]) -> LineParser:
+def get_line_parser() -> LineParser:
+
     def parse_line(line: str) -> Tuple[str, Values]:
         # Build new parser for each line since it accumulates appendable
         # options.
         parser = build_parser()
         defaults = parser.get_default_values()
         defaults.index_url = None
-        if finder:
-            defaults.format_control = finder.format_control
-
         args_str, options_str = break_args_options(line)
-
         opts, _ = parser.parse_args(shlex.split(options_str), defaults)
-
         return args_str, opts
 
     return parse_line
@@ -1489,144 +1202,6 @@ def url_to_path(url: str) -> str:
     return path
 
 # PIPREQPARSE: end from src/pip/_internal/utils/urls.py
-################################################################################
-
-
-################################################################################
-# PIPREQPARSE: from src/pip/_internal/utils/hashes.py
-
-# The recommended hash algo of the moment. Change this whenever the state of
-# the art changes; it won't hurt backward compatibility.
-FAVORITE_HASH = "sha256"
-
-
-# Names of hashlib algorithms allowed by the --hash option and ``pip hash``
-# Currently, those are the ones at least as collision-resistant as sha256.
-STRONG_HASHES = ["sha256", "sha384", "sha512"]
-
-
-class Hashes:
-    """A wrapper that builds multiple hashes at once and checks them against
-    known-good values
-
-    """
-
-    def __init__(self, hashes: Dict[str, List[str]] = None) -> None:
-        """
-        :param hashes: A dict of algorithm names pointing to lists of allowed
-            hex digests
-        """
-        allowed = {}
-        if hashes is not None:
-            for alg, keys in hashes.items():
-                # Make sure values are always sorted (to ease equality checks)
-                allowed[alg] = sorted(keys)
-        self._allowed = allowed
-
-    def __and__(self, other: "Hashes") -> "Hashes":
-        if not isinstance(other, Hashes):
-            return NotImplemented
-
-        # If either of the Hashes object is entirely empty (i.e. no hash
-        # specified at all), all hashes from the other object are allowed.
-        if not other:
-            return self
-        if not self:
-            return other
-
-        # Otherwise only hashes that present in both objects are allowed.
-        new = {}
-        for alg, values in other._allowed.items():
-            if alg not in self._allowed:
-                continue
-            new[alg] = [v for v in values if v in self._allowed[alg]]
-        return Hashes(new)
-
-    @property
-    def digest_count(self) -> int:
-        return sum(len(digests) for digests in self._allowed.values())
-
-    def is_hash_allowed(self, hash_name: str, hex_digest: str) -> bool:
-        """Return whether the given hex digest is allowed."""
-        return hex_digest in self._allowed.get(hash_name, [])
-
-    def check_against_chunks(self, chunks: Iterator[bytes]) -> None:
-        """Check good hashes against ones built from iterable of chunks of
-        data.
-
-        Raise HashMismatch if none match.
-
-        """
-        gots = {}
-        for hash_name in self._allowed.keys():
-            try:
-                gots[hash_name] = hashlib.new(hash_name)
-            except (ValueError, TypeError):
-                raise InstallationError(f"Unknown hash name: {hash_name}")
-
-        for chunk in chunks:
-            for hsh in gots.values():
-                hsh.update(chunk)
-
-        for hash_name, got in gots.items():
-            if got.hexdigest() in self._allowed[hash_name]:
-                return
-        self._raise(gots)
-
-    def _raise(self, gots: Dict[str, "_Hash"]) -> "NoReturn":
-        raise HashMismatch(self._allowed, gots)
-
-    def check_against_file(self, file: BinaryIO) -> None:
-        """Check good hashes against a file-like object
-
-        Raise HashMismatch if none match.
-
-        """
-        return self.check_against_chunks(read_chunks(file))
-
-    def check_against_path(self, path: str) -> None:
-        with open(path, "rb") as file:
-            return self.check_against_file(file)
-
-    def __bool__(self) -> bool:
-        """Return whether I know any known-good hashes."""
-        return bool(self._allowed)
-
-    def __eq__(self, other: object) -> bool:
-        if not isinstance(other, Hashes):
-            return NotImplemented
-        return self._allowed == other._allowed
-
-    def __hash__(self) -> int:
-        return hash(
-            ",".join(
-                sorted(
-                    ":".join((alg, digest))
-                    for alg, digest_list in self._allowed.items()
-                    for digest in digest_list
-                )
-            )
-        )
-
-
-class MissingHashes(Hashes):
-    """A workalike for Hashes used when we're missing a hash for a requirement
-
-    It computes the actual hash of the requirement and raises a HashMissing
-    exception showing it to the user.
-
-    """
-
-    def __init__(self) -> None:
-        """Don't offer the ``hashes`` kwarg."""
-        # Pass our favorite hash in to generate a "gotten hash". With the
-        # empty list, it will never match, so an error will always raise.
-        super().__init__(hashes={FAVORITE_HASH: []})
-
-    def _raise(self, gots: Dict[str, "_Hash"]) -> "NoReturn":
-        raise HashMissing(gots[FAVORITE_HASH].hexdigest())
-
-# PIPREQPARSE: from src/pip/_internal/utils/hashes.py
 ################################################################################
 
 
@@ -1830,18 +1405,6 @@ class Link(KeyBasedCompareMixin):
     def has_hash(self) -> bool:
         return self.hash_name is not None
 
-    def is_hash_allowed(self, hashes: Optional[Hashes]) -> bool:
-        """
-        Return True if the link has a hash and it is allowed.
-        """
-        if hashes is None or not self.has_hash:
-            return False
-        # Assert non-None so mypy knows self.hash_name and self.hash are str.
-        assert self.hash_name is not None
-        assert self.hash is not None
-
-        return hashes.is_hash_allowed(self.hash_name, hex_digest=self.hash)
-
 
 class _CleanResult(NamedTuple):
     """Convert link for equivalency check.
@@ -1928,7 +1491,7 @@ class InstallRequirement:
         markers: Optional[Marker] = None,
         install_options: Optional[List[str]] = None,
         global_options: Optional[List[str]] = None,
-        hash_options: Optional[Dict[str, List[str]]] = None,
+        hash_options: Optional[List[str]] = None,
         is_constraint: bool = False,
         extras: Collection[str] = (),
     ) -> None:
@@ -1957,7 +1520,7 @@ class InstallRequirement:
         # Supplied options
         self.install_options = install_options or []
         self.global_options = global_options or []
-        self.hash_options = hash_options or {}
+        self.hash_options = hash_options or []
 
     def __str__(self) -> str:
         if self.req:
@@ -2006,23 +1569,6 @@ class InstallRequirement:
         else:
             return True
 
-    def hashes(self) -> Hashes:
-        """Return a hash-comparer that considers my option- and URL-based
-        hashes to be known-good.
-
-        Hashes in URLs--ones embedded in the requirements file, not ones
-        downloaded from an index server--are almost peers with ones from
-        flags. They satisfy --require-hashes (whether it was implicitly or
-        explicitly activated) but do not activate it. md5 and sha224 are not
-        allowed in flags, which should nudge people toward good algos. We
-        always OR all hashes together, even ones from URLs.
-        """
-        good_hashes = self.hash_options.copy()
-        link = self.link
-        if link and link.hash:
-            good_hashes.setdefault(link.hash_name, []).append(link.hash)
-        return Hashes(good_hashes)
-
     @property
     def is_wheel(self) -> bool:
         if not self.link:
@@ -2039,7 +1585,7 @@ def specifier_key(spec):
     return spec.version, spec.operator
 
 
-def ireq_to_dict(ireq: InstallRequirement) -> Dict:
+def ireq_to_dict(ireq: InstallRequirement, include_filename=False) -> Dict:
     """
     Return a mapping of plain Pythomn object representing the ``ireq``
     InstallRequirement. 
@@ -2051,17 +1597,18 @@ def ireq_to_dict(ireq: InstallRequirement) -> Dict:
         ]
     else:
         specifier = []
+
     return dict(
         name=ireq.name,
         specifier=specifier,
         is_editable=ireq.is_editable,
         is_pinned= ireq.req and ireq.is_pinned or False,
-        requirement_line=ireq.requirement_line.to_dict(),
+        requirement_line=ireq.requirement_line.to_dict(include_filename),
         link=ireq.link and ireq.link.url or None,
         markers=ireq.markers and str(ireq.markers) or None,
-        install_options=ireq.install_options,
-        global_options=ireq.global_options,
-        hash_options=ireq.hash_options or {},
+        install_options=ireq.install_options or [],
+        global_options=ireq.global_options or [],
+        hash_options=ireq.hash_options or [],
         is_constraint=ireq.is_constraint,
         extras=ireq.extras and sorted(ireq.extras) or [],
     )
@@ -2310,7 +1857,7 @@ def install_req_from_editable(
         is_constraint=is_constraint,
         install_options=options.get("install_options", []) if options else [],
         global_options=options.get("global_options", []) if options else [],
-        hash_options=options.get("hashes", {}) if options else {},
+        hash_options=options.get("hashes", []) if options else [],
         extras=parts.extras,
     )
 
@@ -2467,7 +2014,7 @@ def install_req_from_line(
         markers=parts.markers,
         install_options=options.get("install_options", []) if options else [],
         global_options=options.get("global_options", []) if options else [],
-        hash_options=options.get("hashes", {}) if options else {},
+        hash_options=options.get("hashes", []) if options else [],
         is_constraint=is_constraint,
         extras=parts.extras,
     )

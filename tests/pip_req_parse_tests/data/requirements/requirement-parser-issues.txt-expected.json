@@ -1,20 +1,40 @@
 {
-  "find_links": [
-    "https://download.pytorch.org/whl/cpu/torch_stable.html"
-  ],
-  "index_urls": [
-    "https://some-host.example.com/repository/pypi-proxy/simple",
-    "https://some-host.example.com/repository/custompy/simple"
-  ],
-  "options": {
-    "format_control": {
-      "no_binary": [
-        ":all:"
-      ],
-      "only_binary": []
+  "options": [
+    {
+      "line_number": 32,
+      "line": "--index-url=https://some-host.example.com/repository/pypi-proxy/simple",
+      "index_url": "https://some-host.example.com/repository/pypi-proxy/simple"
+    },
+    {
+      "line_number": 33,
+      "line": "--extra-index-url=https://some-host.example.com/repository/custompy/simple",
+      "extra_index_urls": [
+        "https://some-host.example.com/repository/custompy/simple"
+      ]
+    },
+    {
+      "line_number": 34,
+      "line": "--trusted-host=some-host.example.com",
+      "trusted_hosts": [
+        "some-host.example.com"
+      ]
+    },
+    {
+      "line_number": 66,
+      "line": "-f https://download.pytorch.org/whl/cpu/torch_stable.html",
+      "find_links": [
+        "https://download.pytorch.org/whl/cpu/torch_stable.html"
+      ]
+    },
+    {
+      "line_number": 73,
+      "line": "--trusted-host foo.com",
+      "trusted_hosts": [
+        "foo.com"
+      ]
     }
-  },
-  "install_requirements": [
+  ],
+  "requirements": [
     {
       "name": "Werkzeug",
       "specifier": [
@@ -30,7 +50,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -49,7 +69,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -68,7 +88,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -87,7 +107,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -104,7 +124,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -123,7 +143,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -142,7 +162,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -161,7 +181,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -180,7 +200,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -197,7 +217,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -216,7 +236,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -235,11 +255,9 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "22399ff4870fb4c7ef19fff6eeb20a8bbf15571913c181c78cb361024d574579"
-        ]
-      },
+      "hash_options": [
+        "sha256:22399ff4870fb4c7ef19fff6eeb20a8bbf15571913c181c78cb361024d574579"
+      ],
       "is_constraint": false,
       "extras": []
     },
@@ -256,7 +274,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -273,7 +291,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -292,7 +310,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -309,7 +327,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -328,7 +346,7 @@
       "markers": "platform_system == \"Windows\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -347,7 +365,7 @@
       "markers": "python_version == \"2.7\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -366,7 +384,7 @@
       "markers": "python_version >= \"3.6\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -383,7 +401,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -402,7 +420,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -419,7 +437,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "tests"
@@ -440,7 +458,7 @@
       "markers": "sys_platform != \"darwin\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -459,7 +477,7 @@
       "markers": "sys_platform == \"darwin\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -476,7 +494,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "secure"
@@ -497,7 +515,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -514,7 +532,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -531,7 +549,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -550,7 +568,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -569,7 +587,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -586,7 +604,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -603,7 +621,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -620,7 +638,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -640,7 +658,7 @@
       "markers": "python_version < \"3\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -657,7 +675,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -674,7 +692,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -694,7 +712,7 @@
       "markers": "python_version >= \"3\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     }
@@ -706,7 +724,7 @@
       "error_message": "Invalid requirement"
     }
   ],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# from https://github.com/madpah/requirements-parser/issues/54"

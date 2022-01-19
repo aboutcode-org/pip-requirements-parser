@@ -1,13 +1,14 @@
 {
-  "find_links": [],
-  "index_urls": [],
-  "options": {
-    "format_control": {
-      "no_binary": [],
-      "only_binary": []
+  "options": [
+    {
+      "line_number": 17,
+      "line": "-r other-requirements.txt",
+      "requirements": [
+        "other-requirements.txt"
+      ]
     }
-  },
-  "install_requirements": [
+  ],
+  "requirements": [
     {
       "name": "pytest",
       "specifier": [],
@@ -21,7 +22,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -38,7 +39,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -55,7 +56,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -74,7 +75,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -93,7 +94,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -112,7 +113,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -131,7 +132,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -150,7 +151,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -169,7 +170,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -186,7 +187,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -203,13 +204,13 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     }
   ],
   "invalid_lines": [],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# example from"

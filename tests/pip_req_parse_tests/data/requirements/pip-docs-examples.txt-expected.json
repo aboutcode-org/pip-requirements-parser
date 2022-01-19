@@ -1,23 +1,55 @@
 {
-  "find_links": [
-    "file:///local/dir/",
-    "/local/dir/",
-    "relative/dir/"
-  ],
-  "index_urls": [
-    "http://my.package.repo/simple/",
-    "http://my.package.repo/simple"
-  ],
-  "options": {
-    "format_control": {
-      "no_binary": [
-        ":all:",
-        "somepackage1"
-      ],
-      "only_binary": []
+  "options": [
+    {
+      "line_number": 11,
+      "line": "-r requirements.txt",
+      "requirements": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "line_number": 52,
+      "line": "--index-url http://my.package.repo/simple/ SomePackage",
+      "index_url": "http://my.package.repo/simple/"
+    },
+    {
+      "line_number": 56,
+      "line": "--no-index --find-links=file:///local/dir/ SomePackage",
+      "no_index": true,
+      "find_links": [
+        "file:///local/dir/"
+      ]
+    },
+    {
+      "line_number": 57,
+      "line": "--no-index --find-links=/local/dir/ SomePackage",
+      "no_index": true,
+      "find_links": [
+        "/local/dir/"
+      ]
+    },
+    {
+      "line_number": 58,
+      "line": "--no-index --find-links=relative/dir/ SomePackage",
+      "no_index": true,
+      "find_links": [
+        "relative/dir/"
+      ]
+    },
+    {
+      "line_number": 68,
+      "line": "--extra-index-url http://my.package.repo/simple SomePackage",
+      "extra_index_urls": [
+        "http://my.package.repo/simple"
+      ]
+    },
+    {
+      "line_number": 73,
+      "line": "--pre SomePackage",
+      "pre": true
     }
-  },
-  "install_requirements": [
+  ],
+  "requirements": [
     {
       "name": "SomePackage",
       "specifier": [],
@@ -31,7 +63,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -50,7 +82,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -69,7 +101,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -86,7 +118,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -103,7 +135,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -120,7 +152,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -137,7 +169,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -154,7 +186,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -171,7 +203,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -188,7 +220,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -205,7 +237,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "pdf"
@@ -224,7 +256,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -241,7 +273,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "pdf"
@@ -262,7 +294,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "pdf"
@@ -281,7 +313,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "epub",
@@ -301,7 +333,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -318,7 +350,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -337,7 +369,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -356,7 +388,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -373,7 +405,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     }
@@ -395,7 +427,7 @@
       "error_message": "Invalid requirement"
     }
   ],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# examples from https://pip.pypa.io/en/stable/reference/requirements-file-format/"

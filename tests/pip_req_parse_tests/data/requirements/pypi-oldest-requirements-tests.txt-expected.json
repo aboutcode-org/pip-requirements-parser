@@ -1,13 +1,28 @@
 {
-  "find_links": [],
-  "index_urls": [],
-  "options": {
-    "format_control": {
-      "no_binary": [],
-      "only_binary": []
+  "options": [
+    {
+      "line_number": 3,
+      "line": "-r requirements.txt",
+      "requirements": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "line_number": 12,
+      "line": "-r requirements.txt",
+      "requirements": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "line_number": 13,
+      "line": "-r requirements-ci.txt",
+      "requirements": [
+        "requirements-ci.txt"
+      ]
     }
-  },
-  "install_requirements": [
+  ],
+  "requirements": [
     {
       "name": "PyQt5",
       "specifier": [
@@ -27,7 +42,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -46,7 +61,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "numpy",
@@ -68,7 +83,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -87,7 +102,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -106,7 +121,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -123,7 +138,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "md"
@@ -146,7 +161,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -163,7 +178,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -180,7 +195,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -199,7 +214,7 @@
       "markers": "python_version < \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -218,7 +233,7 @@
       "markers": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -237,7 +252,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -256,7 +271,7 @@
       "markers": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -275,7 +290,7 @@
       "markers": "python_version < \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -292,7 +307,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -311,7 +326,7 @@
       "markers": "python_version == \"3.7\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -330,7 +345,7 @@
       "markers": "python_version != \"3.6\" and python_version != \"3.7\" and python_version != \"3.8\" and python_version != \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -349,7 +364,7 @@
       "markers": "python_version == \"3.6\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -368,7 +383,7 @@
       "markers": "python_version == \"3.8\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -387,7 +402,7 @@
       "markers": "python_version == \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -406,7 +421,7 @@
       "markers": "python_version < \"3.8\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -425,7 +440,7 @@
       "markers": "python_version == \"3.8\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -444,7 +459,7 @@
       "markers": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -464,7 +479,7 @@
       "markers": "python_version < \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -484,7 +499,7 @@
       "markers": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -503,7 +518,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -522,7 +537,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -541,7 +556,7 @@
       "markers": "python_version < \"3.8\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -560,7 +575,7 @@
       "markers": "python_version == \"3.8\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -579,7 +594,7 @@
       "markers": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -599,7 +614,7 @@
       "markers": "python_version < \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -619,13 +634,13 @@
       "markers": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     }
   ],
   "invalid_lines": [],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# from https://github.com/renefritze/pypi_oldest_requirements/blob/main/tests/"

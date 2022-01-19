@@ -1,13 +1,14 @@
 {
-  "find_links": [],
-  "index_urls": [],
-  "options": {
-    "format_control": {
-      "no_binary": [],
-      "only_binary": []
+  "options": [
+    {
+      "line_number": 3,
+      "line": "-r other.txt",
+      "requirements": [
+        "other.txt"
+      ]
     }
-  },
-  "install_requirements": [
+  ],
+  "requirements": [
     {
       "name": "apple",
       "specifier": [
@@ -23,12 +24,10 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
-          "2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6"
-        ]
-      },
+      "hash_options": [
+        "sha256:3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+        "sha256:2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6"
+      ],
       "is_constraint": false,
       "extras": []
     },
@@ -47,7 +46,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -66,7 +65,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -85,7 +84,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -104,7 +103,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -123,13 +122,13 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     }
   ],
   "invalid_lines": [],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# from https://github.com/rehandalal/sort-requirements/blob/master/tests/fixtures/"

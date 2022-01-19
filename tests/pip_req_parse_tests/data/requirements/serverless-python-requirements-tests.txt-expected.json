@@ -1,13 +1,6 @@
 {
-  "find_links": [],
-  "index_urls": [],
-  "options": {
-    "format_control": {
-      "no_binary": [],
-      "only_binary": []
-    }
-  },
-  "install_requirements": [
+  "options": [],
+  "requirements": [
     {
       "name": "boto3",
       "specifier": [],
@@ -21,7 +14,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -40,12 +33,10 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "063df5763652e21de43de7d9e00ccf239f953a832941e37be541614732cdfc93",
-          "88f9287c0174266bb0d8cedd395cfba9c58e87e5ad86b2ce58859bc11be3cf02"
-        ]
-      },
+      "hash_options": [
+        "sha256:063df5763652e21de43de7d9e00ccf239f953a832941e37be541614732cdfc93",
+        "sha256:88f9287c0174266bb0d8cedd395cfba9c58e87e5ad86b2ce58859bc11be3cf02"
+      ],
       "is_constraint": false,
       "extras": []
     },
@@ -64,12 +55,10 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "90dc18e028989c609146e241ea153250be451e05ecc0c2832565231dacdf59c1",
-          "c7a9ec356982d5e9ab2d4b46391a7d6a950e2b04c472419f5fdec70cc0ada72f"
-        ]
-      },
+      "hash_options": [
+        "sha256:90dc18e028989c609146e241ea153250be451e05ecc0c2832565231dacdf59c1",
+        "sha256:c7a9ec356982d5e9ab2d4b46391a7d6a950e2b04c472419f5fdec70cc0ada72f"
+      ],
       "is_constraint": false,
       "extras": []
     },
@@ -88,12 +77,10 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9",
-          "832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb"
-        ]
-      },
+      "hash_options": [
+        "sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9",
+        "sha256:832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb"
+      ],
       "is_constraint": false,
       "extras": []
     },
@@ -112,12 +99,10 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0",
-          "9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
-        ]
-      },
+      "hash_options": [
+        "sha256:4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0",
+        "sha256:9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
+      ],
       "is_constraint": false,
       "extras": []
     },
@@ -136,18 +121,16 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {
-        "sha256": [
-          "97660b282aa7e29f94f3fe378e5c7162d7ab9d601a8dbb1cbb2ffc8f0e54607d",
-          "cfd1281b1748288e59762c0e174d64d8bcb2b70e7c57bc4a1203c8825af24ac3"
-        ]
-      },
+      "hash_options": [
+        "sha256:97660b282aa7e29f94f3fe378e5c7162d7ab9d601a8dbb1cbb2ffc8f0e54607d",
+        "sha256:cfd1281b1748288e59762c0e174d64d8bcb2b70e7c57bc4a1203c8825af24ac3"
+      ],
       "is_constraint": false,
       "extras": []
     }
   ],
   "invalid_lines": [],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "# examples from"

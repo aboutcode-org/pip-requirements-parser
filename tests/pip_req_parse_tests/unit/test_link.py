@@ -2,12 +2,9 @@
 # Copyright (c) The pip developers (see AUTHORS.txt file)
 # SPDX-License-Identifier: MIT
 
-from typing import Optional
-
 import pytest
 
 from pip_requirements import Link
-from pip_requirements import Hashes
 from pip_requirements import links_equivalent
 
 class TestLink:
@@ -83,57 +80,6 @@ class TestLink:
         url = "git+https://example.com/package#subdirectory=subdir&egg=eggname"
         assert "eggname" == Link(url).egg_fragment
         assert "subdir" == Link(url).subdirectory_fragment
-
-    @pytest.mark.parametrize(
-        "hash_name, hex_digest, expected",
-        [
-            # Test a value that matches but with the wrong hash_name.
-            ("sha384", 128 * "a", False),
-            # Test matching values, including values other than the first.
-            ("sha512", 128 * "a", True),
-            ("sha512", 128 * "b", True),
-            # Test a matching hash_name with a value that doesn't match.
-            ("sha512", 128 * "c", False),
-            # Test a link without a hash value.
-            ("sha512", "", False),
-        ],
-    )
-    def test_is_hash_allowed(
-        self, hash_name: str, hex_digest: str, expected: bool
-    ) -> None:
-        url = "https://example.com/wheel.whl#{hash_name}={hex_digest}".format(
-            hash_name=hash_name,
-            hex_digest=hex_digest,
-        )
-        link = Link(url)
-        hashes_data = {
-            "sha512": [128 * "a", 128 * "b"],
-        }
-        hashes = Hashes(hashes_data)
-        assert link.is_hash_allowed(hashes) == expected
-
-    def test_is_hash_allowed__no_hash(self) -> None:
-        link = Link("https://example.com/wheel.whl")
-        hashes_data = {
-            "sha512": [128 * "a"],
-        }
-        hashes = Hashes(hashes_data)
-        assert not link.is_hash_allowed(hashes)
-
-    @pytest.mark.parametrize(
-        "hashes, expected",
-        [
-            (None, False),
-            # Also test a success case to show the test is correct.
-            (Hashes({"sha512": [128 * "a"]}), True),
-        ],
-    )
-    def test_is_hash_allowed__none_hashes(
-        self, hashes: Optional[Hashes], expected: bool
-    ) -> None:
-        url = "https://example.com/wheel.whl#sha512={}".format(128 * "a")
-        link = Link(url)
-        assert link.is_hash_allowed(hashes) == expected
 
     @pytest.mark.parametrize(
         "url, expected",

@@ -1,21 +1,74 @@
 {
-  "find_links": [
-    "file:///local/dir/",
-    "/local/dir/",
-    "relative/dir/"
-  ],
-  "index_urls": [
-    "http://my.package.repo/simple/",
-    "http://my.package.repo/simple",
-    "http://localhost:7777"
-  ],
-  "options": {
-    "format_control": {
-      "no_binary": [],
-      "only_binary": []
+  "options": [
+    {
+      "line_number": 13,
+      "line": "-r requirements.txt",
+      "requirements": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "line_number": 22,
+      "line": "--index-url http://my.package.repo/simple/",
+      "index_url": "http://my.package.repo/simple/"
+    },
+    {
+      "line_number": 25,
+      "line": "--extra-index-url http://my.package.repo/simple",
+      "extra_index_urls": [
+        "http://my.package.repo/simple"
+      ]
+    },
+    {
+      "line_number": 37,
+      "line": "--no-index",
+      "no_index": true
+    },
+    {
+      "line_number": 38,
+      "line": "--find-links=file:///local/dir/",
+      "find_links": [
+        "file:///local/dir/"
+      ]
+    },
+    {
+      "line_number": 41,
+      "line": "--no-index",
+      "no_index": true
+    },
+    {
+      "line_number": 42,
+      "line": "--find-links=/local/dir/",
+      "find_links": [
+        "/local/dir/"
+      ]
+    },
+    {
+      "line_number": 45,
+      "line": "--no-index",
+      "no_index": true
+    },
+    {
+      "line_number": 46,
+      "line": "--find-links=relative/dir/",
+      "find_links": [
+        "relative/dir/"
+      ]
+    },
+    {
+      "line_number": 51,
+      "line": "--extra-index-url http://localhost:7777",
+      "extra_index_urls": [
+        "http://localhost:7777"
+      ]
+    },
+    {
+      "line_number": 56,
+      "line": "--pre SomeProject",
+      "pre": true
     }
-  },
-  "install_requirements": [
+  ],
+  "requirements": [
     {
       "name": "pip",
       "specifier": [],
@@ -29,7 +82,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -46,7 +99,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -63,7 +116,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -80,7 +133,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -99,7 +152,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -119,7 +172,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -138,7 +191,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -155,7 +208,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -172,7 +225,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -189,7 +242,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -206,7 +259,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -223,7 +276,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -240,7 +293,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -257,7 +310,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -274,7 +327,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -291,7 +344,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -308,7 +361,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -325,7 +378,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -342,7 +395,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": []
     },
@@ -359,7 +412,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "pdf"
@@ -380,7 +433,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "pdf"
@@ -399,7 +452,7 @@
       "markers": null,
       "install_options": [],
       "global_options": [],
-      "hash_options": {},
+      "hash_options": [],
       "is_constraint": false,
       "extras": [
         "pdf"
@@ -413,7 +466,7 @@
       "error_message": "path is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
     }
   ],
-  "comment_lines": [
+  "comments": [
     {
       "line_number": 1,
       "line": "###################################################"
