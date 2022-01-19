@@ -1,5 +1,22 @@
 # encoding: utf-8
 
+# Originally from:
+#     name = "requirements-parser"
+#     description = "This is a small Python module for parsing Pip requirement files."
+#     authors = [
+#         "Paul Horton <simplyecommerce@gmail.com>",
+#         "David Fischer (@davidfischer)",
+#         "Trey Hunner (@treyhunner)",
+#         "Dima Veselov (@dveselov)",
+#         "Sascha Peilicke (@saschpe)",
+#         "Jayson Reis (@jaysonsantos)",
+#         "Max Shenfield (@mshenfield)",
+#         "Nicolas Delaby (@ticosax)",
+#         "Stéphane Bidoul (@sbidoul)"
+#     ]
+#     maintainers = ["Paul Horton <simplyecommerce@gmail.com>"]
+#     homepage = "https://github.com/madpah/requirements-parser"
+
 # This file is part of requirements-parser library.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

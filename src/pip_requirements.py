@@ -1,8 +1,10 @@
 
-# Copyright (c) The pip developers (see AUTHORS.rst file)
+# Copyright (c) The pip developers (see AUTHORS.txt file)
 # portions Copyright (C) 2016 Jason R Coombs <jaraco@jaraco.com>
 # portions Copyright (C) nexB Inc. and others
 # 
+# SPDX-License-Identifier: MIT
+#
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
 # "Software"), to deal in the Software without restriction, including
@@ -75,14 +77,17 @@ from packaging.utils import canonicalize_name
 """
 A pip requirements files parser, doing it as well as pip does it.
 Based on pip code itself.
-The code is merged from multiple pip modules. And each section is tagged with comments:
-# PIPREQPARSE: from ... 
-# PIPREQPARSE: end from ...
-We also kept the pip git history of all these modules.
+
+The code is merged from multiple pip modules. And each pip code section is
+tagged with comments:
+    # PIPREQPARSE: from ... 
+    # PIPREQPARSE: end from ...
+
+We also kept the pip git line-level, blame history of all these modules.
 """
 
 ################################################################################
-# API
+# This is the API for this module
 
 
 class RequirementsFile:
@@ -90,9 +95,11 @@ class RequirementsFile:
     This represents a requirements file. It contains the requirements and other
     pip-related options found in a requirerents file.
     """
-    def __init__(self, filename: str, resolve_nested=False) -> None:
+    def __init__(self, filename: str, include_nested=False) -> None:
         """
         Initialise a new RequirementsFile from a ``filename`` path string.
+        If ``include_nested`` is True also resolve, parse and load -r/-c
+        requirements and constraints files referenced in the requirements file.
         """
         self.filename = filename
 
@@ -110,7 +117,7 @@ class RequirementsFile:
             filename=filename,
             finder=finder,
             options=self.options,
-            include_nested=False,
+            include_nested=include_nested,
         ):
             if isinstance(parsed, InvalidRequirementLine):
                 self.invalid_lines.append(parsed)
@@ -157,6 +164,56 @@ class RequirementsFile:
                 for cl in self.comment_lines
             ]
         )
+    def dumps(self, unparse=False):
+        """
+        Return a requirements string representing this requirements file. If
+        ``unparse`` is True, the requirements are reconstructed from the
+        parsed data. Otherwise, the requirements string are assembled from the
+        original normalized requirement text lines.
+        """
+        if unparse:
+            pass
+        else:
+            requirement_lines = []
+
+            for r in (
+                self.install_requirements
+                + self.invalid_lines
+            ):
+                requirement_lines.append(r.requirement_line)
+
+            requirement_lines.extend(self.comment_lines)
+
+            sort_by = lambda l: (l.line_number, isinstance(l, CommentRequirementLine))
+ 
+            dumped = []
+
+            previous_line_number = 0
+            for rl in sorted(requirement_lines, key=sort_by):
+                line_number = rl.line_number
+
+                if previous_line_number == line_number:
+                    if isinstance(rl, CommentRequirementLine):
+                        # trailing comment, add spaces before
+                        dumped.append(f"  {rl.line}")
+                        dumped.append("\n")
+                    else:
+                        # this should never happen, but we dump anyway
+                        dumped.append(rl.line)
+                        dumped.append("\n")
+
+                elif previous_line_number != line_number + 1:
+                    # there is a gap in lines, add empty lines
+                    for _ in range(previous_line_number + 1 , line_number):
+                        dumped.append("\n")
+                else:
+                    dumped.append(rl.line)
+                    dumped.append("\n")
+
+                previous_line_number = line_number
+
+            return "".join(dumped)
+
 
 def option_values_to_dict(option_values):
  
