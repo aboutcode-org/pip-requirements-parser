@@ -16,7 +16,7 @@ Parse many requirements files and verify the expected JSON output
 
 
 @pytest.mark.parametrize("test_file", ALL_REQFILES)
-def test_parse_requirement_file(
+def test_RequirementsFile_to_dict(
     test_file: str,
     regen=False,
 ) -> None:
@@ -32,3 +32,27 @@ def test_parse_requirement_file(
             expected = json.load(inp)
 
     assert results == expected
+
+
+@pytest.mark.parametrize("test_file", ALL_REQFILES)
+def test_RequirementsFile_dumps(
+    test_file: str,
+) -> None:
+
+    dumped = pip_requirements.RequirementsFile(test_file).dumps()
+    with open (test_file) as inp:
+        original = inp.read()
+
+    # normalize original minimally
+
+    # fold continuations
+    original = original.replace(" \\\n", " ")
+    original = "".join(l for l in original.splitlines(True) if l.strip())
+
+    # normalize spaces
+    original = "\n".join(" ".join(l.split()) for l in original.splitlines(False))
+
+    dumped = "\n".join(" ".join(l.split()) for l in dumped.splitlines(False))
+
+
+    assert original == dumped

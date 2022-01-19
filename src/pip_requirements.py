@@ -164,6 +164,7 @@ class RequirementsFile:
                 for cl in self.comment_lines
             ]
         )
+
     def dumps(self, unparse=False):
         """
         Return a requirements string representing this requirements file. If
@@ -184,33 +185,24 @@ class RequirementsFile:
 
             requirement_lines.extend(self.comment_lines)
 
-            sort_by = lambda l: (l.line_number, isinstance(l, CommentRequirementLine))
- 
             dumped = []
 
             previous_line_number = 0
+
+            # by line number, then requirements before comments (so that eol comment come after)
+            sort_by = lambda l: (l.line_number, isinstance(l, CommentRequirementLine))
+
             for rl in sorted(requirement_lines, key=sort_by):
-                line_number = rl.line_number
 
-                if previous_line_number == line_number:
-                    if isinstance(rl, CommentRequirementLine):
-                        # trailing comment, add spaces before
-                        dumped.append(f"  {rl.line}")
-                        dumped.append("\n")
-                    else:
-                        # this should never happen, but we dump anyway
-                        dumped.append(rl.line)
-                        dumped.append("\n")
-
-                elif previous_line_number != line_number + 1:
-                    # there is a gap in lines, add empty lines
-                    for _ in range(previous_line_number + 1 , line_number):
-                        dumped.append("\n")
+                if previous_line_number == rl.line_number and isinstance(rl, CommentRequirementLine):
+                    # trailing comment, append to end of previous line
+                    previous = dumped[-1].rstrip("\n")
+                    previous = f"{previous} {rl.line}\n"
+                    dumped[-1] = previous
                 else:
-                    dumped.append(rl.line)
-                    dumped.append("\n")
+                    dumped.append(f"{rl.line}\n")
 
-                previous_line_number = line_number
+                previous_line_number = rl.line_number
 
             return "".join(dumped)
 
