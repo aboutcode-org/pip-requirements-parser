@@ -1,5 +1,5 @@
-# examples from \
-https://pip.pypa.io/en/stable/topics/vcs-support/#supported-vcs
+# examples from
+# https://pip.pypa.io/en/stable/topics/vcs-support/#supported-vcs
 
 # Git
 git+ssh://git.example.com/MyProject#egg=MyProject

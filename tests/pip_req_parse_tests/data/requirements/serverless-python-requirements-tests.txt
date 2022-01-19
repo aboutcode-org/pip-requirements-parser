@@ -1,5 +1,5 @@
-# examples from \
-https://github.com/serverless/serverless-python-requirements/blob/master/tests
+# examples from
+# https://github.com/serverless/serverless-python-requirements/blob/master/tests
 
 -e git+https://github.com/boto/boto3.git#egg=boto3
 

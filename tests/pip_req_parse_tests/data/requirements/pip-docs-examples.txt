@@ -1,5 +1,4 @@
-# examples from \
-https://pip.pypa.io/en/stable/reference/requirements-file-format/
+# examples from https://pip.pypa.io/en/stable/reference/requirements-file-format/
 
 
 # Install SomePackage and its dependencies from PyPI using Requirement 
@@ -61,15 +60,15 @@ SomeProject@http://my.package.repo/1.2.3.tar.gz
 
 # Search an additional index during install, in addition to PyPI
 
-# Using this option to search for packages which are not in the main repository \
- (such as private packages) is unsafe, per a security vulnerability called \
- dependency confusion: an attacker can claim the package on the public repository \
- in a way that will ensure it gets chosen over the private package.
+# Using this option to search for packages which are not in the main repository
+# (such as private packages) is unsafe, per a security vulnerability called
+# dependency confusion: an attacker can claim the package on the public repository
+# in a way that will ensure it gets chosen over the private package.
 
 --extra-index-url http://my.package.repo/simple SomePackage
 
-# Find pre-release and development versions, in addition to stable versions. \
- By default, pip only finds stable versions.
+# Find pre-release and development versions, in addition to stable versions.
+# By default, pip only finds stable versions.
 
 --pre SomePackage
 
@@ -80,4 +79,3 @@ SomePackage1 SomePackage2 --no-binary :all:
 
 # Specify SomePackage1 to be installed from source:
 SomePackage1 SomePackage2 --no-binary SomePackage1
-

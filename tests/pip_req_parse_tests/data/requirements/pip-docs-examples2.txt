@@ -1,5 +1,5 @@
-# example from \
-https://pip.pypa.io/en/stable/reference/requirements-file-format/
+# example from
+# https://pip.pypa.io/en/stable/reference/requirements-file-format/
 
 ###### Requirements without Version Specifiers ######
 pytest

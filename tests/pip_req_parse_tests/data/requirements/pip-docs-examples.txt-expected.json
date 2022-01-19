@@ -19,29 +19,12 @@
   },
   "install_requirements": [
     {
-      "name": null,
-      "specifier": [],
-      "is_editable": false,
-      "is_pinned": false,
-      "requirement_line": {
-        "line_number": 2,
-        "line": "https://pip.pypa.io/en/stable/reference/requirements-file-format/"
-      },
-      "link": "https://pip.pypa.io/en/stable/reference/requirements-file-format/",
-      "markers": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": {},
-      "is_constraint": false,
-      "extras": []
-    },
-    {
       "name": "SomePackage",
       "specifier": [],
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 6,
+        "line_number": 5,
         "line": "SomePackage"
       },
       "link": null,
@@ -60,7 +43,7 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 7,
+        "line_number": 6,
         "line": "SomePackage==1.0.4"
       },
       "link": null,
@@ -79,7 +62,7 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 8,
+        "line_number": 7,
         "line": "SomePackage>=1.0.4"
       },
       "link": null,
@@ -96,7 +79,7 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 16,
+        "line_number": 15,
         "line": "-e ."
       },
       "link": ".",
@@ -113,7 +96,7 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 21,
+        "line_number": 20,
         "line": "SomeProject@git+https://git.repo/some_pkg.git@1.3.1"
       },
       "link": "SomeProject@git+https://git.repo/some_pkg.git@1.3.1",
@@ -130,7 +113,7 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 25,
+        "line_number": 24,
         "line": "-e git+https://git.repo/some_pkg.git#egg=SomePackage"
       },
       "link": "git+https://git.repo/some_pkg.git#egg=SomePackage",
@@ -147,7 +130,7 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 26,
+        "line_number": 25,
         "line": "-e hg+https://hg.repo/some_pkg.git#egg=SomePackage"
       },
       "link": "hg+https://hg.repo/some_pkg.git#egg=SomePackage",
@@ -164,7 +147,7 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 27,
+        "line_number": 26,
         "line": "-e svn+svn://svn.repo/some_pkg/trunk/#egg=SomePackage"
       },
       "link": "svn+svn://svn.repo/some_pkg/trunk/#egg=SomePackage",
@@ -181,7 +164,7 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 28,
+        "line_number": 27,
         "line": "-e git+https://git.repo/some_pkg.git@feature#egg=SomePackage"
       },
       "link": "git+https://git.repo/some_pkg.git@feature#egg=SomePackage",
@@ -198,7 +181,7 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 29,
+        "line_number": 28,
         "line": "-e git+https://git.repo/some_repo.git#egg=subdir&subdirectory=subdir_path"
       },
       "link": "git+https://git.repo/some_repo.git#egg=subdir&subdirectory=subdir_path",
@@ -215,7 +198,7 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 33,
+        "line_number": 32,
         "line": "SomePackage[PDF]"
       },
       "link": null,
@@ -234,7 +217,7 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 34,
+        "line_number": 33,
         "line": "SomePackage[PDF] @ git+https://git.repo/SomePackage@main#subdirectory=subdir_path"
       },
       "link": "SomePackage[PDF] @ git+https://git.repo/SomePackage@main#subdirectory=subdir_path",
@@ -251,7 +234,7 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 35,
+        "line_number": 34,
         "line": ".[PDF]"
       },
       "link": ".",
@@ -272,7 +255,7 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 36,
+        "line_number": 35,
         "line": "SomePackage[PDF]==3.0"
       },
       "link": null,
@@ -291,7 +274,7 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 37,
+        "line_number": 36,
         "line": "SomePackage[PDF,EPUB]"
       },
       "link": null,
@@ -311,7 +294,7 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 41,
+        "line_number": 40,
         "line": "./downloads/SomePackage-1.0.4.tar.gz"
       },
       "link": "./downloads/SomePackage-1.0.4.tar.gz",
@@ -328,7 +311,7 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 42,
+        "line_number": 41,
         "line": "http://my.package.repo/SomePackage-1.0.4.zip"
       },
       "link": "http://my.package.repo/SomePackage-1.0.4.zip",
@@ -347,7 +330,7 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 46,
+        "line_number": 45,
         "line": "SomeProject@http://my.package.repo/SomeProject-1.2.3-py33-none-any.whl"
       },
       "link": "SomeProject@http://my.package.repo/SomeProject-1.2.3-py33-none-any.whl",
@@ -366,7 +349,7 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 47,
+        "line_number": 46,
         "line": "SomeProject @ http://my.package.repo/SomeProject-1.2.3-py33-none-any.whl"
       },
       "link": "SomeProject @ http://my.package.repo/SomeProject-1.2.3-py33-none-any.whl",
@@ -383,7 +366,7 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 48,
+        "line_number": 47,
         "line": "SomeProject@http://my.package.repo/1.2.3.tar.gz"
       },
       "link": "SomeProject@http://my.package.repo/1.2.3.tar.gz",
@@ -397,27 +380,17 @@
   ],
   "invalid_lines": [
     {
-      "line_number": 17,
+      "line_number": 16,
       "line": "-e path/to/project",
       "error_message": "path/to/project is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
     },
     {
-      "line_number": 65,
-      "line": "(such as private packages) is unsafe, per a security vulnerability called  dependency confusion: an attacker can claim the package on the public repository  in a way that will ensure it gets chosen over the private package.",
-      "error_message": "Invalid requirement"
-    },
-    {
-      "line_number": 72,
-      "line": "By default, pip only finds stable versions.",
-      "error_message": "Invalid requirement"
-    },
-    {
-      "line_number": 79,
+      "line_number": 78,
       "line": "SomePackage1 SomePackage2 --no-binary :all:",
       "error_message": "Invalid requirement"
     },
     {
-      "line_number": 82,
+      "line_number": 81,
       "line": "SomePackage1 SomePackage2 --no-binary SomePackage1",
       "error_message": "Invalid requirement"
     }
@@ -425,122 +398,138 @@
   "comment_lines": [
     {
       "line_number": 1,
-      "line": "# examples from \\"
+      "line": "# examples from https://pip.pypa.io/en/stable/reference/requirements-file-format/"
     },
     {
-      "line_number": 5,
+      "line_number": 4,
       "line": "# Install SomePackage and its dependencies from PyPI using Requirement"
     },
     {
-      "line_number": 6,
+      "line_number": 5,
       "line": "# latest version"
     },
     {
-      "line_number": 7,
+      "line_number": 6,
       "line": "# specific version"
     },
     {
-      "line_number": 8,
+      "line_number": 7,
       "line": "# minimum version"
     },
     {
-      "line_number": 11,
+      "line_number": 10,
       "line": "# Install a list of requirements specified in a file. See the Requirements files."
     },
     {
-      "line_number": 15,
+      "line_number": 14,
       "line": "# Install a local project in \u201ceditable\u201d mode. See the section on Editable Installs."
     },
     {
-      "line_number": 16,
+      "line_number": 15,
       "line": "# project in current directory"
     },
     {
-      "line_number": 17,
+      "line_number": 16,
       "line": "# project in another directory"
     },
     {
-      "line_number": 20,
+      "line_number": 19,
       "line": "# Install a project from VCS"
     },
     {
-      "line_number": 24,
+      "line_number": 23,
       "line": "# Install a project from VCS in \u201ceditable\u201d mode. See the sections on VCS Support and Editable Installs."
     },
     {
-      "line_number": 25,
+      "line_number": 24,
       "line": "# from git"
     },
     {
-      "line_number": 26,
+      "line_number": 25,
       "line": "# from mercurial"
     },
     {
-      "line_number": 27,
+      "line_number": 26,
       "line": "# from svn"
     },
     {
-      "line_number": 28,
+      "line_number": 27,
       "line": "# from 'feature' branch"
     },
     {
-      "line_number": 29,
+      "line_number": 28,
       "line": "# install a python package from a repo subdirectory"
     },
     {
-      "line_number": 32,
+      "line_number": 31,
       "line": "# Install a package with setuptools extras."
     },
     {
-      "line_number": 35,
+      "line_number": 34,
       "line": "# project in current directory"
     },
     {
-      "line_number": 37,
+      "line_number": 36,
       "line": "# multiple extras"
     },
     {
-      "line_number": 40,
+      "line_number": 39,
       "line": "# Install a particular source archive file."
     },
     {
-      "line_number": 45,
+      "line_number": 44,
       "line": "# Install a particular source archive file following PEP 440 direct references."
     },
     {
-      "line_number": 51,
+      "line_number": 50,
       "line": "# Install from alternative package repositories."
     },
     {
-      "line_number": 52,
+      "line_number": 51,
       "line": "# Install from a different index, and not PyPI"
     },
     {
-      "line_number": 56,
+      "line_number": 55,
       "line": "# Install from a local flat directory containing archives (and don\u2019t scan indexes):"
     },
     {
-      "line_number": 62,
+      "line_number": 61,
       "line": "# Search an additional index during install, in addition to PyPI"
     },
     {
+      "line_number": 63,
+      "line": "# Using this option to search for packages which are not in the main repository"
+    },
+    {
       "line_number": 64,
-      "line": "# Using this option to search for packages which are not in the main repository \\"
+      "line": "# (such as private packages) is unsafe, per a security vulnerability called"
+    },
+    {
+      "line_number": 65,
+      "line": "# dependency confusion: an attacker can claim the package on the public repository"
+    },
+    {
+      "line_number": 66,
+      "line": "# in a way that will ensure it gets chosen over the private package."
+    },
+    {
+      "line_number": 70,
+      "line": "# Find pre-release and development versions, in addition to stable versions."
     },
     {
       "line_number": 71,
-      "line": "# Find pre-release and development versions, in addition to stable versions. \\"
+      "line": "# By default, pip only finds stable versions."
     },
     {
-      "line_number": 77,
+      "line_number": 76,
       "line": "# Install packages from source."
     },
     {
-      "line_number": 78,
+      "line_number": 77,
       "line": "# Do not use any binary packages"
     },
     {
-      "line_number": 81,
+      "line_number": 80,
       "line": "# Specify SomePackage1 to be installed from source:"
     }
   ]

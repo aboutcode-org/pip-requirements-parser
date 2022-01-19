@@ -9,23 +9,6 @@
   },
   "install_requirements": [
     {
-      "name": null,
-      "specifier": [],
-      "is_editable": false,
-      "is_pinned": false,
-      "requirement_line": {
-        "line_number": 2,
-        "line": "https://github.com/serverless/serverless-python-requirements/blob/master/tests"
-      },
-      "link": "https://github.com/serverless/serverless-python-requirements/blob/master/tests",
-      "markers": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": {},
-      "is_constraint": false,
-      "extras": []
-    },
-    {
       "name": "boto3",
       "specifier": [],
       "is_editable": true,
@@ -167,7 +150,11 @@
   "comment_lines": [
     {
       "line_number": 1,
-      "line": "# examples from \\"
+      "line": "# examples from"
+    },
+    {
+      "line_number": 2,
+      "line": "# https://github.com/serverless/serverless-python-requirements/blob/master/tests"
     },
     {
       "line_number": 6,

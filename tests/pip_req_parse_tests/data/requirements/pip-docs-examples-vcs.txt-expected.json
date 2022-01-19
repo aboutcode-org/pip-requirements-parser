@@ -9,23 +9,6 @@
   },
   "install_requirements": [
     {
-      "name": null,
-      "specifier": [],
-      "is_editable": false,
-      "is_pinned": false,
-      "requirement_line": {
-        "line_number": 2,
-        "line": "https://pip.pypa.io/en/stable/topics/vcs-support/#supported-vcs"
-      },
-      "link": "https://pip.pypa.io/en/stable/topics/vcs-support/#supported-vcs",
-      "markers": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": {},
-      "is_constraint": false,
-      "extras": []
-    },
-    {
       "name": "MyProject",
       "specifier": [],
       "is_editable": false,
@@ -489,7 +472,11 @@
   "comment_lines": [
     {
       "line_number": 1,
-      "line": "# examples from \\"
+      "line": "# examples from"
+    },
+    {
+      "line_number": 2,
+      "line": "# https://pip.pypa.io/en/stable/topics/vcs-support/#supported-vcs"
     },
     {
       "line_number": 4,
