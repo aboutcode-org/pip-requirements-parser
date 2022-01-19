@@ -28,14 +28,15 @@ from pip_requirements import (
 from pip_requirements import CommentLine
 from pip_requirements import CommentRequirementLine
 from pip_requirements import InstallRequirement
+from pip_requirements import InstallationError
 from pip_requirements import InvalidRequirementLine
 from pip_requirements import OptionLine
+from pip_requirements import RequirementsFile
 from pip_requirements import RequirementLine
 from pip_requirements import TextLine
 
 from pip_req_parse_tests.lib import TestData, requirements_file
 from pip_req_parse_tests.lib.path import Path
-from pip_requirements import InstallationError
 
  
 def get_requirements_and_lines(
@@ -60,7 +61,6 @@ def get_requirements_and_lines(
         else:
             yield install_req_from_parsed_requirement(parsed)
 
-
 @pytest.fixture
 def parse_requirement_line(
     monkeypatch: pytest.MonkeyPatch,  # NOQA
@@ -74,8 +74,8 @@ def parse_requirement_line(
 
     def process_line(
         line: str,
-        filename: str,
-        line_number: int,
+        filename: str = 'requirements.txt',
+        line_number: int = 1,
         is_constraint: bool = False,
     ) -> List[Union[
         InstallRequirement, 
@@ -92,6 +92,30 @@ def parse_requirement_line(
         return list(get_requirements_and_lines(filename, is_constraint))
 
     return process_line
+
+
+@pytest.fixture
+def parse_requirement_text(
+    monkeypatch: pytest.MonkeyPatch,  # NOQA
+    tmpdir: Path,
+) -> Callable:
+    """
+    Return a callable to process some text as if it were requirements file when
+    creating a ``RequirementsFile``. Writes the content to a temp file.
+    """
+
+    def process_file(
+        text: str,
+        filename: str = 'requirements.txt',
+        include_nested = False,
+    ) -> RequirementsFile:
+        path = tmpdir.joinpath(filename)
+        path.parent.mkdir(exist_ok=True)
+        path.write_text(text)
+        monkeypatch.chdir(str(tmpdir))
+        return RequirementsFile(path, include_nested=include_nested)
+
+    return process_file
 
 
 def test_read_file_url(tmp_path: pathlib.Path) -> None:
@@ -684,7 +708,6 @@ class TestParseRequirements:
         """
         Test parsing a requirements file without a finder
         """
-        print("A:", tmpdir.joinpath("req.txt"))
         with open(tmpdir.joinpath("req.txt"), "w") as fp:
             fp.write(
                 """
@@ -716,7 +739,6 @@ class TestParseRequirements:
 
         with requirements_file(content, tmpdir) as reqs_file:
             rf = reqs_file.resolve()
-            print("B:", rf)
             req = list(get_requirements_and_lines(rf))
 
         assert len(req) == 2
