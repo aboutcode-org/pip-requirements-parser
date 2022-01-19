@@ -279,7 +279,7 @@
       "extras": []
     },
     {
-      "name": null,
+      "name": "PACKAGE_NAME",
       "specifier": [],
       "is_editable": false,
       "is_pinned": false,
@@ -287,7 +287,7 @@
         "line_number": 41,
         "line": "PACKAGE_NAME @ git+ssh://git@github.com/my/repo.git@3684f02bf928cae39d10d1d9b478d95d2267b2af#subdirectory=SUB_DIR/"
       },
-      "link": "PACKAGE_NAME @ git+ssh://git@github.com/my/repo.git@3684f02bf928cae39d10d1d9b478d95d2267b2af#subdirectory=SUB_DIR/",
+      "link": "git+ssh://git@github.com/my/repo.git@3684f02bf928cae39d10d1d9b478d95d2267b2af#subdirectory=SUB_DIR/",
       "markers": null,
       "install_options": [],
       "global_options": [],
@@ -680,7 +680,7 @@
       "extras": []
     },
     {
-      "name": null,
+      "name": "fpdf",
       "specifier": [],
       "is_editable": false,
       "is_pinned": false,
@@ -688,7 +688,7 @@
         "line_number": 102,
         "line": "fpdf @ git+ssh://git@git.cliosoft.net/HUB/pyfpdf.git@a1285edc35e75631269"
       },
-      "link": "fpdf @ git+ssh://git@git.cliosoft.net/HUB/pyfpdf.git@a1285edc35e75631269",
+      "link": "git+ssh://git@git.cliosoft.net/HUB/pyfpdf.git@a1285edc35e75631269",
       "markers": null,
       "install_options": [],
       "global_options": [],

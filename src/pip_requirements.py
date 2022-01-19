@@ -530,6 +530,10 @@ def requirements() -> Option:
     return Option(
         "-r",
         "--requirement",
+        # See https://github.com/di/pip-api/commit/7e2f1e8693da249156b99ec593af1e61192c611a#r64188234
+        # --requirements is not a valid pip option
+        # but we accept anyway as it may exist in the wild
+        "--requirements",
         dest="requirements",
         action="append",
         default=[],
@@ -759,12 +763,12 @@ class ParsedLine:
         self.options = options
         self.is_constraint = is_constraint
 
+        self.is_requirement = True
+        self.is_editable = False
+
         if requirement_string:
-            self.is_requirement = True
-            self.is_editable = False
             self.requirement_string = requirement_string
         elif options.editables:
-            self.is_requirement = True
             self.is_editable = True
             # We don't support multiple -e on one line
             # FIXME: report warning if there are more than one
@@ -1014,8 +1018,10 @@ class RequirementsFileParser:
                 line_number=line_number,
                 filename=filename,
             )
+
             try:
                 requirement_string, options = self._line_parser(line)
+
                 yield ParsedLine(
                     requirement_string=requirement_string,
                     options=options,
@@ -1502,15 +1508,14 @@ def links_equivalent(link1: Link, link2: Link) -> bool:
 
 class InstallRequirement:
     """
-    Represents something that may be installed later on, may have information
-    about where to fetch the relevant requirement and also contains logic for
-    installing the said requirement.
+    Represents a pip requirement either directly installable or a link where to
+    fetch the relevant requirement.
     """
 
     def __init__(
         self,
         req: Optional[Requirement],
-        requirement_line: Optional[Union[str, "RequirementLine"]],
+        requirement_line: Optional[Union[str, RequirementLine]],
         is_editable: bool = False,
         link: Optional[Link] = None,
         markers: Optional[Marker] = None,
@@ -1520,14 +1525,15 @@ class InstallRequirement:
         is_constraint: bool = False,
         extras: Collection[str] = (),
     ) -> None:
+
         assert req is None or isinstance(req, Requirement), req
         self.req = req
         self.requirement_line = requirement_line
         self.is_constraint = is_constraint
         self.is_editable = is_editable
 
-        if link is None and req and req.url:
-            # PEP 508 URL requirement
+        if req and req.url:
+            # PEP 440/508 URL requirement
             link = Link(req.url)
         self.link = link
 
@@ -1561,8 +1567,11 @@ class InstallRequirement:
         return s
 
     def __repr__(self) -> str:
-        return "<{} object: {} is_editable={!r}>".format(
-            self.__class__.__name__, str(self), self.is_editable
+        return (
+            f"<{self.__class__.__name__}: req={self.req!r}, "
+            f"is_editable={self.is_editable!r}, link={self.link!r}\n"
+            f" (from {self.requirement_line})"
+            ">"
         )
 
     @property
@@ -1603,42 +1612,38 @@ class InstallRequirement:
 # PIPREQPARSE: end from src/pip/_internal/req/req_install.py
 ################################################################################
 
-def specifier_key(spec):
-    """
-    A key function to sort packaging.Specifier
-    """
-    return spec.version, spec.operator
+    def to_dict(self, include_filename=False) -> Dict:
+        """
+        Return a mapping of plain Python type representing this
+        InstallRequirement. 
+        """
 
+        def specifier_key(spec):
+            return spec.version, spec.operator
 
-def ireq_to_dict(ireq: InstallRequirement, include_filename=False) -> Dict:
-    """
-    Return a mapping of plain Pythomn object representing the ``ireq``
-    InstallRequirement. 
-    """
-    if ireq.req:
-        specifier = [
-            str(s) 
-            for s in sorted(ireq.specifier or [], key=specifier_key)
-        ]
-    else:
-        specifier = []
+        if self.req:
+            specifier = [
+                str(s) 
+                for s in sorted(self.specifier or [], key=specifier_key)
+            ]
+        else:
+            specifier = []
 
-    return dict(
-        name=ireq.name,
-        specifier=specifier,
-        is_editable=ireq.is_editable,
-        is_pinned= ireq.req and ireq.is_pinned or False,
-        requirement_line=ireq.requirement_line.to_dict(include_filename),
-        link=ireq.link and ireq.link.url or None,
-        markers=ireq.markers and str(ireq.markers) or None,
-        install_options=ireq.install_options or [],
-        global_options=ireq.global_options or [],
-        hash_options=ireq.hash_options or [],
-        is_constraint=ireq.is_constraint,
-        extras=ireq.extras and sorted(ireq.extras) or [],
-    )
+        return dict(
+            name=self.name,
+            specifier=specifier,
+            is_editable=self.is_editable,
+            is_pinned= self.req and self.is_pinned or False,
+            requirement_line=self.requirement_line.to_dict(include_filename),
+            link=self.link and self.link.url or None,
+            markers=self.markers and str(self.markers) or None,
+            install_options=self.install_options or [],
+            global_options=self.global_options or [],
+            hash_options=self.hash_options or [],
+            is_constraint=self.is_constraint,
+            extras=self.extras and sorted(self.extras) or [],
+        )
 
-InstallRequirement.to_dict = ireq_to_dict
 
 ################################################################################
 # PIPREQPARSE: from src/pip/_internal/vcs/versioncontrol.py
@@ -1839,24 +1844,27 @@ class RequirementParts:
         self.markers = markers
         self.extras = extras
 
+    def __repr__(self):
+        return (
+            f"RequirementParts(requirement={self.requirement!r}, "
+            f"link={self.link!r}, markers={self.markers!r}, "
+            f"extras={self.extras!r})"
+        )
 
 def parse_req_from_editable(editable_req: str) -> RequirementParts:
 
     name, url, extras_override = parse_editable(editable_req)
 
+    req = None
     if name is not None:
         try:
-            req: Optional[Requirement] = Requirement(name)
+            req = Requirement(name)
         except InvalidRequirement:
             raise InstallationError(f"Invalid requirement: '{name}'")
-    else:
-        req = None
-
-    link = Link(url)
 
     return RequirementParts(
         requirement=req, 
-        link=link, 
+        link=Link(url), 
         markers=None, 
         extras=extras_override,
     )
@@ -1906,9 +1914,28 @@ def _looks_like_path(name: str) -> bool:
     return False
 
 
+class Pep440Parts(NamedTuple):
+    spec: str
+    url: str
+
+
+def split_as_pep440(reqstr: str) -> NamedTuple:
+    """
+    Split ``reqstr`` and return a Pep440Parts tuple or None if this is not
+    a PEP440-like requirement such as:
+    foo @ https://fooo.com/bar.tgz
+    """
+    if "@" in reqstr:
+        # If the path contains '@' and the part before it does not look
+        # like a path, try to treat it as a PEP 440 URL req.
+        spec, _, url = reqstr.partition("@")
+        if not _looks_like_path(spec):
+            return Pep440Parts(spec, url)
+
+
 def _get_url_from_path(path: str, name: str) -> Optional[str]:
     """
-    First, it checks whether a provided path is an installable directory. If it
+    First, it checks whether a provided path looks like a path. If it
     is, returns the path.
 
     If false, check if the path is an archive file (such as a .whl).
@@ -1921,17 +1948,14 @@ def _get_url_from_path(path: str, name: str) -> Optional[str]:
     if not is_archive_file(path):
         return None
 
-    urlreq_parts = name.split("@", 1)
-    if len(urlreq_parts) >= 2 and not _looks_like_path(urlreq_parts[0]):
-        # If the path contains '@' and the part before it does not look
-        # like a path, try to treat it as a PEP 440 URL req instead.
+    if split_as_pep440(name):
         return None
     return path
 
 
 def parse_req_from_line(name: str) -> RequirementParts:
     """
-    Return RequirementParts from a requirfement ``name`` string.
+    Return RequirementParts from a requirement ``name`` string.
     Raise exceptions on error.
     """
     if is_url(name):
@@ -1958,7 +1982,7 @@ def parse_req_from_line(name: str) -> RequirementParts:
     else:
         p, extras_as_string = _strip_extras(path)
         url = _get_url_from_path(p, name)
-        if url is not None:
+        if url:
             link = Link(url)
 
     # it's a local file, dir, or url
@@ -1982,8 +2006,9 @@ def parse_req_from_line(name: str) -> RequirementParts:
     extras = convert_extras(extras_as_string)
 
     def _parse_req_string(req_as_string: str) -> Requirement:
+        rq = None
         try:
-            req = Requirement(req_as_string)
+            rq = Requirement(req_as_string)
         except InvalidRequirement:
             if os.path.sep in req_as_string:
                 add_msg = "It looks like a path."
@@ -2003,17 +2028,24 @@ def parse_req_from_line(name: str) -> RequirementParts:
             # This currently works by accident because _strip_extras() parses
             # any extras in the end of the string and those are saved in
             # RequirementParts
-            for spec in req.specifier:
+            for spec in rq.specifier:
                 spec_str = str(spec)
                 if spec_str.endswith("]"):
                     msg = f"Extras after version '{spec_str}'."
                     raise InstallationError(msg)
-        return req
+        return rq
 
     if req_as_string is not None:
         req: Optional[Requirement] = _parse_req_string(req_as_string)
     else:
         req = None
+    
+    if link and not req:
+        if split_as_pep440(name):
+            try:
+                req = Requirement(name)
+            except InvalidRequirement:
+                pass
 
     return RequirementParts(req, link, markers, extras)
 

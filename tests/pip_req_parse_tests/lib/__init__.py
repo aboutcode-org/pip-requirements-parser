@@ -26,10 +26,6 @@ ALL_REQFILES = [
     if rf.endswith(".txt")
 ]
 
-print()
-for f in ALL_REQFILES:
-    print(f)
-    
 
 class TestData:
     """

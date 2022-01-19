@@ -614,7 +614,7 @@ class TestParseRequirements:
 
     def test_expand_missing_env_variables(self, tmpdir: Path) -> None:
 
-        # NOTE: WE DO NOT EXPAND VARS in constrats with PIP
+        # NOTE: WE DO NOT EXPAND VARS in constrast with PIP
         req_url = (
             "https://${NON_EXISTENT_VARIABLE}:$WRONG_FORMAT@"
             "%WINDOWS_FORMAT%github.com/user/repo/archive/master.zip"
@@ -628,7 +628,6 @@ class TestParseRequirements:
         with mock.patch("pip_requirements.os.getenv") as getenv:
             getenv.return_value = ""
 
-            
             reqs = list(
                 get_requirements_and_lines(
                     tmpdir.joinpath("req1.txt")

@@ -579,7 +579,7 @@
       "extras": []
     },
     {
-      "name": null,
+      "name": "tablib",
       "specifier": [],
       "is_editable": false,
       "is_pinned": false,
@@ -587,7 +587,7 @@
         "line_number": 51,
         "line": "tablib@ https://codeload.github.com/jazzband/tablib/zip/v0.12.1"
       },
-      "link": "tablib@ https://codeload.github.com/jazzband/tablib/zip/v0.12.1",
+      "link": "https://codeload.github.com/jazzband/tablib/zip/v0.12.1",
       "markers": null,
       "install_options": [],
       "global_options": [],

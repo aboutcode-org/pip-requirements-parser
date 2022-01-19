@@ -383,7 +383,7 @@
       "extras": []
     },
     {
-      "name": null,
+      "name": "SomeProject",
       "specifier": [],
       "is_editable": false,
       "is_pinned": false,
@@ -391,7 +391,7 @@
         "line_number": 43,
         "line": "SomeProject @ file:///somewhere/..."
       },
-      "link": "SomeProject @ file:///somewhere/...",
+      "link": "file:///somewhere/...",
       "markers": null,
       "install_options": [],
       "global_options": [],
