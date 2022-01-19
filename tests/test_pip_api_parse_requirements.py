@@ -24,263 +24,339 @@
 # This is a modified subst of the tests from https://github.com/di/pip-api/
 # adapted to work with our pip requirement parser.
 
+from typing import NamedTuple
+
 import pytest
+from pip_requirements import RequirementsFile
 
-import pip_api
-from pip_api.exceptions import PipError
+@pytest.fixture
+def create_requirement_files(
+    monkeypatch: pytest.MonkeyPatch,  # NOQA
+    tmpdir,
+):
+    """
+    Return a callable to process some mapping of {filename: [list of lines]
+    as if it were requirements file, writing the content to temp files.
+    Return a mapping of {filename: actual file path}
+    """
+    def create_files(file_data):
+        created = {}
+        for filename, lines in file_data.items():
+            path = tmpdir.joinpath(filename)
+            path.parent.mkdir(exist_ok=True)
+            path.write_text("".join(lines))
+            created[filename] = path
+        monkeypatch.chdir(str(tmpdir))
+        return created
+
+    return create_files
 
 
-def test_parse_requirements(monkeypatch):
+def test_parse_requirements(create_requirement_files):
     files = {"a.txt": ["foo==1.2.3\n"]}
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("a.txt")
+    result = RequirementsFile(paths_by_name["a.txt"])
+    assert set(r.name for r in result.requirements) == {"foo"}
+    assert str(result.requirements[0].req) == "foo==1.2.3"
 
-    assert set(result) == {"foo"}
-    assert str(result["foo"]) == "foo==1.2.3"
 
-
-def test_parse_requirements_with_comments(monkeypatch):
+def test_parse_requirements_with_comments(create_requirement_files):
     files = {"a.txt": ["# a comment\n", "foo==1.2.3 # this is a comment\n"]}
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("a.txt")
-
-    assert set(result) == {"foo"}
-    assert str(result["foo"]) == "foo==1.2.3"
-
+    result = RequirementsFile(paths_by_name["a.txt"])
+    assert set(r.name for r in result.requirements) == {"foo"}
+    assert str(result.requirements[0].req) == "foo==1.2.3"
+    assert [(c.line_number, c.line) for c in result.comments] == [
+        (1, '# a comment'), (2, '# this is a comment')
+    ] 
 
 @pytest.mark.parametrize(
     "flag", ["-i", "--index-url", "--extra-index-url", "-f", "--find-links"]
 )
-def test_parse_requirements_with_index_url(monkeypatch, flag):
+def test_parse_requirements_with_index_url(create_requirement_files, flag):
     files = {
         "a.txt": ["{} https://example.com/pypi/simple\n".format(flag), "foo==1.2.3\n"]
     }
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
+    result = RequirementsFile(paths_by_name["a.txt"])
 
-    result = pip_api.parse_requirements("a.txt")
+    assert set(r.name for r in result.requirements) == {"foo"}
+    assert str(result.requirements[0].req) == "foo==1.2.3"
+    assert len(result.options) == 1
+    assert list(result.options[0].options.values()) in (
+        ['https://example.com/pypi/simple'],
+        [['https://example.com/pypi/simple']],
+    )
 
-    assert set(result) == {"foo"}
-    assert str(result["foo"]) == "foo==1.2.3"
 
-
-PEP508_PIP_EXAMPLE_URL = (
-    "https://github.com/pypa/pip/archive/1.3.1.zip"
-    "#sha1=da9234ee9982d4bbb3c72346a6de940a148ea686"
-)
-PEP508_PIP_EXAMPLE_WHEEL = (
-    "https://github.com/pypa/pip/archive/pip-1.3.1-py2.py3-none-any.whl"
-)
-PEP508_PIP_EXAMPLE_EGG = (
-    "ssh://git@github.com/pypa/pip.git@da9234ee9982d4bbb3c72346a6de940a148ea686#egg=pip"
-)
-PEP508_PIP_EXAMPLE_EGG_FILE = "file://tmp/pip-1.3.1.zip#egg=pip"
-PEP508_PIP_EXAMPLE_WHEEL_FILE = "file://tmp/pip-1.3.1-py2.py3-none-any.whl"
+class Pep508Test(NamedTuple):
+    line: str
+    req_name: str
+    req_url: str
+    link_url: str
+    req_string: str
+    req_spec: str
 
 
 @pytest.mark.parametrize(
-    "line, result_set, url, string, spec",
+    "test_508",
     [
-        (
-            "pip @ {url}\n".format(url=PEP508_PIP_EXAMPLE_URL),
-            {"pip"},
-            PEP508_PIP_EXAMPLE_URL,
-            "pip@ " + PEP508_PIP_EXAMPLE_URL,
-            "",
+        Pep508Test(
+            line="pip @ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4\n",
+            req_name="pip",
+            req_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            link_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            req_string="pip@ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            req_spec="",
         ),
-        (
-            "pip@{url}\n".format(url=PEP508_PIP_EXAMPLE_URL),
-            {"pip"},
-            PEP508_PIP_EXAMPLE_URL,
-            "pip@ " + PEP508_PIP_EXAMPLE_URL,  # Note extra space after @
-            "",
+        Pep508Test(
+            line="pip@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4\n",
+            req_name="pip",
+            req_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            link_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            req_string="pip@ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4", # Note extra space after @
+            req_spec="",
         ),
-        (
+        Pep508Test(
             # Version and URL can't be combined so this all gets parsed as a legacy version
-            "pip==1.3.1@{url}\n".format(url=PEP508_PIP_EXAMPLE_URL),
-            {"pip"},
-            None,
-            "pip==1.3.1@" + PEP508_PIP_EXAMPLE_URL,  # Note no extra space after @
-            "==1.3.1@" + PEP508_PIP_EXAMPLE_URL,
+            line="pip==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4\n",
+            req_name="pip",
+            req_url=None,
+            link_url="pip==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            req_string="pip==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",  # Note no extra space after @
+            req_spec="==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
         ),
-        (
-            PEP508_PIP_EXAMPLE_EGG,
-            {"pip"},
-            PEP508_PIP_EXAMPLE_EGG,
-            "pip@ " + PEP508_PIP_EXAMPLE_EGG,
-            "",
+        Pep508Test(
+            line="git+ssh://git@github.com/pypa/pip.git@da9234ee9982d4#egg=pip",
+            req_name="pip",
+            req_url=None,
+            link_url="git+ssh://git@github.com/pypa/pip.git@da9234ee9982d4#egg=pip",
+            req_string="pip",
+            req_spec="",
         ),
-        (
+        Pep508Test(
             # VCS markers at the beginning of a URL get stripped away
-            "git+" + PEP508_PIP_EXAMPLE_EGG,
-            {"pip"},
-            PEP508_PIP_EXAMPLE_EGG,
-            "pip@ " + PEP508_PIP_EXAMPLE_EGG,
-            "",
+            line="ssh://git@github.com/pypa/pip.git@da9234ee9982d4#egg=pip",
+            req_name="pip",
+            req_url=None,
+            link_url="ssh://git@github.com/pypa/pip.git@da9234ee9982d4#egg=pip",
+            req_string="pip",
+            req_spec="",
         ),
-        (
-            PEP508_PIP_EXAMPLE_WHEEL,
-            {"pip"},
-            None,
-            "pip==1.3.1",
-            "==1.3.1",
+        Pep508Test(
+            line="https://github.com/pypa/pip/archive/pip-1.3.1-py2.py3-none-any.whl",
+            req_name="pip",
+            req_url=None,
+            link_url="https://github.com/pypa/pip/archive/pip-1.3.1-py2.py3-none-any.whl",
+            req_string="pip==1.3.1",
+            req_spec="==1.3.1",
         ),
-        (
-            PEP508_PIP_EXAMPLE_EGG_FILE,
-            {"pip"},
-            PEP508_PIP_EXAMPLE_EGG_FILE,
-            "pip@ " + PEP508_PIP_EXAMPLE_EGG_FILE,
-            "",
+        Pep508Test(
+            line="file://tmp/pip-1.3.1.zip#egg=pip",
+            req_name="pip",
+            req_url=None,
+            link_url="file://tmp/pip-1.3.1.zip#egg=pip",
+            req_string="pip",
+            req_spec="",
         ),
-        (PEP508_PIP_EXAMPLE_WHEEL_FILE, {"pip"}, None, "pip==1.3.1", "==1.3.1"),
+        Pep508Test(
+            line="file://tmp/pip-1.3.1-py2.py3-none-any.whl",
+            req_name="pip",
+            req_url=None,
+            link_url="file://tmp/pip-1.3.1-py2.py3-none-any.whl",
+            req_string="pip==1.3.1",
+            req_spec="==1.3.1"
+        ),
     ],
 )
-def test_parse_requirements_PEP508(monkeypatch, line, result_set, url, string, spec):
-    files = {"a.txt": [line]}
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+def test_parse_requirements_PEP508(create_requirement_files, test_508):
+    files = {"a.txt": [test_508.line]}
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("a.txt")
+    result = RequirementsFile(paths_by_name["a.txt"])
+    assert result.invalid_lines == []
+    assert len(result.requirements) == 1
+    ireq = result.requirements[0]
+    assert str(ireq.name) == test_508.req_name
+    assert str(ireq.req.specifier) == test_508.req_spec
+    assert str(ireq.req) == test_508.req_string
+    assert ireq.req.url == test_508.req_url
+    assert ireq.link.url == test_508.link_url
 
-    assert set(result) == result_set
-    assert result["pip"].url == url
-    assert str(result["pip"]) == string
-    assert result["pip"].specifier == spec
 
-
-def test_parse_requirements_vcs(monkeypatch):
+def test_parse_requirements_vcs(create_requirement_files):
     requirement_text = "git+https://github.com/bar/foo"
     files = {"a.txt": [requirement_text + "\n"]}
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    with pytest.raises(PipError):
-        pip_api.parse_requirements("a.txt")
+    result = RequirementsFile(paths_by_name["a.txt"])
+    assert len(result.requirements) == 1
+    assert result.requirements[0].req is None
+    assert result.requirements[0].link.url == requirement_text
+    assert result.invalid_lines == []
 
 
-def test_include_invalid_requirement(monkeypatch):
+def test_include_invalid_requirement(create_requirement_files):
     requirement_text = "git+https://github.com/bar/foo"
     files = {"a.txt": [requirement_text + "\n"]}
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("a.txt", include_invalid=True)
-
-    assert set(result) == {requirement_text}
-    assert result[requirement_text].name == requirement_text
-    assert (
-        str(result[requirement_text])
-        == f"Missing egg fragment in URL: {requirement_text}"
-    )
+    result = RequirementsFile(paths_by_name["a.txt"])
+    assert len(result.requirements) == 1
+    # we do not validate for "Missing egg fragment in URL: {requirement_text}"
+    assert result.requirements[0].req is None
+    assert result.requirements[0].link.url == requirement_text
+    assert result.invalid_lines == []
 
 
 @pytest.mark.parametrize("flag", ["-r", "--requirements"])
-def test_parse_requirements_recursive(monkeypatch, flag):
+def test_parse_requirements_recursive(create_requirement_files, flag):
+    # https://github.com/di/pip-api/commit/7e2f1e8693da249156b99ec593af1e61192c611a#r64188234
+    # --requirements is not a valid pip option
     files = {"a.txt": ["{} b.txt\n".format(flag)], "b.txt": ["foo==1.2.3\n"]}
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("a.txt")
+    result = RequirementsFile(paths_by_name["a.txt"], include_nested=True)
+    assert len(result.requirements) == 1
+    assert str(result.requirements[0].req) == "foo==1.2.3"
+    assert result.options[0].options == {"requirements": ["b.txt"]}
 
-    assert set(result) == {"foo"}
-    assert str(result["foo"]) == "foo==1.2.3"
 
-
-def test_parse_requirements_double_raises(monkeypatch):
+def test_parse_requirements_double_raises(create_requirement_files):
+    # we accept duplicated requirements
+    # "Double requirement given: foo==3.2.1 (already in foo==1.2.3, name='foo')",
     files = {"a.txt": ["foo==1.2.3\n", "foo==3.2.1\n"]}
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    with pytest.raises(pip_api.exceptions.PipError) as e:
-        pip_api.parse_requirements("a.txt")
-
-    assert e.value.args == (
-        "Double requirement given: foo==3.2.1 (already in foo==1.2.3, name='foo')",
-    )
+    result = RequirementsFile(paths_by_name["a.txt"])
+    assert len(result.requirements) == 2
+    assert str(result.requirements[0].req) == "foo==1.2.3"
+    assert str(result.requirements[1].req) == "foo==3.2.1"
 
 
-@pytest.mark.parametrize(
-    "lines",
-    (["foo==1.2.3 \\\n", "    --whatever=blahblah\n"], ["-r \\\n", "    b.txt\n"]),
-)
-def test_parse_requirements_multiline(monkeypatch, lines):
-    files = {"a.txt": lines, "b.txt": ["foo==1.2.3\n"]}
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.__getitem__)
+def test_parse_requirements_multiline1(create_requirement_files):
+    # we do not accept unknown options
+    files = {
+        "a.txt": ["foo==1.2.3 \\\n", "    --whatever=blahblah\n"], 
+    }
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("a.txt")
+    result = RequirementsFile(paths_by_name["a.txt"], include_nested=True)
+    assert result.requirements == []
+    assert "no such option: --whatever" in result.invalid_lines[0].error_message
 
-    assert set(result) == {"foo"}
-    assert str(result["foo"]) == "foo==1.2.3"
+def test_parse_requirements_multiline2(create_requirement_files):
+    files = {
+        "b.txt": ["foo==1.2.3\n"],
+    }
+    paths_by_name = create_requirement_files(files)
+
+    result = RequirementsFile(paths_by_name["b.txt"], include_nested=True)
+    assert len(result.requirements) == 1
+
+    assert str(result.requirements[0].req) == "foo==1.2.3"
+    assert result.invalid_lines == []
+    assert set(r.name for r in result.requirements) == {"foo"}
 
 
-def test_parse_requirements_editable(monkeypatch):
+def test_parse_requirements_multiline3(create_requirement_files):
+    files = {"a.txt": ["-r \\\n", "    b.txt\n"], "b.txt": ["foo==1.2.3\n"]}
+    paths_by_name = create_requirement_files(files)
+
+    result = RequirementsFile(paths_by_name["a.txt"], include_nested=True)
+    assert len(result.requirements) == 1
+    assert str(result.requirements[0].req) == "foo==1.2.3"
+
+    assert result.invalid_lines == []
+    assert set(r.name for r in result.requirements) == {"foo"}
+
+
+def test_parse_requirements_editable(create_requirement_files):
     files = {
         "a.txt": ["Django==1.11\n" "-e git+https://github.com/foo/deal.git#egg=deal\n"]
     }
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("a.txt")
+    result = RequirementsFile(paths_by_name["a.txt"])
 
-    assert set(result) == {"django", "deal"}
-    assert str(result["django"]) == "Django==1.11"
-    assert str(result["deal"]) == "deal@ git+https://github.com/foo/deal.git#egg=deal"
+    assert set(r.name for r in result.requirements) == {"deal", "Django"}
+    assert str(result.requirements[0].req) == "Django==1.11"
+
+    assert str(result.requirements[1].req) == "deal"
+    assert result.requirements[1].link.url == "git+https://github.com/foo/deal.git#egg=deal"
+    assert result.requirements[1].is_editable
 
 
-def test_parse_requirements_editable_file(monkeypatch):
+def test_parse_requirements_editable_file(create_requirement_files):
     files = {"a.txt": ["Django==1.11\n" "-e .\n"]}
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("a.txt")
+    result = RequirementsFile(paths_by_name["a.txt"])
 
-    assert set(result) == {"django", "pip-api"}
-    assert str(result["django"]) == "Django==1.11"
-    assert str(result["pip-api"]).startswith("pip-api@ file:///")
+    assert set(r.name for r in result.requirements) == {None, "Django"}
+    
+    assert str(result.requirements[0].req) == "Django==1.11"
+    # we actually do not load/build the thing behind the "dot"
+    assert result.requirements[1].req is None
+    assert result.requirements[1].link.url == "."
+    assert result.requirements[1].is_editable
 
 
-def test_parse_requirements_with_relative_references(monkeypatch):
+def test_parse_requirements_with_relative_references(create_requirement_files):
     files = {
         "reqs/base.txt": ["django==1.11\n"],
         "reqs/test.txt": ["-r base.txt\n"],
         "reqs/dev.txt": ["-r base.txt\n" "-r test.txt\n"],
     }
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("reqs/dev.txt")
-    assert set(result) == {"django"}
+    result = RequirementsFile(paths_by_name["reqs/dev.txt"], include_nested=True)
+    assert set(r.name for r in result.requirements) == {"django"}
 
 
-def test_parse_requirements_with_environment_markers(monkeypatch):
+def test_parse_requirements_with_environment_markers(create_requirement_files):
     files = {
         "a.txt": [
             "foo==1.2.3 ; python_version <= '2.7'\n",
             "foo==3.2.1 ; python_version > '2.7'\n",
         ]
     }
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    result = pip_api.parse_requirements("a.txt")
+    result = RequirementsFile(paths_by_name["a.txt"])
 
     # We don't support such old Python versions, so if we've managed to run these tests, we should
     # have chosen foo==3.2.1
-    assert set(result) == {"foo"}
-    assert str(result["foo"]) == 'foo==3.2.1; python_version > "2.7"'
+    assert set(r.name for r in result.requirements) == {"foo"}
+    assert str(result.requirements[0].req) == "foo==1.2.3"
+    assert str(result.requirements[0].markers) == 'python_version <= "2.7"'
+    assert str(result.requirements[1].req) == 'foo==3.2.1'
+    assert str(result.requirements[1].markers) == 'python_version > "2.7"'
 
 
-def test_parse_requirements_with_invalid_wheel_filename(monkeypatch):
+def test_parse_requirements_with_invalid_wheel_filename(create_requirement_files):
     INVALID_WHEEL_NAME = "pip-1.3.1-invalid-format.whl"
     files = {
         "a.txt": ["https://github.com/pypa/pip/archive/" + INVALID_WHEEL_NAME],
     }
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
+    result = RequirementsFile(paths_by_name["a.txt"])
+    assert len(result.invalid_lines) == 1
+    irl = result.invalid_lines[0]
+    assert irl.error_message == "pip-1.3.1-invalid-format.whl is not a valid wheel filename."
 
-    with pytest.raises(PipError, match=r"Invalid wheel name: " + INVALID_WHEEL_NAME):
-        pip_api.parse_requirements("a.txt")
 
-
-def test_parse_requirements_with_missing_egg_suffix(monkeypatch):
+def test_parse_requirements_with_missing_egg_suffix(create_requirement_files):
     # Without a package name, an `#egg=foo` suffix is required to know the package name
     files = {
-        "a.txt": [PEP508_PIP_EXAMPLE_URL],
+        "a.txt": ["https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4"],
     }
-    monkeypatch.setattr(pip_api._parse_requirements, "_read_file", files.get)
+    paths_by_name = create_requirement_files(files)
 
-    with pytest.raises(
-        PipError, match=r"Missing egg fragment in URL: " + PEP508_PIP_EXAMPLE_URL
-    ):
-        pip_api.parse_requirements("a.txt")
+    result = RequirementsFile(paths_by_name["a.txt"])
+    assert result.invalid_lines == []
+    req = result.requirements[0]
+    assert req.req is None
+    assert req.link.url == "https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4"
