@@ -78,10 +78,6 @@ class TestInstallRequirement:
         req = install_req_from_line("simple==0.1")
         assert str(req) == "simple==0.1"
 
-    def test_repr(self) -> None:
-        req = install_req_from_line("simple==0.1")
-        assert repr(req) == ("<InstallRequirement object: simple==0.1 is_editable=False>")
-
     def test_invalid_wheel_requirement_raises(self) -> None:
         with pytest.raises(InvalidWheelFilename):
             install_req_from_line("invalid.whl")
