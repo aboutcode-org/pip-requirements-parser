@@ -215,6 +215,126 @@ def option_values_to_dict(option_values):
         for k, v in option_values.__dict__.items()
     }
 
+
+class RequirementLine:
+    """
+    A line from a requirement ``filename``. This is a logical line with folded
+    continuations where ``line_number`` is the first line number where this
+    logical line started.
+    """
+    def __init__(
+        self,
+        line: str,
+        line_number: Optional[int] = 0,
+        filename: Optional[str] = None,
+    ) -> None:
+
+        self.line =line 
+        self.filename = filename
+        self.line_number = line_number
+
+    def to_dict(self, include_filename=False):
+        data = dict(
+            line_number=self.line_number,
+            line=self.line,
+        )
+        if include_filename:
+            data.update(dict(filename=self.filename))
+
+        return data
+
+    def __repr__(self):
+        return (
+            f"{self.__class__.__name__}("
+                f"line_number={self.line_number!r}, "
+                f"line={self.line!r}, "
+                f"filename={self.filename!r}"
+            ")"
+        )
+
+    def __eq__(self, other):
+        return (
+            isinstance(other, self.__class__) and
+            self.to_dict(include_filename=True)
+                == other.to_dict(include_filename=True)
+        )
+
+
+class CommentRequirementLine(RequirementLine):
+    """
+    This represents the comment portion of a line in a requirements file.
+    """
+
+
+class OptionLine:
+    """
+    This represents an a CLI-style "global" option line in a requirements file
+    with a name and value.
+    """
+    def __init__(
+        self,
+        requirement_line: RequirementLine,
+        name: str,
+        value: Any,
+    ) -> None:
+        self.requirement_line = requirement_line
+        self.name = name
+        self.value = value
+
+    def to_dict(self, include_filename=False):
+        data = self.requirement_line.to_dict(include_filename=include_filename)
+        data.update(name=self.name, value=self.value)
+        return data
+
+    def __repr__(self):
+        return (
+            f"{self.__class__.__name__}("
+                f"requirement_line={self.requirement_line!r}, "
+                f"name={self.name!r}, "
+                f"value={self.value!r}"
+            ")"
+        )
+    def __eq__(self, other):
+        return (
+            isinstance(other, self.__class__) and
+            self.to_dict(include_filename=True) 
+                == other.to_dict(include_filename=True)
+        )
+
+
+
+class InvalidRequirementLine:
+    """
+    This represents an unparsable or invalid line of a requirements file.
+    """
+    def __init__(
+        self,
+        requirement_line: RequirementLine,
+        error_message: str,
+    ) -> None:
+        self.requirement_line = requirement_line
+        self.error_message = error_message
+
+    def to_dict(self, include_filename=False):
+        data = self.requirement_line.to_dict(include_filename=include_filename)
+        data.update(error_message=self.error_message)
+        return data
+
+    def __repr__(self):
+        return (
+            f"{self.__class__.__name__}("
+                f"requirement_line={self.requirement_line!r}, "
+                f"error_message={self.error_message!r}"
+            ")"
+        )
+    def __eq__(self, other):
+        return (
+            isinstance(other, self.__class__) and
+            self.to_dict(include_filename=True) 
+                == other.to_dict(include_filename=True)
+        )
+
+
 # end of API
 ################################################################################
 
@@ -859,87 +979,6 @@ class ParsedRequirement:
         self.is_constraint = is_constraint
         self.options = options
         self.requirement_line = requirement_line
-
-
-class RequirementLine:
-    """
-    A line from a requirement ``filename``. This is a logical line with folded
-    continuations where ``line_number`` is the first line number where this
-    logical line started.
-    """
-    def __init__(
-        self,
-        line: str,
-        line_number: Optional[int] = 0,
-        filename: Optional[str] = None,
-    ) -> None:
-        self.line =line 
-        self.filename = filename
-        self.line_number = line_number
-
-    def to_dict(self, include_filename=False):
-        data = dict(
-            line_number=self.line_number,
-            line=self.line,
-        )
-        if include_filename:
-            data.update(dict(filename=self.filename))
-
-        return data
-
-    def __repr__(self):
-        return (
-            f"{self.__class__.__name__}("
-                f"line_number={self.line_number!r}, "
-                f"line={self.line!r}, "
-                f"filename={self.filename!r}"
-            ")"
-        )
-
-    def __eq__(self, other):
-        return (
-            isinstance(other, self.__class__) and
-            self.to_dict(include_filename=True)
-                == other.to_dict(include_filename=True)
-        )
-
-
-class CommentRequirementLine(RequirementLine):
-    """
-    This represents the comment portion of a line in a requirements file. 
-    """
-
-
-class InvalidRequirementLine:
-    """
-    This represents an unparsable or invalid line of a requirements file.
-    """
-    def __init__(
-        self,
-        requirement_line: RequirementLine,
-        error_message: str,
-    ) -> None:
-        self.requirement_line = requirement_line
-        self.error_message = error_message
-
-    def to_dict(self, include_filename=False):
-        data = self.requirement_line.to_dict(include_filename=include_filename)
-        data.update(error_message=self.error_message)
-        return data
-
-    def __repr__(self):
-        return (
-            f"{self.__class__.__name__}("
-                f"requirement_line={self.requirement_line!r}, "
-                f"error_message={self.error_message!r}, "
-            ")"
-        )
-    def __eq__(self, other):
-        return (
-            isinstance(other, self.__class__) and
-            self.to_dict(include_filename=True) 
-                == other.to_dict(include_filename=True)
-        )
 
 
 class ParsedLine:
