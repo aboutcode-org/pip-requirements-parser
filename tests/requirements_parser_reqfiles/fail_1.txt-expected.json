@@ -2,15 +2,15 @@
   "options": [],
   "requirements": [
     {
-      "name": "a_b",
+      "name": "test",
       "specifier": [
-        ">=1.0"
+        ">>1.2.0"
       ],
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
         "line_number": 1,
-        "line": "a_b>=1.0"
+        "line": "test>>1.2.0"
       },
       "link": null,
       "markers": null,
@@ -21,6 +21,12 @@
       "extras": []
     }
   ],
-  "invalid_lines": [],
+  "invalid_lines": [
+    {
+      "line_number": 2,
+      "line": "test=>1.2.0",
+      "error_message": "Invalid requirement"
+    }
+  ],
   "comments": []
 }

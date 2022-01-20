@@ -573,13 +573,7 @@
       "extras": []
     }
   ],
-  "invalid_lines": [
-    {
-      "line_number": 74,
-      "line": "-e path/to/SomeProject",
-      "error_message": "path/to/SomeProject is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
-    }
-  ],
+  "invalid_lines": [],
   "comments": [
     {
       "line_number": 1,

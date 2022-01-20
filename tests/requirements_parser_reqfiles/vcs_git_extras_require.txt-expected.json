@@ -1,18 +1,26 @@
-[
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "git+https://git.myproject.org/MyProject.git",
-  "extras": ["security"],
-  "vcs": "git",
-  "path": null,
-  "line":  "git+https://git.myproject.org/MyProject.git@v0.1#egg=MyProject[security]",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "v0.1"
- }
-]
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "git+https://git.myproject.org/MyProject.git@v0.1#egg=MyProject[security]"
+      },
+      "link": "git+https://git.myproject.org/MyProject.git@v0.1#egg=MyProject[security]",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "security"
+      ]
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

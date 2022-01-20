@@ -507,6 +507,23 @@
       "extras": []
     },
     {
+      "name": "pipenv",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 43,
+        "line": "-e git+git@github.com:pypa/pipenv.git#egg=pipenv"
+      },
+      "link": "git+git@github.com:pypa/pipenv.git#egg=pipenv",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
       "name": "requests",
       "specifier": [],
       "is_editable": true,
@@ -635,11 +652,6 @@
       "line_number": 17,
       "line": "FooProject==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824\",",
       "error_message": "No closing quotation"
-    },
-    {
-      "line_number": 43,
-      "line": "-e git+git@github.com:pypa/pipenv.git#egg=pipenv",
-      "error_message": "git+git@github.com:pypa/pipenv.git#egg=pipenv is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
     }
   ],
   "comments": [

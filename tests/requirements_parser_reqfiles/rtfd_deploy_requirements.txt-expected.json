@@ -1,82 +1,181 @@
-[
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "psycopg2",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "psycopg2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "gunicorn",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "gunicorn",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "pysolr",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "pysolr",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "python-memcached",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "python-memcached",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "dnspython",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "dnspython",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- }
-]
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "psycopg2",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "psycopg2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "gunicorn",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 26,
+        "line": "gunicorn"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pysolr",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 27,
+        "line": "pysolr"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "python-memcached",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 28,
+        "line": "python-memcached"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "dnspython",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 29,
+        "line": "dnspython"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 1,
+      "line": "# Copyright (c) 2011 Charles Leifer, Eric Holscher, Bobby Grace"
+    },
+    {
+      "line_number": 2,
+      "line": "#"
+    },
+    {
+      "line_number": 3,
+      "line": "# Permission is hereby granted, free of charge, to any person"
+    },
+    {
+      "line_number": 4,
+      "line": "# obtaining a copy of this software and associated documentation"
+    },
+    {
+      "line_number": 5,
+      "line": "# files (the \"Software\"), to deal in the Software without"
+    },
+    {
+      "line_number": 6,
+      "line": "# restriction, including without limitation the rights to use,"
+    },
+    {
+      "line_number": 7,
+      "line": "# copy, modify, merge, publish, distribute, sublicense, and/or sell"
+    },
+    {
+      "line_number": 8,
+      "line": "# copies of the Software, and to permit persons to whom the"
+    },
+    {
+      "line_number": 9,
+      "line": "# Software is furnished to do so, subject to the following"
+    },
+    {
+      "line_number": 10,
+      "line": "# conditions:"
+    },
+    {
+      "line_number": 11,
+      "line": "#"
+    },
+    {
+      "line_number": 12,
+      "line": "# The above copyright notice and this permission notice shall be"
+    },
+    {
+      "line_number": 13,
+      "line": "# included in all copies or substantial portions of the Software."
+    },
+    {
+      "line_number": 14,
+      "line": "#"
+    },
+    {
+      "line_number": 15,
+      "line": "# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,"
+    },
+    {
+      "line_number": 16,
+      "line": "# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES"
+    },
+    {
+      "line_number": 17,
+      "line": "# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND"
+    },
+    {
+      "line_number": 18,
+      "line": "# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT"
+    },
+    {
+      "line_number": 19,
+      "line": "# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,"
+    },
+    {
+      "line_number": 20,
+      "line": "# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING"
+    },
+    {
+      "line_number": 21,
+      "line": "# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR"
+    },
+    {
+      "line_number": 22,
+      "line": "# OTHER DEALINGS IN THE SOFTWARE."
+    }
+  ]
+}

@@ -1,66 +1,75 @@
-[
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "svn+svn://svn.myproject.org/svn/MyProject",
-  "extras": [],
-  "vcs": "svn",
-  "path": null,
-  "line":  "-e svn+svn://svn.myproject.org/svn/MyProject#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "git://git.myproject.org/MyProject.git",
-  "extras": [],
-  "vcs": "git",
-  "path": null,
-  "line":  "-e git://git.myproject.org/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "hg+http://hg.myproject.org/MyProject/",
-  "extras": [],
-  "vcs": "hg",
-  "path": null,
-  "line":  "-e hg+http://hg.myproject.org/MyProject/@special_feature#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "special_feature"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "bzr+lp://MyProject",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "-e bzr+lp://MyProject#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- }
-]
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "-e svn+svn://svn.myproject.org/svn/MyProject#egg=MyProject"
+      },
+      "link": "svn+svn://svn.myproject.org/svn/MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "--editable git://git.myproject.org/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject"
+      },
+      "link": "git://git.myproject.org/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "--editable hg+http://hg.myproject.org/MyProject/@special_feature#egg=MyProject"
+      },
+      "link": "hg+http://hg.myproject.org/MyProject/@special_feature#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "-e bzr+lp://MyProject#egg=MyProject"
+      },
+      "link": "bzr+lp://MyProject#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

@@ -2,17 +2,15 @@
   "options": [],
   "requirements": [
     {
-      "name": "a_b",
-      "specifier": [
-        ">=1.0"
-      ],
-      "is_editable": false,
+      "name": "AnotherProject",
+      "specifier": [],
+      "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
         "line_number": 1,
-        "line": "a_b>=1.0"
+        "line": "-e path/to/AnotherProject#egg=AnotherProject"
       },
-      "link": null,
+      "link": "path/to/AnotherProject#egg=AnotherProject",
       "markers": null,
       "install_options": [],
       "global_options": [],

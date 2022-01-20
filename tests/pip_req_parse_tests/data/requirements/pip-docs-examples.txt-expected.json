@@ -414,11 +414,6 @@
   ],
   "invalid_lines": [
     {
-      "line_number": 16,
-      "line": "-e path/to/project",
-      "error_message": "path/to/project is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file)."
-    },
-    {
       "line_number": 78,
       "line": "SomePackage1 SomePackage2 --no-binary :all:",
       "error_message": "Invalid requirement"

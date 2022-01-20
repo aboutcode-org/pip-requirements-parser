@@ -2,15 +2,15 @@
   "options": [],
   "requirements": [
     {
-      "name": "MyProject",
+      "name": "a",
       "specifier": [],
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
         "line_number": 1,
-        "line": "file:///path/to/your/lib/project#egg=MyProject"
+        "line": "novcs+http://example.com#egg=a"
       },
-      "link": "file:///path/to/your/lib/project#egg=MyProject",
+      "link": "novcs+http://example.com#egg=a",
       "markers": null,
       "install_options": [],
       "global_options": [],
@@ -25,26 +25,9 @@
       "is_pinned": false,
       "requirement_line": {
         "line_number": 2,
-        "line": "file://../../lib/project#egg=MyProject"
+        "line": "svn+http://example.com#egg"
       },
-      "link": "/../lib/project",
-      "markers": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": [],
-      "is_constraint": false,
-      "extras": []
-    },
-    {
-      "name": "SomeOtherProject",
-      "specifier": [],
-      "is_editable": false,
-      "is_pinned": false,
-      "requirement_line": {
-        "line_number": 3,
-        "line": "path/to/SomeProject#egg=SomeOtherProject"
-      },
-      "link": "path/to/SomeProject#egg=SomeOtherProject",
+      "link": "svn+http://example.com#egg",
       "markers": null,
       "install_options": [],
       "global_options": [],

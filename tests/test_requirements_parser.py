@@ -33,63 +33,42 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+# this has been significantly modified to use our own JSON tests
+# instead of the original ones
+
 import json
-import warnings
-from os import listdir
-from os.path import dirname, isfile, join
-from types import GeneratorType
-from typing import List
-from unittest import TestCase
+import os
 
-from requirements import parse
+import pytest
 
+import pip_requirements
 
-class TestParser(TestCase):
-    _requirements_files_dir: str
+REQFILES_DIR = os.path.join(
+    os.path.dirname(__file__),
+    "requirements_parser_reqfiles",
+)
 
-    @classmethod
-    def setUpClass(cls) -> None:
-        cls._requirements_files_dir = join(dirname(__file__), 'reqfiles')
-
-    def test_requirement_files(self) -> None:
-        for fn in listdir(TestParser._requirements_files_dir):
-            fp = join(TestParser._requirements_files_dir, fn)
-
-            # skip ".expected" files
-            if not isfile(fp) or not fp.endswith('.txt'):
-                continue
-
-            self._test_req_file(req_file=fn)
-
-    def _test_req_file(self, req_file: str) -> None:
-        fp = join(TestParser._requirements_files_dir, req_file)
-        with open(fp) as req_fh:
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore")
-                parsed = parse(req_fh)
-
-                if 'fail' in req_file:
-                    with self.assertRaises(ValueError):
-                        list([dict(r) for r in parsed])
-                else:
-                    with open(fp[:-4] + '.expected', 'r') as f2:
-                        self.assertIsInstance(parsed, GeneratorType)
-                        self.assertEqual(json.loads(f2.read()), listify(dict(r) for r in parsed),
-                                         msg=f'Failed on {fp}')
+ALL_REQFILES = [
+    os.path.join(REQFILES_DIR, rf)
+    for rf in os.listdir(REQFILES_DIR)
+    if rf.endswith(".txt")
+]
 
 
-def listify(iterable: GeneratorType) -> List:
-    out = []
+@pytest.mark.parametrize("test_file", ALL_REQFILES)
+def test_RequirementsFile_to_dict(
+    test_file: str,
+    regen=True,
+) -> None:
 
-    for item in iterable:
-        if isinstance(item, dict):
-            for key, value in item.items():
-                if isinstance(item[key], (tuple, list)):
-                    if key in ('extras', 'specs'):
-                        # enforce predictability
-                        item[key] = sorted(listify(value))
-                        # item[key] = listify(value)
-        elif isinstance(item, (tuple, list)):
-            item = listify(item)
-        out.append(item)
-    return out
+    expected_file = test_file + "-expected.json"
+    results = pip_requirements.RequirementsFile(test_file).to_dict()
+    if regen:
+        with open (expected_file, 'w') as outp:
+            json.dump(results, outp, indent=2)
+        expected = results
+    else:
+        with open (expected_file) as inp:
+            expected = json.load(inp)
+
+    assert results == expected

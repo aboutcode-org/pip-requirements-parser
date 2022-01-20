@@ -1,1 +1,11 @@
-[]
+{
+  "options": [],
+  "requirements": [],
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 1,
+      "line": "# This is a comment"
+    }
+  ]
+}

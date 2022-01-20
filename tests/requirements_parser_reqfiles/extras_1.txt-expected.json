@@ -1,44 +1,48 @@
-[
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "MyPackage",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [
-   "pdf"
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "MyPackage",
+      "specifier": [
+        "==3.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "MyPackage[PDF]==3.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "pdf"
+      ]
+    },
+    {
+      "name": "Fizzy",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "Fizzy [foo, bar]"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "bar",
+        "foo"
+      ]
+    }
   ],
-  "vcs": null,
-  "path": null,
-  "line":  "MyPackage[PDF]==3.0",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "3.0"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "Fizzy",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [
-   "bar",
-   "foo"
-  ],
-  "vcs": null,
-  "path": null,
-  "line":  "Fizzy [foo, bar]",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- }
-]
+  "invalid_lines": [],
+  "comments": []
+}

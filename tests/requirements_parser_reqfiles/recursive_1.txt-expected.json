@@ -1,52 +1,34 @@
-[
-  {
-    "specifier": true,
-    "local_file": false,
-    "name": "ipdb",
-    "editable": false,
-    "subdirectory": null,
-    "uri": null,
-    "extras": [],
-    "vcs": null,
-    "path": null,
-    "line":  "ipdb",
-    "hash_name": null,
-    "hash": null,    "specs": [],
-    "revision": null
-  },
-  {
-    "specifier": true,
-    "local_file": false,
-    "name": "Jinja",
-    "editable": false,
-    "subdirectory": null,
-    "uri": null,
-    "extras": [],
-    "vcs": null,
-    "path": null,
-    "line":  "Jinja",
-    "hash_name": null,
-    "hash": null,    "specs": [],
-    "revision": null
-  },
-  {
-    "specifier": true,
-    "local_file": false,
-    "name": "Django",
-    "editable": false,
-    "subdirectory": null,
-    "uri": null,
-    "extras": [],
-    "vcs": null,
-    "path": null,
-    "line":  "Django==1.6",
-    "hash_name": null,
-    "hash": null,    "specs": [
-      [
-        "==",
-        "1.6"
+{
+  "options": [
+    {
+      "line_number": 1,
+      "line": "-r recursive_2.txt",
+      "requirements": [
+        "recursive_2.txt"
       ]
-    ],
-    "revision": null
-  }
-]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "Django",
+      "specifier": [
+        "==1.6"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "Django==1.6"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

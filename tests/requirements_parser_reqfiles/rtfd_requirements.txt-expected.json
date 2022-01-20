@@ -1,618 +1,679 @@
-[
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "Distutils2",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "Distutils2==1.0a3",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "1.0a3"
-   ]
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "Distutils2",
+      "specifier": [
+        "==1.0a3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 27,
+        "line": "Distutils2==1.0a3"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "Sphinx",
+      "specifier": [
+        "==1.1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 28,
+        "line": "Sphinx==1.1.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "Unipath",
+      "specifier": [
+        "==0.2.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 29,
+        "line": "Unipath==0.2.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "bzr",
+      "specifier": [
+        "==2.5b4"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 30,
+        "line": "bzr==2.5b4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "celery-haystack",
+      "specifier": [
+        "==0.6.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 31,
+        "line": "celery-haystack==0.6.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "celery",
+      "specifier": [
+        "==3.0.9"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 32,
+        "line": "celery==3.0.9"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django-celery",
+      "specifier": [
+        "==3.0.9"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 33,
+        "line": "django-celery==3.0.9"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django-extensions",
+      "specifier": [
+        "==0.7.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 34,
+        "line": "django-extensions==0.7.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django-guardian",
+      "specifier": [
+        "==1.0.4"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 35,
+        "line": "django-guardian==1.0.4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django-kombu",
+      "specifier": [
+        "==0.9.4"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 36,
+        "line": "django-kombu==0.9.4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django-profiles",
+      "specifier": [
+        "==0.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 37,
+        "line": "django-profiles==0.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django-secure",
+      "specifier": [
+        "==0.1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 38,
+        "line": "django-secure==0.1.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django",
+      "specifier": [
+        "==1.4.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 39,
+        "line": "django==1.4.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "docutils",
+      "specifier": [
+        "==0.8.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 40,
+        "line": "docutils==0.8.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "github2",
+      "specifier": [
+        "==0.5.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 41,
+        "line": "github2==0.5.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "httplib2",
+      "specifier": [
+        "==0.7.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 42,
+        "line": "httplib2==0.7.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "mercurial",
+      "specifier": [
+        "==2.4"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 43,
+        "line": "mercurial==2.4"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "mimeparse",
+      "specifier": [
+        "==0.1.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 44,
+        "line": "mimeparse==0.1.3"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "redis",
+      "specifier": [
+        "==2.7.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 45,
+        "line": "redis==2.7.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "simplejson",
+      "specifier": [
+        "==2.3.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 46,
+        "line": "simplejson==2.3.0"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "slumber",
+      "specifier": [
+        "==0.4.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 47,
+        "line": "slumber==0.4.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "south",
+      "specifier": [
+        "==0.7.6"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 48,
+        "line": "south==0.7.6"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "sphinx-http-domain",
+      "specifier": [
+        "==0.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 49,
+        "line": "sphinx-http-domain==0.2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "unittest-xml-reporting",
+      "specifier": [
+        "==1.3.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 50,
+        "line": "unittest-xml-reporting==1.3.1"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django_haystack",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 54,
+        "line": "git+git://github.com/toastdriven/django-haystack@259274e4127f723d76b893c87a82777f9490b960#egg=django_haystack"
+      },
+      "link": "git+git://github.com/toastdriven/django-haystack@259274e4127f723d76b893c87a82777f9490b960#egg=django_haystack",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django-filter",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 55,
+        "line": "git+git://github.com/alex/django-filter.git#egg=django-filter"
+      },
+      "link": "git+git://github.com/alex/django-filter.git#egg=django-filter",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django_taggit-dev",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 56,
+        "line": "git+git://github.com/alex/django-taggit.git@36f6dabcf10e27c7d9442a94243d4189f2a4f121#egg=django_taggit-dev"
+      },
+      "link": "git+git://github.com/alex/django-taggit.git@36f6dabcf10e27c7d9442a94243d4189f2a4f121#egg=django_taggit-dev",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django_pagination-dev",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 57,
+        "line": "git+git://github.com/ericflo/django-pagination.git@e5f669036c#egg=django_pagination-dev"
+      },
+      "link": "git+git://github.com/ericflo/django-pagination.git@e5f669036c#egg=django_pagination-dev",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django_basic_apps-dev",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 58,
+        "line": "git+git://github.com/nathanborror/django-basic-apps.git@171fdbe21a0dbbb38919a383cc265cb3cbc73771#egg=django_basic_apps-dev"
+      },
+      "link": "git+git://github.com/nathanborror/django-basic-apps.git@171fdbe21a0dbbb38919a383cc265cb3cbc73771#egg=django_basic_apps-dev",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django_registration-dev",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 59,
+        "line": "git+git://github.com/nathanborror/django-registration.git@dc0b564b7bfb79f58592fe8ad836729a85ec17ae#egg=django_registration-dev"
+      },
+      "link": "git+git://github.com/nathanborror/django-registration.git@dc0b564b7bfb79f58592fe8ad836729a85ec17ae#egg=django_registration-dev",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "django_tastypie-dev",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 60,
+        "line": "git+git://github.com/toastdriven/django-tastypie.git@c5451b90b18b0cb64841b2276d543230d5f58231#egg=django_tastypie-dev"
+      },
+      "link": "git+git://github.com/toastdriven/django-tastypie.git@c5451b90b18b0cb64841b2276d543230d5f58231#egg=django_tastypie-dev",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    }
   ],
-  "revision": null
- },
- {
-  "specifier": true, 
-  "local_file": false,
-  "name": "Sphinx",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "Sphinx==1.1.2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "1.1.2"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "Unipath",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "Unipath==0.2.1",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.2.1"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "bzr",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "bzr==2.5b4",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "2.5b4"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "celery-haystack",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "celery-haystack==0.6.2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.6.2"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "celery",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "celery==3.0.9",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "3.0.9"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "django-celery",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "django-celery==3.0.9",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "3.0.9"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "django-extensions",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "django-extensions==0.7.1",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.7.1"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "django-guardian",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "django-guardian==1.0.4",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "1.0.4"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "django-kombu",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "django-kombu==0.9.4",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.9.4"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "django-profiles",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "django-profiles==0.2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.2"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "django-secure",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "django-secure==0.1.2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.1.2"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "django",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "django==1.4.2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "1.4.2"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "docutils",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "docutils==0.8.1",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.8.1"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "github2",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "github2==0.5.2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.5.2"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "httplib2",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "httplib2==0.7.2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.7.2"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "mercurial",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "mercurial==2.4",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "2.4"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "mimeparse",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "mimeparse==0.1.3",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.1.3"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "redis",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "redis==2.7.1",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "2.7.1"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "simplejson",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "simplejson==2.3.0",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "2.3.0"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "slumber",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "slumber==0.4.2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.4.2"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "south",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "south==0.7.6",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.7.6"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "sphinx-http-domain",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "sphinx-http-domain==0.2",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "0.2"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": true,
-  "local_file": false,
-  "name": "unittest-xml-reporting",
-  "editable": false,
-  "subdirectory": null,
-  "uri": null,
-  "extras": [],
-  "vcs": null,
-  "path": null,
-  "line":  "unittest-xml-reporting==1.3.1",
-  "hash_name": null,
-  "hash": null,
-  "specs": [
-   [
-    "==",
-    "1.3.1"
-   ]
-  ],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "django_haystack",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "git+git://github.com/toastdriven/django-haystack",
-  "extras": [],
-  "vcs": "git",
-  "path": null,
-  "line":  "git+git://github.com/toastdriven/django-haystack@259274e4127f723d76b893c87a82777f9490b960#egg=django_haystack",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "259274e4127f723d76b893c87a82777f9490b960"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "django-filter",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "git+git://github.com/alex/django-filter.git",
-  "extras": [],
-  "vcs": "git",
-  "path": null,
-  "line":  "git+git://github.com/alex/django-filter.git#egg=django-filter",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "django_taggit-dev",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "git+git://github.com/alex/django-taggit.git",
-  "extras": [],
-  "vcs": "git",
-  "path": null,
-  "line":  "git+git://github.com/alex/django-taggit.git@36f6dabcf10e27c7d9442a94243d4189f2a4f121#egg=django_taggit-dev",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "36f6dabcf10e27c7d9442a94243d4189f2a4f121"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "django_pagination-dev",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "git+git://github.com/ericflo/django-pagination.git",
-  "extras": [],
-  "vcs": "git",
-  "path": null,
-  "line":  "git+git://github.com/ericflo/django-pagination.git@e5f669036c#egg=django_pagination-dev",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "e5f669036c"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "django_basic_apps-dev",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "git+git://github.com/nathanborror/django-basic-apps.git",
-  "extras": [],
-  "vcs": "git",
-  "path": null,
-  "line":  "git+git://github.com/nathanborror/django-basic-apps.git@171fdbe21a0dbbb38919a383cc265cb3cbc73771#egg=django_basic_apps-dev",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "171fdbe21a0dbbb38919a383cc265cb3cbc73771"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "django_registration-dev",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "git+git://github.com/nathanborror/django-registration.git",
-  "extras": [],
-  "vcs": "git",
-  "path": null,
-  "line":  "git+git://github.com/nathanborror/django-registration.git@dc0b564b7bfb79f58592fe8ad836729a85ec17ae#egg=django_registration-dev",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "dc0b564b7bfb79f58592fe8ad836729a85ec17ae"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "django_tastypie-dev",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "git+git://github.com/toastdriven/django-tastypie.git",
-  "extras": [],
-  "vcs": "git",
-  "path": null,
-  "line":  "git+git://github.com/toastdriven/django-tastypie.git@c5451b90b18b0cb64841b2276d543230d5f58231#egg=django_tastypie-dev",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "c5451b90b18b0cb64841b2276d543230d5f58231"
- }
-]
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 1,
+      "line": "# Copyright (c) 2011 Charles Leifer, Eric Holscher, Bobby Grace"
+    },
+    {
+      "line_number": 2,
+      "line": "#"
+    },
+    {
+      "line_number": 3,
+      "line": "# Permission is hereby granted, free of charge, to any person"
+    },
+    {
+      "line_number": 4,
+      "line": "# obtaining a copy of this software and associated documentation"
+    },
+    {
+      "line_number": 5,
+      "line": "# files (the \"Software\"), to deal in the Software without"
+    },
+    {
+      "line_number": 6,
+      "line": "# restriction, including without limitation the rights to use,"
+    },
+    {
+      "line_number": 7,
+      "line": "# copy, modify, merge, publish, distribute, sublicense, and/or sell"
+    },
+    {
+      "line_number": 8,
+      "line": "# copies of the Software, and to permit persons to whom the"
+    },
+    {
+      "line_number": 9,
+      "line": "# Software is furnished to do so, subject to the following"
+    },
+    {
+      "line_number": 10,
+      "line": "# conditions:"
+    },
+    {
+      "line_number": 11,
+      "line": "#"
+    },
+    {
+      "line_number": 12,
+      "line": "# The above copyright notice and this permission notice shall be"
+    },
+    {
+      "line_number": 13,
+      "line": "# included in all copies or substantial portions of the Software."
+    },
+    {
+      "line_number": 14,
+      "line": "#"
+    },
+    {
+      "line_number": 15,
+      "line": "# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,"
+    },
+    {
+      "line_number": 16,
+      "line": "# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES"
+    },
+    {
+      "line_number": 17,
+      "line": "# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND"
+    },
+    {
+      "line_number": 18,
+      "line": "# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT"
+    },
+    {
+      "line_number": 19,
+      "line": "# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,"
+    },
+    {
+      "line_number": 20,
+      "line": "# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING"
+    },
+    {
+      "line_number": 21,
+      "line": "# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR"
+    },
+    {
+      "line_number": 22,
+      "line": "# OTHER DEALINGS IN THE SOFTWARE."
+    },
+    {
+      "line_number": 26,
+      "line": "# Pypi ftw."
+    },
+    {
+      "line_number": 53,
+      "line": "# Pegged git requirements"
+    }
+  ]
+}

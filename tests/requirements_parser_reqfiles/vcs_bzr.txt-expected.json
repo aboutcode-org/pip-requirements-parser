@@ -1,194 +1,211 @@
-[
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "bzr+http://bzr.myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "-e bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "bzr+sftp://user@myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "-e bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "bzr+ssh://user@myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "-e bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "bzr+ftp://user@myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "-e bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "bzr+https://bzr.myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "-e bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "2019"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": true,
-  "subdirectory": null,
-  "uri": "bzr+http://bzr.myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "-e bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "v1.0"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "bzr+http://bzr.myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "bzr+sftp://user@myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "bzr+ssh://user@myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "bzr+ftp://user@myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": null
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "bzr+https://bzr.myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "2019"
- },
- {
-  "specifier": false,
-  "local_file": false,
-  "name": "MyProject",
-  "editable": false,
-  "subdirectory": null,
-  "uri": "bzr+http://bzr.myproject.org/MyProject/trunk",
-  "extras": [],
-  "vcs": "bzr",
-  "path": null,
-  "line":  "bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject",
-  "hash_name": null,
-  "hash": null,
-  "specs": [],
-  "revision": "v1.0"
- }
-]
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "-e bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "-e bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "-e bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "-e bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "-e bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject"
+      },
+      "link": "bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "-e bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject"
+      },
+      "link": "bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 9,
+        "line": "bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject"
+      },
+      "link": "bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject"
+      },
+      "link": "bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 13,
+        "line": "bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject"
+      },
+      "link": "bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}
