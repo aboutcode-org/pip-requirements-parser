@@ -61,6 +61,7 @@ def get_requirements_and_lines(
         else:
             yield install_req_from_parsed_requirement(parsed)
 
+
 @pytest.fixture
 def parse_requirement_line(
     monkeypatch: pytest.MonkeyPatch,  # NOQA
