@@ -1,0 +1,750 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "uwsgi",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "uwsgi"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "flask"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-mail",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "flask-mail"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-migrate",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "flask-migrate"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-oauthlib",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "flask-oauthlib"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-script",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 9,
+        "line": "flask-script"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-scrypt",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "flask-scrypt"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-weasyprint",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "flask-weasyprint"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-sqlalchemy",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "flask-sqlalchemy"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "git+git://github.com/jarus/flask-testing.git"
+      },
+      "link": "git+git://github.com/jarus/flask-testing.git",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-jwt",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 15,
+        "line": "flask-jwt"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-bouncer",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 16,
+        "line": "flask-bouncer"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-restful",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 17,
+        "line": "flask-restful"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-marshmallow",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 18,
+        "line": "flask-marshmallow"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-assets",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 19,
+        "line": "flask-assets"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "flask-collect",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 20,
+        "line": "flask-collect"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "awesome-slugify",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 21,
+        "line": "awesome-slugify"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "https://github.com/traumtopf/faker/tarball/master"
+      },
+      "link": "https://github.com/traumtopf/faker/tarball/master",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "surrealism",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 26,
+        "line": "surrealism"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "freezegun",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 27,
+        "line": "freezegun"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "selenium",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 28,
+        "line": "selenium"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "testtools",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 29,
+        "line": "testtools"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "prospector",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 64,
+        "line": "prospector"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "paypalrestsdk",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 67,
+        "line": "paypalrestsdk"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pycountry",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 69,
+        "line": "pycountry"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "psycopg2",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 71,
+        "line": "psycopg2"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "raven",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 73,
+        "line": "git+https://github.com/lazzrek/raven-python.git#egg=raven[flask]"
+      },
+      "link": "git+https://github.com/lazzrek/raven-python.git#egg=raven[flask]",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "flask"
+      ]
+    },
+    {
+      "name": "sadisplay",
+      "specifier": [
+        "==0.3.8dev"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 74,
+        "line": "sadisplay==0.3.8dev"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "isodate",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 75,
+        "line": "isodate"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "colour-runner",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 76,
+        "line": "colour-runner"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "requests",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 77,
+        "line": "requests"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "pygeoip",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 78,
+        "line": "pygeoip"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "rjsmin",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 81,
+        "line": "rjsmin"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
+      "name": "cssmin",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 82,
+        "line": "cssmin"
+      },
+      "link": null,
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    }
+  ],
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 1,
+      "line": "# core framework"
+    },
+    {
+      "line_number": 5,
+      "line": "# flask extensions"
+    },
+    {
+      "line_number": 13,
+      "line": "#flask-testing"
+    },
+    {
+      "line_number": 23,
+      "line": "# testing"
+    },
+    {
+      "line_number": 24,
+      "line": "#fake-factory"
+    },
+    {
+      "line_number": 31,
+      "line": "# maybe extensions"
+    },
+    {
+      "line_number": 32,
+      "line": "#restless"
+    },
+    {
+      "line_number": 33,
+      "line": "#flash-babel"
+    },
+    {
+      "line_number": 34,
+      "line": "#flask-restless"
+    },
+    {
+      "line_number": 35,
+      "line": "#flask-assets"
+    },
+    {
+      "line_number": 36,
+      "line": "#flask-cache"
+    },
+    {
+      "line_number": 37,
+      "line": "#flask-classy"
+    },
+    {
+      "line_number": 38,
+      "line": "#flask-debugtoolbar"
+    },
+    {
+      "line_number": 39,
+      "line": "#flask-googlemaps"
+    },
+    {
+      "line_number": 40,
+      "line": "#flask-gravatar"
+    },
+    {
+      "line_number": 41,
+      "line": "#flask-jinjahelpers"
+    },
+    {
+      "line_number": 42,
+      "line": "#flask-lesscss"
+    },
+    {
+      "line_number": 43,
+      "line": "#flask-markdown"
+    },
+    {
+      "line_number": 44,
+      "line": "#flask-moment"
+    },
+    {
+      "line_number": 45,
+      "line": "#flask-principal"
+    },
+    {
+      "line_number": 46,
+      "line": "#flask-restdoc"
+    },
+    {
+      "line_number": 47,
+      "line": "#flask-runner"
+    },
+    {
+      "line_number": 48,
+      "line": "#flask-user"
+    },
+    {
+      "line_number": 50,
+      "line": "# other extensions"
+    },
+    {
+      "line_number": 51,
+      "line": "#wtforms-alchemy"
+    },
+    {
+      "line_number": 52,
+      "line": "#sqlalchemy-defaults"
+    },
+    {
+      "line_number": 53,
+      "line": "#wtforms-components"
+    },
+    {
+      "line_number": 54,
+      "line": "#wtforms-json"
+    },
+    {
+      "line_number": 56,
+      "line": "# testing"
+    },
+    {
+      "line_number": 57,
+      "line": "#coverage"
+    },
+    {
+      "line_number": 59,
+      "line": "# correctness"
+    },
+    {
+      "line_number": 60,
+      "line": "#pyflakes"
+    },
+    {
+      "line_number": 61,
+      "line": "#pep8"
+    },
+    {
+      "line_number": 62,
+      "line": "#flake8"
+    },
+    {
+      "line_number": 63,
+      "line": "#pylint"
+    },
+    {
+      "line_number": 66,
+      "line": "# other stuff"
+    },
+    {
+      "line_number": 68,
+      "line": "#outputty"
+    },
+    {
+      "line_number": 70,
+      "line": "#certifi"
+    },
+    {
+      "line_number": 72,
+      "line": "#raven[flask] # client for sentry (a web application error logger)"
+    },
+    {
+      "line_number": 80,
+      "line": "# webassets filters"
+    }
+  ]
+}
