@@ -1785,7 +1785,7 @@ def parse_editable(editable_req: str) -> Tuple[Optional[str], str, Set[str]]:
         - a requirement name
         - an URL
         - extras
-        - editable options
+
     Accepted requirements:
         svn+http://blahblah@rev#egg=Foobar[baz]&subdirectory=version_subdir
         .[some_extra]
@@ -1796,7 +1796,12 @@ def parse_editable(editable_req: str) -> Tuple[Optional[str], str, Set[str]]:
     # If a file path is specified with extras, strip off the extras.
     url_no_extras, extras = _strip_extras(url)
 
-    if url_no_extras.lower().startswith(("file:", ".",)):
+    unel = url_no_extras.lower()
+    if (
+        unel.startswith(("file:", ".",))
+        or _looks_like_path(unel)
+        or _is_plain_name(unel)
+    ):
         package_name = Link(url_no_extras).egg_fragment
         if extras:
             return (
@@ -1814,7 +1819,9 @@ def parse_editable(editable_req: str) -> Tuple[Optional[str], str, Set[str]]:
 
     link = Link(url)
 
-    if not link.is_vcs or not _looks_like_path(url):
+    is_path_like = _looks_like_path(url) or _is_plain_name(url)
+
+    if not (link.is_vcs or is_path_like):
         backends = ", ".join(vcs_all_schemes)
         raise InstallationError(
             f"{editable_req} is not a valid editable requirement. "
@@ -1823,7 +1830,7 @@ def parse_editable(editable_req: str) -> Tuple[Optional[str], str, Set[str]]:
         )
 
     package_name = link.egg_fragment
-    if not package_name:
+    if not package_name and not is_path_like:
         raise InstallationError(
             "Could not detect requirement name for '{}', please specify one "
             "with #egg=your_package_name".format(editable_req)
@@ -1895,8 +1902,12 @@ def install_req_from_editable(
     )
 
 
+# Return True if the name is a made only of alphanum, dot - and _ characters
+_is_plain_name = re.compile(r"[\w\-\.\_]+").match
+
+
 def _looks_like_path(name: str) -> bool:
-    """Checks whether the string "looks like" a path on the filesystem.
+    """Checks whether the string ``name``  "looks like" a path on the filesystem.
 
     This does not check whether the target actually exists, only judge from the
     appearance.

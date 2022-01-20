@@ -484,6 +484,23 @@
       "extras": []
     },
     {
+      "name": null,
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 74,
+        "line": "-e path/to/SomeProject"
+      },
+      "link": "path/to/SomeProject",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
       "name": "SomeProject",
       "specifier": [],
       "is_editable": true,

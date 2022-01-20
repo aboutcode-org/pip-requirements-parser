@@ -532,7 +532,7 @@
         "line_number": 44,
         "line": "-e git+https://github.com/requests/requests.git@master#egg=requests[security]"
       },
-      "link": "git+https://github.com/requests/requests.git@master#egg=requests[security]",
+      "link": "git+https://github.com/requests/requests.git@master#egg=requests",
       "markers": null,
       "install_options": [],
       "global_options": [],

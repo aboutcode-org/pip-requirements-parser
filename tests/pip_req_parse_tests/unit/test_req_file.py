@@ -244,7 +244,23 @@ class TestJoinLines:
 
 
 class TestProcessLine:
-    """tests for `process_line`"""
+
+    def test_parser_can_detect_editable_egg(self, parse_requirement_line) -> None:
+        result = parse_requirement_line(
+            "-e path/to/AnotherProject#egg=AnotherProject", "file", 1)
+        assert len(result) == 1
+        req = result[0]
+
+        requirement_line = RequirementLine(
+            line='-e path/to/AnotherProject#egg=AnotherProject',
+            line_number=1,
+            filename='file',
+        )
+        assert req.requirement_line == requirement_line
+        assert isinstance(req, InstallRequirement)
+
+        assert req.is_editable
+        assert req.link.url == "path/to/AnotherProject#egg=AnotherProject" 
 
     def test_parser_error(self, parse_requirement_line) -> None:
         result = parse_requirement_line("--bogus", "file", 1)

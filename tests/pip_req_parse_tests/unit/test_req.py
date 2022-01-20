@@ -262,11 +262,42 @@ def test_parse_editable_explicit_vcs() -> None:
     )
 
 
+def test_parse_editable_with_egg_fragment() -> None:
+    assert parse_editable("path/to/AnotherProject#egg=AnotherProject") == (
+        "AnotherProject",
+        "path/to/AnotherProject#egg=AnotherProject",
+        set()
+    )
+
+def test_parse_editable_without_egg_fragment() -> None:
+    assert parse_editable("path/to/AnotherProject") == (
+        None,
+        "path/to/AnotherProject",
+        set()
+    )
+
+
+def test_parse_editable_example_from_docstring1() -> None:
+    # taken from the parse_editable() docstring
+    # it is not clear if this is supported and extra are not detected correctly
+    # this is a rare edge case anyway
+    assert parse_editable("svn+http://blahblah@rev#egg=Foobar[baz]&subdirectory=version_subdir") == (
+        'Foobar[baz]',
+        'svn+http://blahblah@rev#egg=Foobar[baz]&subdirectory=version_subdir',
+        set(),
+    )
+
+
+def test_parse_editable_example_from_docstring2() -> None:
+    # taken from the parse_editable() docstring
+    assert parse_editable(".[some_extra]") == (None, '.', {'some_extra'})
+
+
 def test_parse_editable_vcs_extras() -> None:
     assert parse_editable("svn+https://foo#egg=foo[extras]") == (
-        "foo[extras]",
-        "svn+https://foo#egg=foo[extras]",
-        set(),
+        "foo",
+        "svn+https://foo#egg=foo",
+         {'extras'},
     )
 
 
@@ -280,24 +311,26 @@ def test_exclusive_environment_markers() -> None:
 
 
 @pytest.mark.parametrize(
-    "args, expected",
+    "path, expected",
     [
         # Test UNIX-like paths
-        (("/path/to/installable"), True),
+        ("/path/to/installable", True),
         # Test relative paths
-        (("./path/to/installable"), True),
+        ("./path/to/installable", True),
         # Test current path
-        (("."), True),
+        (".", True),
         # Test url paths
-        (("https://whatever.com/test-0.4-py2.py3-bogus-any.whl"), True),
+        ("https://whatever.com/test-0.4-py2.py3-bogus-any.whl", True),
         # Test pep440 paths
-        (("test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl"), True),
+        ("test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl", True),
         # Test wheel
-        (("simple-0.1-py2.py3-none-any.whl"), False),
+        ("simple-0.1-py2.py3-none-any.whl", False),
+        # editable egg
+        ("path/to/AnotherProject#egg=AnotherProject", True),
     ],
 )
-def test_looks_like_path(args: str, expected: bool) -> None:
-    assert _looks_like_path(args) == expected
+def test_looks_like_path(path: str, expected: bool) -> None:
+    assert _looks_like_path(path) == expected
 
 
 @pytest.mark.skipif(

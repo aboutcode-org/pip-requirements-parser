@@ -634,7 +634,7 @@
         "line_number": 93,
         "line": "-e git://repo/dependency-one#egg=dependency-one"
       },
-      "link": "git+git://repo/dependency-one#egg=dependency-one",
+      "link": "git://repo/dependency-one#egg=dependency-one",
       "markers": null,
       "install_options": [],
       "global_options": [],

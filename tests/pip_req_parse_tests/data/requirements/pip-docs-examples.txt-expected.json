@@ -123,6 +123,23 @@
       "extras": []
     },
     {
+      "name": null,
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 16,
+        "line": "-e path/to/project"
+      },
+      "link": "path/to/project",
+      "markers": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": []
+    },
+    {
       "name": "SomeProject",
       "specifier": [],
       "is_editable": false,
