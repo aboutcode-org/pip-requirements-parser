@@ -13,7 +13,6 @@ library ... because it uses pip's own code!
 pip is the ``package installer`` for Python that is using "requirements" text
 files listing the packages to install.
 
-
 Per https://pip.pypa.io/en/stable/reference/requirements-file-format/ :
 
     "The requirements file format is closely tied to a number of internal
@@ -50,16 +49,16 @@ in all their diversity because:
 
 
 This ``pip_requirements`` Python library is yet another pip requirements files
-parser, but this time doing it correctly and doing as well as pip does it,
-because this is using pip's own code.
+parser, but this time doing it hopefully correctly and doing as well as pip does
+it, because this is using pip's own code.
 
 
 The ``pip_requirements`` library offers these key advantages:
 
 - Other requirements parsers typically do not work in all the cases that ``pip``
-  supports: parsing any requirement as seen in the wild will fail to process
-  some valid pip requirements. Since the ``pip_requirements`` library is based
-  on pip's own code, it works **exactly** like pip and will parse all the
+  supports: parsing any requirement as seen in the wild will fail parsing some
+  valid pip requirements. Since the ``pip_requirements`` library is based on
+  pip's own code, it works **exactly** like pip and will parse all the
   requirements files that pip can parse.
 
 - The ``pip_requirements`` library offers a simple and stable code API that will
@@ -93,18 +92,51 @@ The ``pip_requirements`` library offers these key advantages:
   some git fu and git filter repo. The benefit is that we will be able to more
   easily track and merge future pip updates.
 
+- The ``pip_requirements`` library has an extensive test suite  made of:
+
+  - pip's own tests
+  - new unit tests
+  - new requirements test files (over 40 new test files)
+  - the tests suite of some of the main other requirement parsers including:
+
+     - http://github.com/di/pip-api
+     - https://github.com/pyupio/dparse
+     - https://github.com/landscapeio/requirements-detector
+     - https://github.com/madpah/requirements-parser
+
+
+
 Usage
 ~~~~~~~~~~
 
-The entry is the ``RequirementsFile`` object:
+The entry point is the ``RequirementsFile`` object::
 
-    >>> from pip_requirements_parser import RequirementsFile
-    >>> rf = RequirementsFile("requirements.txt")
+    >>> from pip_requirements import RequirementsFile
+    >>> rf = RequirementsFile.from_file("requirements.txt")
+
+From there, you can dump to a dict::
     >>> rf.to_dict()
-    >>> for req in rf.install_requirements:
-    ...    print(req)
-    >>> rf.invalid_lines
+
+Or access the requirements (either InstallRequirement or EditableRequirement
+objects)::
+
+    >>> for req in rf.requirements:
+    ...    print(req.to_dict())
+    ...    print(req.dumps())
+
+And the various other parsed elements such as options, commenst and invalid lines
+that have a parsing error::
+
+    >>> rf.options
     >>> rf.comment_lines
+    >>> rf.invalid_lines
+
+Each of these and the ``requirements`` hahve a "requirement_line" attribute
+with the original text.
+
+Finally you can get a requirements file back as a string::
+
+    >>> rf.dumps()
 
 
 Alternative
@@ -129,7 +161,7 @@ Implement a new pip parser
   It does however use argparse for parsing options and is therefore correctly
   handling most options. The parser is a single script that only depends on
   packaging (that is vendored). It is not designed to be used as a single script
-  though.
+  though and ``pip`` is a dependency.
 
 - requirements-parser https://github.com/madpah/requirements-parse does not
   support hashes and certain pip options
