@@ -1,0 +1,32 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "django",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "-e svn+http://code.djangoproject.com/svn/django/tags/releases/1.1/#egg=django"
+      },
+      "link": "svn+http://code.djangoproject.com/svn/django/tags/releases/1.1/#egg=django",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

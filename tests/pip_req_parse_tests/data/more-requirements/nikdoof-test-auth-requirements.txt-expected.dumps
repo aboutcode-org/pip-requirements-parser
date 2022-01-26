@@ -1,0 +1,21 @@
+xmlrpclib
+xmpppy
+dnspython
+fabric==dev
+
+Django==1.4.1
+MySQL-python
+Celery>=3.0
+django-celery>=3.0
+
+django-jsonfield>=0.8.8
+South>=0.7
+django-redis-cache
+IPy==0.75
+--editable git+https://github.com/nikdoof/django-braces.git@b573a69c06907cff74d3623f61a551ceb264cf08#egg=django-braces
+
+nexus
+gargoyle>=0.10
+--editable hg+https://bitbucket.org/jespern/django-piston@7c90898072ce#egg=django_piston
+--editable hg+https://bitbucket.org/ubernostrum/django-registration@27bccd108cde#egg=django-registration
+raven>=2.0.3

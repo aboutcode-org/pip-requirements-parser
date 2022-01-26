@@ -1,0 +1,451 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "Theano",
+      "specifier": [
+        "==0.8.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "Theano==0.8.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "Lasagne",
+      "specifier": [
+        "==0.2.git"
+      ],
+      "is_editable": true,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "-e git+https://github.com/Lasagne/Lasagne.git@8f4f9b2#egg=Lasagne==0.2.git"
+      },
+      "link": "git+https://github.com/Lasagne/Lasagne.git@8f4f9b2#egg=Lasagne==0.2.git",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "nolearn",
+      "specifier": [
+        "==0.7.git"
+      ],
+      "is_editable": true,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 9,
+        "line": "-e git+https://github.com/dnouri/nolearn.git@master#egg=nolearn==0.7.git"
+      },
+      "link": "git+https://github.com/dnouri/nolearn.git@master#egg=nolearn==0.7.git",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "cycler",
+      "specifier": [
+        "==0.9.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "cycler==0.9.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "joblib",
+      "specifier": [
+        "==0.9.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "joblib==0.9.3"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "matplotlib",
+      "specifier": [
+        "==1.5.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "matplotlib==1.5.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "numpy",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 13,
+        "line": "numpy"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "pyparsing",
+      "specifier": [
+        "==2.0.6"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "pyparsing==2.0.6"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "python-dateutil",
+      "specifier": [
+        "==2.4.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 15,
+        "line": "python-dateutil==2.4.2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "pytz",
+      "specifier": [
+        "==2015.7"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 16,
+        "line": "pytz==2015.7"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "pyyaml",
+      "specifier": [
+        "==3.11"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 17,
+        "line": "pyyaml==3.11"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "scikit-learn",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 18,
+        "line": "scikit-learn"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "scipy",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 19,
+        "line": "scipy"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "six",
+      "specifier": [
+        "==1.10.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 20,
+        "line": "six==1.10.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "tabulate",
+      "specifier": [
+        "==0.7.5"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 21,
+        "line": "tabulate==0.7.5"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    }
+  ],
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 1,
+      "line": "#"
+    },
+    {
+      "line_number": 2,
+      "line": "# This file is autogenerated by pip-compile"
+    },
+    {
+      "line_number": 3,
+      "line": "# Make changes in requirements.in, then run this to update:"
+    },
+    {
+      "line_number": 4,
+      "line": "#"
+    },
+    {
+      "line_number": 5,
+      "line": "#    pip-compile requirements.in"
+    },
+    {
+      "line_number": 6,
+      "line": "#"
+    },
+    {
+      "line_number": 10,
+      "line": "# via matplotlib"
+    },
+    {
+      "line_number": 14,
+      "line": "# via matplotlib"
+    },
+    {
+      "line_number": 15,
+      "line": "# via matplotlib"
+    },
+    {
+      "line_number": 16,
+      "line": "# via matplotlib"
+    },
+    {
+      "line_number": 20,
+      "line": "# via cycler, python-dateutil"
+    }
+  ]
+}

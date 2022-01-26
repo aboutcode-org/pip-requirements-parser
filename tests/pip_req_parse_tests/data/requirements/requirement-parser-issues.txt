@@ -42,10 +42,17 @@ PACKAGE_NAME @ git+ssh://git@github.com/my/repo.git@3684f02bf928cae39d10d1d9b478
 
 
 # https://github.com/madpah/requirements-parser/issues/42
+# this should be an error
 psycopg2>=2.7.4 --no-binary psycopg2
 psycopg2 --no-binary :all: 
-    
-    
+
+# but this works as it should
+psycopg2>=2.7.4
+--no-binary psycopg2
+psycopg2
+--no-binary :all: 
+
+
 # from https://github.com/madpah/requirements-parser/issues/40
 jaraco.windows >= 3.9.1;platform_system=="Windows"
 pylint == 1.9.5 ; python_version == '2.7'

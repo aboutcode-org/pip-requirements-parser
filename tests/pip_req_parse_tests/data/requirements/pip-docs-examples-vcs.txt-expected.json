@@ -11,12 +11,20 @@
         "line": "git+ssh://git.example.com/MyProject#egg=MyProject"
       },
       "link": "git+ssh://git.example.com/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -28,12 +36,20 @@
         "line": "git+file:///home/user/projects/MyProject#egg=MyProject"
       },
       "link": "git+file:///home/user/projects/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -45,12 +61,20 @@
         "line": "git+https://git.example.com/MyProject#egg=MyProject"
       },
       "link": "git+https://git.example.com/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -62,12 +86,20 @@
         "line": "git+https://git.example.com/MyProject.git@master#egg=MyProject"
       },
       "link": "git+https://git.example.com/MyProject.git@master#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -79,12 +111,20 @@
         "line": "git+https://git.example.com/MyProject.git@v1.0#egg=MyProject"
       },
       "link": "git+https://git.example.com/MyProject.git@v1.0#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -96,12 +136,20 @@
         "line": "git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject"
       },
       "link": "git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -113,12 +161,20 @@
         "line": "git+https://git.example.com/MyProject.git@refs/pull/123/head#egg=MyProject"
       },
       "link": "git+https://git.example.com/MyProject.git@refs/pull/123/head#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -130,12 +186,20 @@
         "line": "hg+http://hg.myproject.org/MyProject#egg=MyProject"
       },
       "link": "hg+http://hg.myproject.org/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -147,12 +211,20 @@
         "line": "hg+https://hg.myproject.org/MyProject#egg=MyProject"
       },
       "link": "hg+https://hg.myproject.org/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -164,12 +236,20 @@
         "line": "hg+ssh://hg.myproject.org/MyProject#egg=MyProject"
       },
       "link": "hg+ssh://hg.myproject.org/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -181,12 +261,20 @@
         "line": "hg+file:///home/user/projects/MyProject#egg=MyProject"
       },
       "link": "hg+file:///home/user/projects/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -198,12 +286,20 @@
         "line": "hg+http://hg.example.com/MyProject@da39a3ee5e6b#egg=MyProject"
       },
       "link": "hg+http://hg.example.com/MyProject@da39a3ee5e6b#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -215,12 +311,20 @@
         "line": "hg+http://hg.example.com/MyProject@2019#egg=MyProject"
       },
       "link": "hg+http://hg.example.com/MyProject@2019#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -232,12 +336,20 @@
         "line": "hg+http://hg.example.com/MyProject@v1.0#egg=MyProject"
       },
       "link": "hg+http://hg.example.com/MyProject@v1.0#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -249,12 +361,20 @@
         "line": "hg+http://hg.example.com/MyProject@special_feature#egg=MyProject"
       },
       "link": "hg+http://hg.example.com/MyProject@special_feature#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -266,12 +386,20 @@
         "line": "svn+https://svn.example.com/MyProject#egg=MyProject"
       },
       "link": "svn+https://svn.example.com/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -283,12 +411,20 @@
         "line": "svn+ssh://svn.example.com/MyProject#egg=MyProject"
       },
       "link": "svn+ssh://svn.example.com/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -300,12 +436,20 @@
         "line": "svn+ssh://user@svn.example.com/MyProject#egg=MyProject"
       },
       "link": "svn+ssh://user@svn.example.com/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -317,12 +461,20 @@
         "line": "-e svn+http://svn.example.com/svn/MyProject/trunk@2019#egg=MyProject"
       },
       "link": "svn+http://svn.example.com/svn/MyProject/trunk@2019#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -334,12 +486,20 @@
         "line": "-e svn+http://svn.example.com/svn/MyProject/trunk@{20080101}#egg=MyProject"
       },
       "link": "svn+http://svn.example.com/svn/MyProject/trunk@{20080101}#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -351,12 +511,20 @@
         "line": "bzr+http://bzr.example.com/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+http://bzr.example.com/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -368,12 +536,20 @@
         "line": "bzr+sftp://user@example.com/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+sftp://user@example.com/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -385,12 +561,20 @@
         "line": "bzr+ssh://user@example.com/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+ssh://user@example.com/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -402,12 +586,20 @@
         "line": "bzr+ftp://user@example.com/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+ftp://user@example.com/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -419,12 +611,20 @@
         "line": "bzr+lp:MyProject#egg=MyProject"
       },
       "link": "bzr+lp:MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": false,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -436,12 +636,20 @@
         "line": "bzr+https://bzr.example.com/MyProject/trunk@2019#egg=MyProject"
       },
       "link": "bzr+https://bzr.example.com/MyProject/trunk@2019#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -453,12 +661,20 @@
         "line": "bzr+http://bzr.example.com/MyProject/trunk@v1.0#egg=MyProject"
       },
       "link": "bzr+http://bzr.example.com/MyProject/trunk@v1.0#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     }
   ],
   "invalid_lines": [],

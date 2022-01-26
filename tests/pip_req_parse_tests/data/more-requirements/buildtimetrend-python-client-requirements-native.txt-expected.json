@@ -1,0 +1,36 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "buildtimetrend",
+      "specifier": [
+        ">=0.4.dev4"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "git+https://github.com/buildtimetrend/python-lib.git#egg=buildtimetrend[native]>=0.4.dev4"
+      },
+      "link": "git+https://github.com/buildtimetrend/python-lib.git#egg=buildtimetrend[native]>=0.4.dev4",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "native"
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

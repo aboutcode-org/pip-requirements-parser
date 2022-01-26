@@ -1,3 +1,10 @@
 # from https://github.com/pypa/pip/blob/49e9ac1a86ac2ee5174ca9c8f87b4cbf4fcbcca9/tests/data/reqfiles/supported_options.txt
-# requirement file containing various supported options
+# requirement file containing various unsupported and legacy options
+# legacy
 --no-use-wheel
+
+# unknown
+--unknown-options
+
+# trailing arugment
+--index-url https://foo.com some trailing junk

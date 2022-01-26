@@ -13,14 +13,22 @@
         "line": "MyPackage[PDF]==3.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "pdf"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "Fizzy",
@@ -32,7 +40,7 @@
         "line": "Fizzy [foo, bar]"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
@@ -40,7 +48,15 @@
       "extras": [
         "bar",
         "foo"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     }
   ],
   "invalid_lines": [],

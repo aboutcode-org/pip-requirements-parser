@@ -1,0 +1,211 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "xblock-mentoring",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "-e git+https://github.com/gsehub/xblock-mentoring.git@4d1cce78dc232d5da6ffd73817b5c490e87a6eee#egg=xblock-mentoring"
+      },
+      "link": "git+https://github.com/gsehub/xblock-mentoring.git@4d1cce78dc232d5da6ffd73817b5c490e87a6eee#egg=xblock-mentoring",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "concept-xblock",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "-e git+https://github.com/pmitros/ConceptXBlock.git@2376fde9ebdd83684b78dde77ef96361c3bd1aa0#egg=concept-xblock"
+      },
+      "link": "git+https://github.com/pmitros/ConceptXBlock.git@2376fde9ebdd83684b78dde77ef96361c3bd1aa0#egg=concept-xblock",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "done-xblock",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "-e git+https://github.com/pmitros/DoneXBlock.git@1ce0ac14d9f3df3083b951262ec82e84b58d16d1#egg=done-xblock"
+      },
+      "link": "git+https://github.com/pmitros/DoneXBlock.git@1ce0ac14d9f3df3083b951262ec82e84b58d16d1#egg=done-xblock",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "audio-xblock",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "-e git+https://github.com/pmitros/AudioXBlock.git@1fbf19cc21613aead62799469e1593adb037fdd9#egg=audio-xblock"
+      },
+      "link": "git+https://github.com/pmitros/AudioXBlock.git@1fbf19cc21613aead62799469e1593adb037fdd9#egg=audio-xblock",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "animation-xblock",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 13,
+        "line": "-e git+https://github.com/pmitros/AnimationXBlock.git@d2b551bb8f49a138088e10298576102164145b87#egg=animation-xblock"
+      },
+      "link": "git+https://github.com/pmitros/AnimationXBlock.git@d2b551bb8f49a138088e10298576102164145b87#egg=animation-xblock",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "profile-xblock",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "-e git+https://github.com/pmitros/ProfileXBlock.git@4aeaa24aa2bc7d9cb2d2bb60d6f05def3b856be0#egg=profile-xblock"
+      },
+      "link": "git+https://github.com/pmitros/ProfileXBlock.git@4aeaa24aa2bc7d9cb2d2bb60d6f05def3b856be0#egg=profile-xblock",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "schoolyourself-xblock",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 18,
+        "line": "-e git+https://github.com/schoolyourself/schoolyourself-xblock.git@ae028c3c185d1abf93823f7a5d946a8e66b8e7d9#egg=schoolyourself-xblock"
+      },
+      "link": "git+https://github.com/schoolyourself/schoolyourself-xblock.git@ae028c3c185d1abf93823f7a5d946a8e66b8e7d9#egg=schoolyourself-xblock",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    }
+  ],
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 1,
+      "line": "# Requirements for edx.org that aren't necessarily needed for Open edX."
+    },
+    {
+      "line_number": 5,
+      "line": "# Prototype XBlocks from edX learning sciences limited roll-outs and user testing."
+    },
+    {
+      "line_number": 6,
+      "line": "# Concept XBlock, in particular, is nowhere near finished and an early prototype."
+    },
+    {
+      "line_number": 7,
+      "line": "# Profile XBlock is there so we can play with XBlock arguments in the platform, but isn't ready for use outside of"
+    },
+    {
+      "line_number": 8,
+      "line": "# edX."
+    },
+    {
+      "line_number": 16,
+      "line": "# This repository contains schoolyourself-xblock, which is used in"
+    },
+    {
+      "line_number": 17,
+      "line": "# edX's \"AlgebraX\" and \"GeometryX\" courses."
+    }
+  ]
+}

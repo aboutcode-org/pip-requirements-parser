@@ -1,0 +1,1 @@
+git+https://git@bitbucket.org/brutusdmc/corelib.git#egg=corelib[full]

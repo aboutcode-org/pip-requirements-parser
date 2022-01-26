@@ -1,0 +1,159 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "discord.py",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "git+https://github.com/Rapptz/discord.py@master#egg=discord.py[voice]"
+      },
+      "link": "git+https://github.com/Rapptz/discord.py@master#egg=discord.py[voice]",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "voice"
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "lxml",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "lxml"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "requests",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "requests"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "xmltodict",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "xmltodict"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "discord.py",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "discord.py"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "wikia",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "wikia"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

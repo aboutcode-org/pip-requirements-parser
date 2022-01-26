@@ -1,0 +1,13 @@
+# from https://github.com/pypa/pip/blob/49e9ac1a86ac2ee5174ca9c8f87b4cbf4fcbcca9/tests/data/reqfiles/supported_options.txt
+# requirement file containing various unsupported and legacy options
+# legacy
+# Unsupported, legacy option: --no-use-wheel
+--no-use-wheel
+
+# unknown
+# pip_requirements: error: no such option: --unknown-options
+--unknown-options
+
+# trailing arugment
+# Incorrect and ignored trailing argument(s): some, trailing, junk
+--index-url https://foo.com

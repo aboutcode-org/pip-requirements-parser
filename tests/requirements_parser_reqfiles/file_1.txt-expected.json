@@ -11,12 +11,20 @@
         "line": "file:///path/to/your/lib/project#egg=MyProject"
       },
       "link": "file:///path/to/your/lib/project#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": null,
@@ -28,12 +36,20 @@
         "line": "file://../../lib/project#egg=MyProject"
       },
       "link": "/../lib/project",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "SomeOtherProject",
@@ -45,12 +61,20 @@
         "line": "path/to/SomeProject#egg=SomeOtherProject"
       },
       "link": "path/to/SomeProject#egg=SomeOtherProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     }
   ],
   "invalid_lines": [],

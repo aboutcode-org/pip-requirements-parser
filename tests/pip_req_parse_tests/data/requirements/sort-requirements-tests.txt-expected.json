@@ -21,7 +21,7 @@
         "line": "apple==0.2     --hash=sha256:3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d     --hash=sha256:2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [
@@ -29,7 +29,15 @@
         "sha256:2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6"
       ],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "bottle",
@@ -43,12 +51,20 @@
         "line": "bottle==1.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "apple",
@@ -62,12 +78,20 @@
         "line": "apple!=0.2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "core",
@@ -81,12 +105,20 @@
         "line": "core~=3.1.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "east",
@@ -100,12 +132,20 @@
         "line": "east>=1.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "delta",
@@ -119,12 +159,20 @@
         "line": "delta==2.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     }
   ],
   "invalid_lines": [],

@@ -1,0 +1,734 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "FeedParser",
+      "specifier": [
+        ">=5.2.1"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "FeedParser>=5.2.1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "SQLAlchemy",
+      "specifier": [
+        ">=0.7.5",
+        "!=0.9.0",
+        "<1.999"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "SQLAlchemy >=0.7.5, !=0.9.0, <1.999"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "PyYAML",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "PyYAML"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "beautifulsoup4",
+      "specifier": [
+        ">=4.1",
+        "!=4.2.0",
+        "<4.5"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "beautifulsoup4>=4.1, !=4.2.0, <4.5"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "html5lib",
+      "specifier": [
+        ">=0.11"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "html5lib>=0.11"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "PyRSS2Gen",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "PyRSS2Gen"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "pynzb",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 9,
+        "line": "pynzb"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "rpyc",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "rpyc"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "jinja2",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "jinja2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "requests",
+      "specifier": [
+        ">=2.8.0",
+        "<3.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "requests>=2.8.0, <3.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "python-dateutil",
+      "specifier": [
+        ">=2.5.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 16,
+        "line": "python-dateutil>=2.5.2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "jsonschema",
+      "specifier": [
+        ">=2.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 17,
+        "line": "jsonschema>=2.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "path.py",
+      "specifier": [
+        ">=8.1.1"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 18,
+        "line": "path.py>=8.1.1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "pathlib",
+      "specifier": [
+        ">=1.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 19,
+        "line": "pathlib>=1.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "guessit",
+      "specifier": [
+        "<=2.0.4"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 20,
+        "line": "guessit<=2.0.4"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "apscheduler",
+      "specifier": [
+        ">=3.0.3",
+        "!=3.1.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 22,
+        "line": "apscheduler>=3.0.3, !=3.1.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "cherrypy",
+      "specifier": [
+        ">=3.7.0"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 24,
+        "line": "cherrypy>=3.7.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "flask",
+      "specifier": [
+        ">=0.7"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "flask>=0.7"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "flask-restful",
+      "specifier": [
+        ">=0.3.3"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 26,
+        "line": "flask-restful>=0.3.3"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "flask-restplus",
+      "specifier": [
+        "==0.8.6"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 27,
+        "line": "flask-restplus==0.8.6"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "flask-compress",
+      "specifier": [
+        ">=1.2.1"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 28,
+        "line": "flask-compress>=1.2.1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "flask-login",
+      "specifier": [
+        ">=0.3.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 29,
+        "line": "flask-login>=0.3.2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "flask-cors",
+      "specifier": [
+        ">=2.1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 30,
+        "line": "flask-cors>=2.1.2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "pyparsing",
+      "specifier": [
+        ">=2.0.3"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 31,
+        "line": "pyparsing>=2.0.3"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "Safe",
+      "specifier": [
+        ">=0.4"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 32,
+        "line": "Safe>=0.4"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "future",
+      "specifier": [
+        ">=0.15.2"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 33,
+        "line": "future>=0.15.2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    }
+  ],
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 2,
+      "line": "# There is a bug in sqlalchemy 0.9.0, see gh#127"
+    },
+    {
+      "line_number": 5,
+      "line": "# There is a bug in beautifulsoup 4.2.0 that breaks imdb parsing, see http://flexget.com/ticket/2091"
+    },
+    {
+      "line_number": 10,
+      "line": "#PY3 progressbar"
+    },
+    {
+      "line_number": 13,
+      "line": "# There is a bug in requests 2.4.0 where it leaks urllib3 exceptions"
+    },
+    {
+      "line_number": 15,
+      "line": "#Guessit requires python-dateutil<=2.5.2"
+    },
+    {
+      "line_number": 21,
+      "line": "# Bug in apscheduler 3.1.0 https://github.com/agronholm/apscheduler/issues/121"
+    },
+    {
+      "line_number": 23,
+      "line": "# WebUI Requirements"
+    }
+  ]
+}

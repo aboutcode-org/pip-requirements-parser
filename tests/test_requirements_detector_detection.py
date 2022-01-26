@@ -37,7 +37,7 @@ class DependencyDetectionTest(TestCase):
 
     def test_requirements_txt_parsing(self):
         filepath = os.path.join(os.path.dirname(__file__), "requirements_detector/test1/requirements.txt")
-        dependencies = RequirementsFile(filepath)
+        dependencies = RequirementsFile.from_file(filepath)
         results = [str(r.req) for r in dependencies.requirements]
 
         expected = ["Django>=1.5.0", "South==0.8.2", "amqp!=1.0.13", "six<1.4,>=1.3.0"]
@@ -48,7 +48,7 @@ class DependencyDetectionTest(TestCase):
 
     def test_requirements_dir_parsing1(self):
         filepath = os.path.join(os.path.dirname(__file__), "requirements_detector/test2/requirements/base.txt")
-        dependencies = RequirementsFile(filepath)
+        dependencies = RequirementsFile.from_file(filepath)
         results = [str(r.req) for r in dependencies.requirements]
 
         expected = [
@@ -60,7 +60,7 @@ class DependencyDetectionTest(TestCase):
 
     def test_requirements_dir_parsing2(self):
         filepath = os.path.join(os.path.dirname(__file__), "requirements_detector/test2/requirements/webui.pip")
-        dependencies = RequirementsFile(filepath)
+        dependencies = RequirementsFile.from_file(filepath)
         results = [str(r.req) for r in dependencies.requirements]
 
         expected = [
@@ -72,7 +72,7 @@ class DependencyDetectionTest(TestCase):
 
     def test_invalid_requirements_txt(self):
         filepath = os.path.join(os.path.dirname(__file__), "requirements_detector/test5/invalid_requirements.txt")
-        dependencies = RequirementsFile(filepath)
+        dependencies = RequirementsFile.from_file(filepath)
         results = [str(r.req) for r in dependencies.requirements]
 
         expected = ["django<1.6", "django"]

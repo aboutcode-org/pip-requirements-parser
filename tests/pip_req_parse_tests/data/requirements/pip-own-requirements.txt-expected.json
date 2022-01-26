@@ -13,12 +13,20 @@
         "line": "sphinx ~= 4.2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "towncrier",
@@ -30,12 +38,20 @@
         "line": "towncrier"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "furo",
@@ -47,12 +63,20 @@
         "line": "furo"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "myst_parser",
@@ -64,12 +88,20 @@
         "line": "myst_parser"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "sphinx-copybutton",
@@ -81,12 +113,20 @@
         "line": "sphinx-copybutton"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "sphinx-inline-tabs",
@@ -98,12 +138,20 @@
         "line": "sphinx-inline-tabs"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "sphinxcontrib-towncrier",
@@ -117,12 +165,20 @@
         "line": "sphinxcontrib-towncrier >= 0.2.0a0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -134,12 +190,20 @@
         "line": "."
       },
       "link": ".",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "cryptography",
@@ -151,12 +215,20 @@
         "line": "cryptography"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "freezegun",
@@ -168,12 +240,20 @@
         "line": "freezegun"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pytest",
@@ -185,12 +265,20 @@
         "line": "pytest"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pytest-cov",
@@ -202,12 +290,20 @@
         "line": "pytest-cov"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pytest-rerunfailures",
@@ -219,12 +315,20 @@
         "line": "pytest-rerunfailures"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pytest-xdist",
@@ -236,12 +340,20 @@
         "line": "pytest-xdist"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "scripttest",
@@ -253,12 +365,20 @@
         "line": "scripttest"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "setuptools",
@@ -270,12 +390,20 @@
         "line": "setuptools"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "virtualenv",
@@ -289,12 +417,20 @@
         "line": "virtualenv < 20.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "werkzeug",
@@ -306,12 +442,20 @@
         "line": "werkzeug"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "wheel",
@@ -323,12 +467,20 @@
         "line": "wheel"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "tomli-w",
@@ -340,12 +492,20 @@
         "line": "tomli-w"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "setuptools",
@@ -359,12 +519,20 @@
         "line": "setuptools >= 40.8.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "wheel",
@@ -376,12 +544,20 @@
         "line": "wheel"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "coverage",
@@ -395,12 +571,20 @@
         "line": "coverage >= 4.4"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "CacheControl",
@@ -414,12 +598,20 @@
         "line": "CacheControl==0.12.6"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "colorama",
@@ -433,12 +625,20 @@
         "line": "colorama==0.4.4"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "distlib",
@@ -452,12 +652,20 @@
         "line": "distlib==0.3.3"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "distro",
@@ -471,12 +679,20 @@
         "line": "distro==1.6.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "html5lib",
@@ -490,12 +706,20 @@
         "line": "html5lib==1.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "msgpack",
@@ -509,12 +733,20 @@
         "line": "msgpack==1.0.2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "packaging",
@@ -528,12 +760,20 @@
         "line": "packaging==21.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pep517",
@@ -547,12 +787,20 @@
         "line": "pep517==0.12.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "platformdirs",
@@ -566,12 +814,20 @@
         "line": "platformdirs==2.4.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "progress",
@@ -585,12 +841,20 @@
         "line": "progress==1.6"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pyparsing",
@@ -604,12 +868,20 @@
         "line": "pyparsing==2.4.7"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "requests",
@@ -623,12 +895,20 @@
         "line": "requests==2.26.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "certifi",
@@ -642,12 +922,20 @@
         "line": "certifi==2021.05.30"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "chardet",
@@ -661,12 +949,20 @@
         "line": "chardet==4.0.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "idna",
@@ -680,12 +976,20 @@
         "line": "idna==3.2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "urllib3",
@@ -699,12 +1003,20 @@
         "line": "urllib3==1.26.7"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "rich",
@@ -718,12 +1030,20 @@
         "line": "rich==10.14.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pygments",
@@ -737,12 +1057,20 @@
         "line": "pygments==2.10.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "typing_extensions",
@@ -756,12 +1084,20 @@
         "line": "typing_extensions==3.10.0.2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "resolvelib",
@@ -775,12 +1111,20 @@
         "line": "resolvelib==0.8.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "setuptools",
@@ -794,12 +1138,20 @@
         "line": "setuptools==44.0.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "six",
@@ -813,12 +1165,20 @@
         "line": "six==1.16.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "tenacity",
@@ -832,12 +1192,20 @@
         "line": "tenacity==8.0.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "tomli",
@@ -851,12 +1219,20 @@
         "line": "tomli==1.0.3"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "webencodings",
@@ -870,12 +1246,20 @@
         "line": "webencodings==0.5.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     }
   ],
   "invalid_lines": [],

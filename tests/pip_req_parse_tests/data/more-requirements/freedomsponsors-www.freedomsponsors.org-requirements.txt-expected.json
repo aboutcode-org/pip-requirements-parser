@@ -1,0 +1,763 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "django",
+      "specifier": [
+        "==1.6.5"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "django==1.6.5"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "splinter",
+      "specifier": [
+        "==0.5.4"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "splinter==0.5.4"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "Pygments",
+      "specifier": [
+        "==1.5"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "Pygments==1.5"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "misaka",
+      "specifier": [
+        "==1.0.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "misaka==1.0.2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "psycopg2",
+      "specifier": [
+        "==2.4.5"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "psycopg2==2.4.5"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "simplejson",
+      "specifier": [
+        "==2.6.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "simplejson==2.6.2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "coverage",
+      "specifier": [
+        "==3.6b1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "coverage==3.6b1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "python-dateutil",
+      "specifier": [
+        "==2.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "python-dateutil==2.1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "six",
+      "specifier": [
+        "==1.2.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 9,
+        "line": "six==1.2.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "Unipath",
+      "specifier": [
+        "==0.2.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 10,
+        "line": "Unipath==0.2.1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "dj-database-url",
+      "specifier": [
+        "==0.2.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 11,
+        "line": "dj-database-url==0.2.1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "httplib2",
+      "specifier": [
+        "==0.7.7"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 12,
+        "line": "httplib2==0.7.7"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "python-openid",
+      "specifier": [
+        "==2.2.5"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 13,
+        "line": "python-openid==2.2.5"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "requests-oauthlib",
+      "specifier": [
+        "==0.4.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 14,
+        "line": "requests-oauthlib==0.4.2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "python-social-auth",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 16,
+        "line": "git+git://github.com/cambonf/python-social-auth.git@68041313935c78d5045643cca7d2becbdbdf0438#egg=python-social-auth"
+      },
+      "link": "git+git://github.com/cambonf/python-social-auth.git@68041313935c78d5045643cca7d2becbdbdf0438#egg=python-social-auth",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "requests",
+      "specifier": [
+        "==2.5.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 17,
+        "line": "requests==2.5.1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "django-pagination",
+      "specifier": [
+        "==1.0.7"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 18,
+        "line": "django-pagination==1.0.7"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "south",
+      "specifier": [
+        "==0.7.5"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 19,
+        "line": "south==0.7.5"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "bitcoin-python",
+      "specifier": [
+        "==0.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 20,
+        "line": "bitcoin-python==0.3"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "django-mailer",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 21,
+        "line": "git+git://github.com/pinax/django-mailer.git@887ec2c9d8e05d061293b56ff913a9b293c42aa0#egg=django-mailer"
+      },
+      "link": "git+git://github.com/pinax/django-mailer.git@887ec2c9d8e05d061293b56ff913a9b293c42aa0#egg=django-mailer",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "paypalx",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 22,
+        "line": "git+git://github.com/freedomsponsors/python-paypalx.git@34d624ed8a7b6505aa6e6e12c0a5b854cacbc612#egg=paypalx"
+      },
+      "link": "git+git://github.com/freedomsponsors/python-paypalx.git@34d624ed8a7b6505aa6e6e12c0a5b854cacbc612#egg=paypalx",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "django-registration",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 31,
+        "line": "git+git://github.com/macropin/django-registration.git@42f66646a5e8a80bf1250fe03fb4738b9cde6593#egg=django-registration"
+      },
+      "link": "git+git://github.com/macropin/django-registration.git@42f66646a5e8a80bf1250fe03fb4738b9cde6593#egg=django-registration",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "django-emailmgr",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 34,
+        "line": "git+git://github.com/un33k/django-emailmgr.git@7a6454346dc962ba3550821d51c311a4f69967ba#egg=django-emailmgr"
+      },
+      "link": "git+git://github.com/un33k/django-emailmgr.git@7a6454346dc962ba3550821d51c311a4f69967ba#egg=django-emailmgr",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "Pillow",
+      "specifier": [
+        "==3.1.0"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 36,
+        "line": "Pillow==3.1.0"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "mock",
+      "specifier": [
+        "==1.0.1"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 37,
+        "line": "mock==1.0.1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "html2text",
+      "specifier": [
+        "==2014.7.3"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 38,
+        "line": "html2text==2014.7.3"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "django-recaptcha",
+      "specifier": [
+        "==1.0.5"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 39,
+        "line": "django-recaptcha==1.0.5"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    }
+  ],
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 15,
+      "line": "#python-social-auth==0.2.1"
+    },
+    {
+      "line_number": 24,
+      "line": "# Both django-registration v0.8 and v1.0 have compatibility issues with Django 1.6.5."
+    },
+    {
+      "line_number": 25,
+      "line": "# See refs:"
+    },
+    {
+      "line_number": 26,
+      "line": "#   http://stackoverflow.com/questions/19985103/django-1-6-and-django-registration-built-in-authentication-views-not-picked-up"
+    },
+    {
+      "line_number": 27,
+      "line": "#   https://bitbucket.org/ubernostrum/django-registration/pull-request/63/django-16-compatibility-fix-auth-views/diff"
+    },
+    {
+      "line_number": 28,
+      "line": "#"
+    },
+    {
+      "line_number": 29,
+      "line": "#   Below github fork targets a Django-1.6-compatible version of django-registration package, which is a good starting point"
+    },
+    {
+      "line_number": 30,
+      "line": "#   to twist for Django 1.6.5."
+    },
+    {
+      "line_number": 33,
+      "line": "# This new version of django-emailmgr is already compatible with django 1.6. It's not on pypi yet though."
+    }
+  ]
+}

@@ -11,12 +11,20 @@
         "line": "uwsgi"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask",
@@ -28,12 +36,20 @@
         "line": "flask"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-mail",
@@ -45,12 +61,20 @@
         "line": "flask-mail"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-migrate",
@@ -62,12 +86,20 @@
         "line": "flask-migrate"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-oauthlib",
@@ -79,12 +111,20 @@
         "line": "flask-oauthlib"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-script",
@@ -96,12 +136,20 @@
         "line": "flask-script"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-scrypt",
@@ -113,12 +161,20 @@
         "line": "flask-scrypt"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-weasyprint",
@@ -130,12 +186,20 @@
         "line": "flask-weasyprint"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-sqlalchemy",
@@ -147,12 +211,20 @@
         "line": "flask-sqlalchemy"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -164,12 +236,20 @@
         "line": "git+git://github.com/jarus/flask-testing.git"
       },
       "link": "git+git://github.com/jarus/flask-testing.git",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-jwt",
@@ -181,12 +261,20 @@
         "line": "flask-jwt"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-bouncer",
@@ -198,12 +286,20 @@
         "line": "flask-bouncer"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-restful",
@@ -215,12 +311,20 @@
         "line": "flask-restful"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-marshmallow",
@@ -232,12 +336,20 @@
         "line": "flask-marshmallow"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-assets",
@@ -249,12 +361,20 @@
         "line": "flask-assets"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "flask-collect",
@@ -266,12 +386,20 @@
         "line": "flask-collect"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "awesome-slugify",
@@ -283,12 +411,20 @@
         "line": "awesome-slugify"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -300,12 +436,20 @@
         "line": "https://github.com/traumtopf/faker/tarball/master"
       },
       "link": "https://github.com/traumtopf/faker/tarball/master",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "surrealism",
@@ -317,12 +461,20 @@
         "line": "surrealism"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "freezegun",
@@ -334,12 +486,20 @@
         "line": "freezegun"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "selenium",
@@ -351,12 +511,20 @@
         "line": "selenium"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "testtools",
@@ -368,12 +536,20 @@
         "line": "testtools"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "prospector",
@@ -385,12 +561,20 @@
         "line": "prospector"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "paypalrestsdk",
@@ -402,12 +586,20 @@
         "line": "paypalrestsdk"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pycountry",
@@ -419,12 +611,20 @@
         "line": "pycountry"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "psycopg2",
@@ -436,12 +636,20 @@
         "line": "psycopg2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "raven",
@@ -453,14 +661,22 @@
         "line": "git+https://github.com/lazzrek/raven-python.git#egg=raven[flask]"
       },
       "link": "git+https://github.com/lazzrek/raven-python.git#egg=raven[flask]",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "flask"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "sadisplay",
@@ -474,12 +690,20 @@
         "line": "sadisplay==0.3.8dev"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "isodate",
@@ -491,12 +715,20 @@
         "line": "isodate"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "colour-runner",
@@ -508,12 +740,20 @@
         "line": "colour-runner"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "requests",
@@ -525,12 +765,20 @@
         "line": "requests"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pygeoip",
@@ -542,12 +790,20 @@
         "line": "pygeoip"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "rjsmin",
@@ -559,12 +815,20 @@
         "line": "rjsmin"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "cssmin",
@@ -576,12 +840,20 @@
         "line": "cssmin"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     }
   ],
   "invalid_lines": [],

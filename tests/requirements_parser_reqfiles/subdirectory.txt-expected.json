@@ -11,12 +11,20 @@
         "line": "-e git+git://git.myproject.org/MyProject#egg=MyProject&subdirectory=setup"
       },
       "link": "git+git://git.myproject.org/MyProject#egg=MyProject&subdirectory=setup",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -28,12 +36,20 @@
         "line": "git+git://git.myproject.org/MyProject#egg=MyProject&subdirectory=setup"
       },
       "link": "git+git://git.myproject.org/MyProject#egg=MyProject&subdirectory=setup",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     }
   ],
   "invalid_lines": [],

@@ -1,0 +1,64 @@
+###################################################
+# example from https://pip.pypa.io/en/stable/cli/pip_freeze/#examples
+pip
+setuptools
+wheel
+
+SomeProject
+SomeProject==1.4
+SomeProject>=1,<2
+SomeProject~=1.4.2
+
+# Requirements files
+--requirement requirements.txt
+
+# Installing from VCS
+--editable git+https://git.repo/some_pkg.git#egg=SomeProject # from git
+--editable hg+https://hg.repo/some_pkg#egg=SomeProject # from mercurial
+--editable svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject # from svn
+--editable git+https://git.repo/some_pkg.git@feature#egg=SomeProject # from a branch
+
+# Installing from other Indexes
+--index-url http://my.package.repo/simple/
+SomeProject
+
+--extra-index-url http://my.package.repo/simple
+SomeProject
+
+# Installing from a local src tree
+--editable path
+
+some/path
+
+# Installing from local archives
+./downloads/SomeProject-1.0.4.tar.gz
+
+#  Install from a local directory containing archives (and don’t check PyPI)
+--no-index
+--find-links file:///local/dir/
+SomeProject
+
+--no-index
+--find-links /local/dir/
+SomeProject
+
+--no-index
+--find-links relative/dir/
+SomeProject
+
+# Installing from other sources
+--extra-index-url http://localhost:7777
+SomeProject
+
+# Installing Prereleases
+# Incorrect and ignored trailing argument(s): SomeProject
+--pre
+
+# this works on two lines:
+--pre
+SomeProject
+
+# Install setuptools extras.
+SomePackage[pdf]
+SomePackage[pdf]==3.0
+--editable .[pdf] # editable project in current directory

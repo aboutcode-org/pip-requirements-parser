@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+#
+# This file is part of Invenio.
+# Copyright (C) 2015, 2016 CERN.
+#
+# Invenio is free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# Invenio is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+# MA 02111-1307, USA.
+#
+# In applying this license, CERN does not
+# waive the privileges and immunities granted to it by virtue of its status
+# as an Intergovernmental Organization or submit itself to any jurisdiction.
+
+--editable git+https://github.com/inveniosoftware/dojson.git#egg=dojson
+--editable git+https://github.com/inveniosoftware/invenio-access.git#egg=invenio-access
+--editable git+https://github.com/inveniosoftware/invenio-accounts.git#egg=invenio-accounts
+--editable git+https://github.com/inveniosoftware/invenio-assets.git#egg=invenio-assets
+--editable git+https://github.com/inveniosoftware/invenio-base.git#egg=invenio-base
+--editable git+https://github.com/inveniosoftware/invenio-celery.git#egg=invenio-celery
+--editable git+https://github.com/inveniosoftware/invenio-config.git#egg=invenio-config
+--editable git+https://github.com/inveniosoftware/invenio-db.git#egg=invenio-db[postgresql,versioning]
+--editable git+https://github.com/inveniosoftware/invenio-i18n.git#egg=invenio-i18n
+--editable git+https://github.com/inveniosoftware/invenio-indexer.git#egg=invenio-indexer
+--editable git+https://github.com/inveniosoftware/invenio-logging.git#egg=invenio-logging
+--editable git+https://github.com/inveniosoftware/invenio-mail.git#egg=invenio-mail
+--editable git+https://github.com/inveniosoftware/invenio-marc21.git#egg=invenio-marc21
+--editable git+https://github.com/inveniosoftware/invenio-pidstore.git#egg=invenio-pidstore
+--editable git+https://github.com/inveniosoftware/invenio-query-parser.git#egg=invenio-query-parser
+--editable git+https://github.com/inveniosoftware/invenio-records-rest.git#egg=invenio-records-rest
+--editable git+https://github.com/inveniosoftware/invenio-records-ui.git#egg=invenio-records-ui
+--editable git+https://github.com/inveniosoftware/invenio-records.git#egg=invenio-records
+--editable git+https://github.com/inveniosoftware/invenio-rest.git#egg=invenio-rest
+--editable git+https://github.com/inveniosoftware/invenio-search-ui.git#egg=invenio-search-ui
+--editable git+https://github.com/inveniosoftware/invenio-search.git#egg=invenio-search
+--editable git+https://github.com/inveniosoftware/invenio-theme.git#egg=invenio-theme

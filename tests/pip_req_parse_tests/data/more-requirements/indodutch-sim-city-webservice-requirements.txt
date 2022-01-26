@@ -1,0 +1,21 @@
+accept-types==0.3.0
+bottle==0.12.9
+CouchDB==1.1
+flake8==3.0.4
+gevent==1.1.2
+greenlet==0.4.10
+ijson==2.3
+JPype1==0.6.1
+jsonschema==2.5.1
+mccabe==0.5.2
+py==1.4.31
+pycodestyle==2.0.0
+pyflakes==1.2.3
+pystache==0.5.4
+pytest==3.0.1
+pytest-flake8==0.6
+pyxenon==0.2.2
+PyYAML==3.11
+requests==2.11.1
+tqdm==4.8.4
+-e git+https://github.com/indodutch/sim-city-client.git@develop#egg=simcity-0.4[xenon]

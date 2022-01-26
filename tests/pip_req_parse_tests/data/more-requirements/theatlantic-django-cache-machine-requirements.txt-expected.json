@@ -1,0 +1,212 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "sphinx",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "sphinx"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "mock",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "mock"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "django-nose",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 4,
+        "line": "-e git://github.com/jbalogh/django-nose.git@6f060d49ee193a05734704820f3fea92ee1759d2#egg=django-nose"
+      },
+      "link": "git://github.com/jbalogh/django-nose.git@6f060d49ee193a05734704820f3fea92ee1759d2#egg=django-nose",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "Django",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 5,
+        "line": "-e svn+http://code.djangoproject.com/svn/django/trunk@12335#egg=Django"
+      },
+      "link": "svn+http://code.djangoproject.com/svn/django/trunk@12335#egg=Django",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "python-memcached",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 6,
+        "line": "python-memcached"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "test-utils",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 7,
+        "line": "-e git://github.com/jbalogh/test-utils.git#egg=test-utils"
+      },
+      "link": "git://github.com/jbalogh/test-utils.git#egg=test-utils",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "fabric",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 8,
+        "line": "fabric"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "jinja2",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 9,
+        "line": "jinja2"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    }
+  ],
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 1,
+      "line": "# These are the reqs to build docs and run tests."
+    }
+  ]
+}

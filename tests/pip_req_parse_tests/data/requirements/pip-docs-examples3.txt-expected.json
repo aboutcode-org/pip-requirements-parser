@@ -21,12 +21,20 @@
         "line": "docutils==0.11"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "Jinja2",
@@ -40,12 +48,20 @@
         "line": "Jinja2==2.7.2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "MarkupSafe",
@@ -59,12 +75,20 @@
         "line": "MarkupSafe==0.19"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "Pygments",
@@ -78,12 +102,20 @@
         "line": "Pygments==1.6"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "Sphinx",
@@ -97,12 +129,20 @@
         "line": "Sphinx==1.2.2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pkg1",
@@ -114,12 +154,20 @@
         "line": "pkg1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pkg2",
@@ -131,12 +179,20 @@
         "line": "pkg2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pkg3",
@@ -151,12 +207,20 @@
         "line": "pkg3>=1.0,<=2.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "ProjectA",
@@ -168,12 +232,20 @@
         "line": "ProjectA"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "ProjectB",
@@ -187,12 +259,20 @@
         "line": "ProjectB<1.3"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeDependency",
@@ -204,12 +284,20 @@
         "line": "git+https://myvcs.com/some_dependency@sometag#egg=SomeDependency"
       },
       "link": "git+https://myvcs.com/some_dependency@sometag#egg=SomeDependency",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "SomePackage",
@@ -223,12 +311,20 @@
         "line": "SomePackage-1.0-py2.py3-none-any.whl"
       },
       "link": "SomePackage-1.0-py2.py3-none-any.whl",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": true,
+      "is_wheel": true,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": false,
+      "has_egg_fragment": false
     },
     {
       "name": "somepackage",
@@ -242,14 +338,22 @@
         "line": "./somepackage-1.0-py2.py3-none-any.whl[my-extras]"
       },
       "link": "./somepackage-1.0-py2.py3-none-any.whl",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "my-extras"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": true,
+      "is_wheel": true,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeProject",
@@ -261,12 +365,20 @@
         "line": "SomeProject"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeProject",
@@ -280,12 +392,20 @@
         "line": "SomeProject == 1.3"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeProject",
@@ -300,12 +420,20 @@
         "line": "SomeProject >=1.2,<2.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeProject",
@@ -317,7 +445,7 @@
         "line": "SomeProject[foo, bar]"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
@@ -325,7 +453,15 @@
       "extras": [
         "bar",
         "foo"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeProject",
@@ -339,12 +475,20 @@
         "line": "SomeProject~=1.4.2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeProject",
@@ -358,12 +502,20 @@
         "line": "SomeProject ==5.4 ; python_version < '3.8'"
       },
       "link": null,
-      "markers": "python_version < \"3.8\"",
+      "marker": "python_version < \"3.8\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeProject",
@@ -375,12 +527,20 @@
         "line": "SomeProject; sys_platform == 'win32'"
       },
       "link": null,
-      "markers": "sys_platform == \"win32\"",
+      "marker": "sys_platform == \"win32\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeProject",
@@ -392,12 +552,20 @@
         "line": "SomeProject @ file:///somewhere/..."
       },
       "link": "file:///somewhere/...",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": true,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -409,12 +577,20 @@
         "line": "path/to/SomeProject"
       },
       "link": "path/to/SomeProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "FooProject",
@@ -428,7 +604,7 @@
         "line": "FooProject >= 1.2 --global-option=\"--no-user-cfg\"                   --install-option=\"--prefix='/usr/local'\"                   --install-option=\"--no-compile\""
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [
         "--prefix='/usr/local'",
         "--no-compile"
@@ -438,7 +614,15 @@
       ],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "FooProject",
@@ -452,14 +636,22 @@
         "line": "FooProject >= 1.2 --install-option=\"--prefix=/usr/local --no-compile\""
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [
         "--prefix=/usr/local --no-compile"
       ],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "FooProject",
@@ -473,7 +665,7 @@
         "line": "FooProject == 1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824                   --hash=sha256:486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [
@@ -481,7 +673,15 @@
         "sha256:486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7"
       ],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -493,12 +693,20 @@
         "line": "-e path/to/SomeProject"
       },
       "link": "path/to/SomeProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "SomeProject",
@@ -510,12 +718,20 @@
         "line": "-e git+http://repo/my_project.git#egg=SomeProject"
       },
       "link": "git+http://repo/my_project.git#egg=SomeProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "FooProject",
@@ -529,14 +745,22 @@
         "line": "FooProject == 1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [
         "sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
       ],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -548,12 +772,20 @@
         "line": "git+https://github.com/pypa/sampleproject.git@main"
       },
       "link": "git+https://github.com/pypa/sampleproject.git@main",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -565,12 +797,20 @@
         "line": "sampleproject-1.0.tar.gz"
       },
       "link": "sampleproject-1.0.tar.gz",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": true,
+      "is_wheel": null,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": false,
+      "has_egg_fragment": false
     },
     {
       "name": "sampleproject",
@@ -582,12 +822,20 @@
         "line": "sampleproject"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     }
   ],
   "invalid_lines": [],

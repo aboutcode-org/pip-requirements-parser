@@ -1,0 +1,7 @@
+git@github.com:ministryofjustice/java-formula.git==v1.0.0
+git@github.com:ministryofjustice/python-formula.git==v1.0.1
+git@github.com:ministryofjustice/sensu-formula.git==v4.4.0
+git@github.com:ministryofjustice/firewall-formula.git==v1.0.1
+git@github.com:ministryofjustice/logstash-formula.git==v1.0.0
+git@github.com:ministryofjustice/bootstrap-formula.git==v1.0.0
+git@github.com:ministryofjustice/apparmor-formula.git==v1.0.0

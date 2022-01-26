@@ -56,7 +56,7 @@ def test_parse_requirements(create_requirement_files):
     files = {"a.txt": ["foo==1.2.3\n"]}
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
     assert set(r.name for r in result.requirements) == {"foo"}
     assert str(result.requirements[0].req) == "foo==1.2.3"
 
@@ -65,7 +65,7 @@ def test_parse_requirements_with_comments(create_requirement_files):
     files = {"a.txt": ["# a comment\n", "foo==1.2.3 # this is a comment\n"]}
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
     assert set(r.name for r in result.requirements) == {"foo"}
     assert str(result.requirements[0].req) == "foo==1.2.3"
     assert [(c.line_number, c.line) for c in result.comments] == [
@@ -80,7 +80,7 @@ def test_parse_requirements_with_index_url(create_requirement_files, flag):
         "a.txt": ["{} https://example.com/pypi/simple\n".format(flag), "foo==1.2.3\n"]
     }
     paths_by_name = create_requirement_files(files)
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
 
     assert set(r.name for r in result.requirements) == {"foo"}
     assert str(result.requirements[0].req) == "foo==1.2.3"
@@ -108,6 +108,7 @@ class Pep508Test(NamedTuple):
             req_name="pip",
             req_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             link_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            # Note extra space after @
             req_string="pip@ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             req_spec="",
         ),
@@ -116,7 +117,8 @@ class Pep508Test(NamedTuple):
             req_name="pip",
             req_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             link_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
-            req_string="pip@ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4", # Note extra space after @
+            # Note extra space after @
+            req_string="pip@ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             req_spec="",
         ),
         Pep508Test(
@@ -124,8 +126,9 @@ class Pep508Test(NamedTuple):
             line="pip==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4\n",
             req_name="pip",
             req_url=None,
-            link_url="pip==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
-            req_string="pip==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",  # Note no extra space after @
+            link_url=None,
+            # Note no extra space after @
+            req_string="pip==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             req_spec="==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
         ),
         Pep508Test(
@@ -137,7 +140,6 @@ class Pep508Test(NamedTuple):
             req_spec="",
         ),
         Pep508Test(
-            # VCS markers at the beginning of a URL get stripped away
             line="ssh://git@github.com/pypa/pip.git@da9234ee9982d4#egg=pip",
             req_name="pip",
             req_url=None,
@@ -175,7 +177,7 @@ def test_parse_requirements_PEP508(create_requirement_files, test_508):
     files = {"a.txt": [test_508.line]}
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
     assert result.invalid_lines == []
     assert len(result.requirements) == 1
     ireq = result.requirements[0]
@@ -183,7 +185,8 @@ def test_parse_requirements_PEP508(create_requirement_files, test_508):
     assert str(ireq.req.specifier) == test_508.req_spec
     assert str(ireq.req) == test_508.req_string
     assert ireq.req.url == test_508.req_url
-    assert ireq.link.url == test_508.link_url
+    if ireq.link or test_508.link_url:
+        assert ireq.link.url == test_508.link_url
 
 
 def test_parse_requirements_vcs(create_requirement_files):
@@ -191,7 +194,7 @@ def test_parse_requirements_vcs(create_requirement_files):
     files = {"a.txt": [requirement_text + "\n"]}
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
     assert len(result.requirements) == 1
     assert result.requirements[0].req is None
     assert result.requirements[0].link.url == requirement_text
@@ -203,7 +206,7 @@ def test_include_invalid_requirement(create_requirement_files):
     files = {"a.txt": [requirement_text + "\n"]}
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
     assert len(result.requirements) == 1
     # we do not validate for "Missing egg fragment in URL: {requirement_text}"
     assert result.requirements[0].req is None
@@ -218,7 +221,7 @@ def test_parse_requirements_recursive(create_requirement_files, flag):
     files = {"a.txt": ["{} b.txt\n".format(flag)], "b.txt": ["foo==1.2.3\n"]}
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"], include_nested=True)
+    result = RequirementsFile.from_file(paths_by_name["a.txt"], include_nested=True)
     assert len(result.requirements) == 1
     assert str(result.requirements[0].req) == "foo==1.2.3"
     assert result.options[0].options == {"requirements": ["b.txt"]}
@@ -230,7 +233,7 @@ def test_parse_requirements_double_raises(create_requirement_files):
     files = {"a.txt": ["foo==1.2.3\n", "foo==3.2.1\n"]}
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
     assert len(result.requirements) == 2
     assert str(result.requirements[0].req) == "foo==1.2.3"
     assert str(result.requirements[1].req) == "foo==3.2.1"
@@ -243,7 +246,7 @@ def test_parse_requirements_multiline1(create_requirement_files):
     }
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"], include_nested=True)
+    result = RequirementsFile.from_file(paths_by_name["a.txt"], include_nested=True)
     assert result.requirements == []
     assert "no such option: --whatever" in result.invalid_lines[0].error_message
 
@@ -253,7 +256,7 @@ def test_parse_requirements_multiline2(create_requirement_files):
     }
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["b.txt"], include_nested=True)
+    result = RequirementsFile.from_file(paths_by_name["b.txt"], include_nested=True)
     assert len(result.requirements) == 1
 
     assert str(result.requirements[0].req) == "foo==1.2.3"
@@ -265,7 +268,7 @@ def test_parse_requirements_multiline3(create_requirement_files):
     files = {"a.txt": ["-r \\\n", "    b.txt\n"], "b.txt": ["foo==1.2.3\n"]}
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"], include_nested=True)
+    result = RequirementsFile.from_file(paths_by_name["a.txt"], include_nested=True)
     assert len(result.requirements) == 1
     assert str(result.requirements[0].req) == "foo==1.2.3"
 
@@ -279,7 +282,7 @@ def test_parse_requirements_editable(create_requirement_files):
     }
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
 
     assert set(r.name for r in result.requirements) == {"deal", "Django"}
     assert str(result.requirements[0].req) == "Django==1.11"
@@ -293,7 +296,7 @@ def test_parse_requirements_editable_file(create_requirement_files):
     files = {"a.txt": ["Django==1.11\n" "-e .\n"]}
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
 
     assert set(r.name for r in result.requirements) == {None, "Django"}
     
@@ -312,11 +315,11 @@ def test_parse_requirements_with_relative_references(create_requirement_files):
     }
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["reqs/dev.txt"], include_nested=True)
+    result = RequirementsFile.from_file(paths_by_name["reqs/dev.txt"], include_nested=True)
     assert set(r.name for r in result.requirements) == {"django"}
 
 
-def test_parse_requirements_with_environment_markers(create_requirement_files):
+def test_parse_requirements_with_environment_marker(create_requirement_files):
     files = {
         "a.txt": [
             "foo==1.2.3 ; python_version <= '2.7'\n",
@@ -325,15 +328,15 @@ def test_parse_requirements_with_environment_markers(create_requirement_files):
     }
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
 
     # We don't support such old Python versions, so if we've managed to run these tests, we should
     # have chosen foo==3.2.1
     assert set(r.name for r in result.requirements) == {"foo"}
     assert str(result.requirements[0].req) == "foo==1.2.3"
-    assert str(result.requirements[0].markers) == 'python_version <= "2.7"'
+    assert str(result.requirements[0].marker) == 'python_version <= "2.7"'
     assert str(result.requirements[1].req) == 'foo==3.2.1'
-    assert str(result.requirements[1].markers) == 'python_version > "2.7"'
+    assert str(result.requirements[1].marker) == 'python_version > "2.7"'
 
 
 def test_parse_requirements_with_invalid_wheel_filename(create_requirement_files):
@@ -342,7 +345,7 @@ def test_parse_requirements_with_invalid_wheel_filename(create_requirement_files
         "a.txt": ["https://github.com/pypa/pip/archive/" + INVALID_WHEEL_NAME],
     }
     paths_by_name = create_requirement_files(files)
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
     assert len(result.invalid_lines) == 1
     irl = result.invalid_lines[0]
     assert irl.error_message == "pip-1.3.1-invalid-format.whl is not a valid wheel filename."
@@ -355,7 +358,7 @@ def test_parse_requirements_with_missing_egg_suffix(create_requirement_files):
     }
     paths_by_name = create_requirement_files(files)
 
-    result = RequirementsFile(paths_by_name["a.txt"])
+    result = RequirementsFile.from_file(paths_by_name["a.txt"])
     assert result.invalid_lines == []
     req = result.requirements[0]
     assert req.req is None

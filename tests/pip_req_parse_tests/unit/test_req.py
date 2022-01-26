@@ -15,10 +15,11 @@ from packaging.requirements import Requirement
 from pip_requirements import (
     _get_url_from_path,
     _looks_like_path,
-    install_req_from_editable,
-    install_req_from_line,
     parse_editable,
 )
+from pip_requirements import build_editable_req
+from pip_requirements import build_install_req
+
 from pip_requirements import InstallationError
 from pip_requirements import InvalidWheelFilename
 from pip_requirements import RequirementLine
@@ -35,33 +36,33 @@ class TestInstallRequirement:
         """InstallRequirement should strip the fragment, but not the query."""
         url = "http://foo.com/?p=bar.git;a=snapshot;h=v0.1;sf=tgz"
         fragment = "#egg=bar"
-        req = install_req_from_line(url + fragment)
+        req = build_install_req(url + fragment)
         assert req.link is not None
         assert req.link.url == url + fragment, req.link
 
     def test_pep440_wheel_link_requirement(self) -> None:
         line = "test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
-        req = install_req_from_line(line)
-        assert str(req.req) == "test==0.4"
-        assert str(req.link) == "test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
+        req = build_install_req(line)
+        assert str(req.req) == "test@ https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
+        assert str(req.link) == "https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
 
     def test_pep440_url_link_requirement(self) -> None:
         line = "foo @ git+http://foo.com@ref#egg=foo"
-        req = install_req_from_line(line)
-        assert str(req.req) == "foo"
-        assert str(req.link) == "foo @ git+http://foo.com@ref#egg=foo"
+        req = build_install_req(line)
+        assert str(req.req) == "foo@ git+http://foo.com@ref#egg=foo"
+        assert str(req.link) == "git+http://foo.com@ref#egg=foo"
 
     def test_url_with_authentication_link_requirement(self) -> None:
         url = "https://what@whatever.com/test-0.4-py2.py3-bogus-any.whl"
         line = "https://what@whatever.com/test-0.4-py2.py3-bogus-any.whl"
-        req = install_req_from_line(line)
+        req = build_install_req(line)
         assert req.link is not None
         assert req.link.is_wheel
         assert req.link.scheme == "https"
         assert req.link.url == url
 
     def test_unsupported_wheel_link_requirement_raises(self) -> None:
-        req = install_req_from_line(
+        req = build_install_req(
             "https://whatever.com/peppercorn-0.4-py2.py3-bogus-any.whl",
         )
         assert req.link is not None
@@ -69,39 +70,50 @@ class TestInstallRequirement:
         assert req.link.scheme == "https"
 
     def test_unsupported_wheel_local_file_requirement_raises(self) -> None:
-        req = install_req_from_line("simple.dist-0.1-py1-none-invalid.whl")
+        req = build_install_req("simple.dist-0.1-py1-none-invalid.whl")
         assert req.link is not None
         assert req.link.is_wheel
         assert req.link.url == "simple.dist-0.1-py1-none-invalid.whl"
 
-    def test_str(self) -> None:
-        req = install_req_from_line("simple==0.1")
-        assert str(req) == "simple==0.1"
+    def test_req_dumps(self) -> None:
+        req = build_install_req("simple==0.1")
+        assert req.dumps() == "simple==0.1"
 
     def test_invalid_wheel_requirement_raises(self) -> None:
         with pytest.raises(InvalidWheelFilename):
-            install_req_from_line("invalid.whl")
+            build_install_req("invalid.whl")
 
     def test_wheel_requirement_sets_req_attribute(self) -> None:
-        req = install_req_from_line("simple-0.1-py2.py3-none-any.whl")
+        req = build_install_req("simple-0.1-py2.py3-none-any.whl")
         assert isinstance(req.req, Requirement)
         assert str(req.req) == "simple==0.1"
 
     def test_url_preserved_line_req(self) -> None:
         """Confirm the url is preserved in a non-editable requirement"""
         url = "git+http://foo.com@ref#egg=foo"
-        req = install_req_from_line(url)
+        req = build_install_req(url)
         assert req.link is not None
         assert req.link.url == url
+
+    def test_build_editable_req_with_dot_and_extras_preserves_extras_on_dumps(self) -> None:
+        url = ".[socks]"
+        req = build_editable_req(url)
+        assert req.extras == {'socks'}
+        assert req.dumps() == "--editable .[socks]"
+
+    def test_build_editable_req_with_dot_dumps(self) -> None:
+        url = "."
+        req = build_editable_req(url)
+        assert req.dumps() == "--editable ."
 
     def test_url_preserved_editable_req(self) -> None:
         """Confirm the url is preserved in a editable requirement"""
         url = "git+http://foo.com@ref#egg=foo"
-        req = install_req_from_editable(url)
+        req = build_editable_req(url)
         assert req.link is not None
         assert req.link.url == url
 
-    def test_markers(self) -> None:
+    def test_marker(self) -> None:
         for line in (
             # recommended syntax
             'mock3; python_version >= "3"',
@@ -110,78 +122,78 @@ class TestInstallRequirement:
             # without spaces
             'mock3;python_version >= "3"',
         ):
-            req = install_req_from_line(line)
+            req = build_install_req(line)
             assert req.req is not None
             assert req.req.name == "mock3"
-            assert str(req.req.specifier) == ""
-            assert str(req.markers) == 'python_version >= "3"'
+            assert not req.specifier
+            assert str(req.marker) == 'python_version >= "3"'
 
-    def test_markers_semicolon(self) -> None:
-        # check that the markers can contain a semicolon
-        req = install_req_from_line('semicolon; os_name == "a; b"')
+    def test_marker_semicolon(self) -> None:
+        # check that the marker can contain a semicolon
+        req = build_install_req('semicolon; os_name == "a; b"')
         assert req.req is not None
         assert req.req.name == "semicolon"
-        assert str(req.req.specifier) == ""
-        assert str(req.markers) == 'os_name == "a; b"'
+        assert not req.specifier
+        assert str(req.marker) == 'os_name == "a; b"'
 
-    def test_markers_url(self) -> None:
-        # test "URL; markers" syntax
+    def test_marker_url(self) -> None:
+        # test "URL; marker" syntax
         url = "http://foo.com/?p=bar.git;a=snapshot;h=v0.1;sf=tgz"
         line = f'{url}; python_version >= "3"'
-        req = install_req_from_line(line)
+        req = build_install_req(line)
         assert req.link is not None
         assert req.link.url == url, req.link.url
-        assert str(req.markers) == 'python_version >= "3"'
+        assert str(req.marker) == 'python_version >= "3"'
 
-        # without space, markers are part of the URL
+        # without space, marker are part of the URL
         url = "http://foo.com/?p=bar.git;a=snapshot;h=v0.1;sf=tgz"
         line = f'{url};python_version >= "3"'
-        req = install_req_from_line(line)
+        req = build_install_req(line)
         assert req.link is not None
         assert req.link.url == line, req.link.url
-        assert req.markers is None
+        assert req.marker is None
 
-    def test_markers_match_from_line(self) -> None:
+    def test_marker_match_from_line(self) -> None:
         # match
-        for markers in (
+        for marker in (
             'python_version >= "1.0"',
             f"sys_platform == {sys.platform!r}",
         ):
-            line = "name; " + markers
-            req = install_req_from_line(line)
-            assert str(req.markers) == str(Marker(markers))
-            assert req.match_markers()
+            line = "name; " + marker
+            req = build_install_req(line)
+            assert str(req.marker) == str(Marker(marker))
+            assert req.match_marker()
 
         # don't match
-        for markers in (
+        for marker in (
             'python_version >= "5.0"',
             f"sys_platform != {sys.platform!r}",
         ):
-            line = "name; " + markers
-            req = install_req_from_line(line)
-            assert str(req.markers) == str(Marker(markers))
-            assert not req.match_markers()
+            line = "name; " + marker
+            req = build_install_req(line)
+            assert str(req.marker) == str(Marker(marker))
+            assert not req.match_marker()
 
-    def test_markers_match(self) -> None:
+    def test_marker_match(self) -> None:
         # match
-        for markers in (
+        for marker in (
             'python_version >= "1.0"',
             f"sys_platform == {sys.platform!r}",
         ):
-            line = "name; " + markers
-            req = install_req_from_line(line, requirement_line=None)
-            assert str(req.markers) == str(Marker(markers))
-            assert req.match_markers()
+            line = "name; " + marker
+            req = build_install_req(line, requirement_line=None)
+            assert str(req.marker) == str(Marker(marker))
+            assert req.match_marker()
 
         # don't match
-        for markers in (
+        for marker in (
             'python_version >= "5.0"',
             f"sys_platform != {sys.platform!r}",
         ):
-            line = "name; " + markers
-            req = install_req_from_line(line, requirement_line=None)
-            assert str(req.markers) == str(Marker(markers))
-            assert not req.match_markers()
+            line = "name; " + marker
+            req = build_install_req(line, requirement_line=None)
+            assert str(req.marker) == str(Marker(marker))
+            assert not req.match_marker()
 
     def test_extras_for_line_path_requirement(self) -> None:
         line = "SomeProject[ex1,ex2]"
@@ -191,7 +203,7 @@ class TestInstallRequirement:
             line_number=1,
             line=line,
         )
-        req = install_req_from_line(line, requirement_line=requirement_line)
+        req = build_install_req(line, requirement_line=requirement_line)
         assert len(req.extras) == 2
         assert req.extras == {"ex1", "ex2"}
 
@@ -203,7 +215,7 @@ class TestInstallRequirement:
             line_number=1,
             line=line,
         )
-        req = install_req_from_line(line, requirement_line=requirement_line)
+        req = build_install_req(line, requirement_line=requirement_line)
         assert len(req.extras) == 2
         assert req.extras == {"ex1", "ex2"}
 
@@ -216,7 +228,7 @@ class TestInstallRequirement:
             line_number=1,
             line=url,
         )
-        req = install_req_from_editable(url, requirement_line=requirement_line)
+        req = build_editable_req(url, requirement_line=requirement_line)
         assert len(req.extras) == 2
         assert req.extras == {"ex1", "ex2"}
 
@@ -228,28 +240,28 @@ class TestInstallRequirement:
             line_number=1,
             line=url,
         )
-        req = install_req_from_editable(url, requirement_line=requirement_line)
+        req = build_editable_req(url, requirement_line=requirement_line)
         assert len(req.extras) == 2
         assert req.extras == {"ex1", "ex2"}
 
     def test_unexisting_path(self) -> None:
-        result = install_req_from_line(os.path.join("this", "path", "does", "not", "exist"))
+        result = build_install_req(os.path.join("this", "path", "does", "not", "exist"))
         assert result.link.url == "this/path/does/not/exist"
 
     def test_single_equal_sign(self) -> None:
         with pytest.raises(InstallationError):
-            install_req_from_line("toto=42")
+            build_install_req("toto=42")
 
     def test_unidentifiable_name(self) -> None:
         test_name = "-"
         with pytest.raises(InstallationError):
-            install_req_from_line(test_name)
+            build_install_req(test_name)
 
     def test_requirement_file(self) -> None:
         req_file_path = os.path.join(self.tempdir, "test.txt")
         with open(req_file_path, "w") as req_file:
             req_file.write("pip\nsetuptools")
-        result =  install_req_from_line(req_file_path)
+        result =  build_install_req(req_file_path)
         assert result.req is None
         assert result.link.url.endswith("test.txt")
 
@@ -301,11 +313,11 @@ def test_parse_editable_vcs_extras() -> None:
     )
 
 
-def test_exclusive_environment_markers() -> None:
-    """Make sure RequirementSet accepts several excluding env markers"""
-    eq36 = install_req_from_line("Django>=1.6.10,<1.7 ; python_version == '3.6'")
+def test_exclusive_environment_marker() -> None:
+    """Make sure RequirementSet accepts several excluding env marker"""
+    eq36 = build_install_req("Django>=1.6.10,<1.7 ; python_version == '3.6'")
     eq36.user_supplied = True
-    ne36 = install_req_from_line("Django>=1.6.10,<1.8 ; python_version != '3.6'")
+    ne36 = build_install_req("Django>=1.6.10,<1.8 ; python_version != '3.6'")
     ne36.user_supplied = True
 
 

@@ -1,0 +1,58 @@
+# from https://github.com/sarugaku/requirementslib/blob/main/tests/unit/test_requirements.py
+
+requests[socks]
+django>1.10
+requests[socks]>1.10
+requests[socks]==1.10
+
+--editable git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts
+git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts
+hg+http://hg.myproject.org/MyProject@da39a3ee5e6b#egg=MyProject
+--editable svn+svn://svn.myproject.org/svn/MyProject#egg=MyProject
+
+https://github.com/Rapptz/discord.py/archive/async.zip#egg=discord.py[voice]
+git+https://github.com/requests/requests.git@master#egg=requests[security]
+
+# Fails because invalid quotation
+# No closing quotation
+FooProject==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+
+FooProject[stuff]==1.2 \
+    --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+--editable git+https://github.com/techalchemy/pythonfinder.git@master#egg=pythonfinder[dev]&subdirectory=mysubdir
+FooProject==1.2 \
+    --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+FooProject[stuff]==1.2 \
+    --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+
+requests
+vistir[spinner]
+vistir[spinner]==0.4.1
+vistir==0.4.1
+https://files.pythonhosted.org/packages/2d/ac/e8a34d4b3d24bf554f40651b2aac549a3fc7223725bf10fbdfe2083b6372/shellingham-1.3.1-py2.py3-none-any.whl
+
+--editable git+ssh://git@github.com/sarugaku/shellingham.git#egg=shellingham
+git+https://github.com/psf/requests.git
+--editable file:///foo/bar
+
+--editable .[socks]
+
+# not supported by Packaging
+git+git@host:user/repo.git#egg=myname
+
+https://github.com/IndustriaTech/django-user-clipboard/archive/0.6.1.zip#egg=django-user-clipboard
+https://github.com/jazzband/tablib/archive/v0.12.1.zip
+
+git+https://github.com/jazzband/tablib.git@master#egg=tablib
+--editable git+git@github.com:pypa/pipenv.git#egg=pipenv
+--editable git+https://github.com/requests/requests.git@master#egg=requests[security]
+../wheels/six/six-1.11.0-py2.py3-none-any.whl
+
+--editable git+https://github.com/sarugaku/shellingham.git@1.2.1#egg=shellingham
+
+git+https://github.com/benjaminp/six.git@master#egg=six
+
+tablib@https://codeload.github.com/jazzband/tablib/zip/v0.12.1
+
+https://${USERNAME}:${PASSWORD}@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib
+https://USERNAME:PASSWORD@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib

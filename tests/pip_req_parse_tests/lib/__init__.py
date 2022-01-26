@@ -27,6 +27,16 @@ ALL_REQFILES = [
 ]
 
 
+MORE_REQFILES_DIR = DATA_DIR.joinpath("more-requirements")
+
+MORE_REQFILES = [
+    MORE_REQFILES_DIR.joinpath(rf) 
+    for rf in os.listdir(MORE_REQFILES_DIR)
+    if rf.endswith(".txt")
+]
+
+
+
 class TestData:
     """
     Represents a bundle of pre-created test data.

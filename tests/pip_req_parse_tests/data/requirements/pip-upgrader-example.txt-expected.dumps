@@ -1,0 +1,10 @@
+# from https://github.com/simion/pip-upgrader/blob/master/requirements/local.txt
+
+# this file is only used for testing the cli
+--requirement production.txt
+--requirement extra/debug.txt
+
+ipython==6.0.0
+
+# this kind of upgrade is not yet supported
+ipdb>=0.0.1

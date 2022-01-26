@@ -14,6 +14,8 @@ hg+http://hg.myproject.org/MyProject@da39a3ee5e6b#egg=MyProject
 https://github.com/Rapptz/discord.py/archive/async.zip#egg=discord.py[voice]
 git+https://github.com/requests/requests.git@master#egg=requests[security]
 
+
+# Fails because invalid quotation
 FooProject==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
 
 FooProject[stuff]==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824

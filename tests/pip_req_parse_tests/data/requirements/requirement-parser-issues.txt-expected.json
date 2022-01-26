@@ -20,14 +20,28 @@
       ]
     },
     {
-      "line_number": 66,
+      "line_number": 51,
+      "line": "--no-binary psycopg2",
+      "no_binary": [
+        "psycopg2"
+      ]
+    },
+    {
+      "line_number": 53,
+      "line": "--no-binary :all:",
+      "no_binary": [
+        ":all:"
+      ]
+    },
+    {
+      "line_number": 73,
       "line": "-f https://download.pytorch.org/whl/cpu/torch_stable.html",
       "find_links": [
         "https://download.pytorch.org/whl/cpu/torch_stable.html"
       ]
     },
     {
-      "line_number": 73,
+      "line_number": 80,
       "line": "--trusted-host foo.com",
       "trusted_hosts": [
         "foo.com"
@@ -47,12 +61,20 @@
         "line": "Werkzeug==1.0.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "wrapt",
@@ -66,12 +88,20 @@
         "line": "wrapt==1.12.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "xmltodict",
@@ -85,12 +115,20 @@
         "line": "xmltodict==0.12.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "zipp",
@@ -104,12 +142,20 @@
         "line": "zipp==3.4.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -121,12 +167,20 @@
         "line": "./pip_packages/dystillamodb"
       },
       "link": "./pip_packages/dystillamodb",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "Werkzeug",
@@ -140,12 +194,20 @@
         "line": "Werkzeug==1.0.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "wrapt",
@@ -159,12 +221,20 @@
         "line": "wrapt==1.12.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "xmltodict",
@@ -178,12 +248,20 @@
         "line": "xmltodict==0.12.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "zipp",
@@ -197,12 +275,20 @@
         "line": "zipp==3.4.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -214,12 +300,20 @@
         "line": "./pip_packages/dystillamodb"
       },
       "link": "./pip_packages/dystillamodb",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "requests",
@@ -233,12 +327,20 @@
         "line": "requests==2.25.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "cffi",
@@ -252,14 +354,22 @@
         "line": "cffi==1.14.3 --hash=sha256:22399ff4870fb4c7ef19fff6eeb20a8bbf15571913c181c78cb361024d574579"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [
         "sha256:22399ff4870fb4c7ef19fff6eeb20a8bbf15571913c181c78cb361024d574579"
       ],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "PACKAGE_NAME",
@@ -271,12 +381,20 @@
         "line": "git+ssh://git@github.com/my/repo.git@project25#egg=PACKAGE_NAME&subdirectory=SUB_DIR/"
       },
       "link": "git+ssh://git@github.com/my/repo.git@project25#egg=PACKAGE_NAME&subdirectory=SUB_DIR/",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "PACKAGE_NAME",
@@ -288,12 +406,20 @@
         "line": "PACKAGE_NAME @ git+ssh://git@github.com/my/repo.git@3684f02bf928cae39d10d1d9b478d95d2267b2af#subdirectory=SUB_DIR/"
       },
       "link": "git+ssh://git@github.com/my/repo.git@3684f02bf928cae39d10d1d9b478d95d2267b2af#subdirectory=SUB_DIR/",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": true,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "psycopg2",
@@ -303,16 +429,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 45,
-        "line": "psycopg2>=2.7.4 --no-binary psycopg2"
+        "line_number": 50,
+        "line": "psycopg2>=2.7.4"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "psycopg2",
@@ -320,16 +454,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 46,
-        "line": "psycopg2 --no-binary :all:"
+        "line_number": 52,
+        "line": "psycopg2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "jaraco.windows",
@@ -339,16 +481,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 50,
+        "line_number": 57,
         "line": "jaraco.windows >= 3.9.1;platform_system==\"Windows\""
       },
       "link": null,
-      "markers": "platform_system == \"Windows\"",
+      "marker": "platform_system == \"Windows\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pylint",
@@ -358,16 +508,24 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 51,
+        "line_number": 58,
         "line": "pylint == 1.9.5 ; python_version == '2.7'"
       },
       "link": null,
-      "markers": "python_version == \"2.7\"",
+      "marker": "python_version == \"2.7\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pylint",
@@ -377,16 +535,24 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 52,
+        "line_number": 59,
         "line": "pylint == 2.4.4 ; python_version >= '3.6'"
       },
       "link": null,
-      "markers": "python_version >= \"3.6\"",
+      "marker": "python_version >= \"3.6\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "setuptools",
@@ -394,16 +560,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 57,
+        "line_number": 64,
         "line": "setuptools"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "twine",
@@ -413,16 +587,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 58,
+        "line_number": 65,
         "line": "twine >= 1.0.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "sphinx",
@@ -430,18 +612,26 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 62,
+        "line_number": 69,
         "line": "sphinx [tests]"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "tests"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "torch",
@@ -451,16 +641,24 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 67,
+        "line_number": 74,
         "line": "torch==1.5.0+cpu ; sys_platform != \"darwin\""
       },
       "link": null,
-      "markers": "sys_platform != \"darwin\"",
+      "marker": "sys_platform != \"darwin\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "torch",
@@ -470,16 +668,24 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 68,
+        "line_number": 75,
         "line": "torch==1.5.0 ; sys_platform == \"darwin\""
       },
       "link": null,
-      "markers": "sys_platform == \"darwin\"",
+      "marker": "sys_platform == \"darwin\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "urllib3",
@@ -487,18 +693,26 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 69,
+        "line_number": 76,
         "line": "urllib3[secure]"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "secure"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "my-package",
@@ -508,16 +722,24 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 77,
+        "line_number": 84,
         "line": "http://my-server.com/packages/my-package-1.2.tar.gz#egg=my-package==1.2"
       },
       "link": "http://my-server.com/packages/my-package-1.2.tar.gz#egg=my-package==1.2",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": null,
@@ -525,16 +747,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 81,
+        "line_number": 88,
         "line": "lib/recaptcha-client-1.0.6.tar.gz"
       },
       "link": "lib/recaptcha-client-1.0.6.tar.gz",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": true,
+      "is_wheel": null,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "sphinx",
@@ -542,16 +772,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 85,
+        "line_number": 92,
         "line": "sphinx"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "sphinx-rtd-theme",
@@ -561,16 +799,24 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 86,
+        "line_number": 93,
         "line": "sphinx-rtd-theme==0.4.2"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "sphinxcontrib-shoebot",
@@ -580,16 +826,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 87,
+        "line_number": 94,
         "line": "sphinxcontrib-shoebot>=1.2.9"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "dependency-one",
@@ -597,16 +851,24 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 91,
+        "line_number": 98,
         "line": "-e ../dependency-one#egg=dependency-one"
       },
       "link": "../dependency-one#egg=dependency-one",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "dependency-two",
@@ -614,16 +876,24 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 92,
+        "line_number": 99,
         "line": "-e ../dependency-two#egg=dependency-two"
       },
       "link": "../dependency-two#egg=dependency-two",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "dependency-one",
@@ -631,16 +901,24 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 93,
+        "line_number": 100,
         "line": "-e git://repo/dependency-one#egg=dependency-one"
       },
       "link": "git://repo/dependency-one#egg=dependency-one",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "pytest",
@@ -651,16 +929,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 97,
+        "line_number": 104,
         "line": "pytest>=4.6.10,<5 ; python_version < '3'"
       },
       "link": null,
-      "markers": "python_version < \"3\"",
+      "marker": "python_version < \"3\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "fpdf",
@@ -668,16 +954,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 101,
+        "line_number": 108,
         "line": "git+ssh://git@git.cliosoft.net/HUB/pyfpdf.git#egg=fpdf"
       },
       "link": "git+ssh://git@git.cliosoft.net/HUB/pyfpdf.git#egg=fpdf",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "fpdf",
@@ -685,16 +979,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 102,
+        "line_number": 109,
         "line": "fpdf @ git+ssh://git@git.cliosoft.net/HUB/pyfpdf.git@a1285edc35e75631269"
       },
       "link": "git+ssh://git@git.cliosoft.net/HUB/pyfpdf.git@a1285edc35e75631269",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": true,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "pytest",
@@ -705,23 +1007,41 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 105,
+        "line_number": 112,
         "line": "pytest>=5.4.2,<6 ; python_version >= '3'"
       },
       "link": null,
-      "markers": "python_version >= \"3\"",
+      "marker": "python_version >= \"3\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     }
   ],
   "invalid_lines": [
     {
-      "line_number": 60,
+      "line_number": 46,
+      "line": "psycopg2>=2.7.4 --no-binary psycopg2",
+      "error_message": "Invalid global options, not supported with a requirement spec: --no-binary psycopg2"
+    },
+    {
+      "line_number": 47,
+      "line": "psycopg2 --no-binary :all:",
+      "error_message": "Invalid global options, not supported with a requirement spec: --no-binary :all:"
+    },
+    {
+      "line_number": 67,
       "line": "pytest >= 2.0.0 [tests]",
-      "error_message": "Invalid requirement"
+      "error_message": "Invalid requirement: : Parse error at \"'[tests]'\": Expected string_end"
     }
   ],
   "comments": [
@@ -766,55 +1086,63 @@
       "line": "# https://github.com/madpah/requirements-parser/issues/42"
     },
     {
-      "line_number": 49,
-      "line": "# from https://github.com/madpah/requirements-parser/issues/40"
+      "line_number": 45,
+      "line": "# this should be an error"
     },
     {
-      "line_number": 55,
-      "line": "# from https://github.com/pypa/setuptools/issues/1080#issuecomment-344177940"
+      "line_number": 49,
+      "line": "# but this works as it should"
     },
     {
       "line_number": 56,
+      "line": "# from https://github.com/madpah/requirements-parser/issues/40"
+    },
+    {
+      "line_number": 62,
+      "line": "# from https://github.com/pypa/setuptools/issues/1080#issuecomment-344177940"
+    },
+    {
+      "line_number": 63,
       "line": "# Base"
     },
     {
-      "line_number": 59,
+      "line_number": 66,
       "line": "# Tests"
     },
     {
-      "line_number": 61,
+      "line_number": 68,
       "line": "# Doc"
     },
     {
-      "line_number": 65,
+      "line_number": 72,
       "line": "# from https://github.com/spinalcordtoolbox/spinalcordtoolbox/issues/2712#issuecomment-629702171"
     },
     {
-      "line_number": 72,
+      "line_number": 79,
       "line": "# from https://github.com/madpah/requirements-parser/issues/35"
     },
     {
-      "line_number": 76,
+      "line_number": 83,
       "line": "# from https://github.com/madpah/requirements-parser/issues/21"
     },
     {
-      "line_number": 80,
+      "line_number": 87,
       "line": "# from https://github.com/madpah/requirements-parser/issues/18"
     },
     {
-      "line_number": 84,
+      "line_number": 91,
       "line": "# from https://github.com/shoebot/shoebot/blob/master/doc/requirements.txt"
     },
     {
-      "line_number": 90,
+      "line_number": 97,
       "line": "# from https://github.com/pypa/pip/issues/328"
     },
     {
-      "line_number": 96,
+      "line_number": 103,
       "line": "# from https://github.com/di/pip-api/issues/61"
     },
     {
-      "line_number": 100,
+      "line_number": 107,
       "line": "# https://github.com/di/pip-api/issues/108"
     }
   ]

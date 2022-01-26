@@ -151,11 +151,18 @@ def test_requirements_parse_unsupported_line_start(parse_requirement_text):
         {"index_url": "bla"},
         {"extra_index_urls": ["bla"]},
         {"no_index": True},
+        {"always_unzip": True},
+        {"always_unzip": True},
     ]
 
-    # these are legacy pip options 
-    assert [iv.requirement_line.line for iv in dep_file.invalid_lines] == [
-        '--allow-external', '--allow-unverified', '-Z', '--always-unzip']
+    # these are legacy or invalid pip options
+    expected = [
+        '--no-index bla',
+        '--allow-external',
+        '--allow-unverified',
+        '-Z', '--always-unzip',
+    ]
+    assert [iv.requirement_line.line for iv in dep_file.invalid_lines] == expected
 
 
 def test_file_resolver(parse_requirement_text):

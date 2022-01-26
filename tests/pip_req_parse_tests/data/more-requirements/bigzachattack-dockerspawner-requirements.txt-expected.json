@@ -1,0 +1,84 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "jupyterhub",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "-e git+https://github.com/jupyter/jupyterhub.git#egg=jupyterhub"
+      },
+      "link": "git+https://github.com/jupyter/jupyterhub.git#egg=jupyterhub",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "ipython",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "-e git+https://github.com/ipython/ipython.git#egg=ipython[notebook]"
+      },
+      "link": "git+https://github.com/ipython/ipython.git#egg=ipython",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "notebook"
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "docker-py",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 3,
+        "line": "docker-py"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

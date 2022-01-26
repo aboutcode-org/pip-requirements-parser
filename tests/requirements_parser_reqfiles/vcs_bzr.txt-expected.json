@@ -11,12 +11,20 @@
         "line": "-e bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -28,12 +36,20 @@
         "line": "-e bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -45,12 +61,20 @@
         "line": "-e bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -62,12 +86,20 @@
         "line": "-e bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -79,12 +111,20 @@
         "line": "-e bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject"
       },
       "link": "bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -96,12 +136,20 @@
         "line": "-e bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject"
       },
       "link": "bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -113,12 +161,20 @@
         "line": "bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -130,12 +186,20 @@
         "line": "bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -147,12 +211,20 @@
         "line": "bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -164,12 +236,20 @@
         "line": "bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject"
       },
       "link": "bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -181,12 +261,20 @@
         "line": "bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject"
       },
       "link": "bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -198,12 +286,20 @@
         "line": "bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject"
       },
       "link": "bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     }
   ],
   "invalid_lines": [],

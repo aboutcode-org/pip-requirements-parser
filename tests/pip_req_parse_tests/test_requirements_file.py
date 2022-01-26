@@ -9,20 +9,21 @@ import pytest
 import pip_requirements
 
 from pip_req_parse_tests.lib import ALL_REQFILES
+from pip_req_parse_tests.lib import MORE_REQFILES
 
 """
 Parse many requirements files and verify the expected JSON output
 """
 
 
-@pytest.mark.parametrize("test_file", ALL_REQFILES)
+@pytest.mark.parametrize("test_file", ALL_REQFILES + MORE_REQFILES)
 def test_RequirementsFile_to_dict(
     test_file: str,
     regen=False,
 ) -> None:
 
     expected_file = test_file + "-expected.json"
-    results = pip_requirements.RequirementsFile(test_file).to_dict()
+    results = pip_requirements.RequirementsFile.from_file(test_file).to_dict()
     if regen:
         with open (expected_file, 'w') as outp:
             json.dump(results, outp, indent=2)
@@ -34,25 +35,25 @@ def test_RequirementsFile_to_dict(
     assert results == expected
 
 
-@pytest.mark.parametrize("test_file", ALL_REQFILES)
-def test_RequirementsFile_dumps(
+@pytest.mark.parametrize("test_file", ALL_REQFILES + MORE_REQFILES)
+def test_RequirementsFile_dumps_unparse(
     test_file: str,
+    regen=False,
 ) -> None:
 
-    dumped = pip_requirements.RequirementsFile(test_file).dumps()
-    with open (test_file) as inp:
-        original = inp.read()
+    dumped = pip_requirements.RequirementsFile.from_file(test_file).dumps(
+        preserve_one_empty_line=True,
+    ).strip()
 
-    # normalize original minimally
+    expected_file = test_file + "-expected.dumps"
 
-    # fold continuations
-    original = original.replace(" \\\n", " ")
-    original = "".join(l for l in original.splitlines(True) if l.strip())
+    if regen:
+        with open(expected_file, "w") as out:
+            out.write(dumped)
+        expected = dumped
+    else:
+        with open(expected_file) as inp:
+            expected = inp.read()
 
-    # normalize spaces
-    original = "\n".join(" ".join(l.split()) for l in original.splitlines(False))
+    assert dumped == expected.strip()
 
-    dumped = "\n".join(" ".join(l.split()) for l in dumped.splitlines(False))
-
-
-    assert original == dumped

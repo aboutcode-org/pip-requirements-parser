@@ -1,0 +1,98 @@
+# from https://github.com/madpah/requirements-parser/issues/54
+#The following fails to parse:
+
+Werkzeug==1.0.1
+wrapt==1.12.1
+xmltodict==0.12.0
+zipp==3.4.0
+./pip_packages/dystillamodb
+
+#I can hack around the bug by doing this:
+
+Werkzeug==1.0.1
+wrapt==1.12.1
+xmltodict==0.12.0
+zipp==3.4.0
+./pip_packages/dystillamodb # #egg=
+
+# from https://github.com/madpah/requirements-parser/issues/52
+
+requests==2.25.0 # comment
+
+# from https://github.com/madpah/requirements-parser/issues/51
+
+cffi==1.14.3 \
+    --hash=sha256:22399ff4870fb4c7ef19fff6eeb20a8bbf15571913c181c78cb361024d574579
+
+# from https://github.com/ansible/ansible-builder/issues/319
+
+--index-url https://some-host.example.com/repository/pypi-proxy/simple
+--extra-index-url https://some-host.example.com/repository/custompy/simple
+--trusted-host some-host.example.com
+
+# from https://github.com/madpah/requirements-parser/issues/49
+
+git+ssh://git@github.com/my/repo.git@project25#egg=PACKAGE_NAME&subdirectory=SUB_DIR/
+PACKAGE_NAME@git+ssh://git@github.com/my/repo.git@3684f02bf928cae39d10d1d9b478d95d2267b2af#subdirectory=SUB_DIR/
+
+# https://github.com/madpah/requirements-parser/issues/42
+# this should be an error
+# Invalid global options, not supported with a requirement spec: --no-binary psycopg2
+psycopg2>=2.7.4 --no-binary psycopg2
+# Invalid global options, not supported with a requirement spec: --no-binary :all:
+psycopg2 --no-binary :all:
+
+# but this works as it should
+psycopg2>=2.7.4
+--no-binary psycopg2
+psycopg2
+--no-binary :all:
+
+# from https://github.com/madpah/requirements-parser/issues/40
+jaraco.windows>=3.9.1; platform_system == "Windows"
+pylint==1.9.5; python_version == "2.7"
+pylint==2.4.4; python_version >= "3.6"
+
+# from https://github.com/pypa/setuptools/issues/1080#issuecomment-344177940
+# Base
+setuptools
+twine>=1.0.0
+# Tests
+# Invalid requirement: : Parse error at "'[tests]'": Expected string_end
+pytest >= 2.0.0 [tests]
+# Doc
+sphinx[tests]
+
+# from https://github.com/spinalcordtoolbox/spinalcordtoolbox/issues/2712#issuecomment-629702171
+--find-links https://download.pytorch.org/whl/cpu/torch_stable.html
+torch==1.5.0+cpu; sys_platform != "darwin"
+torch==1.5.0; sys_platform == "darwin"
+urllib3[secure]
+
+# from https://github.com/madpah/requirements-parser/issues/35
+--trusted-host foo.com
+
+# from https://github.com/madpah/requirements-parser/issues/21
+http://my-server.com/packages/my-package-1.2.tar.gz#egg=my-package==1.2
+
+# from https://github.com/madpah/requirements-parser/issues/18
+lib/recaptcha-client-1.0.6.tar.gz
+
+# from https://github.com/shoebot/shoebot/blob/master/doc/requirements.txt
+sphinx
+sphinx-rtd-theme==0.4.2
+sphinxcontrib-shoebot>=1.2.9
+
+# from https://github.com/pypa/pip/issues/328
+--editable ../dependency-one#egg=dependency-one
+--editable ../dependency-two#egg=dependency-two
+--editable git://repo/dependency-one#egg=dependency-one
+
+# from https://github.com/di/pip-api/issues/61
+pytest>=4.6.10,<5; python_version < "3"
+
+# https://github.com/di/pip-api/issues/108
+git+ssh://git@git.cliosoft.net/HUB/pyfpdf.git#egg=fpdf
+fpdf@git+ssh://git@git.cliosoft.net/HUB/pyfpdf.git@a1285edc35e75631269
+
+pytest>=5.4.2,<6; python_version >= "3"

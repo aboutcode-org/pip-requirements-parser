@@ -11,14 +11,22 @@
         "line": "requests[socks]"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "socks"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "django",
@@ -32,12 +40,20 @@
         "line": "django>1.10"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "requests",
@@ -51,14 +67,22 @@
         "line": "requests[socks]>1.10"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "socks"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "requests",
@@ -72,14 +96,22 @@
         "line": "requests[socks]==1.10"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "socks"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "django-user-accounts",
@@ -91,12 +123,20 @@
         "line": "-e git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts"
       },
       "link": "git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "django-user-accounts",
@@ -108,12 +148,20 @@
         "line": "git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts"
       },
       "link": "git+git://github.com/pinax/django-user-accounts.git@v2.1.0#egg=django-user-accounts",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -125,12 +173,20 @@
         "line": "hg+http://hg.myproject.org/MyProject@da39a3ee5e6b#egg=MyProject"
       },
       "link": "hg+http://hg.myproject.org/MyProject@da39a3ee5e6b#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "MyProject",
@@ -142,12 +198,20 @@
         "line": "-e svn+svn://svn.myproject.org/svn/MyProject#egg=MyProject"
       },
       "link": "svn+svn://svn.myproject.org/svn/MyProject#egg=MyProject",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "discord.py",
@@ -159,14 +223,22 @@
         "line": "https://github.com/Rapptz/discord.py/archive/async.zip#egg=discord.py[voice]"
       },
       "link": "https://github.com/Rapptz/discord.py/archive/async.zip#egg=discord.py[voice]",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "voice"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "requests",
@@ -178,56 +250,22 @@
         "line": "git+https://github.com/requests/requests.git@master#egg=requests[security]"
       },
       "link": "git+https://github.com/requests/requests.git@master#egg=requests[security]",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "security"
-      ]
-    },
-    {
-      "name": "FooProject",
-      "specifier": [
-        "==1.2"
       ],
-      "is_editable": false,
-      "is_pinned": true,
-      "requirement_line": {
-        "line_number": 19,
-        "line": "FooProject[stuff]==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
-      },
-      "link": null,
-      "markers": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": [
-        "sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
-      ],
-      "is_constraint": false,
-      "extras": [
-        "stuff"
-      ]
-    },
-    {
-      "name": "pythonfinder",
-      "specifier": [],
-      "is_editable": true,
-      "is_pinned": false,
-      "requirement_line": {
-        "line_number": 20,
-        "line": "-e git+https://github.com/techalchemy/pythonfinder.git@master#egg=pythonfinder[dev]&subdirectory=mysubdir"
-      },
-      "link": "git+https://github.com/techalchemy/pythonfinder.git@master#egg=pythonfinder[dev]&subdirectory=mysubdir",
-      "markers": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": [],
-      "is_constraint": false,
-      "extras": [
-        "dev"
-      ]
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "FooProject",
@@ -238,17 +276,54 @@
       "is_pinned": true,
       "requirement_line": {
         "line_number": 21,
-        "line": "FooProject==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+        "line": "FooProject[stuff]==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [
         "sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
       ],
       "is_constraint": false,
-      "extras": []
+      "extras": [
+        "stuff"
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "pythonfinder",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 22,
+        "line": "-e git+https://github.com/techalchemy/pythonfinder.git@master#egg=pythonfinder[dev]&subdirectory=mysubdir"
+      },
+      "link": "git+https://github.com/techalchemy/pythonfinder.git@master#egg=pythonfinder[dev]&subdirectory=mysubdir",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "dev"
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "FooProject",
@@ -258,11 +333,40 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 22,
+        "line_number": 23,
+        "line": "FooProject==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [
+        "sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+      ],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "FooProject",
+      "specifier": [
+        "==1.2"
+      ],
+      "is_editable": false,
+      "is_pinned": true,
+      "requirement_line": {
+        "line_number": 24,
         "line": "FooProject[stuff]==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [
@@ -271,7 +375,15 @@
       "is_constraint": false,
       "extras": [
         "stuff"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "requests",
@@ -279,16 +391,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 24,
+        "line_number": 26,
         "line": "requests"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "vistir",
@@ -296,18 +416,26 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 25,
+        "line_number": 27,
         "line": "vistir[spinner]"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "spinner"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "vistir",
@@ -317,18 +445,26 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 26,
+        "line_number": 28,
         "line": "vistir[spinner]==0.4.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "spinner"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "vistir",
@@ -338,16 +474,24 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 27,
+        "line_number": 29,
         "line": "vistir==0.4.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "shellingham",
@@ -357,16 +501,24 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 28,
+        "line_number": 30,
         "line": "https://files.pythonhosted.org/packages/2d/ac/e8a34d4b3d24bf554f40651b2aac549a3fc7223725bf10fbdfe2083b6372/shellingham-1.3.1-py2.py3-none-any.whl"
       },
       "link": "https://files.pythonhosted.org/packages/2d/ac/e8a34d4b3d24bf554f40651b2aac549a3fc7223725bf10fbdfe2083b6372/shellingham-1.3.1-py2.py3-none-any.whl",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": true,
+      "is_wheel": true,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "shellingham",
@@ -374,16 +526,24 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 30,
+        "line_number": 32,
         "line": "-e git+ssh://git@github.com/sarugaku/shellingham.git#egg=shellingham"
       },
       "link": "git+ssh://git@github.com/sarugaku/shellingham.git#egg=shellingham",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": null,
@@ -391,33 +551,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 31,
+        "line_number": 33,
         "line": "git+https://github.com/psf/requests.git"
       },
       "link": "git+https://github.com/psf/requests.git",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
-    },
-    {
-      "name": null,
-      "specifier": [],
-      "is_editable": true,
-      "is_pinned": false,
-      "requirement_line": {
-        "line_number": 32,
-        "line": "-e file:///foo/bar"
-      },
-      "link": "file:///foo/bar",
-      "markers": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": [],
-      "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": null,
@@ -426,17 +577,50 @@
       "is_pinned": false,
       "requirement_line": {
         "line_number": 34,
+        "line": "-e file:///foo/bar"
+      },
+      "link": "file:///foo/bar",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
+    },
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 36,
         "line": "-e .[socks]"
       },
       "link": ".",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "socks"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "myname",
@@ -444,16 +628,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 37,
+        "line_number": 39,
         "line": "git+git@host:user/repo.git#egg=myname"
       },
       "link": "git+git@host:user/repo.git#egg=myname",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "django-user-clipboard",
@@ -461,16 +653,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 39,
+        "line_number": 41,
         "line": "https://github.com/IndustriaTech/django-user-clipboard/archive/0.6.1.zip#egg=django-user-clipboard"
       },
       "link": "https://github.com/IndustriaTech/django-user-clipboard/archive/0.6.1.zip#egg=django-user-clipboard",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": null,
@@ -478,16 +678,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 40,
+        "line_number": 42,
         "line": "https://github.com/jazzband/tablib/archive/v0.12.1.zip"
       },
       "link": "https://github.com/jazzband/tablib/archive/v0.12.1.zip",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": true,
+      "is_wheel": null,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "tablib",
@@ -495,16 +703,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 42,
+        "line_number": 44,
         "line": "git+https://github.com/jazzband/tablib.git@master#egg=tablib"
       },
       "link": "git+https://github.com/jazzband/tablib.git@master#egg=tablib",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "pipenv",
@@ -512,16 +728,24 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 43,
+        "line_number": 45,
         "line": "-e git+git@github.com:pypa/pipenv.git#egg=pipenv"
       },
       "link": "git+git@github.com:pypa/pipenv.git#egg=pipenv",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "requests",
@@ -529,18 +753,26 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 44,
+        "line_number": 46,
         "line": "-e git+https://github.com/requests/requests.git@master#egg=requests[security]"
       },
       "link": "git+https://github.com/requests/requests.git@master#egg=requests",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "security"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "six",
@@ -550,16 +782,24 @@
       "is_editable": false,
       "is_pinned": true,
       "requirement_line": {
-        "line_number": 45,
+        "line_number": 47,
         "line": "../wheels/six/six-1.11.0-py2.py3-none-any.whl"
       },
       "link": "../wheels/six/six-1.11.0-py2.py3-none-any.whl",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": true,
+      "is_wheel": true,
+      "is_url": false,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "shellingham",
@@ -567,16 +807,24 @@
       "is_editable": true,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 47,
+        "line_number": 49,
         "line": "-e git+https://github.com/sarugaku/shellingham.git@1.2.1#egg=shellingham"
       },
       "link": "git+https://github.com/sarugaku/shellingham.git@1.2.1#egg=shellingham",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "six",
@@ -584,33 +832,24 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 49,
+        "line_number": 51,
         "line": "git+https://github.com/benjaminp/six.git@master#egg=six"
       },
       "link": "git+https://github.com/benjaminp/six.git@master#egg=six",
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
-    },
-    {
-      "name": "tablib",
-      "specifier": [],
-      "is_editable": false,
-      "is_pinned": false,
-      "requirement_line": {
-        "line_number": 51,
-        "line": "tablib@ https://codeload.github.com/jazzband/tablib/zip/v0.12.1"
-      },
-      "link": "https://codeload.github.com/jazzband/tablib/zip/v0.12.1",
-      "markers": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": [],
-      "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     },
     {
       "name": "tablib",
@@ -619,15 +858,23 @@
       "is_pinned": false,
       "requirement_line": {
         "line_number": 53,
-        "line": "https://${USERNAME}:${PASSWORD}@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib"
+        "line": "tablib@ https://codeload.github.com/jazzband/tablib/zip/v0.12.1"
       },
-      "link": "https://${USERNAME}:${PASSWORD}@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib",
-      "markers": null,
+      "link": "https://codeload.github.com/jazzband/tablib/zip/v0.12.1",
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": true,
+      "is_local_path": true,
+      "has_egg_fragment": false
     },
     {
       "name": "tablib",
@@ -635,21 +882,54 @@
       "is_editable": false,
       "is_pinned": false,
       "requirement_line": {
-        "line_number": 54,
-        "line": "https://USERNAME:PASSWORD@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib"
+        "line_number": 55,
+        "line": "https://${USERNAME}:${PASSWORD}@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib"
       },
-      "link": "https://USERNAME:PASSWORD@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib",
-      "markers": null,
+      "link": "https://${USERNAME}:${PASSWORD}@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib",
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "tablib",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 56,
+        "line": "https://USERNAME:PASSWORD@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib"
+      },
+      "link": "https://USERNAME:PASSWORD@codeload.github.com/jazzband/tablib/zip/v0.12.1#egg=tablib",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
     }
   ],
   "invalid_lines": [
     {
-      "line_number": 17,
+      "line_number": 19,
       "line": "FooProject==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824\",",
       "error_message": "No closing quotation"
     }
@@ -660,7 +940,11 @@
       "line": "# from https://github.com/sarugaku/requirementslib/blob/main/tests/unit/test_requirements.py"
     },
     {
-      "line_number": 36,
+      "line_number": 18,
+      "line": "# Fails because invalid quotation"
+    },
+    {
+      "line_number": 38,
       "line": "# not supported by Packaging"
     }
   ]

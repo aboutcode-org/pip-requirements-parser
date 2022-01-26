@@ -55,6 +55,10 @@ SomeProject
 # Installing Prereleases
 --pre SomeProject
 
+# this works on two lines:
+--pre
+SomeProject
+
 
 # Install setuptools extras.
 SomePackage[PDF]

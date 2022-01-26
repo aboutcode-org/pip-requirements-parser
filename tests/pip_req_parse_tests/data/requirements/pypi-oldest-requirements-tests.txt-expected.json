@@ -26,11 +26,11 @@
     {
       "name": "PyQt5",
       "specifier": [
-        "!=5.15.2",
         "!=5.15.2.*",
+        ">5.7",
+        "!=5.15.2",
         "!=5.15.3",
-        "!=5.15.4",
-        ">5.7"
+        "!=5.15.4"
       ],
       "is_editable": false,
       "is_pinned": false,
@@ -39,12 +39,20 @@
         "line": "PyQt5!=5.15.2,>5.7,!=5.15.2.*,!=5.15.4,!=5.15.3"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "hypothesis",
@@ -58,7 +66,7 @@
         "line": "hypothesis[numpy,pytest]>=5.19"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
@@ -66,7 +74,15 @@
       "extras": [
         "numpy",
         "pytest"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "myst-nb",
@@ -80,12 +96,20 @@
         "line": "myst-nb>=0.13.0a1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pypi-oldest-requirements",
@@ -99,12 +123,20 @@
         "line": "pypi-oldest-requirements>=2021.1"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "pytest",
@@ -118,12 +150,20 @@
         "line": "pytest>=4.4"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "readme_renderer",
@@ -135,21 +175,29 @@
         "line": "readme_renderer[md]"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
       "extras": [
         "md"
-      ]
+      ],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "PySide2",
       "specifier": [
         "!=5.11.*",
-        "!=5.15.2",
-        "!=5.15.2.*"
+        "!=5.15.2.*",
+        "!=5.15.2"
       ],
       "is_editable": false,
       "is_pinned": false,
@@ -158,12 +206,20 @@
         "line": "PySide2!=5.15.2,!=5.15.2.*,!=5.11.*"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "bash_kernel",
@@ -175,12 +231,20 @@
         "line": "bash_kernel"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "deal",
@@ -192,12 +256,20 @@
         "line": "deal"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "cython",
@@ -211,12 +283,20 @@
         "line": "cython>=0.28;python_version < \"3.9\""
       },
       "link": null,
-      "markers": "python_version < \"3.9\"",
+      "marker": "python_version < \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "cython",
@@ -230,12 +310,20 @@
         "line": "cython>=0.29.12;python_version >= \"3.9\""
       },
       "link": null,
-      "markers": "python_version >= \"3.9\"",
+      "marker": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "meshio",
@@ -249,12 +337,20 @@
         "line": "meshio==4.2.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "mpi4py",
@@ -268,12 +364,20 @@
         "line": "mpi4py>=3.0.3;python_version >= \"3.9\""
       },
       "link": null,
-      "markers": "python_version >= \"3.9\"",
+      "marker": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "mpi4py",
@@ -287,12 +391,20 @@
         "line": "mpi4py>=3.0;python_version < \"3.9\""
       },
       "link": null,
-      "markers": "python_version < \"3.9\"",
+      "marker": "python_version < \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "nbresuse",
@@ -304,12 +416,20 @@
         "line": "nbresuse"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "numpy",
@@ -323,12 +443,20 @@
         "line": "numpy>=1.15.4;python_version == \"3.7\""
       },
       "link": null,
-      "markers": "python_version == \"3.7\"",
+      "marker": "python_version == \"3.7\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "numpy",
@@ -342,12 +470,20 @@
         "line": "numpy>=1.16.0;python_version != \"3.6\" and python_version != \"3.7\" and python_version != \"3.8\" and python_version != \"3.9\""
       },
       "link": null,
-      "markers": "python_version != \"3.6\" and python_version != \"3.7\" and python_version != \"3.8\" and python_version != \"3.9\"",
+      "marker": "python_version != \"3.6\" and python_version != \"3.7\" and python_version != \"3.8\" and python_version != \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "numpy",
@@ -361,12 +497,20 @@
         "line": "numpy>=1.16.0;python_version == \"3.6\""
       },
       "link": null,
-      "markers": "python_version == \"3.6\"",
+      "marker": "python_version == \"3.6\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "numpy",
@@ -380,12 +524,20 @@
         "line": "numpy>=1.17.5;python_version == \"3.8\""
       },
       "link": null,
-      "markers": "python_version == \"3.8\"",
+      "marker": "python_version == \"3.8\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "numpy",
@@ -399,12 +551,20 @@
         "line": "numpy>=1.19.4;python_version == \"3.9\""
       },
       "link": null,
-      "markers": "python_version == \"3.9\"",
+      "marker": "python_version == \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "scipy",
@@ -418,12 +578,20 @@
         "line": "scipy>=1.1;python_version < \"3.8\""
       },
       "link": null,
-      "markers": "python_version < \"3.8\"",
+      "marker": "python_version < \"3.8\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "scipy",
@@ -437,12 +605,20 @@
         "line": "scipy>=1.3.3;python_version == \"3.8\""
       },
       "link": null,
-      "markers": "python_version == \"3.8\"",
+      "marker": "python_version == \"3.8\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "scipy",
@@ -456,12 +632,20 @@
         "line": "scipy>=1.5.4;python_version >= \"3.9\""
       },
       "link": null,
-      "markers": "python_version >= \"3.9\"",
+      "marker": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "setuptools",
@@ -476,12 +660,20 @@
         "line": "setuptools>=40.8.0,<49.2.0;python_version < \"3.9\""
       },
       "link": null,
-      "markers": "python_version < \"3.9\"",
+      "marker": "python_version < \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "setuptools",
@@ -496,12 +688,20 @@
         "line": "setuptools>=49.1,<49.2.0;python_version >= \"3.9\""
       },
       "link": null,
-      "markers": "python_version >= \"3.9\"",
+      "marker": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "slycot",
@@ -515,12 +715,20 @@
         "line": "slycot>=0.4.0"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "sphinx-autoapi",
@@ -534,12 +742,20 @@
         "line": "sphinx-autoapi>=1.8"
       },
       "link": null,
-      "markers": null,
+      "marker": null,
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "scipy",
@@ -553,12 +769,20 @@
         "line": "scipy>=1.1;python_version < \"3.8\""
       },
       "link": null,
-      "markers": "python_version < \"3.8\"",
+      "marker": "python_version < \"3.8\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "scipy",
@@ -572,12 +796,20 @@
         "line": "scipy>=1.3.3;python_version == \"3.8\""
       },
       "link": null,
-      "markers": "python_version == \"3.8\"",
+      "marker": "python_version == \"3.8\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "scipy",
@@ -591,12 +823,20 @@
         "line": "scipy>=1.5.4;python_version >= \"3.9\""
       },
       "link": null,
-      "markers": "python_version >= \"3.9\"",
+      "marker": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "setuptools",
@@ -611,12 +851,20 @@
         "line": "setuptools>=40.8.0,<49.2.0;python_version < \"3.9\""
       },
       "link": null,
-      "markers": "python_version < \"3.9\"",
+      "marker": "python_version < \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     },
     {
       "name": "setuptools",
@@ -631,12 +879,20 @@
         "line": "setuptools>=49.1,<49.2.0;python_version >= \"3.9\""
       },
       "link": null,
-      "markers": "python_version >= \"3.9\"",
+      "marker": "python_version >= \"3.9\"",
       "install_options": [],
       "global_options": [],
       "hash_options": [],
       "is_constraint": false,
-      "extras": []
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
     }
   ],
   "invalid_lines": [],

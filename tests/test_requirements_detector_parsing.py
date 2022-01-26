@@ -58,7 +58,7 @@ class TestRequirementParsing(TestCase):
         arguments against the parserd results.
         """
         with requirements_file(contents=requirement, tmpdir=self.tmpdir) as rf:
-            reqf = RequirementsFile(rf)
+            reqf = RequirementsFile.from_file(rf)
             assert len(reqf.requirements) == 1
             assert not reqf.invalid_lines
             assert not reqf.options

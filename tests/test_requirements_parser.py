@@ -62,7 +62,7 @@ def test_RequirementsFile_to_dict(
 ) -> None:
 
     expected_file = test_file + "-expected.json"
-    results = pip_requirements.RequirementsFile(test_file).to_dict()
+    results = pip_requirements.RequirementsFile.from_file(test_file).to_dict()
     if regen:
         with open (expected_file, 'w') as outp:
             json.dump(results, outp, indent=2)

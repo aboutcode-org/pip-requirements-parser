@@ -1,0 +1,35 @@
+# Common requirements
+# -----------------------
+# This file collects all required third-party applications that are needed
+# to run this project. Later you can install all these apps in a row
+# using pip. Example:
+#
+#     pip install -r REQUIREMENTS.txt
+#
+
+arrow
+beautifulsoup4==4.5.*
+celery==4.0.*;sys_platform == 'linux2'
+celery==3.1.*;sys_platform == 'win32'
+Django==1.10.*
+django-celery-beat==1.0.*
+django-celery-results==1.0.*
+django-extensions==1.7.*
+django-suit==0.2.*
+feedparser==5.2.*
+gunicorn==19.0.*
+nltk==3.2.*
+numpy==1.11.*
+pytz
+redis==2.10.*
+six==1.10.0
+
+# supervisor==3.2.0
+# meld3==1.0.2
+
+# Details
+# meld3 (1.0.2)
+# pip (9.0.1)
+# setuptools (20.7.0)
+# wheel (0.29.0)
+# python-dateutil==2.6.*

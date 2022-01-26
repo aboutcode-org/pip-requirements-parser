@@ -1,0 +1,6 @@
+git+https://github.com/Rapptz/discord.py@master#egg=discord.py[voice]
+lxml
+requests
+xmltodict
+discord.py
+wikia

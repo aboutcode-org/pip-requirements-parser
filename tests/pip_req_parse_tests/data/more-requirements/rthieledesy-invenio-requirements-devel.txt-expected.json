@@ -1,0 +1,653 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "dojson",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 25,
+        "line": "-e git+https://github.com/inveniosoftware/dojson.git#egg=dojson"
+      },
+      "link": "git+https://github.com/inveniosoftware/dojson.git#egg=dojson",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-access",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 26,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-access.git#egg=invenio-access"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-access.git#egg=invenio-access",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-accounts",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 27,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-accounts.git#egg=invenio-accounts"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-accounts.git#egg=invenio-accounts",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-assets",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 28,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-assets.git#egg=invenio-assets"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-assets.git#egg=invenio-assets",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-base",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 29,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-base.git#egg=invenio-base"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-base.git#egg=invenio-base",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-celery",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 30,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-celery.git#egg=invenio-celery"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-celery.git#egg=invenio-celery",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-config",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 31,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-config.git#egg=invenio-config"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-config.git#egg=invenio-config",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-db",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 32,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-db.git#egg=invenio-db[postgresql,versioning]"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-db.git#egg=invenio-db",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "postgresql",
+        "versioning"
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-i18n",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 33,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-i18n.git#egg=invenio-i18n"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-i18n.git#egg=invenio-i18n",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-indexer",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 34,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-indexer.git#egg=invenio-indexer"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-indexer.git#egg=invenio-indexer",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-logging",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 35,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-logging.git#egg=invenio-logging"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-logging.git#egg=invenio-logging",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-mail",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 36,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-mail.git#egg=invenio-mail"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-mail.git#egg=invenio-mail",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-marc21",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 37,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-marc21.git#egg=invenio-marc21"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-marc21.git#egg=invenio-marc21",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-pidstore",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 38,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-pidstore.git#egg=invenio-pidstore"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-pidstore.git#egg=invenio-pidstore",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-query-parser",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 39,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-query-parser.git#egg=invenio-query-parser"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-query-parser.git#egg=invenio-query-parser",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-records-rest",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 40,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-records-rest.git#egg=invenio-records-rest"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-records-rest.git#egg=invenio-records-rest",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-records-ui",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 41,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-records-ui.git#egg=invenio-records-ui"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-records-ui.git#egg=invenio-records-ui",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-records",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 42,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-records.git#egg=invenio-records"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-records.git#egg=invenio-records",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-rest",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 43,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-rest.git#egg=invenio-rest"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-rest.git#egg=invenio-rest",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-search-ui",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 44,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-search-ui.git#egg=invenio-search-ui"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-search-ui.git#egg=invenio-search-ui",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-search",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 45,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-search.git#egg=invenio-search"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-search.git#egg=invenio-search",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    },
+    {
+      "name": "invenio-theme",
+      "specifier": [],
+      "is_editable": true,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 46,
+        "line": "-e git+https://github.com/inveniosoftware/invenio-theme.git#egg=invenio-theme"
+      },
+      "link": "git+https://github.com/inveniosoftware/invenio-theme.git#egg=invenio-theme",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    }
+  ],
+  "invalid_lines": [],
+  "comments": [
+    {
+      "line_number": 1,
+      "line": "# -*- coding: utf-8 -*-"
+    },
+    {
+      "line_number": 2,
+      "line": "#"
+    },
+    {
+      "line_number": 3,
+      "line": "# This file is part of Invenio."
+    },
+    {
+      "line_number": 4,
+      "line": "# Copyright (C) 2015, 2016 CERN."
+    },
+    {
+      "line_number": 5,
+      "line": "#"
+    },
+    {
+      "line_number": 6,
+      "line": "# Invenio is free software; you can redistribute it"
+    },
+    {
+      "line_number": 7,
+      "line": "# and/or modify it under the terms of the GNU General Public License as"
+    },
+    {
+      "line_number": 8,
+      "line": "# published by the Free Software Foundation; either version 2 of the"
+    },
+    {
+      "line_number": 9,
+      "line": "# License, or (at your option) any later version."
+    },
+    {
+      "line_number": 10,
+      "line": "#"
+    },
+    {
+      "line_number": 11,
+      "line": "# Invenio is distributed in the hope that it will be"
+    },
+    {
+      "line_number": 12,
+      "line": "# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of"
+    },
+    {
+      "line_number": 13,
+      "line": "# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU"
+    },
+    {
+      "line_number": 14,
+      "line": "# General Public License for more details."
+    },
+    {
+      "line_number": 15,
+      "line": "#"
+    },
+    {
+      "line_number": 16,
+      "line": "# You should have received a copy of the GNU General Public License"
+    },
+    {
+      "line_number": 17,
+      "line": "# along with Invenio; if not, write to the"
+    },
+    {
+      "line_number": 18,
+      "line": "# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,"
+    },
+    {
+      "line_number": 19,
+      "line": "# MA 02111-1307, USA."
+    },
+    {
+      "line_number": 20,
+      "line": "#"
+    },
+    {
+      "line_number": 21,
+      "line": "# In applying this license, CERN does not"
+    },
+    {
+      "line_number": 22,
+      "line": "# waive the privileges and immunities granted to it by virtue of its status"
+    },
+    {
+      "line_number": 23,
+      "line": "# as an Intergovernmental Organization or submit itself to any jurisdiction."
+    }
+  ]
+}

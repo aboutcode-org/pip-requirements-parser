@@ -1,0 +1,4 @@
+Click>=3.1
+CommonMark>=0.5.4
+ipython[notebook]>=2.2.0
+six>=1.8

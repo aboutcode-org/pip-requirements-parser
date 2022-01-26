@@ -1,0 +1,1 @@
+git+https://github.com/buildtimetrend/python-lib.git#egg=buildtimetrend[native]>=0.4.dev4

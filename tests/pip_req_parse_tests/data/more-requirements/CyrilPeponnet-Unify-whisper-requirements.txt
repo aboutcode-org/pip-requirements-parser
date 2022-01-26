@@ -1,0 +1,6 @@
+-e git+https://github.com/wteiken/letsencrypt@add_dns01_challenge#subdirectory=acme&egg=acme[dns]
+boto3>=1.2.3
+cryptography>=1.1.2
+pyopenssl>=0.15.1
+python-consul
+docopt

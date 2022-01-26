@@ -13,11 +13,8 @@ from packaging.specifiers import SpecifierSet
 
 import pip_requirements  # this will be monkeypatched
 from pip_requirements import RequirementsFileParseError
-from pip_requirements import (
-    install_req_from_editable,
-    install_req_from_line,
-    install_req_from_parsed_requirement,
-)
+from pip_requirements import build_editable_req
+from pip_requirements import build_install_req
 from pip_requirements import (
     break_args_options,
     split_comments,
@@ -27,8 +24,8 @@ from pip_requirements import (
 )
 from pip_requirements import CommentLine
 from pip_requirements import CommentRequirementLine
+from pip_requirements import IncorrectRequirementLine
 from pip_requirements import InstallRequirement
-from pip_requirements import InstallationError
 from pip_requirements import InvalidRequirementLine
 from pip_requirements import OptionLine
 from pip_requirements import RequirementsFile
@@ -38,10 +35,11 @@ from pip_requirements import TextLine
 from pip_req_parse_tests.lib import TestData, requirements_file
 from pip_req_parse_tests.lib.path import Path
 
- 
+
 def get_requirements_and_lines(
     filename: str,
     is_constraint: bool = False,
+    include_nested: bool = False,
 ) -> Iterator[Union[
     InstallRequirement, 
     OptionLine, 
@@ -49,17 +47,14 @@ def get_requirements_and_lines(
     CommentRequirementLine
 ]]:
     """
-    Wrap parse_requirements/install_req_from_parsed_requirement to
+    Wrap parse_requirements/build_req_from_parsedreq to
     avoid having to write the same chunk of code in lots of tests.
     """
-    for parsed in parse_requirements(
-        filename,
+    return list(RequirementsFile.parse(
+        filename=filename,
         is_constraint=is_constraint,
-    ):
-        if isinstance(parsed, (InvalidRequirementLine, OptionLine, CommentRequirementLine,)):
-            yield parsed
-        else:
-            yield install_req_from_parsed_requirement(parsed)
+        include_nested=include_nested,
+    ))
 
 
 @pytest.fixture
@@ -90,7 +85,7 @@ def parse_requirement_line(
         path.parent.mkdir(exist_ok=True)
         path.write_text(prefix + line)
         monkeypatch.chdir(str(tmpdir))
-        return list(get_requirements_and_lines(filename, is_constraint))
+        return get_requirements_and_lines(filename, is_constraint)
 
     return process_line
 
@@ -114,7 +109,7 @@ def parse_requirement_text(
         path.parent.mkdir(exist_ok=True)
         path.write_text(text)
         monkeypatch.chdir(str(tmpdir))
-        return RequirementsFile(path, include_nested=include_nested)
+        return RequirementsFile.from_file(path, include_nested=include_nested)
 
     return process_file
 
@@ -243,6 +238,246 @@ class TestJoinLines:
         assert expect == list(join_lines(lines))
 
 
+class TestProcessFile:
+
+    def test_can_dumps_name_at_url_requirements_from_file(self, parse_requirement_text) -> None:
+        text = "name@http://foo.com"
+        rf = parse_requirement_text(text)
+        assert rf.dumps() == text
+
+    def test_can_dumps_local_dot_path_from_file(self, parse_requirement_text) -> None:
+        text = "."
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.name == None
+        assert r.link.url == "."
+
+    def test_can_dumps_local_dot_path_extras_from_file(self, parse_requirement_text) -> None:
+        text = ". [extra]"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.name == None
+        assert r.link.url == "."
+        assert r.extras == {"extra"}
+        assert r.dumps() == ". [extra]"
+
+    def test_can_dumps_local_path_from_file(self, parse_requirement_text) -> None:
+        text = ".foobar"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.name == None
+        assert not r.specifier
+        assert r.link.url == ".foobar"
+        assert r.dumps() == text
+
+    def test_can_dumps_local_path_extras_from_file(self, parse_requirement_text) -> None:
+        text = ".foobar [extra]"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.name == None
+        assert not r.specifier
+        assert r.link.url == ".foobar"
+        assert r.extras == {"extra"}
+        assert r.dumps() == text
+
+    def test_can_dumps_local_path_to_wheel_from_file(self, parse_requirement_text) -> None:
+        text = "./downloads/numpy-1.9.2-cp34-none-win32.whl"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.is_wheel
+        assert r.name == "numpy"
+        assert r.link.url == "./downloads/numpy-1.9.2-cp34-none-win32.whl"
+        assert r.extras == set()
+        assert r.dumps() == text
+
+    def test_can_dumps_local_path_to_wheel_with_extras_from_file(self, parse_requirement_text) -> None:
+        text = "./downloads/numpy-1.9.2-cp34-none-win32.whl [extra,other]"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert not r.is_wheel
+        assert r.is_local_path
+        assert r.name == None
+        assert not r.specifier
+        assert r.link.url == "./downloads/numpy-1.9.2-cp34-none-win32.whl"
+        assert r.extras == {"extra", "other"}
+        assert r.dumps() == text
+
+    def test_can_dumps_local_path_to_plain_wheel_from_file(self, parse_requirement_text) -> None:
+        text = "numpy-1.9.2-cp34-none-win32.whl"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.is_wheel
+        assert r.name == "numpy"
+        assert str(r.specifier) == "==1.9.2"
+        assert r.link.url == "numpy-1.9.2-cp34-none-win32.whl"
+        assert r.extras == set()
+        assert r.dumps() == "numpy-1.9.2-cp34-none-win32.whl"
+
+    def test_can_dumps_local_path_to_plain_wheel_with_extras_from_file(self, parse_requirement_text) -> None:
+        text = "numpy-1.9.2-cp34-none-win32.whl [extra,other]"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.is_wheel
+        assert r.name == "numpy-1.9.2-cp34-none-win32.whl"
+        assert not r.specifier
+        assert r.link == None
+        assert r.extras == {"extra", "other"}
+        assert r.dumps() == "numpy-1.9.2-cp34-none-win32.whl [extra,other]"
+
+    def test_can_dumps_local_targz_archive(self, parse_requirement_text) -> None:
+        text = "sampleproject-1.0.tar.gz"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert not r.is_wheel
+        assert r.is_archive
+        assert r.name == None
+        assert not r.specifier
+        assert r.link.url == "sampleproject-1.0.tar.gz"
+        assert r.extras == set()
+        assert r.dumps() == text
+
+    def test_can_dumps_vcs_url_egg_and_extra(self, parse_requirement_text) -> None:
+        text = "git+https://github.com/lazzrek/raven-python.git#egg=raven[flask]"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert not r.is_wheel
+        assert not r.is_archive
+        assert r.is_vcs_url
+        assert r.name == "raven"
+        assert not r.specifier
+        assert r.link.url == "git+https://github.com/lazzrek/raven-python.git#egg=raven[flask]"
+        assert r.extras == {'flask'}
+        assert r.dumps() == text
+
+    def test_parse_name_at_url_to_wheel_with_packaging(self, parse_requirement_text) -> None:
+        from packaging.requirements import Requirement
+
+        text = "SomeProject@http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        r = Requirement(text)
+        assert r.url =="http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.name == "SomeProject"
+        assert not r.specifier
+        assert r.extras == set()
+        assert str(r) == "SomeProject@ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+
+    def test_parse_name_at_url__with_packaging(self, parse_requirement_text) -> None:
+        from packaging.requirements import Requirement
+
+        text = "SomeProject@http://my.package.repo/SomeProject2.tgz"
+        r = Requirement(text)
+        assert r.url =="http://my.package.repo/SomeProject2.tgz"
+        assert r.name == "SomeProject"
+        assert not r.specifier
+        assert r.extras == set()
+        assert str(r) == "SomeProject@ http://my.package.repo/SomeProject2.tgz"
+
+    def test_parse_name_at_vcs_url_to_wheel_with_packaging(self, parse_requirement_text) -> None:
+        from packaging.requirements import Requirement
+
+        text = "SomeProject@git+http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        r = Requirement(text)
+        assert r.url =="git+http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.name == "SomeProject"
+        assert not r.specifier
+        assert r.extras == set()
+        assert str(r) == "SomeProject@ git+http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+
+    def test_can_dumps_name_at_url_to_wheel(self, parse_requirement_text) -> None:
+        text = "SomeProject@http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.is_name_at_url
+        assert r.is_wheel
+        assert r.is_archive
+        assert not r.is_vcs_url
+        assert r.name == "SomeProject"
+        assert not r.specifier
+        assert r.link.url == "http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.extras == set()
+        assert str(r.req) ==  "SomeProject@ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.dumps() == text
+
+    def test_can_dumps_name_at_url_to_wheel_with_space(self, parse_requirement_text) -> None:
+        text = "SomeProject@ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.is_name_at_url
+        assert r.is_wheel
+        assert r.is_archive
+        assert not r.is_vcs_url
+        assert r.name == "SomeProject"
+        assert not r.specifier
+        assert r.link.url == "http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.extras == set()
+        assert str(r.req) == "SomeProject@ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.dumps() == "SomeProject@http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+
+    def test_can_dumps_name_at_vcs_url_to_wheel(self, parse_requirement_text) -> None:
+        text = "SomeProject@git+http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.is_name_at_url
+        assert r.is_wheel
+        assert r.is_archive
+        assert r.req.url == "git+http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.is_vcs_url
+        assert r.name == "SomeProject"
+        assert not r.specifier
+        assert r.link.url == "git+http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.extras == set()
+        assert r.dumps() == text
+
+    def test_can_dumps_name_at_url_to_wheel_with_space2(self, parse_requirement_text) -> None:
+        text = "SomeProject@http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.is_name_at_url
+        assert r.is_wheel
+        assert r.is_archive
+        assert not r.is_vcs_url
+        assert not r.specifier
+        assert r.name == "SomeProject"
+        assert r.req.name == "SomeProject"
+        assert r.link.url == "http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.req.url == "http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert r.extras == set()
+        assert r.dumps() == text
+
+    def test_can_collect_invalid_top_options_mixed_on_req_line(self, parse_requirement_text) -> None:
+        text = "psycopg2>=2.7.4 --no-binary psycopg2"
+        rf = parse_requirement_text(text)
+        assert not rf.requirements
+        assert rf.invalid_lines[0].line == text
+        assert rf.invalid_lines[0].error_message==(
+            "Invalid global options, not supported with a requirement spec: --no-binary psycopg2"
+        )
+
+    def test_can_process_comment_with_colon(self, parse_requirement_text) -> None:
+        text = "# No closing quotation: works because we do not validate hashes"
+        rf = parse_requirement_text(text)
+        co = rf.comments[0]
+        assert co.line == "# No closing quotation: works because we do not validate hashes"
+
+    def test_can_process_trailing_quotes(self, parse_requirement_text) -> None:
+        text = "FooProject==1.2 --hash=sha256:2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824\","
+        rf = parse_requirement_text(text)
+        assert not rf.requirements
+        il = rf.invalid_lines[0]
+        assert il.error_message == "No closing quotation"
+
+    def test_can_dumps_vcs_editable_with_egg_extras_and_other_query_string_args(self, parse_requirement_text) -> None:
+        text = "--editable git+https://github.com/techalchemy/pythonfinder.git@master#egg=pythonfinder[dev]&subdirectory=mysubdir"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert not r.is_name_at_url
+        assert r.is_vcs_url
+        assert not r.specifier
+        assert r.name == "pythonfinder"
+        assert r.link.url == "git+https://github.com/techalchemy/pythonfinder.git@master#egg=pythonfinder[dev]&subdirectory=mysubdir"
+        assert r.extras == {"dev"}
+        assert r.dumps() == text
+
+
 class TestProcessLine:
 
     def test_parser_can_detect_editable_egg(self, parse_requirement_line) -> None:
@@ -270,26 +505,39 @@ class TestProcessLine:
                 line_number=1,
                 filename='file',
             ),
-            error_message='pytest: error: no such option: --bogus\n',
+            error_message='pip_requirements: error: no such option: --bogus\n',
         )
         assert result == [expected]
 
-    def test_parser_offending_line(self, parse_requirement_line) -> None:
+    def test_parse_requirement_to_dict(self, parse_requirement_line) -> None:
         line = "pkg==1.0.0 --hash=somehash"
         result = parse_requirement_line(line, "file", 1)[0].to_dict()
         expected = {
-            'requirement_line': {"line_number": 1, "line": line},
-            'is_constraint': False,
-            'is_editable': False,
+            'name': 'pkg',
+            'specifier': ['==1.0.0'],
             'extras': [],
+            'link': None,
+            'marker': None,
             'global_options': [],
             'hash_options': ['somehash'],
             'install_options': [],
+            'invalid_options': {},
+            
+            'is_editable': False,
+            'is_constraint': False,
+            
+            'requirement_line': {
+                'line': 'pkg==1.0.0 --hash=somehash',
+                'line_number': 1},
+            
+            'has_egg_fragment': False,
+            'is_archive': None,
+            'is_local_path': None,
+            'is_name_at_url': False,
             'is_pinned': True,
-            'link': None,
-            'markers': None,
-            'name': 'pkg',
-            'specifier': ['==1.0.0']
+            'is_url': None,
+            'is_vcs_url': None,
+            'is_wheel': False,
         }
         assert result == expected
  
@@ -300,14 +548,16 @@ class TestProcessLine:
             pytest.fail("Reported offending line where it should not.")
 
     def test_only_one_req_per_line(self, parse_requirement_line) -> None:
-        with pytest.raises(InstallationError):
-            parse_requirement_line(line="req1 req2", filename="file", line_number=1)
+        reqs = parse_requirement_line(
+            line="req1 req2", filename="file", line_number=1
+        )
+        assert type(reqs[0]) == InvalidRequirementLine
 
     def test_error_message(self, parse_requirement_line) -> None:
-        with pytest.raises(InstallationError):
-            parse_requirement_line(
-                "my-package=1.0", filename="path/requirements.txt", line_number=3
-            )
+        reqs = parse_requirement_line(
+            "my-package=1.0", filename="path/requirements.txt", line_number=3
+        )
+        assert type(reqs[0]) == InvalidRequirementLine
 
     def test_yield_line_requirement(self, parse_requirement_line) -> None:
         line = "SomeProject"
@@ -317,7 +567,7 @@ class TestProcessLine:
             line_number=1,
             line=line,
         )
-        req = install_req_from_line(line, requirement_line=requirement_line)
+        req = build_install_req(line, requirement_line=requirement_line)
         assert repr(parse_requirement_line(line, filename, 1)[0]) == repr(req)
 
     def test_yield_pep440_line_requirement(self, parse_requirement_line) -> None:
@@ -328,7 +578,7 @@ class TestProcessLine:
             line_number=1,
             line=line,
         )
-        req = install_req_from_line(line, requirement_line=requirement_line)
+        req = build_install_req(line, requirement_line=requirement_line)
         assert repr(parse_requirement_line(line, filename, 1)[0]) == repr(req)
 
     def test_yield_line_constraint(self, parse_requirement_line) -> None:
@@ -339,7 +589,7 @@ class TestProcessLine:
             line_number=1,
             line=line,
         )
-        req = install_req_from_line(line, requirement_line=requirement_line, is_constraint=True)
+        req = build_install_req(line, requirement_line=requirement_line, is_constraint=True)
         found_req = parse_requirement_line(line, filename, 1, is_constraint=True)[0]
         assert repr(found_req) == repr(req)
         assert found_req.is_constraint is True
@@ -352,7 +602,7 @@ class TestProcessLine:
             line_number=1,
             line=line,
         )
-        req = install_req_from_line(line, requirement_line=requirement_line)
+        req = build_install_req(line, requirement_line=requirement_line)
         assert repr(parse_requirement_line(line, filename, 1)[0]) == repr(req)
         assert req.req is not None
         assert str(req.req.specifier) == ">=2"
@@ -366,7 +616,7 @@ class TestProcessLine:
             line_number=1,
             line=line,
         )
-        req = install_req_from_editable(url, requirement_line=requirement_line)
+        req = build_editable_req(url, requirement_line=requirement_line)
         assert repr(parse_requirement_line(line, filename, 1)[0]) == repr(req)
 
     def test_yield_editable_constraint(self, parse_requirement_line) -> None:
@@ -378,7 +628,7 @@ class TestProcessLine:
             line_number=1,
             line=line,
         )
-        req = install_req_from_editable(url, requirement_line=requirement_line, is_constraint=True)
+        req = build_editable_req(url, requirement_line=requirement_line, is_constraint=True)
         found_req = parse_requirement_line(line, filename, 1, is_constraint=True)[0]
         assert repr(found_req) == repr(req)
         assert found_req.is_constraint is True
@@ -397,7 +647,7 @@ class TestProcessLine:
 
         monkeypatch.chdir(str(tmpdir))
 
-        reqs = list(get_requirements_and_lines("./parent/req_file.txt"))
+        reqs = get_requirements_and_lines("./parent/req_file.txt", include_nested=True)
         assert len(reqs) == 2
         assert reqs[0].name == req_name
         assert reqs[0].is_constraint
@@ -483,7 +733,7 @@ class TestProcessLine:
             pip_requirements, "get_file_content", get_file_content
         )
 
-        result = list(get_requirements_and_lines(req_file,))
+        result = get_requirements_and_lines(req_file, include_nested=True)
         assert len(result) == 2
         assert result[0].name == req_name
         assert not result[0].is_constraint
@@ -506,7 +756,7 @@ class TestProcessLine:
 
         monkeypatch.chdir(str(tmpdir))
 
-        reqs = list(get_requirements_and_lines("./parent/req_file.txt"))
+        reqs = get_requirements_and_lines("./parent/req_file.txt", include_nested=True)
         assert len(reqs) == 2
         assert reqs[0].name == req_name
         assert not reqs[0].is_constraint
@@ -530,7 +780,7 @@ class TestProcessLine:
 
         # TODO: also test nested parsing!
 
-        reqs = list(get_requirements_and_lines(str(req_file)))
+        reqs = get_requirements_and_lines(str(req_file), include_nested=True)
         assert len(reqs) == 2
         assert reqs[0].name == req_name
         assert not reqs[0].is_constraint
@@ -555,13 +805,14 @@ class TestProcessLine:
                 return f"-r {nested_req_file}"
             elif filename == nested_req_file:
                 return req_name
+
             assert False, f"Unexpected file requested {filename}"
 
         monkeypatch.setattr(
             pip_requirements, "get_file_content", get_file_content
         )
 
-        result = list(get_requirements_and_lines(req_file))
+        result = get_requirements_and_lines(req_file, include_nested=True)
         assert len(result) == 2
         
         assert result[0].name == req_name
@@ -620,11 +871,7 @@ class TestParseRequirements:
             fp.write("--extra-index-url url2 ")
 
         
-        result = list(
-            get_requirements_and_lines(
-                tmpdir.joinpath("req1.txt"),
-            )
-        )
+        result = get_requirements_and_lines(tmpdir.joinpath("req1.txt"))
         assert result[0].options =={"extra_index_urls":["url1"]}
         assert result[1].options =={"extra_index_urls":["url2"]}
 
@@ -645,11 +892,7 @@ class TestParseRequirements:
         with mock.patch("pip_requirements.os.getenv") as getenv:
             getenv.return_value = ""
 
-            reqs = list(
-                get_requirements_and_lines(
-                    tmpdir.joinpath("req1.txt")
-                )
-            )
+            reqs = get_requirements_and_lines(tmpdir.joinpath("req1.txt"))
 
             assert len(reqs) == 1, "parsing requirement file with env variable failed"
             assert reqs[0].link is not None
@@ -661,7 +904,7 @@ class TestParseRequirements:
         with open(tmpdir.joinpath("req1.txt"), "w") as fp:
             fp.write("--extra-index-url url1 \\\n--extra-index-url url2")
 
-        result = list(get_requirements_and_lines(tmpdir.joinpath("req1.txt")))
+        result = get_requirements_and_lines(tmpdir.joinpath("req1.txt"))
 
         assert result[0].options =={"extra_index_urls":['url1', 'url2']}
 
@@ -673,10 +916,8 @@ class TestParseRequirements:
         --no-binary fred
         --only-binary wilma
         """
-        result = list(
-            get_requirements_and_lines(
-                data.reqfiles.joinpath("supported_options2.txt"),
-            )
+        result = get_requirements_and_lines(
+            data.reqfiles.joinpath("supported_options2.txt")
         )
         assert len(result) == 5
         assert all(isinstance(r, CommentRequirementLine) for r in result[:3])
@@ -689,8 +930,8 @@ class TestParseRequirements:
         """
         with open(tmpdir.joinpath("req1.txt"), "w") as fp:
             fp.write("# Comment ")
-        
-        result = list(get_requirements_and_lines(tmpdir.joinpath("req1.txt")))
+
+        result = get_requirements_and_lines(tmpdir.joinpath("req1.txt"))
         assert len(result) ==1
         assert isinstance(result[0], CommentRequirementLine)
         assert result[0].line == "# Comment"
@@ -702,7 +943,7 @@ class TestParseRequirements:
         with open(tmpdir.joinpath("req1.txt"), "w") as fp:
             fp.write("https://example.com/foo.tar.gz # Comment ")
 
-        result = list(get_requirements_and_lines(tmpdir.joinpath("req1.txt")))
+        result = get_requirements_and_lines(tmpdir.joinpath("req1.txt"))
         assert len(result) == 2
         assert result[0].link is not None
         assert result[0].link.url == "https://example.com/foo.tar.gz"
@@ -715,7 +956,7 @@ class TestParseRequirements:
         with open(tmpdir.joinpath("req1.txt"), "w") as fp:
             fp.write("https://example.com/foo.tar.gz#egg=wat")
 
-        result = list(get_requirements_and_lines(tmpdir.joinpath("req1.txt")))
+        result = get_requirements_and_lines(tmpdir.joinpath("req1.txt"))
 
         assert len(result) == 1
         assert result[0].name == "wat"
@@ -735,7 +976,16 @@ class TestParseRequirements:
             """
             )
 
-        get_requirements_and_lines(tmpdir.joinpath("req.txt"))
+        result = get_requirements_and_lines(tmpdir.joinpath("req.txt"))
+        assert len(result) == 6
+        assert [type(l) for l in result] == [
+            OptionLine,
+            OptionLine,
+            OptionLine,
+            OptionLine,
+            IncorrectRequirementLine,
+            OptionLine,
+        ]
 
     def test_install_requirements_with_options(
         self,
@@ -755,7 +1005,7 @@ class TestParseRequirements:
 
         with requirements_file(content, tmpdir) as reqs_file:
             rf = reqs_file.resolve()
-            req = list(get_requirements_and_lines(rf))
+            req = get_requirements_and_lines(rf)
 
         assert len(req) == 2
         assert req[0].options == {'only_binary': [':all:']}
