@@ -12,17 +12,17 @@ import pytest
 from packaging.markers import Marker
 from packaging.requirements import Requirement
 
-from pip_requirements import (
+from pip_requirements_parser import (
     _get_url_from_path,
     _looks_like_path,
     parse_editable,
 )
-from pip_requirements import build_editable_req
-from pip_requirements import build_install_req
+from pip_requirements_parser import build_editable_req
+from pip_requirements_parser import build_install_req
 
-from pip_requirements import InstallationError
-from pip_requirements import InvalidWheelFilename
-from pip_requirements import RequirementLine
+from pip_requirements_parser import InstallationError
+from pip_requirements_parser import InvalidWheelFilename
+from pip_requirements_parser import RequirementLine
 
 
 class TestInstallRequirement:

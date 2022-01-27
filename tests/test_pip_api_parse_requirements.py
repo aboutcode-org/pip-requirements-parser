@@ -27,7 +27,7 @@
 from typing import NamedTuple
 
 import pytest
-from pip_requirements import RequirementsFile
+from pip_requirements_parser import RequirementsFile
 
 @pytest.fixture
 def create_requirement_files(

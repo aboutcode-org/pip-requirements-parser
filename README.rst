@@ -1,4 +1,4 @@
-pip requirements parser - a mostly correct pip requirements parsing library
+pip-requirements-parser - a mostly correct pip requirements parsing library
 ================================================================================
 
 Copyright (c) nexB Inc. and others.
@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 Homepage: https://github.com/nexB/pip-requirements and https://www.aboutcode.org/
 
 
-``pip requirements parser`` is a mostly correct pip requirements parsing
+``pip-requirements-parser`` is a mostly correct pip requirements parsing
 library ... because it uses pip's own code!
 
 pip is the ``package installer`` for Python that is using "requirements" text
@@ -48,51 +48,52 @@ in all their diversity because:
   other library is using a command line option parser to parse options correctly.
 
 
-This ``pip_requirements`` Python library is yet another pip requirements files
-parser, but this time doing it hopefully correctly and doing as well as pip does
-it, because this is using pip's own code.
+This ``pip-requirements-parser`` Python library is yet another pip requirements
+files parser, but this time doing it hopefully correctly and doing as well as
+pip does it, because this is using pip's own code.
 
 
-The ``pip_requirements`` library offers these key advantages:
+The ``pip-requirements-parser`` library offers these key advantages:
 
 - Other requirements parsers typically do not work in all the cases that ``pip``
   supports: parsing any requirement as seen in the wild will fail parsing some
-  valid pip requirements. Since the ``pip_requirements`` library is based on
-  pip's own code, it works **exactly** like pip and will parse all the
+  valid pip requirements. Since the ``pip-requirements-parser`` library is based
+  on pip's own code, it works **exactly** like pip and will parse all the
   requirements files that pip can parse.
 
-- The ``pip_requirements`` library offers a simple and stable code API that will
-  not change without notice.
+- The ``pip-requirements-parser`` library offers a simple and stable code API
+  that will not change without notice.
 
-- The ``pip_requirements`` library is designed to work offline without making
-  any external network call, while the original pip code needs network access.
+- The ``pip-requirements-parser`` library is designed to work offline without
+  making any external network call, while the original pip code needs network
+  access.
 
-- The ``pip_requirements`` library is a single file that can easily be copied
-  around as needed for easy vendoring. This is useful as requirements parsing
-  is often needed to bootstrap in a constrained environment.
+- The ``pip-requirements-parser`` library is a single file that can easily be
+  copied around as needed for easy vendoring. This is useful as requirements
+  parsing is often needed to bootstrap in a constrained environment.
 
-- The ``pip_requirements`` library has only one external dependency on the
-  common "packaging" package. Otherwise it uses only the standard library. The
-  benefits are the same as being a single file: fewer moving parts helps with
+- The ``pip-requirements-parser`` library has only one external dependency on
+  the common "packaging" package. Otherwise it uses only the standard library.
+  The benefits are the same as being a single file: fewer moving parts helps with
   using it in more cases.
 
-- The ``pip_requirements`` library reuses and passes the full subset of the pip
-  test suite that deals with requirements. This is a not really surprising since
-  this is pip's own code. The suite suite has been carefully ported and adjusted
-  to work with the updated code subset.
+- The ``pip-requirements-parser`` library reuses and passes the full subset of
+  the pip test suite that deals with requirements. This is a not really
+  surprising since this is pip's own code. The suite suite has been carefully
+  ported and adjusted to work with the updated code subset.
 
 - The standard pip requirements parser depends on the ``requests`` HTTP library
   and makes network connection to PyPI and other referenced repositories when
-  parsing. The ``pip_requirements`` libraryworks entirely offline and the
+  parsing. The ``pip-requirements-parser`` library works entirely offline and the
   requests dependency and calling has been entirely removed.
 
-- The ``pip_requirements`` library has preserved the complete pip git history
-  for the subset of the code we kept. The original pip code was merged from
-  multiple modules keeping all the git history at the line/blame level using
+- The ``pip-requirements-parser`` library has preserved the complete pip git
+  history for the subset of the code we kept. The original pip code was merged
+  from multiple modules keeping all the git history at the line/blame level using
   some git fu and git filter repo. The benefit is that we will be able to more
   easily track and merge future pip updates.
 
-- The ``pip_requirements`` library has an extensive test suite  made of:
+- The ``pip-requirements-parser`` library has an extensive test suite  made of:
 
   - pip's own tests
   - new unit tests
@@ -104,6 +105,8 @@ The ``pip_requirements`` library offers these key advantages:
      - https://github.com/landscapeio/requirements-detector
      - https://github.com/madpah/requirements-parser
 
+As a result, it has likely the most comprehensive requiremente parsing test
+suite around.
 
 
 Usage
@@ -111,7 +114,7 @@ Usage
 
 The entry point is the ``RequirementsFile`` object::
 
-    >>> from pip_requirements import RequirementsFile
+    >>> from pip_requirements_parser import RequirementsFile
     >>> rf = RequirementsFile.from_file("requirements.txt")
 
 From there, you can dump to a dict::

@@ -11,29 +11,29 @@ from unittest import mock
 import pytest
 from packaging.specifiers import SpecifierSet
 
-import pip_requirements  # this will be monkeypatched
-from pip_requirements import RequirementsFileParseError
-from pip_requirements import build_editable_req
-from pip_requirements import build_install_req
-from pip_requirements import (
+import pip_requirements_parser  # this will be monkeypatched
+from pip_requirements_parser import RequirementsFileParseError
+from pip_requirements_parser import build_editable_req
+from pip_requirements_parser import build_install_req
+from pip_requirements_parser import (
     break_args_options,
     split_comments,
     join_lines,
     parse_requirements,
     preprocess,
 )
-from pip_requirements import CommentLine
-from pip_requirements import CommentRequirementLine
-from pip_requirements import IncorrectRequirementLine
-from pip_requirements import InstallRequirement
-from pip_requirements import InvalidRequirementLine
-from pip_requirements import OptionLine
-from pip_requirements import RequirementsFile
-from pip_requirements import RequirementLine
-from pip_requirements import TextLine
+from pip_requirements_parser import CommentLine
+from pip_requirements_parser import CommentRequirementLine
+from pip_requirements_parser import IncorrectRequirementLine
+from pip_requirements_parser import InstallRequirement
+from pip_requirements_parser import InvalidRequirementLine
+from pip_requirements_parser import OptionLine
+from pip_requirements_parser import RequirementsFile
+from pip_requirements_parser import RequirementLine
+from pip_requirements_parser import TextLine
 
-from pip_req_parse_tests.lib import TestData, requirements_file
-from pip_req_parse_tests.lib.path import Path
+from pip_requirements_parser_tests.lib import TestData, requirements_file
+from pip_requirements_parser_tests.lib.path import Path
 
 
 def get_requirements_and_lines(
@@ -505,7 +505,7 @@ class TestProcessLine:
                 line_number=1,
                 filename='file',
             ),
-            error_message='pip_requirements: error: no such option: --bogus\n',
+            error_message='pip_requirements_parser: error: no such option: --bogus\n',
         )
         assert result == [expected]
 
@@ -730,7 +730,7 @@ class TestProcessLine:
             assert False, f"Unexpected file requested {filename}"
 
         monkeypatch.setattr(
-            pip_requirements, "get_file_content", get_file_content
+            pip_requirements_parser, "get_file_content", get_file_content
         )
 
         result = get_requirements_and_lines(req_file, include_nested=True)
@@ -809,7 +809,7 @@ class TestProcessLine:
             assert False, f"Unexpected file requested {filename}"
 
         monkeypatch.setattr(
-            pip_requirements, "get_file_content", get_file_content
+            pip_requirements_parser, "get_file_content", get_file_content
         )
 
         result = get_requirements_and_lines(req_file, include_nested=True)
@@ -889,7 +889,7 @@ class TestParseRequirements:
 
         # Construct the session outside the monkey-patch, since it access the
         # env
-        with mock.patch("pip_requirements.os.getenv") as getenv:
+        with mock.patch("pip_requirements_parser.os.getenv") as getenv:
             getenv.return_value = ""
 
             reqs = get_requirements_and_lines(tmpdir.joinpath("req1.txt"))

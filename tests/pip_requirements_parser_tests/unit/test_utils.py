@@ -13,8 +13,8 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from pip_requirements import BOMS, auto_decode
-from pip_requirements import split_auth_from_netloc
+from pip_requirements_parser import BOMS, auto_decode
+from pip_requirements_parser import split_auth_from_netloc
 
 
 if sys.byteorder == "little":
@@ -28,7 +28,7 @@ elif sys.byteorder == "big":
 
 
 class TestEncoding:
-    """Tests for pip_requirements.encoding"""
+    """Tests for pip_requirements_parser.encoding"""
 
     def test_auto_decode_utf_16_le(self) -> None:
         data = (

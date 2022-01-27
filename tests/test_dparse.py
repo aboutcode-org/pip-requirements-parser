@@ -30,7 +30,7 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-from pip_req_parse_tests.unit.test_req_file import parse_requirement_text
+from pip_requirements_parser_tests.unit.test_req_file import parse_requirement_text
 
 
 def test_requirements_with_invalid_requirement(parse_requirement_text):

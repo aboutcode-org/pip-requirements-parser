@@ -1461,7 +1461,7 @@ def build_parser() -> optparse.OptionParser:
         add_help_option=False,
         # override this otherwise, pytest or the name of the current running main
         # will show up in exceptions
-        prog="pip_requirements",
+        prog="pip_requirements_parser",
     )
     parser.print_usage = print_usage
 

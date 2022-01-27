@@ -4,8 +4,8 @@
 
 import pytest
 
-from pip_requirements import Link
-from pip_requirements import links_equivalent
+from pip_requirements_parser import Link
+from pip_requirements_parser import links_equivalent
 
 class TestLink:
     @pytest.mark.parametrize(

@@ -21,7 +21,7 @@
     {
       "line_number": 7,
       "line": "--unknown-options",
-      "error_message": "pip_requirements: error: no such option: --unknown-options"
+      "error_message": "pip_requirements_parser: error: no such option: --unknown-options"
     },
     {
       "line_number": 10,

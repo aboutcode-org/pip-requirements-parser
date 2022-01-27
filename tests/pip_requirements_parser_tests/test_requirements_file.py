@@ -6,10 +6,10 @@ import json
 
 import pytest
 
-import pip_requirements
+import pip_requirements_parser
 
-from pip_req_parse_tests.lib import ALL_REQFILES
-from pip_req_parse_tests.lib import MORE_REQFILES
+from pip_requirements_parser_tests.lib import ALL_REQFILES
+from pip_requirements_parser_tests.lib import MORE_REQFILES
 
 """
 Parse many requirements files and verify the expected JSON output
@@ -23,7 +23,7 @@ def test_RequirementsFile_to_dict(
 ) -> None:
 
     expected_file = test_file + "-expected.json"
-    results = pip_requirements.RequirementsFile.from_file(test_file).to_dict()
+    results = pip_requirements_parser.RequirementsFile.from_file(test_file).to_dict()
     if regen:
         with open (expected_file, 'w') as outp:
             json.dump(results, outp, indent=2)
@@ -41,7 +41,7 @@ def test_RequirementsFile_dumps_unparse(
     regen=False,
 ) -> None:
 
-    dumped = pip_requirements.RequirementsFile.from_file(test_file).dumps(
+    dumped = pip_requirements_parser.RequirementsFile.from_file(test_file).dumps(
         preserve_one_empty_line=True,
     ).strip()
 

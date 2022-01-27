@@ -7,7 +7,7 @@ from typing import Optional
 
 import pytest
 
-from pip_requirements import get_url_scheme, url_to_path
+from pip_requirements_parser import get_url_scheme, url_to_path
 
 
 @pytest.mark.parametrize(

@@ -30,11 +30,11 @@
 import tempfile
 from unittest import TestCase
 
-from pip_requirements import RequirementsFile
+from pip_requirements_parser import RequirementsFile
 
-from pip_req_parse_tests.lib.path import Path
-from pip_req_parse_tests.lib import requirements_file
-from pip_req_parse_tests.unit.misc import rmtree
+from pip_requirements_parser_tests.lib.path import Path
+from pip_requirements_parser_tests.lib import requirements_file
+from pip_requirements_parser_tests.unit.misc import rmtree
 
 
 class TestRequirementParsing(TestCase):

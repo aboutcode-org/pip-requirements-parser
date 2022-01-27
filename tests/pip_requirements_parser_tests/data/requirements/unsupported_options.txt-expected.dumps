@@ -5,7 +5,7 @@
 --no-use-wheel
 
 # unknown
-# pip_requirements: error: no such option: --unknown-options
+# pip_requirements_parser: error: no such option: --unknown-options
 --unknown-options
 
 # trailing arugment

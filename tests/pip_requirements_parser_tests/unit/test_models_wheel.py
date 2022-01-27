@@ -5,8 +5,8 @@
 import pytest
 from packaging.tags import Tag
 
-from pip_requirements import InvalidWheelFilename
-from pip_requirements import Wheel
+from pip_requirements_parser import InvalidWheelFilename
+from pip_requirements_parser import Wheel
 
 from . import compatibility_tags
 

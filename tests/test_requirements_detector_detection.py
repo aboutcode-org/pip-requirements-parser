@@ -30,7 +30,7 @@
 import os
 from unittest import TestCase
 
-from pip_requirements import RequirementsFile
+from pip_requirements_parser import RequirementsFile
 
 
 class DependencyDetectionTest(TestCase):

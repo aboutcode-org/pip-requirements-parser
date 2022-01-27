@@ -8,9 +8,9 @@ import pytest
 from packaging.requirements import Requirement
 from packaging.requirements import InvalidRequirement
 
-from pip_requirements import InstallationError
-from pip_requirements import InstallRequirement
-from pip_requirements import RequirementLine
+from pip_requirements_parser import InstallationError
+from pip_requirements_parser import InstallRequirement
+from pip_requirements_parser import RequirementLine
 
 
 def install_req_from_req_string(
