@@ -2134,10 +2134,12 @@ class InstallRequirement(
             has_egg_fragment=self.has_egg_fragment,
         )
 
-    def dumps(self):
+    def dumps(self, with_name=True) -> str:
         """
         Return a single string line representing this InstallRequirement
         suitable to use in a requirements file.
+        Optionally exclude the name if ``with_name`` is False for simple
+        requirements
         """
         parts = []
 
@@ -2195,7 +2197,8 @@ class InstallRequirement(
                 parts.append(self.dumps_marker())
 
         else:
-            parts.append(self.dumps_name())
+            if with_name:
+                parts.append(self.dumps_name())
             parts.append(self.dumps_extras())
             parts.append(self.dumps_specifier())
             parts.append(self.dumps_marker())
