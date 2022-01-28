@@ -2,6 +2,26 @@ Changelog
 =========
 
 
+v31.1.0
+-------
+
+Add new convenience method InstallRequirement.get_pinned_version() to return
+the pinned version if there is such thing.
+
+
+v31.0.1
+-------
+
+Fix twine warning wrt. long_description content type.
+
+
+v31.0.0
+-------
+
+Include code in wheel. This was not included otherwise.
+Improve documentation
+
+
 v30.0.0
 -------
 
