@@ -1,0 +1,34 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "MyProject",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "git+https://git.myproject.org/MyProject.git@v0.1#egg=MyProject[security]"
+      },
+      "link": "git+https://git.myproject.org/MyProject.git@v0.1#egg=MyProject[security]",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [
+        "security"
+      ],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": true,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": true
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

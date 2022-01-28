@@ -1,0 +1,13 @@
+--editable bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject
+--editable bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject
+--editable bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject
+--editable bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject
+--editable bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject
+--editable bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject
+
+bzr+http://bzr.myproject.org/MyProject/trunk#egg=MyProject
+bzr+sftp://user@myproject.org/MyProject/trunk#egg=MyProject
+bzr+ssh://user@myproject.org/MyProject/trunk#egg=MyProject
+bzr+ftp://user@myproject.org/MyProject/trunk#egg=MyProject
+bzr+https://bzr.myproject.org/MyProject/trunk@2019#egg=MyProject
+bzr+http://bzr.myproject.org/MyProject/trunk@v1.0#egg=MyProject

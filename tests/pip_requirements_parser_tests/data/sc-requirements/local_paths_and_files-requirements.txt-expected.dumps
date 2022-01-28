@@ -1,0 +1,4 @@
+file:///path/to/your/lib/project#egg=MyProject
+/../lib/project
+path/to/SomeProject#egg=SomeOtherProject
+--editable path/to/AnotherProject#egg=AnotherProject

@@ -1,0 +1,14 @@
+--editable git+git://git.myproject.org/MyProject#egg=MyProject
+--editable git+https://git.myproject.org/MyProject#egg=MyProject
+--editable git+ssh://git.myproject.org/MyProject#egg=MyProject
+--editable git+ssh://git@git.myproject.org/MyProject#egg=MyProject
+--editable git://git.myproject.org/MyProject.git@master#egg=MyProject
+--editable git://git.myproject.org/MyProject.git@v1.0#egg=MyProject
+--editable git://git.myproject.org/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject
+
+git+git://git.myproject.org/MyProject#egg=MyProject
+git+https://git.myproject.org/MyProject#egg=MyProject
+git+ssh://git.myproject.org/MyProject#egg=MyProject
+git://git.myproject.org/MyProject.git@master#egg=MyProject
+git://git.myproject.org/MyProject.git@v1.0#egg=MyProject
+git://git.myproject.org/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject

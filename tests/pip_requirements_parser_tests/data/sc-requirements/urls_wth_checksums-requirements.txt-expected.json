@@ -1,0 +1,57 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": null,
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "http://pypi.python.org/packages/source/p/pytz/pytz-2016.4.tar.gz#md5=a3316cf3842ed0375ba5931914239d97"
+      },
+      "link": "http://pypi.python.org/packages/source/p/pytz/pytz-2016.4.tar.gz#md5=a3316cf3842ed0375ba5931914239d97",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": null,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
+    },
+    {
+      "name": "Flask",
+      "specifier": [],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 2,
+        "line": "http://pypi.python.org/packages/source/f/flask/Flask-0.11.1.tar.gz#sha256=1212aaf123911123babc024abaa&egg=Flask"
+      },
+      "link": "http://pypi.python.org/packages/source/f/flask/Flask-0.11.1.tar.gz#sha256=1212aaf123911123babc024abaa&egg=Flask",
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": false,
+      "is_wheel": false,
+      "is_url": true,
+      "is_vcs_url": false,
+      "is_name_at_url": false,
+      "is_local_path": true,
+      "has_egg_fragment": false
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

@@ -1,0 +1,38 @@
+{
+  "options": [],
+  "requirements": [
+    {
+      "name": "PickyThing",
+      "specifier": [
+        "<1.6",
+        ">1.9",
+        "!=1.9.6",
+        "<2.0a0",
+        "==2.4c1"
+      ],
+      "is_editable": false,
+      "is_pinned": false,
+      "requirement_line": {
+        "line_number": 1,
+        "line": "PickyThing<1.6,>1.9,!=1.9.6,<2.0a0,==2.4c1"
+      },
+      "link": null,
+      "marker": null,
+      "install_options": [],
+      "global_options": [],
+      "hash_options": [],
+      "is_constraint": false,
+      "extras": [],
+      "invalid_options": {},
+      "is_archive": null,
+      "is_wheel": false,
+      "is_url": null,
+      "is_vcs_url": null,
+      "is_name_at_url": false,
+      "is_local_path": null,
+      "has_egg_fragment": false
+    }
+  ],
+  "invalid_lines": [],
+  "comments": []
+}

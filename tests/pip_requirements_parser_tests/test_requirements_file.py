@@ -10,13 +10,16 @@ import pip_requirements_parser
 
 from pip_requirements_parser_tests.lib import ALL_REQFILES
 from pip_requirements_parser_tests.lib import MORE_REQFILES
+from pip_requirements_parser_tests.lib import SC_REQFILES
 
 """
 Parse many requirements files and verify the expected JSON output
 """
 
+all_test_requirements_files = ALL_REQFILES + MORE_REQFILES + SC_REQFILES
 
-@pytest.mark.parametrize("test_file", ALL_REQFILES + MORE_REQFILES)
+
+@pytest.mark.parametrize("test_file", all_test_requirements_files)
 def test_RequirementsFile_to_dict(
     test_file: str,
     regen=False,
@@ -35,7 +38,7 @@ def test_RequirementsFile_to_dict(
     assert results == expected
 
 
-@pytest.mark.parametrize("test_file", ALL_REQFILES + MORE_REQFILES)
+@pytest.mark.parametrize("test_file", all_test_requirements_files)
 def test_RequirementsFile_dumps_unparse(
     test_file: str,
     regen=False,
@@ -56,4 +59,3 @@ def test_RequirementsFile_dumps_unparse(
             expected = inp.read()
 
     assert dumped == expected.strip()
-
