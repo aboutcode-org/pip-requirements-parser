@@ -225,7 +225,6 @@ class RequirementsFile:
         -r/--requirement adn -c--constraint requirements and constraints files
         referenced in the requirements file.
         """
-        filename = filename
         requirements: List[InstallRequirement] = []
         options: List[OptionLine] = []
         invalid_lines: List[Union[IncorrectRequirementLine, InvalidRequirementLine]] = []
@@ -2034,6 +2033,15 @@ class InstallRequirement(
 
 # PIPREQPARSE: end from src/pip/_internal/req/req_install.py
 ################################################################################
+
+    @property
+    def get_pinned_version(self) -> str:
+        """
+        Return a pinned version or None.
+        """
+        if self.is_pinned:
+            # we have only one spec which is pinned. Gte the version as string
+            return str(list(self.specifier)[0].version)
 
     @property
     def is_editable(self) -> bool:
