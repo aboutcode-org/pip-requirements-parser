@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+v31.1.1
+-------
+
+Add new tests. No other changes.
+
+
 v31.1.0
 -------
 
