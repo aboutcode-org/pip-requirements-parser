@@ -74,8 +74,8 @@ from packaging.version import LegacyVersion
 from packaging.version import Version
 
 """
-A pip requirements files parser, doing it as well as pip does it becasue it is
-based on pip's code itself.
+A pip requirements files parser, doing it as well as pip does it because it is
+based on pip's own code.
 
 The code is merged from multiple pip modules. And each pip code section is
 tagged with comments:
@@ -87,81 +87,110 @@ We also kept the pip git line-level, blame history of all these modules.
 In constrast with pip, it may not fail on invalid requirements.
 Instead it will accumulate these as invalid lines.
 
-It can also dump back a requirements file, presevring most but not all formatting
+It can also dump back a requirements file, preserving most but not all
+formatting. Dumping does these high level transformations:
+
+- include informative extra comment lines about a line with an error before that
+  line.
+
+- some lines with errors (such as invalid per requirement options) may be
+  stripped from their original lines and reported as an error comment instead
+
+- multiple empty lines are folded in one empty line,
+
+- spaces are normalized, including spaces before an end of line comment, and 
+  leading and trailing spaces on a line, and spaces inside a requirement
+
+- short form options (such as -e or -r) are converted to their long form
+  (--editable).
+
+- most lines with continuations \\ are folded back on a single line except
+  for the --hash option which is always folded using pip-tools folding
+  style.
 
 
-Architecture:
+Architecture and API
+---------------------
 
-A RequirementsFile contains list of:
+The ``RequirementsFile`` object is the main API and entry point. It contains lists
+of objects resulting from parsing:
 
-- requirements (as in "django==3.2")
-- options (as in "--requirement file.txt")
-- comment lines (as in "# comment")
-- invalid lines that cannot be parsed with an error message
+- requirements (as in "django==3.2") as ``InstallRequirement`` or ``EditableRequirement``
+- options (as in "--requirement file.txt") as ``OptionLine``
+- comment lines (as in "# comment" including EOL comments) as simple ``CommentLine``
+- invalid lines that cannot be parsed with an error message as
+  ``InvalidRequirementLine`` or `IncorrectRequirement``
 
-Each item of these list must be on a single unfolded line. Each object has
+Each item of these lists must be on a single unfolded line. Each object has
 a "requirement_line" to track the original text line, line number and filename.
 
+These objects are the API for now.
+"""
 
-A requirement line can come in many styles:
+################################################################################
+# The pip requirement styles
+"""
+A pip requirement line comes in many styles. Some are supported by the
+``packaging`` library some are not.
 
-Standard packaging-supported requirement lines:
-------------------------------------------
 
-- a standard packaging requirement as name[extras]<specifiers,>;marker
+Standard ``packaging``-supported requirement lines
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- a standard ``packaging`` requirement as name[extras]<specifiers,>;marker
   For example: "django[extras]==3.2;marker"
 
-    - non standard pip additions: same with pip per-requirement options such
+    - non-standard pip additions: same with pip per-requirement options such
       as --hash
 
-- a standard packaging pep 508 URL as in name[extras]@url
+- a standard ``packaging`` pep 508 URL as in name[extras]@url
   This is a standard packaging requirement.
   For example: boolean.py[bar]@https://github.com/bastikr/boolean.py.git
 
-    - non standard pip additions: support for VCS URLs
+    - non-standard pip additions: support for VCS URLs. packaging can parse
+      these though pip's code is needed to interpret them.
       For example: boolean.py[bar]@git+https://github.com/bastikr/boolean.py.git
-    
-    - non standard pip additions: same with trailing #fragment. pip will
+
+    - non-standard pip additions: same with trailing #fragment. pip will
       recognize trailing name[extra]@url#[extras]<specifiers>;marker and when
       these exist they override the extra before the @ if any. They must also
       align with whatever is behind the URL in terms of name and version or else
-      pip will error out.
-      For example: boolean.py@git+https://github.com/bastikr/boolean.py.git#[foo]==3.8;python_version=="3.6"
+      pip will error out. This may be an undocumented non-feature. For example: 
+      boolean.py@git+https://github.com/bastikr/boolean.py.git#[foo]==3.8;python_version=="3.6"
 
-    - non standard pip additions: same with pip per-requirement options such
-      as --hash but --hash is an error for a VCS URL.
+    - non-standard pip additions: same with pip per-requirement options such
+      as --hash but --hash is an error for a pip VCS URL and non-pinned
+      requirements.
 
 
-Pip-specific requirement lines:
-----------------------------
+pip-specific requirement lines:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- a # comment line 
+- a # comment line, including end-of-line comments
 
 - a pip option such as --index-url
 
-- a pip local path to a directory, archive or wheel
+- a pip local path to a directory, archive or wheel.
   A local path to a dir with a single segment must ends with a / else it will be
-  recognized only as a name and looked up on PyPI 
+  recognized only as a name and looked up on PyPI or the provided index.
 
-- a pip URL to an archive or wheel or a VCS URL
+- a pip URL to an archive or wheel or a pip VCS URL
   For example: git+https://github.com/bastikr/boolean.py.git
 
 - same with an #egg=[extras]<specifiers>;marker fragment in which case the
   name must match what is installable.
   For example: git+https://github.com/bastikr/boolean.py.git#egg=boolean.py[foo]==3.12
 
-- a pip editable requirement with a --editable option
+- a pip editable requirement with a -e/--editable option which translates
+  roughly to the setuptools develop mode:
 
-  - with a local directory/project path and optional [extras]
+  - with a local project directory/ path and optional [extras]
     For example: -e boolean.py-3.8/[sdfsf]
 
   - with a VCS URL with an #egg=<name>[extras]<specifier> suffix where the name
     is mandatory (no marker).
     For example: -e git+https://github.com/bastikr/boolean.py.git#egg=boolean.py[foo]==3.1
 """
-
-################################################################################
-# This is the API for this module
 
 
 class RequirementsFile:
@@ -314,8 +343,8 @@ class RequirementsFile:
 
     def dumps(self, preserve_one_empty_line=False):
         """
-        Return a requirements string representing this requirements file. The requirements are reconstructed from the
-        parsed data. 
+        Return a requirements string representing this requirements file. The
+        requirements are reconstructed from the parsed data.
         """
         items = (
             self.requirements
@@ -594,9 +623,8 @@ class IncorrectRequirementLine(InvalidRequirementLine):
         # itself since it does exists on its own elsewhere
         return f"# {self.error_message}"
 
-
-# end of API
 ################################################################################
+# From here down, most of the code is derived from pip
 
 
 ################################################################################
