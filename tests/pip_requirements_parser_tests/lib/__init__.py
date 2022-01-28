@@ -36,6 +36,15 @@ MORE_REQFILES = [
 ]
 
 
+SC_REQFILES_DIR = DATA_DIR.joinpath("sc-requirements")
+
+SC_REQFILES = [
+    SC_REQFILES_DIR.joinpath(rf) 
+    for rf in os.listdir(SC_REQFILES_DIR)
+    if rf.endswith(".txt")
+]
+
+
 
 class TestData:
     """
