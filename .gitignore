@@ -1,7 +1,5 @@
 # Python compiled files
-__pycache__/
 *.py[cod]
-*$py.class
 
 # virtualenv and other misc bits
 *.egg-info
