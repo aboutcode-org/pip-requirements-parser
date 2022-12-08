@@ -1,6 +1,14 @@
+#
+# This is a heavily streamlined subset of the packaging.version@21.3 to extract
+# LegacyVersion that was dropped in version 22.
+#
+# SPDX-license-identifier: BSD-2-Clause or Apache-2.0
+# copyright (c) Donald Stufft and individual contributors
+#
 # This file is dual licensed under the terms of the Apache License, Version
-# 2.0, and the BSD License. See the LICENSE file in the root of this repository
-# for complete details.
+# 2.0, and the BSD License. See the packaging_legacy_version.LICENSE file in
+# this repository for complete details.
+#
 
 
 class InfinityType:
