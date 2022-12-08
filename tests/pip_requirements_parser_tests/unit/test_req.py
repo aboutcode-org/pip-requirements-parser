@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 import os
+import posixpath
 import shutil
 import sys
 import tempfile
@@ -245,7 +246,7 @@ class TestInstallRequirement:
         assert req.extras == {"ex1", "ex2"}
 
     def test_unexisting_path(self) -> None:
-        result = build_install_req(os.path.join("this", "path", "does", "not", "exist"))
+        result = build_install_req(posixpath.join("this", "path", "does", "not", "exist"))
         assert result.link.url == "this/path/does/not/exist"
 
     def test_single_equal_sign(self) -> None:
