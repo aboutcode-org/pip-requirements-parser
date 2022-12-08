@@ -72,9 +72,9 @@ from packaging.specifiers import Specifier
 from packaging.specifiers import SpecifierSet
 from packaging.tags import Tag
 from packaging.version import parse
-from packaging.version import LegacyVersion
 from packaging.version import Version
 
+from packaging_legacy_version import LegacyVersion
 """
 A pip requirements files parser, doing it as well as pip does it because it is
 based on pip's own code.

@@ -13,7 +13,7 @@
 
 import re
 import warnings
-from typing import Iterator, List, Tuple, Union
+from typing import Iterator, List, Tuple
 
 
 __all__ = ["parse", "LegacyVersion"]
@@ -21,17 +21,11 @@ __all__ = ["parse", "LegacyVersion"]
 LegacyCmpKey = Tuple[int, Tuple[str, ...]]
 
 
-def parse(version: str) -> Union["LegacyVersion", "packaging.version.Version"]:
+def parse(version: str) -> "LegacyVersion":
     """
-    Parse the given version string and return either a :class:`Version` object
-    or a :class:`LegacyVersion` object depending on if the given version is
-    a valid PEP 440 version or a legacy version.
+    Parse the given version string and return a :class:`LegacyVersion` object
     """
-    Version = None
-    try:
-        return Version(version)
-    except InvalidVersion:
-        return LegacyVersion(version)
+    return LegacyVersion(version)
 
 
 class InvalidVersion(ValueError):
