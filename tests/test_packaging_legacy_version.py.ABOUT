@@ -1,4 +1,4 @@
-about_resource:
+about_resource: test_packaging_legacy_version.py
 name: packaging
 description: Core utilities for Python packages
 homepage_url: https://github.com/pypa/packaging

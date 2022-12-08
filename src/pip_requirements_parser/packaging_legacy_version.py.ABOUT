@@ -1,0 +1,8 @@
+about_resource: 
+packaging_legacy_version.py
+name: packaging
+description: Core utilities for Python packages
+homepage_url: https://github.com/pypa/packaging
+version: 21.4.dev0
+license_expression: BSD-2-Clause or Apache-2.0
+copyright: copyright (c) Donald Stufft and individual contributors
