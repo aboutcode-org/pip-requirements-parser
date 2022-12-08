@@ -2,6 +2,15 @@ Changelog
 =========
 
 
+v32.0.0
+-------
+
+Add new RequirementsFile.from_string() convenience factory method
+
+Vendor LegacyVersion from pre V2 packaging. Otherwise packaging v2 broke
+this library and its dependencies.
+
+
 v31.1.1
 -------
 

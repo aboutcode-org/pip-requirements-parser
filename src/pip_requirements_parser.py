@@ -35,8 +35,10 @@ import os
 import posixpath
 import re
 import shlex
+import shutil
 import string
 import sys
+import tempfile
 import urllib.parse
 import urllib.request
 
@@ -253,6 +255,25 @@ class RequirementsFile:
             invalid_lines=invalid_lines,
             comments=comments,
         )
+
+    @classmethod
+    def from_string(cls, text: str) -> "RequirementsFile":
+        """
+        Return a new RequirementsFile from a ``text`` string.
+
+        Since pip requirements are deeply based on files, we create a temp file
+        to feed to pip even if this feels a bit hackish.
+        """
+        tmpdir = None
+        try:
+            tmpdir = Path(str(tempfile.mkdtemp()))
+            req_file = tmpdir / "requirements.txt"
+            with open(req_file, "w") as rf:
+                rf.write(text)
+            return cls.from_file(filename=str(req_file), include_nested=False)
+        finally:
+            if tmpdir and tmpdir.exists():
+                shutil.rmtree(path=str(tmpdir), ignore_errors=True)
 
     @classmethod
     def parse(
