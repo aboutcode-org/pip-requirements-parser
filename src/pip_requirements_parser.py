@@ -438,7 +438,7 @@ class RequirementLineMixin:
         return self.requirement_line and self.requirement_line.line  or None
 
     @property
-    def line_number(self) -> Optional[str]:
+    def line_number(self) -> Optional[int]:
         return self.requirement_line and self.requirement_line.line_number  or None
 
     @property
