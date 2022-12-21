@@ -1,6 +1,12 @@
 Changelog
 =========
 
+v32.0.0
+-------
+
+Emergency pin of packaging to version under 22.
+This breaks this library and its dependents otherwise
+
 
 
 v32.0.1
