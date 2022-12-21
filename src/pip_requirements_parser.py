@@ -671,12 +671,11 @@ BOMS: List[Tuple[bytes, str]] = [
     (codecs.BOM_UTF32_LE, "utf-32-le"),
 ]
 
-ENCODING_RE = re.compile(br"coding[:=]\s*([-\w.]+)")
+ENCODING_RE = re.compile(rb"coding[:=]\s*([-\w.]+)")
 
 
 def auto_decode(data: bytes) -> str:
     """Check a bytes string for a BOM to correctly detect the encoding
-
     Fallback to locale.getpreferredencoding(False) like open() on Python3"""
     for bom, encoding in BOMS:
         if data.startswith(bom):
