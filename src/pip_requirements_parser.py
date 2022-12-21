@@ -2272,7 +2272,7 @@ def sorted_specifiers(specifier: SpecifierSet) -> List[str]:
     string.
     The sort is done by version, then operator
     """
-    by_version =  lambda spec: (_as_version(spec.version), spec.operator)
+    by_version =  lambda spec: (_as_version(spec.version), spec.version, spec.operator)
     return [str(s) for s in sorted(specifier or [], key=by_version)]
 
 
