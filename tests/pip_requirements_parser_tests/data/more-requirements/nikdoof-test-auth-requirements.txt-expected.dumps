@@ -1,6 +1,9 @@
 xmlrpclib
 xmpppy
 dnspython
+# Invalid requirement: : Expected version after operator
+    fabric==dev
+            ^
 fabric==dev
 
 Django==1.4.1

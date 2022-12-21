@@ -67,9 +67,13 @@ SomeProject@http://my.package.repo/1.2.3.tar.gz
 
 # Install packages from source.
 # Do not use any binary packages
-# Invalid requirement: : Parse error at "'SomePack'": Expected string_end
+# Invalid requirement: : Expected end or semicolon (after name and no valid version specifier)
+    SomePackage1 SomePackage2
+                 ^
 SomePackage1 SomePackage2 --no-binary :all:
 
 # Specify SomePackage1 to be installed from source:
-# Invalid requirement: : Parse error at "'SomePack'": Expected string_end
+# Invalid requirement: : Expected end or semicolon (after name and no valid version specifier)
+    SomePackage1 SomePackage2
+                 ^
 SomePackage1 SomePackage2 --no-binary SomePackage1

@@ -7,4 +7,3 @@ amqp==1.4.9 \
 anyjson==0.3.3 \
     --hash=sha256:5dbf34bd42d22c01fcc48be4735538e8206d6c14253abd19fd98fc0ad92092da \
     --hash=sha256:37812d863c9ad3e35c0734c42e0bf0320ce8c3bed82cd20ad54cb34d158157ba
-    

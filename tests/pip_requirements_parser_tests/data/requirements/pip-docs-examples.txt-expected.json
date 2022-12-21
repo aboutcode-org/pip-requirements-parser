@@ -627,12 +627,12 @@
     {
       "line_number": 78,
       "line": "SomePackage1 SomePackage2 --no-binary :all:",
-      "error_message": "Invalid requirement: : Parse error at \"'SomePack'\": Expected string_end"
+      "error_message": "Invalid requirement: : Expected end or semicolon (after name and no valid version specifier)\n    SomePackage1 SomePackage2\n                 ^"
     },
     {
       "line_number": 81,
       "line": "SomePackage1 SomePackage2 --no-binary SomePackage1",
-      "error_message": "Invalid requirement: : Parse error at \"'SomePack'\": Expected string_end"
+      "error_message": "Invalid requirement: : Expected end or semicolon (after name and no valid version specifier)\n    SomePackage1 SomePackage2\n                 ^"
     }
   ],
   "comments": [

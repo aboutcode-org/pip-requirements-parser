@@ -5,8 +5,14 @@
 #    pip-compile requirements.in
 #
 Theano==0.8.0
---editable git+https://github.com/Lasagne/Lasagne.git@8f4f9b2#egg=Lasagne==0.2.git
---editable git+https://github.com/dnouri/nolearn.git@master#egg=nolearn==0.7.git
+# Invalid requirement: 'Lasagne==0.2.git': Expected end or semicolon (after version specifier)
+    Lasagne==0.2.git
+           ~~~~~^
+-e git+https://github.com/Lasagne/Lasagne.git@8f4f9b2#egg=Lasagne==0.2.git
+# Invalid requirement: 'nolearn==0.7.git': Expected end or semicolon (after version specifier)
+    nolearn==0.7.git
+           ~~~~~^
+-e git+https://github.com/dnouri/nolearn.git@master#egg=nolearn==0.7.git
 cycler==0.9.0 # via matplotlib
 joblib==0.9.3
 matplotlib==1.5.0

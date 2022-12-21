@@ -22,4 +22,3 @@ urllib3==1.24.2 \
 werkzeug==0.15.3 \
     --hash=sha256:97660b282aa7e29f94f3fe378e5c7162d7ab9d601a8dbb1cbb2ffc8f0e54607d \
     --hash=sha256:cfd1281b1748288e59762c0e174d64d8bcb2b70e7c57bc4a1203c8825af24ac3 # via flask
-
