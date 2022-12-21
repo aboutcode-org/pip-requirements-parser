@@ -1041,7 +1041,7 @@
     {
       "line_number": 67,
       "line": "pytest >= 2.0.0 [tests]",
-      "error_message": "Invalid requirement: : Parse error at \"'[tests]'\": Expected string_end"
+      "error_message": "Invalid requirement: : Expected end or semicolon (after version specifier)\n    pytest >= 2.0.0 [tests]\n           ~~~~~~~~~^"
     }
   ],
   "comments": [

@@ -408,7 +408,7 @@ class RequirementsFile:
             dumped.append(rq.dumps())
             previous = rq
 
-        dumps = "\n".join(dumped)
+        dumps = "\n".join(dumped) + "\n"
         return dumps
 
 
@@ -2262,7 +2262,7 @@ def _as_version(version: Union[str, LegacyVersion, Version]
         return version
     else:
         # drop possible trailing star that make this a non version-like string
-        version.rstrip(".*")
+        version = version.rstrip(".*")
         return parse(version)
 
 

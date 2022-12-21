@@ -8,16 +8,16 @@ import shutil
 import sys
 import tempfile
 from typing import Tuple
+from unittest.case import TestCase
 
 import pytest
 from packaging.markers import Marker
 from packaging.requirements import Requirement
 
-from pip_requirements_parser import (
-    _get_url_from_path,
-    _looks_like_path,
-    parse_editable,
-)
+from pip_requirements_parser import _get_url_from_path
+from pip_requirements_parser import _looks_like_path
+from pip_requirements_parser import parse_editable
+
 from pip_requirements_parser import build_editable_req
 from pip_requirements_parser import build_install_req
 
@@ -26,11 +26,11 @@ from pip_requirements_parser import InvalidWheelFilename
 from pip_requirements_parser import RequirementLine
 
 
-class TestInstallRequirement:
-    def setup(self) -> None:
+class TestInstallRequirement(TestCase):
+    def setUp(self) -> None:
         self.tempdir = tempfile.mkdtemp()
 
-    def teardown(self) -> None:
+    def tearDown(self) -> None:
         shutil.rmtree(self.tempdir, ignore_errors=True)
 
     def test_url_with_query(self) -> None:

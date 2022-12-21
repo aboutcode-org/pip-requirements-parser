@@ -28,6 +28,9 @@ from typing import NamedTuple
 
 import pytest
 from pip_requirements_parser import RequirementsFile
+from pip_requirements_parser import InvalidRequirementLine
+from pip_requirements_parser import RequirementLine
+from pathlib import Path
 
 @pytest.fixture
 def create_requirement_files(
@@ -92,18 +95,21 @@ def test_parse_requirements_with_index_url(create_requirement_files, flag):
 
 
 class Pep508Test(NamedTuple):
+    identifier: int
     line: str
     req_name: str
     req_url: str
     link_url: str
     req_string: str
     req_spec: str
+    invalid_lines_len: int = 0
 
 
 @pytest.mark.parametrize(
     "test_508",
     [
         Pep508Test(
+            identifier=1,
             line="pip @ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4\n",
             req_name="pip",
             req_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
@@ -113,6 +119,7 @@ class Pep508Test(NamedTuple):
             req_spec="",
         ),
         Pep508Test(
+            identifier=2,
             line="pip@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4\n",
             req_name="pip",
             req_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
@@ -122,6 +129,7 @@ class Pep508Test(NamedTuple):
             req_spec="",
         ),
         Pep508Test(
+            identifier=3,
             # Version and URL can't be combined so this all gets parsed as a legacy version
             line="pip==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4\n",
             req_name="pip",
@@ -130,8 +138,10 @@ class Pep508Test(NamedTuple):
             # Note no extra space after @
             req_string="pip==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             req_spec="==1.3.1@https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            invalid_lines_len = 1,
         ),
         Pep508Test(
+            identifier=4,
             line="git+ssh://git@github.com/pypa/pip.git@da9234ee9982d4#egg=pip",
             req_name="pip",
             req_url=None,
@@ -140,6 +150,7 @@ class Pep508Test(NamedTuple):
             req_spec="",
         ),
         Pep508Test(
+            identifier=5,
             line="ssh://git@github.com/pypa/pip.git@da9234ee9982d4#egg=pip",
             req_name="pip",
             req_url=None,
@@ -148,6 +159,7 @@ class Pep508Test(NamedTuple):
             req_spec="",
         ),
         Pep508Test(
+            identifier=6,
             line="https://github.com/pypa/pip/archive/pip-1.3.1-py2.py3-none-any.whl",
             req_name="pip",
             req_url=None,
@@ -156,6 +168,7 @@ class Pep508Test(NamedTuple):
             req_spec="==1.3.1",
         ),
         Pep508Test(
+            identifier=7,
             line="file://tmp/pip-1.3.1.zip#egg=pip",
             req_name="pip",
             req_url=None,
@@ -164,6 +177,7 @@ class Pep508Test(NamedTuple):
             req_spec="",
         ),
         Pep508Test(
+            identifier=8,
             line="file://tmp/pip-1.3.1-py2.py3-none-any.whl",
             req_name="pip",
             req_url=None,
@@ -178,7 +192,9 @@ def test_parse_requirements_PEP508(create_requirement_files, test_508):
     paths_by_name = create_requirement_files(files)
 
     result = RequirementsFile.from_file(paths_by_name["a.txt"])
-    assert result.invalid_lines == []
+    assert len(result.invalid_lines) == test_508.invalid_lines_len
+    if test_508.invalid_lines_len:
+        return
     assert len(result.requirements) == 1
     ireq = result.requirements[0]
     assert str(ireq.name) == test_508.req_name

@@ -241,7 +241,7 @@ class TestJoinLines:
 class TestProcessFile:
 
     def test_can_dumps_name_at_url_requirements_from_file(self, parse_requirement_text) -> None:
-        text = "name@http://foo.com"
+        text = "name@http://foo.com\n"
         rf = parse_requirement_text(text)
         assert rf.dumps() == text
 

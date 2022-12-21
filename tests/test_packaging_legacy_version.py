@@ -92,6 +92,8 @@ LEGACY_VERSIONS = ["foobar", "a cat is fine too", "lolwut", "1-0", "2.0-a1"]
 
 
 class TestLegacyVersion:
+
+    @pytest.mark.xfail(reason="We vendored packaging to reinstate LegacyVersion")
     def test_legacy_version_is_deprecated(self):
         with warnings.catch_warnings(record=True) as w:
             LegacyVersion("some-legacy-version")
