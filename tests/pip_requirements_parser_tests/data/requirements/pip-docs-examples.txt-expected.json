@@ -662,7 +662,7 @@
     },
     {
       "line_number": 14,
-      "line": "# Install a local project in \u201ceditable\u201d mode. See the section on Editable Installs."
+      "line": "# Install a local project in \"editable\" mode. See the section on Editable Installs."
     },
     {
       "line_number": 15,
@@ -678,7 +678,7 @@
     },
     {
       "line_number": 23,
-      "line": "# Install a project from VCS in \u201ceditable\u201d mode. See the sections on VCS Support and Editable Installs."
+      "line": "# Install a project from VCS in \"editable\" mode. See the sections on VCS Support and Editable Installs."
     },
     {
       "line_number": 24,
@@ -730,7 +730,7 @@
     },
     {
       "line_number": 55,
-      "line": "# Install from a local flat directory containing archives (and don\u2019t scan indexes):"
+      "line": "# Install from a local flat directory containing archives (and don't scan indexes):"
     },
     {
       "line_number": 61,

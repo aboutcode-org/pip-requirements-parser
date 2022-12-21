@@ -33,7 +33,7 @@ some/path
 # Installing from local archives
 ./downloads/SomeProject-1.0.4.tar.gz
 
-#  Install from a local directory containing archives (and don’t check PyPI)
+#  Install from a local directory containing archives (and don't check PyPI)
 --no-index
 --find-links=file:///local/dir/
 SomeProject
