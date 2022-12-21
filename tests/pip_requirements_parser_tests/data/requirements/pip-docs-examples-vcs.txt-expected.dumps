@@ -6,7 +6,7 @@ git+ssh://git.example.com/MyProject#egg=MyProject
 git+file:///home/user/projects/MyProject#egg=MyProject
 git+https://git.example.com/MyProject#egg=MyProject
 
-# It is also possible to specify a “git ref” such as branch name, a commit hash or a tag name:
+# It is also possible to specify a "git ref" such as branch name, a commit hash or a tag name:
 git+https://git.example.com/MyProject.git@master#egg=MyProject
 git+https://git.example.com/MyProject.git@v1.0#egg=MyProject
 git+https://git.example.com/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject

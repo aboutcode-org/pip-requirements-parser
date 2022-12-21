@@ -58,7 +58,9 @@ pylint==2.4.4; python_version >= "3.6"
 setuptools
 twine>=1.0.0
 # Tests
-# Invalid requirement: : Parse error at "'[tests]'": Expected string_end
+# Invalid requirement: : Expected end or semicolon (after version specifier)
+    pytest >= 2.0.0 [tests]
+           ~~~~~~~~~^
 pytest >= 2.0.0 [tests]
 # Doc
 sphinx[tests]

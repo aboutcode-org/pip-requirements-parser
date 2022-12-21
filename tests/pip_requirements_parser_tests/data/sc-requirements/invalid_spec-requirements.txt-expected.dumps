@@ -1,3 +1,8 @@
+# Invalid requirement: : Expected version after operator
+    test>>1.2.0
+         ^
 test>>1.2.0
-# Invalid requirement: : Parse error at "'=>1.2.0'": Expected string_end
+# Invalid requirement: : Expected end or semicolon (after name and no valid version specifier)
+    test=>1.2.0
+        ^
 test=>1.2.0

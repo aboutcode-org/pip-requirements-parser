@@ -35,8 +35,10 @@ import os
 import posixpath
 import re
 import shlex
+import shutil
 import string
 import sys
+import tempfile
 import urllib.parse
 import urllib.request
 
@@ -70,9 +72,9 @@ from packaging.specifiers import Specifier
 from packaging.specifiers import SpecifierSet
 from packaging.tags import Tag
 from packaging.version import parse
-from packaging.version import LegacyVersion
 from packaging.version import Version
 
+from packaging_legacy_version import LegacyVersion
 """
 A pip requirements files parser, doing it as well as pip does it because it is
 based on pip's own code.
@@ -255,6 +257,25 @@ class RequirementsFile:
         )
 
     @classmethod
+    def from_string(cls, text: str) -> "RequirementsFile":
+        """
+        Return a new RequirementsFile from a ``text`` string.
+
+        Since pip requirements are deeply based on files, we create a temp file
+        to feed to pip even if this feels a bit hackish.
+        """
+        tmpdir = None
+        try:
+            tmpdir = Path(str(tempfile.mkdtemp()))
+            req_file = tmpdir / "requirements.txt"
+            with open(req_file, "w") as rf:
+                rf.write(text)
+            return cls.from_file(filename=str(req_file), include_nested=False)
+        finally:
+            if tmpdir and tmpdir.exists():
+                shutil.rmtree(path=str(tmpdir), ignore_errors=True)
+
+    @classmethod
     def parse(
         cls, 
         filename: str, 
@@ -387,7 +408,7 @@ class RequirementsFile:
             dumped.append(rq.dumps())
             previous = rq
 
-        dumps = "\n".join(dumped)
+        dumps = "\n".join(dumped) + "\n"
         return dumps
 
 
@@ -417,7 +438,7 @@ class RequirementLineMixin:
         return self.requirement_line and self.requirement_line.line  or None
 
     @property
-    def line_number(self) -> Optional[str]:
+    def line_number(self) -> Optional[int]:
         return self.requirement_line and self.requirement_line.line_number  or None
 
     @property
@@ -650,12 +671,11 @@ BOMS: List[Tuple[bytes, str]] = [
     (codecs.BOM_UTF32_LE, "utf-32-le"),
 ]
 
-ENCODING_RE = re.compile(br"coding[:=]\s*([-\w.]+)")
+ENCODING_RE = re.compile(rb"coding[:=]\s*([-\w.]+)")
 
 
 def auto_decode(data: bytes) -> str:
     """Check a bytes string for a BOM to correctly detect the encoding
-
     Fallback to locale.getpreferredencoding(False) like open() on Python3"""
     for bom, encoding in BOMS:
         if data.startswith(bom):
@@ -2241,7 +2261,7 @@ def _as_version(version: Union[str, LegacyVersion, Version]
         return version
     else:
         # drop possible trailing star that make this a non version-like string
-        version.rstrip(".*")
+        version = version.rstrip(".*")
         return parse(version)
 
 
@@ -2251,7 +2271,7 @@ def sorted_specifiers(specifier: SpecifierSet) -> List[str]:
     string.
     The sort is done by version, then operator
     """
-    by_version =  lambda spec: (_as_version(spec.version), spec.operator)
+    by_version =  lambda spec: (_as_version(spec.version), spec.version, spec.operator)
     return [str(s) for s in sorted(specifier or [], key=by_version)]
 
 

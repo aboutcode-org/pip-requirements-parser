@@ -28,7 +28,7 @@ author = "AboutCode.org authors and contributors"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-'sphinx.ext.intersphinx',
+    "sphinx.ext.intersphinx",
 ]
 
 # This points to aboutcode.readthedocs.io
@@ -36,8 +36,8 @@ extensions = [
 # Link was created at commit - https://github.com/nexB/aboutcode/commit/faea9fcf3248f8f198844fe34d43833224ac4a83
 
 intersphinx_mapping = {
-    'aboutcode': ('https://aboutcode.readthedocs.io/en/latest/', None),
-    'scancode-workbench': ('https://scancode-workbench.readthedocs.io/en/develop/', None),
+    "aboutcode": ("https://aboutcode.readthedocs.io/en/latest/", None),
+    "scancode-workbench": ("https://scancode-workbench.readthedocs.io/en/develop/", None),
 }
 
 
@@ -62,15 +62,36 @@ html_theme = "sphinx_rtd_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
-master_doc = 'index'
+master_doc = "index"
 
 html_context = {
-    "css_files": [
-        "_static/theme_overrides.css",  # override wide tables in RTD theme
-    ],
     "display_github": True,
     "github_user": "nexB",
     "github_repo": "nexb-skeleton",
     "github_version": "develop",  # branch
     "conf_py_path": "/docs/source/",  # path in the checkout to the docs root
 }
+
+html_css_files = ["_static/theme_overrides.css"]
+
+
+# If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
+html_show_sphinx = True
+
+# Define CSS and HTML abbreviations used in .rst files.  These are examples.
+# .. role:: is used to refer to styles defined in _static/theme_overrides.css and is used like this: :red:`text`
+rst_prolog = """
+.. |psf| replace:: Python Software Foundation
+
+.. # define a hard line break for HTML
+.. |br| raw:: html
+
+   <br />
+
+.. role:: red
+
+.. role:: img-title
+
+.. role:: img-title-para
+
+"""

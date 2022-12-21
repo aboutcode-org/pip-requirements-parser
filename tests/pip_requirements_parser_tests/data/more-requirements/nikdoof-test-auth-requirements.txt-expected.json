@@ -77,33 +77,6 @@
       "has_egg_fragment": false
     },
     {
-      "name": "fabric",
-      "specifier": [
-        "==dev"
-      ],
-      "is_editable": false,
-      "is_pinned": true,
-      "requirement_line": {
-        "line_number": 4,
-        "line": "fabric==dev"
-      },
-      "link": null,
-      "marker": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": [],
-      "is_constraint": false,
-      "extras": [],
-      "invalid_options": {},
-      "is_archive": null,
-      "is_wheel": false,
-      "is_url": null,
-      "is_vcs_url": null,
-      "is_name_at_url": false,
-      "is_local_path": null,
-      "has_egg_fragment": false
-    },
-    {
       "name": "Django",
       "specifier": [
         "==1.4.1"
@@ -470,6 +443,12 @@
       "has_egg_fragment": false
     }
   ],
-  "invalid_lines": [],
+  "invalid_lines": [
+    {
+      "line_number": 4,
+      "line": "fabric==dev",
+      "error_message": "Invalid requirement: : Expected version after operator\n    fabric==dev\n            ^"
+    }
+  ],
   "comments": []
 }

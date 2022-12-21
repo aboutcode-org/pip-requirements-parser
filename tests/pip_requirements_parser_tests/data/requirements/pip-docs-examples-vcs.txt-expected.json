@@ -693,7 +693,7 @@
     },
     {
       "line_number": 9,
-      "line": "# It is also possible to specify a \u201cgit ref\u201d such as branch name, a commit hash or a tag name:"
+      "line": "# It is also possible to specify a \"git ref\" such as branch name, a commit hash or a tag name:"
     },
     {
       "line_number": 15,

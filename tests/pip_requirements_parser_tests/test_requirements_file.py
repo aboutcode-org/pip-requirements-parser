@@ -46,7 +46,7 @@ def test_RequirementsFile_dumps_unparse(
 
     dumped = pip_requirements_parser.RequirementsFile.from_file(test_file).dumps(
         preserve_one_empty_line=True,
-    ).strip()
+    )
 
     expected_file = test_file + "-expected.dumps"
 
@@ -58,4 +58,4 @@ def test_RequirementsFile_dumps_unparse(
         with open(expected_file) as inp:
             expected = inp.read()
 
-    assert dumped == expected.strip()
+    assert dumped == expected

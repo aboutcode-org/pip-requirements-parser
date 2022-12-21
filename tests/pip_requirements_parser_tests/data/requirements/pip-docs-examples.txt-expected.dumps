@@ -8,14 +8,14 @@ SomePackage>=1.0.4 # minimum version
 # Install a list of requirements specified in a file. See the Requirements files.
 --requirement requirements.txt
 
-# Install a local project in “editable” mode. See the section on Editable Installs.
+# Install a local project in "editable" mode. See the section on Editable Installs.
 --editable . # project in current directory
 --editable path/to/project # project in another directory
 
 # Install a project from VCS
 SomeProject@git+https://git.repo/some_pkg.git@1.3.1
 
-# Install a project from VCS in “editable” mode. See the sections on VCS Support and Editable Installs.
+# Install a project from VCS in "editable" mode. See the sections on VCS Support and Editable Installs.
 --editable git+https://git.repo/some_pkg.git#egg=SomePackage # from git
 --editable hg+https://hg.repo/some_pkg.git#egg=SomePackage # from mercurial
 --editable svn+svn://svn.repo/some_pkg/trunk/#egg=SomePackage # from svn
@@ -43,7 +43,7 @@ SomeProject@http://my.package.repo/1.2.3.tar.gz
 # Incorrect and ignored trailing argument(s): SomePackage
 --index-url http://my.package.repo/simple/
 
-# Install from a local flat directory containing archives (and don’t scan indexes):
+# Install from a local flat directory containing archives (and don't scan indexes):
 # Incorrect and ignored trailing argument(s): SomePackage
 --find-links file:///local/dir/ --no-index
 # Incorrect and ignored trailing argument(s): SomePackage
@@ -67,9 +67,13 @@ SomeProject@http://my.package.repo/1.2.3.tar.gz
 
 # Install packages from source.
 # Do not use any binary packages
-# Invalid requirement: : Parse error at "'SomePack'": Expected string_end
+# Invalid requirement: : Expected end or semicolon (after name and no valid version specifier)
+    SomePackage1 SomePackage2
+                 ^
 SomePackage1 SomePackage2 --no-binary :all:
 
 # Specify SomePackage1 to be installed from source:
-# Invalid requirement: : Parse error at "'SomePack'": Expected string_end
+# Invalid requirement: : Expected end or semicolon (after name and no valid version specifier)
+    SomePackage1 SomePackage2
+                 ^
 SomePackage1 SomePackage2 --no-binary SomePackage1

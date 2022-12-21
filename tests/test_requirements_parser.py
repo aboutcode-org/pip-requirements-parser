@@ -58,7 +58,7 @@ ALL_REQFILES = [
 @pytest.mark.parametrize("test_file", ALL_REQFILES)
 def test_RequirementsFile_to_dict(
     test_file: str,
-    regen=True,
+    regen=False,
 ) -> None:
 
     expected_file = test_file + "-expected.json"

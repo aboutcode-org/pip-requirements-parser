@@ -8,6 +8,23 @@ Emergency pin of packaging to version under 22.
 This breaks this library and its dependents otherwise
 
 
+
+v32.0.1
+-------
+
+Ensure all tests pass correctly.
+Adopt latest skelton
+
+
+v32.0.0
+-------
+
+Add new RequirementsFile.from_string() convenience factory method
+
+Vendor LegacyVersion from pre V2 packaging. Otherwise packaging v2 broke
+this library and its dependencies.
+
+
 v31.1.1
 -------
 

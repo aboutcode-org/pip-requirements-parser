@@ -29,60 +29,6 @@
       "has_egg_fragment": false
     },
     {
-      "name": "Lasagne",
-      "specifier": [
-        "==0.2.git"
-      ],
-      "is_editable": true,
-      "is_pinned": true,
-      "requirement_line": {
-        "line_number": 8,
-        "line": "-e git+https://github.com/Lasagne/Lasagne.git@8f4f9b2#egg=Lasagne==0.2.git"
-      },
-      "link": "git+https://github.com/Lasagne/Lasagne.git@8f4f9b2#egg=Lasagne==0.2.git",
-      "marker": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": [],
-      "is_constraint": false,
-      "extras": [],
-      "invalid_options": {},
-      "is_archive": false,
-      "is_wheel": false,
-      "is_url": true,
-      "is_vcs_url": true,
-      "is_name_at_url": false,
-      "is_local_path": true,
-      "has_egg_fragment": true
-    },
-    {
-      "name": "nolearn",
-      "specifier": [
-        "==0.7.git"
-      ],
-      "is_editable": true,
-      "is_pinned": true,
-      "requirement_line": {
-        "line_number": 9,
-        "line": "-e git+https://github.com/dnouri/nolearn.git@master#egg=nolearn==0.7.git"
-      },
-      "link": "git+https://github.com/dnouri/nolearn.git@master#egg=nolearn==0.7.git",
-      "marker": null,
-      "install_options": [],
-      "global_options": [],
-      "hash_options": [],
-      "is_constraint": false,
-      "extras": [],
-      "invalid_options": {},
-      "is_archive": false,
-      "is_wheel": false,
-      "is_url": true,
-      "is_vcs_url": true,
-      "is_name_at_url": false,
-      "is_local_path": true,
-      "has_egg_fragment": true
-    },
-    {
       "name": "cycler",
       "specifier": [
         "==0.9.0"
@@ -401,7 +347,18 @@
       "has_egg_fragment": false
     }
   ],
-  "invalid_lines": [],
+  "invalid_lines": [
+    {
+      "line_number": 8,
+      "line": "-e git+https://github.com/Lasagne/Lasagne.git@8f4f9b2#egg=Lasagne==0.2.git",
+      "error_message": "Invalid requirement: 'Lasagne==0.2.git': Expected end or semicolon (after version specifier)\n    Lasagne==0.2.git\n           ~~~~~^"
+    },
+    {
+      "line_number": 9,
+      "line": "-e git+https://github.com/dnouri/nolearn.git@master#egg=nolearn==0.7.git",
+      "error_message": "Invalid requirement: 'nolearn==0.7.git': Expected end or semicolon (after version specifier)\n    nolearn==0.7.git\n           ~~~~~^"
+    }
+  ],
   "comments": [
     {
       "line_number": 1,
