@@ -2,6 +2,14 @@ Changelog
 =========
 
 
+
+v32.0.1
+-------
+
+Ensure all tests pass correctly.
+Adopt latest skelton
+
+
 v32.0.0
 -------
 
