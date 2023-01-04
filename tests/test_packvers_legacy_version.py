@@ -1,12 +1,12 @@
 #
-# This is a heavily streamlined subset of the packaging.version@21.3 to extract
+# This is a heavily streamlined subset of the packvers.version@21.3 to extract
 # LegacyVersion that was dropped in version 22.
 #
 # SPDX-license-identifier: BSD-2-Clause or Apache-2.0
 # copyright (c) Donald Stufft and individual contributors
 #
 # This file is dual licensed under the terms of the Apache License, Version
-# 2.0, and the BSD License. See the packaging_legacy_version.LICENSE file in
+# 2.0, and the BSD License. See the packvers_legacy_version.LICENSE file in
 # this repository for complete details.
 #
 
@@ -93,7 +93,7 @@ LEGACY_VERSIONS = ["foobar", "a cat is fine too", "lolwut", "1-0", "2.0-a1"]
 
 class TestLegacyVersion:
 
-    @pytest.mark.xfail(reason="We vendored packaging to reinstate LegacyVersion")
+    @pytest.mark.xfail(reason="We vendored packvers to reinstate LegacyVersion")
     def test_legacy_version_is_deprecated(self):
         with warnings.catch_warnings(record=True) as w:
             LegacyVersion("some-legacy-version")

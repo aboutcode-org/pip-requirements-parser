@@ -37,7 +37,7 @@ gfr --path README.rst \
 --path src/pip/_internal/utils/urls.py \
 --path src/pip/_internal/utils/hashes.py \
 --path src/pip/_internal/utils/models.py \
---path src/pip/_internal/utils/packaging.py \
+--path src/pip/_internal/utils/packvers.py \
 --path src/pip/_internal/models/link.py \
 --path src/pip/_vendor/pkg_resource/__init__.py \
 --path src/pip/_vendor/pkg_resource/__init__.py \

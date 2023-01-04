@@ -133,23 +133,23 @@ These objects are the API for now.
 # The pip requirement styles
 """
 A pip requirement line comes in many styles. Some are supported by the
-``packaging`` library some are not.
+``packvers`` library some are not.
 
 
-Standard ``packaging``-supported requirement lines
+Standard ``packvers``-supported requirement lines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- a standard ``packaging`` requirement as name[extras]<specifiers,>;marker
+- a standard ``packvers`` requirement as name[extras]<specifiers,>;marker
   For example: "django[extras]==3.2;marker"
 
     - non-standard pip additions: same with pip per-requirement options such
       as --hash
 
-- a standard ``packaging`` pep 508 URL as in name[extras]@url
-  This is a standard packaging requirement.
+- a standard ``packvers`` pep 508 URL as in name[extras]@url
+  This is a standard packvers requirement.
   For example: boolean.py[bar]@https://github.com/bastikr/boolean.py.git
 
-    - non-standard pip additions: support for VCS URLs. packaging can parse
+    - non-standard pip additions: support for VCS URLs. packvers can parse
       these though pip's code is needed to interpret them.
       For example: boolean.py[bar]@git+https://github.com/bastikr/boolean.py.git
 
@@ -1698,7 +1698,7 @@ class KeyBasedCompareMixin:
 
 
 ################################################################################
-# PIPREQPARSE: from src/pip/_internal/utils/packaging.py
+# PIPREQPARSE: from src/pip/_internal/utils/packvers.py
 
 NormalizedExtra = NewType("NormalizedExtra", str)
 
@@ -1714,7 +1714,7 @@ def safe_extra(extra: str) -> NormalizedExtra:
     """
     return cast(NormalizedExtra, re.sub("[^A-Za-z0-9.-]+", "_", extra).lower())
 
-# PIPREQPARSE: end from src/pip/_internal/utils/packaging.py
+# PIPREQPARSE: end from src/pip/_internal/utils/packvers.py
 ################################################################################
 
 
@@ -1953,10 +1953,10 @@ class InstallRequirement(
         """
         Initialize a new pip requirement
         
-        - ``req`` is a packaging Requirement object that may be None
+        - ``req`` is a packvers Requirement object that may be None
         - ``requirement_line`` is the original line this requirement was found
         - ``link`` is a Link object provided when the requirement is a path or URL
-        - ``marker`` is a packaging Marker object.
+        - ``marker`` is a packvers Marker object.
           This is provided when a marker is used and there is no ``req`` Requirement.
         - ``install_options``, ``global_options`` and ``hash_options`` are the
           CLI-style pip options for this specifc requirement.
@@ -2255,7 +2255,7 @@ class InstallRequirement(
 def _as_version(version: Union[str, LegacyVersion, Version]
 ) -> Union[LegacyVersion, Version]:
     """
-    Return a packaging Version-like object suitable for sorting
+    Return a packvers Version-like object suitable for sorting
     """
     if isinstance(version, (LegacyVersion, Version)):
         return version
@@ -2279,7 +2279,7 @@ class EditableRequirement(InstallRequirement):
     """
     Represents a pip editable requirement.
     These are special because they are unique to pip (e.g., they cannot be
-    specified only as packaging.requriements.Requirement.
+    specified only as packvers.requriements.Requirement.
     They track:
     - a path/ or a path/subpath to a dir with an optional [extra]. 
     - a VCS URL with a package name i.e., the "#egg=<name>" fragment
@@ -2290,7 +2290,7 @@ class EditableRequirement(InstallRequirement):
       is the same as:
        -e git+https://github.com/bastikr/boolean.py.git#egg=boolean.py
     
-    As a recap for VCS URL in #egg=<name> the <name> can be a packaging
+    As a recap for VCS URL in #egg=<name> the <name> can be a packvers
     Requirement-compatible string, but only name is kept and used.
     Trailing marker is an error
     """
@@ -2764,7 +2764,7 @@ def parse_reqparts_from_string(requirement_string: str) -> RequirementParts:
             # will become an 'unnamed' requirement
             req_as_string = link.egg_fragment
 
-    # a requirement specifier that should be packaging-parsable.
+    # a requirement specifier that should be packvers-parsable.
     # this includes name@url
     else:
         req_as_string = requirement_string_no_marker
