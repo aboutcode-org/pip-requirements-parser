@@ -16,7 +16,7 @@ import warnings
 
 import pytest
 
-from packvers_legacy_version import parse, LegacyVersion
+from packvers.version import parse, LegacyVersion
 
 
 @pytest.mark.parametrize(

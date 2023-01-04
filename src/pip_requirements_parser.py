@@ -74,7 +74,7 @@ from packvers.tags import Tag
 from packvers.version import parse
 from packvers.version import Version
 
-from packvers_legacy_version import LegacyVersion
+from packvers.version import LegacyVersion
 """
 A pip requirements files parser, doing it as well as pip does it because it is
 based on pip's own code.
