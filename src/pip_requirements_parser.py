@@ -65,16 +65,16 @@ from typing import (
     cast,
 )
 
-from packaging.markers import Marker
-from packaging.requirements import InvalidRequirement
-from packaging.requirements import Requirement
-from packaging.specifiers import Specifier
-from packaging.specifiers import SpecifierSet
-from packaging.tags import Tag
-from packaging.version import parse
-from packaging.version import Version
+from packvers.markers import Marker
+from packvers.requirements import InvalidRequirement
+from packvers.requirements import Requirement
+from packvers.specifiers import Specifier
+from packvers.specifiers import SpecifierSet
+from packvers.tags import Tag
+from packvers.version import parse
+from packvers.version import Version
 
-from packaging_legacy_version import LegacyVersion
+from packvers_legacy_version import LegacyVersion
 """
 A pip requirements files parser, doing it as well as pip does it because it is
 based on pip's own code.
