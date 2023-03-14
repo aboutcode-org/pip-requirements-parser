@@ -32,6 +32,7 @@ import logging
 import operator
 import optparse
 import os
+import pathlib
 import posixpath
 import re
 import shlex
@@ -266,7 +267,7 @@ class RequirementsFile:
         """
         tmpdir = None
         try:
-            tmpdir = Path(str(tempfile.mkdtemp()))
+            tmpdir = pathlib.Path(str(tempfile.mkdtemp()))
             req_file = tmpdir / "requirements.txt"
             with open(req_file, "w") as rf:
                 rf.write(text)
