@@ -45,6 +45,7 @@ import urllib.request
 from functools import partial
 from optparse import Values
 from optparse import Option
+from tempfile import NamedTemporaryFile
 
 from typing import (
     Any,
@@ -264,16 +265,17 @@ class RequirementsFile:
         Since pip requirements are deeply based on files, we create a temp file
         to feed to pip even if this feels a bit hackish.
         """
-        tmpdir = None
+        tf = NamedTemporaryFile('wt', delete=False,
+                                # we prefer utf8 encoded strings, but ...
+                                # - must not change newlines
+                                # - must not change encoding, fallback to system encoding for compatibility
+                                newline='', encoding=None)
+        tf.write(text)
+        tf.close()
         try:
-            tmpdir = Path(str(tempfile.mkdtemp()))
-            req_file = tmpdir / "requirements.txt"
-            with open(req_file, "w") as rf:
-                rf.write(text)
-            return cls.from_file(filename=str(req_file), include_nested=False)
+            return cls.from_file(filename=tf.name, include_nested=False)
         finally:
-            if tmpdir and tmpdir.exists():
-                shutil.rmtree(path=str(tmpdir), ignore_errors=True)
+            os.unlink(tf.name)
 
     @classmethod
     def parse(
