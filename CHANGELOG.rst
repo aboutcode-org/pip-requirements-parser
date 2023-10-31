@@ -2,11 +2,18 @@ Changelog
 =========
 
 
+v32.0.2
+-------
+Ensure all tests pass correctly.
+Adopt latest skeleton.
+
+
+
 v32.0.1
 -------
 
 Ensure all tests pass correctly.
-Adopt latest skelton
+Adopt latest skeleton.
 
 Add new RequirementsFile.from_string() convenience factory method
 
