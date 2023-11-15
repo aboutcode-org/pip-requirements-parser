@@ -447,7 +447,7 @@
     {
       "line_number": 4,
       "line": "fabric==dev",
-      "error_message": "Invalid requirement: : Expected version after operator\n    fabric==dev\n            ^"
+      "error_message": "Invalid requirement: : Expected end or semicolon (after name and no valid version specifier)\n    fabric==dev\n          ^"
     }
   ],
   "comments": []

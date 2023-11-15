@@ -26,7 +26,7 @@ And per https://pip.pypa.io/en/stable/user_guide/#using-pip-from-your-program :
     "[..] pip is a command line program. While it is implemented in Python, and
     so is available from your Python code via import pip, you must not use pip’s
     internal APIs in this way."
-    
+
     "What this means in practice is that everything inside of pip is considered
     an implementation detail. Even the fact that the import name is pip is
     subject to change without notice. While we do try not to break things as
