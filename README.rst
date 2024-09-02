@@ -4,7 +4,7 @@ pip-requirements-parser - a mostly correct pip requirements parsing library
 Copyright (c) nexB Inc. and others.
 Copyright (c) The pip developers (see AUTHORS.rst file)
 SPDX-License-Identifier: MIT
-Homepage: https://github.com/nexB/pip-requirements and https://www.aboutcode.org/
+Homepage: https://github.com/aboutcode-org/pip-requirements and https://www.aboutcode.org/
 
 
 ``pip-requirements-parser`` is a mostly correct pip requirements parsing
