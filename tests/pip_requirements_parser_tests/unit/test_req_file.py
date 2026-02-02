@@ -358,7 +358,7 @@ class TestProcessFile:
         assert r.name == "SomeProject"
         assert not r.specifier
         assert r.extras == set()
-        assert str(r) == "SomeProject@ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert str(r) == "SomeProject @ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
 
     def test_parse_name_at_url__with_packaging(self, parse_requirement_text) -> None:
         from packaging.requirements import Requirement
@@ -369,7 +369,7 @@ class TestProcessFile:
         assert r.name == "SomeProject"
         assert not r.specifier
         assert r.extras == set()
-        assert str(r) == "SomeProject@ http://my.package.repo/SomeProject2.tgz"
+        assert str(r) == "SomeProject @ http://my.package.repo/SomeProject2.tgz"
 
     def test_parse_name_at_vcs_url_to_wheel_with_packaging(self, parse_requirement_text) -> None:
         from packaging.requirements import Requirement
@@ -380,7 +380,7 @@ class TestProcessFile:
         assert r.name == "SomeProject"
         assert not r.specifier
         assert r.extras == set()
-        assert str(r) == "SomeProject@ git+http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert str(r) == "SomeProject @ git+http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
 
     def test_can_dumps_name_at_url_to_wheel(self, parse_requirement_text) -> None:
         text = "SomeProject@http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
@@ -394,7 +394,7 @@ class TestProcessFile:
         assert not r.specifier
         assert r.link.url == "http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
         assert r.extras == set()
-        assert str(r.req) ==  "SomeProject@ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert str(r.req) ==  "SomeProject @ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
         assert r.dumps() == text
 
     def test_can_dumps_name_at_url_to_wheel_with_space(self, parse_requirement_text) -> None:
@@ -409,7 +409,7 @@ class TestProcessFile:
         assert not r.specifier
         assert r.link.url == "http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
         assert r.extras == set()
-        assert str(r.req) == "SomeProject@ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
+        assert str(r.req) == "SomeProject @ http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
         assert r.dumps() == "SomeProject@http://my.package.repo/SomeProject2-1.2.3-py33-none-any.whl"
 
     def test_can_dumps_name_at_vcs_url_to_wheel(self, parse_requirement_text) -> None:

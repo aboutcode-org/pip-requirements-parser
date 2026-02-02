@@ -44,13 +44,13 @@ class TestInstallRequirement(TestCase):
     def test_pep440_wheel_link_requirement(self) -> None:
         line = "test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
         req = build_install_req(line)
-        assert str(req.req) == "test@ https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
+        assert str(req.req) == "test @ https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
         assert str(req.link) == "https://whatever.com/test-0.4-py2.py3-bogus-any.whl"
 
     def test_pep440_url_link_requirement(self) -> None:
         line = "foo @ git+http://foo.com@ref#egg=foo"
         req = build_install_req(line)
-        assert str(req.req) == "foo@ git+http://foo.com@ref#egg=foo"
+        assert str(req.req) == "foo @ git+http://foo.com@ref#egg=foo"
         assert str(req.link) == "git+http://foo.com@ref#egg=foo"
 
     def test_url_with_authentication_link_requirement(self) -> None:

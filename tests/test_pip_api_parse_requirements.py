@@ -114,8 +114,8 @@ class Pep508Test(NamedTuple):
             req_name="pip",
             req_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             link_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
-            # Note extra space after @
-            req_string="pip@ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            # Note extra space before and after @
+            req_string="pip @ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             req_spec="",
         ),
         Pep508Test(
@@ -124,8 +124,8 @@ class Pep508Test(NamedTuple):
             req_name="pip",
             req_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             link_url="https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
-            # Note extra space after @
-            req_string="pip@ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
+            # Note extra space before and after @
+            req_string="pip @ https://github.com/pypa/pip/archive/1.3.1.zip#sha1=da9234ee9982d4",
             req_spec="",
         ),
         Pep508Test(
