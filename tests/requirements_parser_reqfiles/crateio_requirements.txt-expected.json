@@ -382,7 +382,7 @@
       "is_url": true,
       "is_vcs_url": true,
       "is_name_at_url": false,
-      "is_local_path": true,
+      "is_local_path": false,
       "has_egg_fragment": true
     },
     {
@@ -407,7 +407,7 @@
       "is_url": true,
       "is_vcs_url": true,
       "is_name_at_url": false,
-      "is_local_path": true,
+      "is_local_path": false,
       "has_egg_fragment": true
     },
     {
@@ -540,7 +540,7 @@
       "is_url": true,
       "is_vcs_url": true,
       "is_name_at_url": false,
-      "is_local_path": true,
+      "is_local_path": false,
       "has_egg_fragment": true
     },
     {
@@ -1076,7 +1076,7 @@
       "is_url": true,
       "is_vcs_url": true,
       "is_name_at_url": false,
-      "is_local_path": true,
+      "is_local_path": false,
       "has_egg_fragment": true
     },
     {
@@ -1371,7 +1371,7 @@
       "is_url": true,
       "is_vcs_url": true,
       "is_name_at_url": false,
-      "is_local_path": true,
+      "is_local_path": false,
       "has_egg_fragment": true
     },
     {
@@ -1612,7 +1612,7 @@
       "is_url": true,
       "is_vcs_url": true,
       "is_name_at_url": false,
-      "is_local_path": true,
+      "is_local_path": false,
       "has_egg_fragment": true
     },
     {

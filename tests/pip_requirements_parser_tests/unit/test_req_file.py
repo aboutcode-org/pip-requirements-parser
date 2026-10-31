@@ -349,6 +349,14 @@ class TestProcessFile:
         assert r.extras == {'flask'}
         assert r.dumps() == text
 
+    def test_vcs_url_is_not_a_local_path(self, parse_requirement_text) -> None:
+        text = "git+https://github.com/path/to/package-one@41b95ec#egg=package-one"
+        rf = parse_requirement_text(text)
+        r = rf.requirements[0]
+        assert r.is_vcs_url
+        assert not r.is_local_path
+        assert r.dumps() == text
+
     def test_parse_name_at_url_to_wheel_with_packaging(self, parse_requirement_text) -> None:
         from packaging.requirements import Requirement
 

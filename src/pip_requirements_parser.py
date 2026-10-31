@@ -2083,6 +2083,8 @@ class InstallRequirement(
 
     @property
     def is_local_path(self) -> bool:
+        if self.is_vcs_url:
+            return False
         return (
             (self.name and self.name.startswith("."))
             or (self.link and _looks_like_path(self.link.url))
