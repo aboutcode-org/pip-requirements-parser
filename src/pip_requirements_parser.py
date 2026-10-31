@@ -1055,7 +1055,7 @@ ReqFileLines = Iterable[Union[Tuple[int, str], TextLine,CommentLine]]
 LineParser = Callable[[str], Tuple[str, Values]]
 
 SCHEME_RE = re.compile(r"^(http|https|file):", re.I)
-COMMENT_RE = re.compile(r"(^|\s+)(#.*)$")
+COMMENT_RE = re.compile(r"(^|\s)(#.*)$")
 
 SUPPORTED_OPTIONS: List[Callable[..., optparse.Option]] = [
     index_url,

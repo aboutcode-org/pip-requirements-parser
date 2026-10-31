@@ -4,6 +4,7 @@
 
 import pathlib
 import textwrap
+import time
 from typing import Callable
 from typing import Iterator, List, Union
 from unittest import mock
@@ -197,6 +198,22 @@ class TestSplitComments:
             CommentLine(line_number=2, line='# comment'),
             TextLine(line_number=3, line='req2'),
         ]
+
+    def test_split_comments_returns_end_of_line_comment_with_many_spaces(self) -> None:
+        lines = [(1, "req" + " " * 32 + "# comment")]
+        result = split_comments(lines)
+        assert list(result) == [
+            TextLine(line_number=1, line='req'),
+            CommentLine(line_number=1, line='# comment'),
+        ]
+
+    def test_split_comments_is_linear_on_whitespace_only_line(self) -> None:
+        lines = [(1, " " * 32_000)]
+        start = time.monotonic()
+        result = list(split_comments(lines))
+        elapsed = time.monotonic() - start
+        assert result == []
+        assert elapsed < 2
 
 
 class TestJoinLines:
